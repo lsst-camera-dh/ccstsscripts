@@ -1,0 +1,18 @@
+# BNL jh test
+Name: jh_bnltest5
+HardwareType:  CCD
+Description: Test eTraveler JH and ts3 and archon CCS subsystems at BNL
+# TravelerActions:
+#   - Automatable
+Sequence:
+  - 
+    Name: start jython console
+    Description: enter     source startconsole
+  - 
+    Name: start ts3 and archon subsystems
+    Description: enter    source startts3   in one window   and   source startarchon    in the other
+  - 
+    Name: bnl_flat_acq4
+    UserVersionString: v0
+    TravelerActions:
+      - HarnessedJob

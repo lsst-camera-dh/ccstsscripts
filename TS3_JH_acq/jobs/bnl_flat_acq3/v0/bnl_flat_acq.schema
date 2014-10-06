@@ -1,0 +1,11 @@
+# -*- python -*-
+{
+    'schema_name' : 'bnl_flat_acq3',
+    'schema_version' : 0,
+    'stat' : int,
+    'volt' : float,
+    'curr' : float,
+    'pres' : float,
+    'temp' : float    
+}
+

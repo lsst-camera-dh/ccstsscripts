@@ -1,0 +1,12 @@
+# Call a nearly no-op jh job
+Name: ts3_flatacq_test
+HardwareType:  CCD
+Description: Test CCS flat_acq
+TravelerActions:
+  - Automatable
+Sequence:
+  - 
+    Name: flat_acq
+    UserVersionString: v1
+    TravelerActions:
+      - HarnessedJob

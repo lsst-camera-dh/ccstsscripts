@@ -1,0 +1,7 @@
+# -*- python -*-
+{
+    'schema_name' : 'flat_acq',
+    'schema_version' : 0,
+    'stat' : int    
+}
+
