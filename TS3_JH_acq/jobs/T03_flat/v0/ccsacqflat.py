@@ -33,14 +33,16 @@ cdir = "/home/homer/lsst/lcatr/TS_JH_acq/jobs/T03_flat/v0";
 
 # Initialization
 # move to TS acquisition state 1
-tssub.synchCommand(10,"setTSAcq1");
+tssub.synchCommand(10,"setTSTEST");
 #check state of ts devices
 print "wait for ts state to become ready";
 tsstate = 0
-while (tsstate==0)
+while True:
     print "checking";
     result = tssub.synchCommand(10,"istsready");
     tsstate = result.getResult();
+    if tsstate!=0 :
+        break
 #put in acquisition state
 tssub.synchCommand(10,"teststandgo");
 
@@ -92,7 +94,7 @@ fp.close();
 fp = open("%s/status.out" % (cdir),"w");
 
 istate=0;
-result = tssub.synchCommandLine(10,"getState");
+result = tssub.synchCommandLine(10,"getstate");
 istate=result.getResult();
 fp.write(`istate`+"\n");
 result = biassub.synchCommand(10,"readvoltage");

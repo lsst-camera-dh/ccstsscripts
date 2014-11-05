@@ -5,7 +5,7 @@ import os
 import sys
 #from lcatr.harness.helpers import dependency_glob
 
-fileName = "/home/homer/lsst/lcatr/share/bnl_flat_acq3/v0/ccsacqflat.py"
+fileName = "/home/homer/lsst/lcatr/share/T03_flat/v0/ccsacqflat.py"
 fo = open(fileName, "r");
 content = fo.read();
 fo.close();
