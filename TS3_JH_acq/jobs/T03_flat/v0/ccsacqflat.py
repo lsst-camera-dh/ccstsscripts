@@ -29,11 +29,15 @@ arcsub  = CCS.attachSubsystem("archon");
 serno = 1   # in the future this will be passed in
 imcount = 2         
 
-cdir = "/home/homer/lsst/lcatr/TS_JH_acq/jobs/T03_flat/v0";
+cdir = "/home/$USER/lsst/";
 
 # Initialization
+result = arcsub.synchCommand(10,"setParameter","Expo",1);
+result = arcsub.synchCommand(10,"setParameter","Light",1);
+
 # move to TS acquisition state 1
-tssub.synchCommand(10,"setTSTEST");
+tssub.synchCommand(10,"setTSACQ1");
+
 #check state of ts devices
 print "wait for ts state to become ready";
 tsstate = 0
@@ -70,10 +74,11 @@ for line in fp:
         target = float(tokens[1])
         print "target wl = ";
         print target;
-#                exptime = eolib.expCheck(lab, target, wl, hi_lim, lo_lim, 
-#                                             test='FLAT', use_nd=False)
-#                avg = ht.fitsAverage(fname)
-#                print "DATA : Average signal = %8.2f DN" % (avg - bias);
+        exptime = 5000;
+#        exptime = eolib.expCheck(lab, target, wl, hi_lim, lo_lim, test='FLAT', use_nd=False)
+        result = arcsub.synchCommand(10,"setParameter","ExpTime",exptime);
+#        avg = ht.fitsAverage(fname)
+#        print "DATA : Average signal = %8.2f DN" % (avg - bias);
         seq = seq + 1     
 
 
