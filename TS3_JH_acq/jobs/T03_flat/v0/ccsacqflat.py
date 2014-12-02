@@ -32,8 +32,12 @@ imcount = 2
 cdir = "/home/$USER/lsst/";
 
 # Initialization
+result = arcsub.synchCommand(10,"setConfigFromFile","/home/homer/lsst/archon.acf");
+result = arcsub.synchCommand(10,"applyConfig");
+
 result = arcsub.synchCommand(10,"setParameter","Expo",1);
 result = arcsub.synchCommand(10,"setParameter","Light",1);
+result = arcsub.synchCommand(10,"applyParams");
 
 # move to TS acquisition state 1
 tssub.synchCommand(10,"setTSACQ1");
