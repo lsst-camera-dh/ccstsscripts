@@ -1,10 +1,10 @@
 ###############################################################################
-# dark
-# Acquire dark image pairs for linearity and gain measurement.
-# For each 'dark' command a pair of dark field images are acquired
+# qe
+# Acquire qe image pairs for linearity and gain measurement.
+# For each 'qe' command a pair of qe field images are acquired
 #
-# In the configuration file the format for a dark command is
-# dark   signal  
+# In the configuration file the format for a qe command is
+# qe   signal  
 # where signal is the desired acquired signal level in e-/pixel
 #
 # FLAT_WL is used to determine what wavelength will be used for illumination
@@ -14,6 +14,7 @@
 from org.lsst.ccs.scripting import *
 from java.lang import Exception
 import sys
+
 sys.path.append(tsCWD);
 import eolib
 
@@ -36,8 +37,6 @@ serno = 1   # in the future this will be passed in
 imcount = 2         
 
 cdir = tsCWD
-#lab['logger'].log("FLAT : START")
-#lab['logger'].log("FLAT : Data directory : %s" % cdir)
 
 # Initialization
 print "doing initialization"
@@ -46,7 +45,7 @@ result = arcsub.synchCommand(10,"setConfigFromFile",acffile);
 result = arcsub.synchCommand(20,"applyConfig");
 
 result = arcsub.synchCommand(10,"setParameter","Expo","1");
-result = arcsub.synchCommand(10,"setParameter","Light","0");
+result = arcsub.synchCommand(10,"setParameter","Light","1");
 result = arcsub.synchCommand(10,"applyParams");
 result = arcsub.synchCommand(10,"powerOnCCD");
 
@@ -70,61 +69,53 @@ while True:
 #put in acquisition state
 tssub.synchCommand(120,"goteststand");
 
-wl = 550.0; # default wl
-
-# go through config file looking for 'dark' instructions, take the darks
+# go through config file looking for 'qe' instructions, take the qes
 seq = 0  # image pair number in sequence
+
+lo_lim = float(eolib.getCfgVal(acqcfgfile, 'FLAT_LOLIM', default='1.0'))
+hi_lim = float(eolib.getCfgVal(acqcfgfile, 'FLAT_HILIM', default='120.0'))
+wl = float(eolib.getCfgVal(acqcfgfile, 'FLAT_WL', default = "550.0"))
 
 print "Scanning config file for FLAT specifications";
 fp = open(acqcfgfile,"r");
 for line in fp:
     tokens = str.split(line)
-    if ((len(tokens) > 0) and (tokens[0] == 'dark')):
+    if ((len(tokens) > 0) and (tokens[0] == 'qe')):
         target = float(tokens[1])
         print "target wl = ";
         print target;
-#        exptime = 100;
-        lo_lim = float(eolib.getCfgVal(acqcfgfile, 'FLAT_LOLIM', default='1.0'))
-        hi_lim = float(eolib.getCfgVal(acqcfgfile, 'FLAT_HILIM', default='120.0'))
+
         exptime = eolib.expCheck(calfile, lab, target, wl, hi_lim, lo_lim, test='FLAT', use_nd=False)
-#        wl = target;
 
         result = arcsub.synchCommand(10,"setParameter","ExpTime",exptime);
         result = arcsub.synchCommand(30,"applyParams");
 
-#        avg = ht.fitsAverage(fname)
-#        print "DATA : Average signal = %8.2f DN" % (avg - bias);
         seq = seq + 1     
 
         print "image pair number is %d" % seq
 
         for i in range(imcount):
             print "starting acquisition step for lambda = %8.2f" % wl
-#tempqe            result = monosub.synchCommand(30,"setWave",wl);
-#...            result = arcsub.synchCommand(20,"setParameter","ACQ","1");
-#...            result = arcsub.synchCommand(30,"applyParams");
 
-#tempqe            result = monosub.synchCommand(10,"setFilter",i+1);
+            result = monosub.synchCommand(30,"setWave",wl);
+
+            result = monosub.synchCommand(10,"setFilter",5); // open position
+
 # prepare to readout diodes
             result = pdsub.synchCommand(10,"accumBuffer",20,10);
-# start acquisition
+
             print "print controller status"
             result = arcsub.synchCommand(45,"printControllerStatus");
-#            result = arcsub.synchCommand(45,"getControllerStatus");
-#            astatus = result.getResult();
-#            print "got status";
-#            print astatus;
-#            print "starting acquisition, status = %s" % astatus
+
             print "starting acquisition, status"
             result = arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
-            result = arcsub.synchCommand(20,"acquireAndSaveImage");
+
+# start acquisition
+            result = arcsub.synchCommand(20,"exposeAcquireAndSaveImage",1);
             print "print controller status just after acquire and save"
+
             result = arcsub.synchCommand(45,"printControllerStatus");
-#            result = arcsub.synchCommand(45,"getControllerStatus");
-#            a2status = result.getResult();
-#            print "got status2";
-#            print a2status;
-#            print "status after acquire = %s" % a2status
+
             print "status after acquire"
             print "done with exposure # %d" % i
             print "getting photodiode readings"
@@ -133,9 +124,6 @@ for line in fp:
             print "photo diode readings = "
             print ["%9.2e" % i for i in readings]
 fp.close();
-
-#   avg = ht.fitsAverage(fname)
-#   print "DATA : Average signal = %8.2f DN" % (avg - bias)
 
 fp = open("%s/status.out" % (cdir),"w");
 

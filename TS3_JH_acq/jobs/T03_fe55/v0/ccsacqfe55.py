@@ -1,10 +1,10 @@
 ###############################################################################
-# flat
-# Acquire flat image pairs for linearity and gain measurement.
-# For each 'flat' command a pair of flat field images are acquired
+# fe55
+# Acquire fe55 image pairs for linearity and gain measurement.
+# For each 'fe55' command a pair of fe55 field images are acquired
 #
-# In the configuration file the format for a flat command is
-# flat   signal  
+# In the configuration file the format for a fe55 command is
+# fe55   signal  
 # where signal is the desired acquired signal level in e-/pixel
 #
 # FLAT_WL is used to determine what wavelength will be used for illumination
@@ -72,14 +72,14 @@ tssub.synchCommand(120,"goteststand");
 
 wl = 550.0; # default wl
 
-# go through config file looking for 'flat' instructions, take the flats
+# go through config file looking for 'fe55' instructions, take the fe55s
 seq = 0  # image pair number in sequence
 
 print "Scanning config file for FLAT specifications";
 fp = open(acqcfgfile,"r");
 for line in fp:
     tokens = str.split(line)
-    if ((len(tokens) > 0) and (tokens[0] == 'flat')):
+    if ((len(tokens) > 0) and (tokens[0] == 'fe55')):
         target = float(tokens[1])
         print "target wl = ";
         print target;

@@ -1,10 +1,10 @@
 ###############################################################################
-# dark
-# Acquire dark image pairs for linearity and gain measurement.
-# For each 'dark' command a pair of dark field images are acquired
+# sflat
+# Acquire sflat image pairs for linearity and gain measurement.
+# For each 'sflat' command a pair of sflat field images are acquired
 #
-# In the configuration file the format for a dark command is
-# dark   signal  
+# In the configuration file the format for a sflat command is
+# sflat   signal  
 # where signal is the desired acquired signal level in e-/pixel
 #
 # FLAT_WL is used to determine what wavelength will be used for illumination
@@ -46,7 +46,7 @@ result = arcsub.synchCommand(10,"setConfigFromFile",acffile);
 result = arcsub.synchCommand(20,"applyConfig");
 
 result = arcsub.synchCommand(10,"setParameter","Expo","1");
-result = arcsub.synchCommand(10,"setParameter","Light","0");
+result = arcsub.synchCommand(10,"setParameter","Light","1");
 result = arcsub.synchCommand(10,"applyParams");
 result = arcsub.synchCommand(10,"powerOnCCD");
 
@@ -72,14 +72,14 @@ tssub.synchCommand(120,"goteststand");
 
 wl = 550.0; # default wl
 
-# go through config file looking for 'dark' instructions, take the darks
+# go through config file looking for 'sflat' instructions, take the sflats
 seq = 0  # image pair number in sequence
 
 print "Scanning config file for FLAT specifications";
 fp = open(acqcfgfile,"r");
 for line in fp:
     tokens = str.split(line)
-    if ((len(tokens) > 0) and (tokens[0] == 'dark')):
+    if ((len(tokens) > 0) and (tokens[0] == 'sflat')):
         target = float(tokens[1])
         print "target wl = ";
         print target;
