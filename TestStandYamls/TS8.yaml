@@ -1,0 +1,348 @@
+%YAML  1.1
+---
+# Assumes sensor has already been registered: that is, has an entry
+# in the Hardware table and has at least one HardwareIdentifier (otherwise
+# would not have gotten through T01)
+Name: SensorRaft_TS8
+HardwareType: CCD
+Description: Sensor EO characterization
+Sequence:
+   -
+     Name: TS8 cryostat prepare
+     Description:  Get cryostat ready for sensor jig install
+     Prerequisites: 
+       -  
+         Name: Cryostat
+         PrerequisiteType: TEST_EQUIPMENT
+     InstructionsURL: "http://www.stanford.edu/~jrb/eTraveler/instructions/T03/prepare_cryostat.html"
+   -
+     Name: Access jig
+     Description:  Fetch coffin from storage; remove covered jig
+     Prerequisites:
+        -
+         Name: ESD station ready
+         PrerequisiteType: TEST_EQUIPMENT
+   - 
+     Name: TS8 jig into cryo
+     Description: Install jig into cryostat; connect cables
+   - 
+     Name: TS8 uncover jig
+     Description: Remove cover from jig
+   - 
+     Name: TS8 ready controller
+     Description: Close window flange; connect controller
+     InstructionsURL: "http://www.stanford.edu/~jrb/eTraveler/instructions/T03/ready_controller.html"
+     Prerequisites:
+        -
+         Name: CCD Controller
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: TS8 pump down
+     Description: TS8 pump down
+     Prerequisites:
+        -
+         Name: Turbo pump station
+         PrerequisiteType:  TEST_EQUIPMENT
+   -
+     Name: TS8 cooldown
+     Description: Cool down cryostat; monitor
+     Prerequisites:
+        -
+         Name: LN2 fill station
+         PrerequisiteType: TEST_EQUIPMENT
+        - 
+         Name: Thermal controller
+         PrerequisiteType: TEST_EQUIPMENT
+     RequiredInputs:
+        -
+         Label: Cooldown log (filepath)
+         InputSemantics: filepath
+   -
+     Name: TS8_initialize_electronics
+     #  Is the script run via job harness?  If so, value of Name above is the
+     #  job harness "cannonical job name"; there must be a UserVersionString
+     #  key and the HarnessedJob flag must be set (normally clear)
+     #  See example of job harnessed step description below
+     Description: Start lamp and initialize electronics via script
+   -
+     Name: TS8 Set up cryostat at dark box
+     Prerequisites:
+        -
+         Name: dark box
+         PrerequisiteType: TEST_EQUIPMENT
+        -
+         Name: tunnel
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: TS8 Record pattern images
+     #  Is this a harnessed job?
+     Description: Set up pattern projector; record images
+     Prerequisites:
+        -
+         Name: pattern projector
+         PrerequisiteType: TEST_EQUIPMENT
+     RequiredInputs:
+        -
+         Label: directory path for pattern images
+         InputSemantics: filepath
+   -
+     Name: TS8 Prepare for EO test scripts
+     Description: Remove pattern projector, set up monochromator
+     Prerequisites:
+       -
+         Name: monochromator
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: run full EO test scripts
+     Sequence:      # each test script is a separate harnessed step
+       -
+          Name: ccd250_mask_generation
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+            # operator is told to paste job harness cmd into console window
+       -
+          Name: TS8_system_noise
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+       -
+          Name: TS8_system_xtalk
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+       -
+          Name: TS8_fe55
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+       -
+          Name: TS8_dark
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+       -
+          Name: TS8_spot
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+       -
+          Name: TS8_superflat
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+       -
+          Name: TS8_lambda
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+       -
+          Name: TS8_ppump
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+   -
+     Name: TS8 offline analysis
+     # substeps are harnessed analysis jobs. 
+     Sequence:
+       -
+          Name: fe55_analysis
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+          Prerequisites:
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: ccd250_mask_generation
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS8_fe55
+              UserVersionString: v0
+       -  
+          Name: bright_pixels
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+          Prerequisites:
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: ccd250_mask_generation
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS8_dark
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: fe55_analysis
+              UserVersionString: v0
+       -  
+          Name: read_noise
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+          Prerequisites:
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: ccd250_mask_generation
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS8_system_noise
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS8_fe55
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: fe55_analysis
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: bright_pixels
+              UserVersionString: v0
+       -  
+          Name: dark_current
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+          Prerequisites:
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: ccd250_mask_generation
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS8_dark
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: fe55_analysis
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: bright_pixels
+              UserVersionString: v0
+       -  
+          Name: crosstalk
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+          Prerequisites:
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: ccd250_mask_generation
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS8_system_xtalk
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS8_spot
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: bright_pixels
+              UserVersionString: v0
+       -  
+          Name: cte
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+          Prerequisites:
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: ccd250_mask_generation
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS8_superflat
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: bright_pixels
+              UserVersionString: v0
+       -  
+          Name: prnu
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+          Prerequisites:
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: ccd250_mask_generation
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS8_superflat
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS8_lambda
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: fe55_analysis
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: bright_pixels
+              UserVersionString: v0
+       -  
+          Name: trap
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+          Prerequisites:
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: ccd250_mask_generation
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS8_ppump
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: fe55_analysis
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: bright_pixels
+              UserVersionString: v0
+       -  
+          Name: qe
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+          Prerequisites:
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: ccd250_mask_generation
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS8_lambda
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: fe55_analysis
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: bright_pixels
+              UserVersionString: v0
+          
+   -
+     Name: TS8 cryostat warmup
+     Description:  Controlled warmup of cryostat; monitor thermal cycle
+     RequiredInputs:
+        -
+         Label: Warmup log (filepath)
+         InputSemantics: filepath
+   -
+     Name: TS8 cryostat done
+     Description: Prepare for shipping RTM
