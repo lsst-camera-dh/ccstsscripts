@@ -63,16 +63,6 @@ Sequence:
      Name: run full EO test scripts
      Sequence:      # each test script is a separate harnessed step
        -
-          Name: TS3_system_noise
-          UserVersionString: v0
-          TravelerActions:
-            - HarnessedJob
-       -
-          Name: TS3_system_xtalk
-          UserVersionString: v0
-          TravelerActions:
-            - HarnessedJob
-       -
           Name: TS3_flat
           UserVersionString: v2
           TravelerActions:
@@ -84,11 +74,6 @@ Sequence:
             - HarnessedJob
        -
           Name: TS3_dark
-          UserVersionString: v0
-          TravelerActions:
-            - HarnessedJob
-       -
-          Name: TS3_spot
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
@@ -136,28 +121,6 @@ Sequence:
               Name: fe55_analysis
               UserVersionString: v0
        -  
-          Name: read_noise
-          UserVersionString: v0
-          TravelerActions:
-            - HarnessedJob
-          Prerequisites:
-            -
-              PrerequisiteType:  PROCESS_STEP
-              Name: TS3_system_noise
-              UserVersionString: v0
-            -
-              PrerequisiteType:  PROCESS_STEP
-              Name: TS3_fe55
-              UserVersionString: v0
-            -
-              PrerequisiteType:  PROCESS_STEP
-              Name: fe55_analysis
-              UserVersionString: v0
-            -
-              PrerequisiteType:  PROCESS_STEP
-              Name: bright_pixels
-              UserVersionString: v0
-       -  
           Name: dark_current
           UserVersionString: v0
           TravelerActions:
@@ -170,38 +133,6 @@ Sequence:
             -
               PrerequisiteType:  PROCESS_STEP
               Name: fe55_analysis
-              UserVersionString: v0
-            -
-              PrerequisiteType:  PROCESS_STEP
-              Name: bright_pixels
-              UserVersionString: v0
-       -  
-          Name: crosstalk
-          UserVersionString: v0
-          TravelerActions:
-            - HarnessedJob
-          Prerequisites:
-            -
-              PrerequisiteType:  PROCESS_STEP
-              Name: TS3_system_xtalk
-              UserVersionString: v0
-            -
-              PrerequisiteType:  PROCESS_STEP
-              Name: bright_pixels
-              UserVersionString: v0
-       -  
-          Name: cte
-          UserVersionString: v0
-          TravelerActions:
-            - HarnessedJob
-          Prerequisites:
-            -
-              PrerequisiteType:  PROCESS_STEP
-              Name: TS3_sflat
-              UserVersionString: v0
-            -
-              PrerequisiteType:  PROCESS_STEP
-              Name: bright_pixels
               UserVersionString: v0
        -  
           Name: prnu
@@ -220,10 +151,6 @@ Sequence:
             -
               PrerequisiteType:  PROCESS_STEP
               Name: fe55_analysis
-              UserVersionString: v0
-            -
-              PrerequisiteType:  PROCESS_STEP
-              Name: bright_pixels
               UserVersionString: v0
        -  
           Name: trap
@@ -257,11 +184,6 @@ Sequence:
               PrerequisiteType:  PROCESS_STEP
               Name: fe55_analysis
               UserVersionString: v0
-            -
-              PrerequisiteType:  PROCESS_STEP
-              Name: bright_pixels
-              UserVersionString: v0
-          
    -
      Name: TS3 cryostat warmup
      Description:  Controlled warmup of cryostat; monitor thermal cycle
