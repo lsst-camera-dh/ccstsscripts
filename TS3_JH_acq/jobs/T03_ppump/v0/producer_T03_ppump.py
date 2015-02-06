@@ -5,7 +5,7 @@ import os
 import sys
 #from lcatr.harness.helpers import dependency_glob
 
-fileName = "ccsacqppump.py"
+fileName = "ccseoppump.py"
 fo = open(fileName, "r");
 content = fo.read();
 fo.close();
@@ -19,7 +19,7 @@ try:
     ccs1.syncExecution("acffile = '%s/archon641-merged2-singleshot.acf'" % os.getcwd());
     ccs1.syncExecution("acqcfgfile = '%s/BNL-short.cfg'" % os.getcwd());
     ccs1.syncExecution("calfile = '%s/fluxcal_20140529150721.txt'" % os.getcwd());
-    ccs1.syncExecution("fitsfile = '%s/ArchonImageFile_<timestamp>.fits.txt'" % os.getcwd());
+    ccs1.syncExecution("fitsfile = '%s/ArchonImageFile_{timestamp}.fits.txt'" % os.getcwd());
 
  
     print 'starting synch execution'

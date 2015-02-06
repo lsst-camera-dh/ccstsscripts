@@ -19,6 +19,8 @@ try:
     ccs1.syncExecution("acffile = '%s/archon641-merged2-singleshot.acf'" % os.getcwd());
     ccs1.syncExecution("acqcfgfile = '%s/BNL-short.cfg'" % os.getcwd());
     ccs1.syncExecution("calfile = '%s/fluxcal_20140529150721.txt'" % os.getcwd());
+    ccs1.syncExecution("biasfile = '%s/bias.fits'" % os.getcwd());
+
     print 'starting synch execution'
     result1 = ccs1.syncExecution(content);
     print result1.getOutput();    

@@ -5,7 +5,7 @@ import os
 import sys
 #from lcatr.harness.helpers import dependency_glob
 
-fileName = "ccsacqfe55.py"
+fileName = "ccseofe55.py"
 fo = open(fileName, "r");
 content = fo.read();
 fo.close();
