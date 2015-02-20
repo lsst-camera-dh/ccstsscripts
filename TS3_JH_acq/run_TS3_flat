@@ -1,0 +1,1 @@
+lcatr-harness --unit-type CCD --unit-id 123 --job TS3_flat --version v3
