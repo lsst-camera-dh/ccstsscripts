@@ -12,46 +12,28 @@ Sequence:
    -
      Name: Sensor at TS1
      Description:  Operations done at test stand 1
-     Prerequisites: 
-       -  
-         Name: TS1 ready
-         Description:  TS1 has been commissioned
-         PrerequisiteType: TEST_EQUIPMENT 
      Sequence:
        -
          Name: TS1 Sensor receive
          # combine old Sensor receive,move to anteroom, file vendor data,init logging
          Description:  Unpack; discard loose packing; move to anteroom..
-         InstructionsURL: "http://www.slac.stanford.edu/~jrb/etraveler/instr/sensor/T01/TS1_receive.html"
+         InstructionsURL: "http://www4.rcf.bnl.gov/~hneal//etraveler/instr/sensor/T01/TS1_receive.html"
+
+       -  
+         Name: Verify that the serial and log(LSST) number agree
+         Description:  Check that we have the correct sensor
 
        -  
          Name: Sensor coffin clean
          Description:  Full cleaning procedure
-         Prerequisites:
-             -
-                Name: gloves
-                PrerequisiteType: CONSUMABLE
-             -  
-                Name: cleaning agent 1
-                PrerequisiteType: CONSUMABLE
-         InstructionsURL: "http://www.slac.stanford.edu/~jrb/etraveler/instr/sensor/T01/clean_coffin_1.html"
+
+        InstructionsURL: "http://www4.rcf.bnl.gov/~hneal//etraveler/instr/sensor/T01/clean_coffin_1.html"
        -  
          Name: Sensor T01 in-jig inspection
          # combines old clean_move, clean_2, inspect jig,
          # take pictures
          Description:  Move coffin into C10K, clean_2, inspect jig
-         Prerequisites:
-             -
-                Name: gloves
-                PrerequisiteType: CONSUMABLE
-             -  
-                Name: cleaning agent 2
-                PrerequisiteType: CONSUMABLE
-  
-             - 
-                Name: Web camera
-                PrerequisiteType: TEST_EQUIPMENT
-         InstructionsURL: "http://www.slac.stanford.edu/~jrb/etraveler/instr/sensor/T01/inspect_in_jig.html"
+         InstructionsURL: "http://www4.rcf.bnl.gov/~hneal//etraveler/instr/sensor/T01/inspect_in_jig.html"
   
        -
          Name:  Sensor move to TS2
