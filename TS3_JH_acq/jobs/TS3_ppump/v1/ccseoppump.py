@@ -46,7 +46,7 @@ result = arcsub.synchCommand(20,"applyConfig");
 result = arcsub.synchCommand(10,"powerOnCCD");
 
 result = arcsub.synchCommand(10,"setParameter","Expo","1");
-result = arcsub.synchCommand(10,"setParameter","Light","1");
+result = arcsub.synchCommand(10,"setParameter","Light","0");
 result = arcsub.synchCommand(10,"applyParams");
 
 # move to TS acquisition state
@@ -71,10 +71,8 @@ while True:
 #put in acquisition state
 tssub.synchCommand(120,"goteststand");
 
-lo_lim = float(eolib.getCfgVal(acqcfgfile, 'FLAT_LOLIM', default='1.0'))
-hi_lim = float(eolib.getCfgVal(acqcfgfile, 'FLAT_HILIM', default='120.0'))
-bcount = float(eolib.getCfgVal(acqcfgfile, 'FLAT_BCOUNT', default = "2"))
-wl     = float(eolib.getCfgVal(acqcfgfile, 'FLAT_WL', default = "550.0"))
+wl     = float(eolib.getCfgVal(acqcfgfile, 'PPUMP_WL', default = "550.0"))
+pcount = float(eolib.getCfgVal(acqcfgfile, 'PPUMP_BCOUNT', default = "25"))
 
 #number of PLCs between readings
 nplc = 1
@@ -86,34 +84,34 @@ imcount = 2
 
 result = monosub.synchCommand(10,"setFilter",5);
 
-# go through config file looking for 'flat' instructions, take the flats
-print "Scanning config file for FLAT specifications";
+# go through config file looking for 'ppump' instructions, take the flats
+print "Scanning config file for PPUMP specifications";
 
 fp = open(acqcfgfile,"r");
 fpfiles = open("%s/acqfilelist" % cdir,"w");
 
 for line in fp:
     tokens = str.split(line)
-    if ((len(tokens) > 0) and (tokens[0] == 'flat')):
+    if ((len(tokens) > 0) and (tokens[0] == 'ppump')):
 
-        target = float(tokens[1])
-
-        print "target wl = %d" % (target);
-
-        exptime = eolib.expCheck(calfile, labname, target, wl, hi_lim, lo_lim, test='FLAT', use_nd=False)
-
-        result = arcsub.synchCommand(10,"setParameter","ExpTime",exptime);
-        result = arcsub.synchCommand(30,"applyParams");
+        wl      = float(tokens[1])
+        pcount  = float(tokens[1])
+        exptime = float(tokens[1])
 
         print "starting acquisition step for lambda = %8.2f with exptime %8.2f s" % (wl, exptime)
-        
-        if (exptime > lo_lim):
-            result = monosub.synchCommand(30,"setWave",wl);
 
-# take bias images
+        result = arcsub.synchCommand(10,"setParameter","ExpTime",exptime);
         result = arcsub.synchCommand(10,"setParameter","Light","0");
-        result = arcsub.synchCommand(10,"applyParams");
-        for i in range(bcount):
+        result = arcsub.synchCommand(10,"setParameter","Npump","25");
+        result = arcsub.synchCommand(10,"setParameter","Pdepth","1");
+        result = arcsub.synchCommand(30,"applyParams");      
+        result = monosub.synchCommand(30,"setWave",wl);
+
+# pump with some darks then do a light exposure
+        for i in range(pcount):
+# start acquisition
+            result = arcsub.synchCommand(45,"printControllerStatus");
+
             timestamp = time.time()
             fitsfilename = "ArchonImage_Bias_%d-for-seq-%d-exp-%d.fits" % (int(timestamp),seq,i)
             result = arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
@@ -122,10 +120,9 @@ for line in fp:
             result = arcsub.synchCommand(200,"exposeAcquireAndSave");
             print "after click click at %f" % time.time()
 
-# take light exposures
         result = arcsub.synchCommand(10,"setParameter","Light","1");
         result = arcsub.synchCommand(10,"applyParams");
- 
+
         for i in range(imcount):
 
 # prepare to readout diodes
@@ -192,4 +189,4 @@ fp.close();
                     
 tssub.synchCommand(10,"setTSIdle");
 
-print "FLAT: END"
+print "PPUMP: END"

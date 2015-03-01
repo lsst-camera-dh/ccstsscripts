@@ -1,6 +1,6 @@
 # -*- python -*-
 {
-    'schema_name' : 'TS3_dark',
+    'schema_name' : 'TS3_ppump',
     'schema_version' : 0,
     'stat' : int,
     'volt' : float,

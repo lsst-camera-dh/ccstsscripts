@@ -192,7 +192,31 @@ def fitsAverage(filename):
     return avg
 
 ###########################################################################
-# addPDvals : get RTS2 computed average fof all segments in FITS file
+# hdrsummary : produces a summary file (outfile) of essential values from the header
+def hdrsummary(filename,outfile):
+    if (os.path.getsize(filename) < 35000000):
+        print "File %s appears to be bogus." % filename
+        return 0
+    outfl = open(outfile,"a")
+    hdulist = pf.open(filename, mode='readonly')
+
+    avg = fitsAverage(filename)
+    outfl.write("%s\n" % filename);
+    outfl.write("Average image signal = %f \n" % avg);
+
+    phdr=hdulist[0].header
+    outfl.write("Monochromator wavelength = %f\n" % phdr['MONOWL'])
+    outfl.write("CCD temperature = %f\n" % phdr['CCDTEMP'])
+    outfl.write("Photodiode reading  = %f\n" % phdr['MONDIOD'])
+    outfl.write("Filter position  = %d\n" % phdr['FILTPOS'])
+    for i in range(16):
+        hdr=hdulist[i+1].header
+        outfl.write("%15s | AVG= %9.3f | AVGBIAS= %9.3f | WITHOUTBIAS= %9.3f | STDBIAS= %9.3f\n" % (hdr['EXTNAME'],hdr['AVERAGE'],hdr['AVGOVR'],hdr['AVGNOOVR'],hdr['STDOVR']))
+    hdulist.close()
+    outfl.close()
+
+###########################################################################
+# addPDvals : add binary table of photodiode readings to a FITS file
 #   1 | XTENSION= 'BINTABLE'           / binary table extension
 #   2 | BITPIX  =                    8 / 8-bit bytes
 #   3 | NAXIS   =                    2 / 2-dimensional binary table

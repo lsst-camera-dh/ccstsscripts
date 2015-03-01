@@ -2,7 +2,6 @@
 # Various useful tools for manipulating FITS header keywords
 
 import pyfits as pf
-import numpy
 #from astropy.io import fits as pf
 import os
 
@@ -171,100 +170,28 @@ def fitsAverage(filename):
         hdr=hdulist[i+1].header
         if 'AVERAGE' in hdr.keys(): 
             avg = avg + float(hdr['AVERAGE'])
-        else :
-            print "AVERAGE is not there for segment %d so we will calculate and put it there" % i
-            segavg = 0.0
-            nvals = 0
-            nx2 = hdr['NAXIS2']
-            for ix2 in range (nx2):
-#                print "working on column %d" % ix2
-                for val in hdulist[i+1].data[ix2] :
-#                    print "val = %f" % float(val)
-                    segavg = segavg + float(val)
-                    nvals = nvals + 1
-            segavg = segavg / nvals
-            hdr.update("AVERAGE", segavg)
-            print "AVERAGE set to %f for %d values" % (segavg,nvals)
-            avg = avg + segavg
-        segcount = segcount+1
+            segcount = segcount+1
     avg = avg / segcount
     hdulist.close()
     return avg
 
 ###########################################################################
-# hdrsummary : produces a summary file (outfile) of essential values from the header
-def hdrsummary(filename,outfile):
-    if (os.path.getsize(filename) < 35000000):
-        print "File %s appears to be bogus." % filename
-        return 0
-    outfl = open(outfile,"a")
-    hdulist = pf.open(filename, mode='readonly')
-
-    avg = fitsAverage(filename)
-    outfl.write("%s\n" % filename);
-    outfl.write("Average image signal = %f \n" % avg);
-
-    phdr=hdulist[0].header
-    outfl.write("Monochromator wavelength = %f\n" % phdr['MONOWL'])
-    outfl.write("CCD temperature = %f\n" % phdr['CCDTEMP'])
-    outfl.write("Photodiode reading  = %f\n" % phdr['MONDIOD'])
-    outfl.write("Filter position  = %d\n" % phdr['FILTPOS'])
-    for i in range(16):
-        hdr=hdulist[i+1].header
-        outfl.write("%15s | AVG= %9.3f | AVGBIAS= %9.3f | WITHOUTBIAS= %9.3f | STDBIAS= %9.3f\n" % (hdr['EXTNAME'],hdr['AVERAGE'],hdr['AVGOVR'],hdr['AVGNOOVR'],hdr['STDOVR']))
-    hdulist.close()
-    outfl.close()
-
-###########################################################################
-# addPDvals : add binary table of photodiode readings to a FITS file
-#   1 | XTENSION= 'BINTABLE'           / binary table extension
-#   2 | BITPIX  =                    8 / 8-bit bytes
-#   3 | NAXIS   =                    2 / 2-dimensional binary table
-#   4 | NAXIS1  =                   16 / width of table in bytes
-#   5 | NAXIS2  =                  500 / number of rows in table
-#   6 | PCOUNT  =                    0 / size of special data area
-#   7 | GCOUNT  =                    1 / one data group (required keyword)
-#   8 | TFIELDS =                    2 / number of fields in each row
-#   9 | TTYPE1  = 'AMP0_MEAS_TIMES'    / label for field   1
-#  10 | TFORM1  = 'D       '           / data format of field: 8-byte DOUBLE
-#  11 | TUNIT1  = 'A       '           / physical unit of field
-#  12 | TTYPE2  = 'AMP0_A_CURRENT'     / label for field   2
-#  13 | TFORM2  = 'D       '           / data format of field: 8-byte DOUBLE
-#  14 | TUNIT2  = 'A       '           / physical unit of field
-#  15 | EXTNAME = 'AMP0.MEAS_TIMES'    / name of this binary table extension
-#  16 | TSTART  =     1418929454.78162 / data are recorded from this time
-
-def addPDvals(filename,pdfile,extnam,tstart):
+# addPDvals : get RTS2 computed average fof all segments in FITS file
+def addPDvals(filename):
     if (os.path.getsize(filename) < 35000000):
         print "File %s appears to be bogus." % filename
         return 0
     hdulist = pf.open(filename, mode='update')
-    tmdata = numpy.zeros((3000), dtype=numpy.float64)
-    pddata = numpy.zeros((3000), dtype=numpy.float64)
-#    fpd = open("%s/pd-values-for-seq-%d-exp-%d" % (cdir,seq,i),"r");
-    fpd = open(pdfile,"r");
-    ival = 0
+    hdulist.append(pyfits.ImageHDU())
+    seg = hdulist[17]
+    cdir = "."
+    seq = 1
+    i = 1
+    fpd = open("%s/pd-values-for-seq-%d-exp-%d" % (cdir,seq,i),"r");
     for line in fpd:
-        tokens = str.split(line)
-        pdval = float(tokens[1])
-        pdtime = float(tokens[0])
-        print "time = %10.4e , pdval = %10.4e" % (pdtime,pdval)
-        pddata[ival] = pdval
-        tmdata[ival] = pdtime
-        ival = ival + 1
+        pdval = float(line)
+        seg.data[ival++] = pdval
     fpd.close()
-#    hdulist.append(pf.BinTableHDU(data=(tmdata,pddata)))
-    c1 = pf.Column(name='AMP0_MEAS_TIMES', format='D', array=tmdata)
-    c2 = pf.Column(name="AMP0_A_CURRENT", format="D", array=pddata)
-    table_hdu = pf.new_table([c1, c2])
-    hdulist.append(table_hdu)
-
-    for seg in hdulist :
-        hdr=seg.header
-
-    hdr.update("EXTNAME", extnam)
-    hdr.update("TSTART", tstart)
-
     hdulist.close()
 
 

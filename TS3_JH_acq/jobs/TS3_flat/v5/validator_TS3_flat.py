@@ -19,6 +19,8 @@ for line in fpfiles :
     try:
         ht.addPDvals(fitsfile,pdfile,"PhotoDiode1Readings",tstamp)
         print ht.fitsAverage(fitsfile)
+# make summary file - new info will be appended to an existing summary
+        ht.hdrsummary(fitsfile,"%s/summary.txt" % os.getcwd())
     except:
         print "check that %s was actually created" % fitsfile
 fpfiles.close()
@@ -41,6 +43,8 @@ bias = ht.fitsAverage('%s/ArchonImage_Bias.fits' % (jobdir));
 for fname in files :
     avg = ht.fitsAverage(fname)
     print "DATA : Bias = %8.2f    Average signal = %8.2f DN" % (bias,avg - bias)
+
+
 
 #files.append("ccseoflat.py")
     

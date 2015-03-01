@@ -6,7 +6,7 @@ import os
     
 results = []
 
-jobname = "TS3_dark"
+jobname = "TS3_ppump"
 
 jobdir = "%sshare/%s/%s/" % (os.environ["INST_DIR"], jobname, os.environ["LCATR_VERSION"])
 
@@ -35,15 +35,11 @@ tspres = fo.readline();
 tstemp = fo.readline();
 fo.close();
 
-results.append(lcatr.schema.valid(lcatr.schema.get('TS3_dark'),stat=tsstat,volt=tsvolt,curr=tscurr,pres=tspres,temp=tstemp))
+results.append(lcatr.schema.valid(lcatr.schema.get('TS3_ppump'),stat=tsstat,volt=tsvolt,curr=tscurr,pres=tspres,temp=tstemp))
 
 files = glob.glob('%s/ArchonImage*.fits' % os.getcwd())
-    
-for fname in files :
-    avg = ht.fitsAverage(fname)
-    print "DATA : Average signal = %8.2f DN" % (avg)
 
-#files.append("ccseodark.py")
+#files.append("ccseoppump.py")
     
 data_products = [lcatr.schema.fileref.make(item) for item in files]
 results.extend(data_products)

@@ -1,22 +1,14 @@
 ###############################################################################
-# flat
-# Acquire flat image pairs for linearity and gain measurement.
-# For each 'flat' command a pair of flat field images are acquired
-#
-# In the configuration file the format for a flat command is
-# flat   signal  
-# where signal is the desired acquired signal level in e-/pixel
-#
-# FLAT_WL is used to determine what wavelength will be used for illumination
+# sflat
+# Acquire sflat image pairs
 #
 ###############################################################################
 
 from org.lsst.ccs.scripting import *
 from java.lang import Exception
 import sys
-import time
 
-sys.path.append(libdir);
+sys.path.append(tsCWD);
 import eolib
 
 CCS.setThrowExceptions(False);
@@ -33,8 +25,6 @@ monosub = CCS.attachSubsystem("ts/Monochromator");
     
 print "Attaching archon subsystem"
 arcsub  = CCS.attachSubsystem("archon");
-
-serno = 1   # in the future this will be passed in
 
 cdir = tsCWD
 
@@ -53,6 +43,7 @@ result = arcsub.synchCommand(10,"applyParams");
 print "setting acquisition state"
 tssub.synchCommand(10,"settstest");
 
+
 #check state of ts devices
 print "wait for ts state to become ready";
 tsstate = 0
@@ -61,7 +52,7 @@ while True:
     print "checking";
     result = tssub.synchCommand(10,"istsready");
     tsstate = result.getResult();
-# the following line is just for test situations so that there would be no waiting
+# the following line is just for test situations so that there would be no waiting                       
     tsstate=1;
     if ((time.time()-starttim)>240):
         print "Something is wrong ... we will never make it to a runnable state"
@@ -71,45 +62,30 @@ while True:
 #put in acquisition state
 tssub.synchCommand(120,"goteststand");
 
-lo_lim = float(eolib.getCfgVal(acqcfgfile, 'FLAT_LOLIM', default='1.0'))
-hi_lim = float(eolib.getCfgVal(acqcfgfile, 'FLAT_HILIM', default='120.0'))
-bcount = float(eolib.getCfgVal(acqcfgfile, 'FLAT_BCOUNT', default = "2"))
-wl     = float(eolib.getCfgVal(acqcfgfile, 'FLAT_WL', default = "550.0"))
-
-#number of PLCs between readings
-nplc = 1
-
-result = arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
-
 seq = 0  # image pair number in sequence
-imcount = 2
 
-result = monosub.synchCommand(10,"setFilter",5);
+lo_lim = float(eolib.getCfgVal(acqcfgfile, 'SFLAT_LOLIM', default='1.0'))
+hi_lim = float(eolib.getCfgVal(acqcfgfile, 'SFLAT_HILIM', default='120.0'))
+bcount = float(eolib.getCfgVal(acqcfgfile, 'SFLAT_BCOUNT', default = "5"))
 
-# go through config file looking for 'flat' instructions, take the flats
-print "Scanning config file for FLAT specifications";
+print "starting acquisition, status"
+result = arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
+result = arcsub.synchCommand(10,"setFitsFilename","%s" % (fitsfile));
 
+print "Scanning config file for SFLAT specifications";
 fp = open(acqcfgfile,"r");
 fpfiles = open("%s/acqfilelist" % cdir,"w");
 
 for line in fp:
     tokens = str.split(line)
-    if ((len(tokens) > 0) and (tokens[0] == 'flat')):
+    if ((len(tokens) > 0) and (tokens[0] == 'sflat')):
+        wl = int(tokens[1])
+        target = int(tokens[2])
+        exptime = eolib.expCheck(calfile, lab, target, wl, hi_lim, lo_lim, test='FLAT', use_nd=False)
 
-        target = float(tokens[1])
-
-        print "target wl = %d" % (target);
-
-        exptime = eolib.expCheck(calfile, labname, target, wl, hi_lim, lo_lim, test='FLAT', use_nd=False)
+        imcount = int(tokens[3])
 
         result = arcsub.synchCommand(10,"setParameter","ExpTime",exptime);
-        result = arcsub.synchCommand(30,"applyParams");
-
-        print "starting acquisition step for lambda = %8.2f with exptime %8.2f s" % (wl, exptime)
-        
-        if (exptime > lo_lim):
-            result = monosub.synchCommand(30,"setWave",wl);
-
 # take bias images
         result = arcsub.synchCommand(10,"setParameter","Light","0");
         result = arcsub.synchCommand(10,"applyParams");
@@ -125,10 +101,15 @@ for line in fp:
 # take light exposures
         result = arcsub.synchCommand(10,"setParameter","Light","1");
         result = arcsub.synchCommand(10,"applyParams");
- 
-        for i in range(imcount):
 
-# prepare to readout diodes
+        for i in range(imcount):
+            print "starting acquisition step for lambda = %8.2f" % wl
+
+            result = monosub.synchCommand(30,"setWave",wl);
+
+            result = monosub.synchCommand(10,"setFilter",5); // open position
+
+# prepare to readout diodes                                                                              
             nreads = exptime*60/nplc + 200
             if (nreads > 3000):
                 nreads = 3000
@@ -137,7 +118,7 @@ for line in fp:
 
             result = pdsub.asynchCommand("accumBuffer",int(nreads),nplc,True);
 
-# start acquisition
+# start acquisition                                                                                      
             result = arcsub.synchCommand(45,"printControllerStatus");
 
             timestamp = time.time()
@@ -148,7 +129,7 @@ for line in fp:
             result = arcsub.synchCommand(200,"exposeAcquireAndSave");
             print "after click click at %f" % time.time()
 
-# make sure the sample of the photo diode is complete
+# make sure the sample of the photo diode is complete                                                    
             time.sleep(10.)
 
             print "done with exposure # %d" % i
@@ -159,7 +140,6 @@ for line in fp:
             print "Finished getting readings at %f" % time.time()
 
             fpfiles.write("%s %s %f\n" % (fitsfilename,pdfilename,timestamp))
-
         seq = seq + 1
 
 fpfiles.close();
@@ -192,4 +172,4 @@ fp.close();
                     
 tssub.synchCommand(10,"setTSIdle");
 
-print "FLAT: END"
+print "SFLAT: END"

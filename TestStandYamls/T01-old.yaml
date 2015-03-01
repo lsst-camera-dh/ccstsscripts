@@ -1,0 +1,102 @@
+%YAML  1.1
+---
+# Assumes sensor has already been registered: that is, has an entry
+# in the Hardware table.
+# For now assume it also has at least one HardwareIdentifier.  (Another
+# way to handle this would be to make assignment of the hardware identifier
+# the first step.)
+Name: Sensor_T01
+HardwareType: CCD
+Description: Sensor delivery and inspection
+Sequence:
+   -
+     Name: Sensor at TS1
+     Description:  Operations done at test stand 1
+     Prerequisites: 
+       -  
+         Name: TS1 ready
+         Description:  TS1 has been commissioned
+         PrerequisiteType: TEST_EQUIPMENT 
+     Sequence:
+       -
+         Name: TS1 Sensor receive
+         # combine old Sensor receive,move to anteroom, file vendor data,init logging
+         Description:  Unpack; discard loose packing; move to anteroom..
+         InstructionsURL: "http://www.slac.stanford.edu/~jrb/etraveler/instr/sensor/T01/TS1_receive.html"
+
+       -  
+         Name: Sensor coffin clean
+         Description:  Full cleaning procedure
+         Prerequisites:
+             -
+                Name: gloves
+                PrerequisiteType: CONSUMABLE
+             -  
+                Name: cleaning agent 1
+                PrerequisiteType: CONSUMABLE
+         InstructionsURL: "http://www.slac.stanford.edu/~jrb/etraveler/instr/sensor/T01/clean_coffin_1.html"
+       -  
+         Name: Sensor T01 in-jig inspection
+         # combines old clean_move, clean_2, inspect jig,
+         # take pictures
+         Description:  Move coffin into C10K, clean_2, inspect jig
+         Prerequisites:
+             -
+                Name: gloves
+                PrerequisiteType: CONSUMABLE
+             -  
+                Name: cleaning agent 2
+                PrerequisiteType: CONSUMABLE
+  
+             - 
+                Name: Web camera
+                PrerequisiteType: TEST_EQUIPMENT
+         InstructionsURL: "http://www.slac.stanford.edu/~jrb/etraveler/instr/sensor/T01/inspect_in_jig.html"
+  
+       -
+         Name:  Sensor move to TS2
+   -
+     Name: Sensor at TS2
+     Description:  Initial inspection
+     Prerequisites:
+       - 
+         Name:  TS2 ready
+         Description:  TS2 has been commissioned
+         PrerequisiteType:  TEST_EQUIPMENT
+     Sequence:
+       -
+          Name: Activate OGP machine
+          InstructionsURL:    "http://www.stanford.edu/~jrb/eTraveler/instr/sensor/activateOGP.html"
+       -  
+          # May need to add prerequisites for MF01 and MF02, registered test eq.
+          Name:  Sensor mount on MF01
+          Description: mount on MF01, remove jig cover. 
+          InstructionsURL:    "http://www.stanford.edu/~jrb/eTraveler/instr/sensor/mountMF01.html"
+       -
+          Name:  Sensor inspect edges
+          Description: run edge inspection script; archive image photos
+          InstructionsURL:    "http://www.stanford.edu/~jrb/eTraveler/instr/sensor/T01/edgeInspection.html"
+          Selection:
+               - 
+                 Condition: PASS
+                 Name: T01_Pass
+                 Selection:
+                    -
+                       Condition: Done for the day
+                       Name: Sensor_store
+                       Description: Return jig and coffin to storage
+                    -
+                       Condition: default
+                       Name: Sensor_goto_T02
+               -
+                 Condition: FAIL
+                 Name: T01_Fail
+                 Sequence:
+                        -
+                          Name: Sensor return
+                          Description: Replace jig and cover, return to vendor
+                        - 
+                          Name: Sensor abort
+                          Description: Mark sensor as rejected
+                          InstructionsURL: "http://www.stanford.edu/~jrb/eTraveler/instr/sensor/reject.html"
+ 
