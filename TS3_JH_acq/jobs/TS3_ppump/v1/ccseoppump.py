@@ -95,14 +95,14 @@ for line in fp:
     if ((len(tokens) > 0) and (tokens[0] == 'ppump')):
 
         wl      = float(tokens[1])
-        pcount  = float(tokens[1])
-        exptime = float(tokens[1])
+        exptime = float(tokens[2])
+        nshifts  = float(tokens[3])
 
         print "starting acquisition step for lambda = %8.2f with exptime %8.2f s" % (wl, exptime)
 
-        result = arcsub.synchCommand(10,"setParameter","ExpTime",exptime);
+        result = arcsub.synchCommand(10,"setParameter","ExpTime",2.0); // 2 secs for the bias frames
         result = arcsub.synchCommand(10,"setParameter","Light","0");
-        result = arcsub.synchCommand(10,"setParameter","Npump","25");
+        result = arcsub.synchCommand(10,"setParameter","Npump",nshifts);
         result = arcsub.synchCommand(10,"setParameter","Pdepth","1");
         result = arcsub.synchCommand(30,"applyParams");      
         result = monosub.synchCommand(30,"setWave",wl);
@@ -120,6 +120,7 @@ for line in fp:
             result = arcsub.synchCommand(200,"exposeAcquireAndSave");
             print "after click click at %f" % time.time()
 
+        result = arcsub.synchCommand(10,"setParameter","ExpTime",exptime);
         result = arcsub.synchCommand(10,"setParameter","Light","1");
         result = arcsub.synchCommand(10,"applyParams");
 

@@ -98,7 +98,11 @@ f.write("######################################################################\
 f.close()
 fname = "fluxcal_bias"
 fname = camera.bias_acq(fname, path=datadir, test='FLUXCAL', img='BIAS')
-bias = ht.fitsAverage(fname)  # in DN                                                                                                                     
+result = arcsub.synchCommand(10,"setFitsFilename",fname);
+result = arcsub.synchCommand(200,"exposeAcquireAndSave");
+result = arcsub.synchCommand(10,"getImageAverageSignal");
+bias = result.getResult();
+#bias = ht.fitsAverage(fname)  # in DN                                                                                                                     
 if ((lastcal == 'None') or (new == True)):
     f = open(newfile, 'a')
     f.write("{:<10}{:^4}{:^12}".format('command','wl','flux'))
@@ -116,8 +120,9 @@ if ((lastcal == 'None') or (new == True)):
         result = arcsub.synchCommand(10,"setFitsFilename",fname);
         result = arcsub.synchCommand(200,"exposeAcquireAndSave");
 
-#!!!!!!!!!!!!!!!!!!!!
-        avg = ht.fitsAverage(fname)      # in DN                                                                                                          
+        result = arcsub.synchCommand(10,"getImageAverageSignal");
+        avg = result.getResult();
+#        avg = ht.fitsAverage(fname)      # in DN                                                                                                          
         signal = (avg-bias)*gain         # in electrons                                                                                                   
         flux = max(signal/exptime, 1.0)  # in electrons/second (can't be < 0 !)                                                                           
         f = open(newfile, 'a')
@@ -145,7 +150,9 @@ else:
 #                 fname = camera.exp_acq(fname, exptime, path=datadir, test='FLUXCAL', img='FLAT')
                 result = arcsub.synchCommand(10,"setFitsFilename",fname);
                 result = arcsub.synchCommand(200,"exposeAcquireAndSave");
-                avg = ht.fitsAverage(fname)      # in DN                                                                                                  
+                result = arcsub.synchCommand(10,"getImageAverageSignal");
+                avg = result.getResult();
+#                avg = ht.fitsAverage(fname)      # in DN                                                                                                  
                 signal = (avg-bias)*gain         # in electrons                                                                                           
                 flux = signal/exptime            # in electrons/second                                                                                    
                 if (flux <= 0.0):
