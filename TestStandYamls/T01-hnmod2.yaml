@@ -1,0 +1,83 @@
+%YAML  1.1
+---
+# Assumes sensor has already been registered: that is, has an entry
+# in the Hardware table.
+# For now assume it also has at least one HardwareIdentifier.  (Another
+# way to handle this would be to make assignment of the hardware identifier
+# the first step.)
+Name: Sensor_T01 - hnmod2
+HardwareType: CCD
+Description: Sensor delivery and inspection
+Sequence:
+   -
+     Name: Sensor at TS1 - hnmod2
+     Description:  Operations done at test stand 1
+     Sequence:
+       -
+         Name: TS1 Sensor receive - hnmod2
+         # combine old Sensor receive,move to anteroom, file vendor data,init logging
+         Description:  Unpack; discard loose packing; move to anteroom..
+         InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/etraveler/instr/sensor/T01/TS1_receive.html#receiving"
+
+       -  
+         Name: Check that the serial and log number agree - hnmod2
+         Description:  Check for correct sensor ID
+         InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/etraveler/instr/sensor/T01/sensorID.html#cataloging"
+       -  
+         Name: Sensor coffin clean - hnmod2
+         Description:  Full cleaning procedure
+         InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/etraveler/instr/sensor/T01/clean_coffin_1.html#clean"
+       -  
+         Name: Sensor T01 in-jig inspection - hnmod2
+         # combines old clean_move, clean_2, inspect jig,
+         # take pictures
+         Description:  Move coffin into C10K, clean_2, inspect jig
+         InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/etraveler/instr/sensor/T01/inspect_in_jig.html#inspect"
+  
+       -
+         Name:  Sensor move to TS2 - hnmod2
+   -
+     Name: Sensor at TS2 - hnmod2
+     Description:  Initial inspection
+     Prerequisites:
+       - 
+         Name:  TS2 ready - hnmod2
+         Description:  TS2 has been commissioned
+         PrerequisiteType:  TEST_EQUIPMENT
+     Sequence:
+       -
+          Name: Activate OGP machine - hnmod2
+          InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/activateOGP.html#ogpon"
+       -  
+          # May need to add prerequisites for MF01 and MF02, registered test eq.
+          Name:  Sensor mount on MF01 - hnmod2
+          Description: mount on MF01, remove jig cover. 
+          InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/mountMF01.html#mountmf01"
+       -
+          Name:  Sensor inspect edges - hnmod2
+          Description: run edge inspection script; archive image photos
+          InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/T01/edgeInspection.html#perimeter"
+          Selection:
+               - 
+                 Condition: PASS
+                 Name: T01_Pass - hnmod2
+                 Selection:
+                    -
+                       Condition: Done for the day
+                       Name: Sensor_store - hnmod2
+                       Description: Return jig and coffin to storage
+                    -
+                       Condition: default
+                       Name: Sensor_goto_T02 - hnmod2
+               -
+                 Condition: FAIL
+                 Name: T01_Fail - hnmod2
+                 Sequence:
+                        -
+                          Name: Sensor return - hnmod2
+                          Description: Replace jig and cover, return to vendor
+                        - 
+                          Name: Sensor abort - hnmod2
+                          Description: Mark sensor as rejected
+                          InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/reject.html"
+ 
