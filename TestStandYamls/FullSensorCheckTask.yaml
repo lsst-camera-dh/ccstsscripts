@@ -1,0 +1,349 @@
+%YAML  1.1
+---
+# For sensors that will be processed through TS1 TS2 and TS3
+Name: FullSensorCheckTask - ST1
+HardwareType: CCD
+Description: Sensor delivery and inspection
+Sequence:
+   -
+     Name: Sensor at TS1 - ST1
+     Description:  Operations done at test stand 1
+     Sequence:
+       -
+         Name: TS1 Sensor receive - ST1
+         # combine old Sensor receive,move to anteroom, file vendor data,init logging
+         Description:  Unpack; discard loose packing; move to anteroom..
+         InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/etraveler/instr/sensor/T01/TS1_receive.html#receiving"
+
+       -  
+         Name: Check that the serial and log number agree - ST1
+         Description:  III CHECK FOR CORRECT SENSOR ID III
+         InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/etraveler/instr/sensor/T01/sensorID.html#cataloging"
+       -  
+         Name: Sensor coffin clean - ST1
+         Description:  III DO THE FULL CLEANING PROCEDURE III
+         InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/etraveler/instr/sensor/T01/clean_coffin_1.html#clean"
+       -  
+         Name: Sensor T01 in-jig inspection - ST1
+         # combines old clean_move, clean_2, inspect jig,
+         # take pictures
+         Description:  III MOVE COFFIN TO THE CLASS 10k AREA, CLEAN AND INSPECT JIG III
+         InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/etraveler/instr/sensor/T01/inspect_in_jig.html#inspect"
+  
+       -
+         Name:  Sensor move to TS2 - ST1
+   -
+     Name: Sensor at TS2 - ST1
+     Description:  Initial inspection
+     Sequence:
+       -
+          Name: Activate OGP machine - ST1
+          InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/activateOGP.html#ogpon"
+       -  
+          # May need to add prerequisites for MF01 and MF02, registered test eq.
+          Name:  Sensor mount on MF01 - ST1
+          Description: III MOUNT MF01 AND REMOVE JIG COVER III
+          InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/mountMF01.html#mountmf01"
+       -
+          Name:  Sensor inspect edges - ST1
+          Description: III RUN EDGE INSPECTION SCRIPT AND ARCHIVE IMAGE PHOTOS III
+          InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/T01/edgeInspection.html#perimeter"
+          Selection:
+               - 
+                 Condition: PASS
+                 Name: T01_Pass - ST1
+                 Selection:
+                    -
+                       Condition: ARE YOU DONE FOR THE DAY? IF NOT GO ON TO T02.
+                       Name: Sensor_store - ST1
+                       Description: Return jig and coffin to storage
+                    -
+                       Condition: default
+                       Name: Sensor_goto_Surface Dimension Check - ST1
+               -
+                 Condition: FAIL
+                 Name: T01_Fail - ST1
+                 Sequence:
+                        -
+                          Name: Sensor return - ST1
+                          Description: Replace jig and cover, return to vendor
+                        - 
+                          Name: Sensor abort - ST1
+                          Description: Mark sensor as rejected
+                          InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/reject.html"
+# Assumes sensor has already been registered: that is, has an entry
+# in the Hardware table and has at least one HardwareIdentifier (otherwise
+# would not have gotten through T01)
+#Name: Sensor_T02 - ST1
+#HardwareType: CCD
+#Description: Initial sensor dimensional tests
+#Sequence:
+#   -
+#      Name: Activate OGP machine - ST1
+#      InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/activateOGP.html#ogpon"
+#      Prerequisites:
+#       - 
+#         Name:  OGP machine - ST1
+#         Description: III OGP MUST BE IN THE CALIBRATED STATE III
+#         PrerequisiteType:  TEST_EQUIPMENT
+       -
+          Name: T02 Sensor jig mounting assembly - ST1
+          Description: III MOUNT JIG IN MF01 AND ATTACH IT TO MF02 BASEPLATE III
+       -
+          Name: T02 ready for measurements - ST1
+          Description: III ATTACH HEIGHT GAUGE BLOCKS TO MF01 AND REMOVE JIG SENSOR COVER III
+          Prerequisites:
+           -
+             Name: 13.00 mm gauge blocks - ST1
+             PrerequisiteType:    TEST_EQUIPMENT
+       -
+          Name: T02_surface_dimensions - ST1
+          Description: III RUN OGP SENSOR SCRIPT FOR THIS FUNCTION III
+          InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/activateOGP.html#dimensions"
+          UserVersionString: v0
+#      TravelerActions:
+#        - HarnessedJob
+       -
+          Name: T02_flatness - ST1
+          InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/activateOGP.html#flatness"
+          Description: III RUN OGP SCRIPT FOR THIS FUNCTION III
+          UserVersionString: v0
+#      TravelerActions:
+#        - HarnessedJob
+       -
+          Name: T02_flatness_size_analysis - ST1
+          InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/activateOGP.html#flatness"
+          UserVersionString: v0
+#      TravelerActions:
+#        - HarnessedJob
+          Prerequisites:
+            -
+              Name: T02_surface_dimensions - ST1
+              PrerequisiteType: PROCESS_STEP
+              UserVersionString: v0
+            -
+              Name: T02_flatness - ST1
+              PrerequisiteType: PROCESS_STEP
+              UserVersionString: v0
+       -
+           Name: T02_absolute_height - ST1
+           InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/activateOGP.html#height"
+           Description: III RUN OGP SCRIPT FOR THIS HEIGHT FUNCTION III
+           UserVersionString: v0
+#       TravelerActions:
+#         - HarnessedJob
+       -
+           Name: T02_absolute_height_analysis  - ST1
+           UserVersionString: v0
+#       TravelerActions:
+#         - HarnessedJob
+           Prerequisites:
+             -
+               Name: T02_absolute_height - ST1 
+               PrerequisiteType: PROCESS_STEP
+               UserVersionString: v0
+       -
+           Name: T02_evaluate - ST1
+           Description: III BASED ON THE OUTPUT FROM THE ANALYSIS STEPS DECIDE TO PASS OR FAIL IT III
+           Selection:
+             -
+               Name: T02_passed - ST1
+               Description: Return jig to coffin and storage
+             -
+               Name: T02_failed - ST1
+               Description: Return to vendor
+# Assumes sensor has already been registered: that is, has an entry
+# in the Hardware table and has at least one HardwareIdentifier (otherwise
+# would not have gotten through T01)
+#Name: Sensor_T03 ST3-1
+#HardwareType: CCD
+#Description: Sensor EO characterization
+#Sequence:
+#   -
+   -
+     Name: Sensor at TS3 - ST1
+     Description:  Initial preparation for EO testing
+     Sequence:
+       -
+         Name: Sensor at TS3 - prepare cryostat ST1
+         Description:  Get cryostat ready for sensor jig installation
+         InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#cryoprep"
+       -
+         Name: Access jig ST1
+         Description:  Fetch coffin from storage; remove covered jig
+         Prerequisites:
+            -
+             Name: ESD station ready ST1
+             PrerequisiteType: TEST_EQUIPMENT
+       - 
+         Name: TS3 jig into cryo ST1
+         Description: Install jig into cryostat; connect cables
+       - 
+         Name: TS3 uncover jig ST1
+         Description: Remove cover from jig
+       - 
+         Name: TS3 ready controller ST1
+         Description: Close window flange; connect controller
+         InstructionsURL: "http://www4.rcf.bnl.go/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#controller"
+         Prerequisites:
+            -
+             Name: CCD Controller ON ST1
+             PrerequisiteType: TEST_EQUIPMENT
+       -
+         Name: TS3 pump down ST1
+         Description: TS3 pump down
+         InstructionsURL: "http://www4.rcf.bnl.go/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#pumpdown"
+         Prerequisites:
+            -
+             Name: turbo pump station ST1
+             PrerequisiteType:  TEST_EQUIPMENT
+       -
+         Name: TS3 cooldown ST1
+         Description: Cool down cryostat; monitor
+         RequiredInputs:
+            -
+             Label: Cooldown log (filepath)
+             InputSemantics: filepath
+       -
+         Name: TS3_initialize_electronics ST1
+         InstructionsURL: "http://www4.rcf.bnl.go/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#electronics"
+         Description: Start lamp and initialize electronics via script
+       -
+        Name: TS3 Set up cryostat at dark box ST1
+       -
+         Name: run full EO test scripts ST1
+         InstructionsURL: "http://www4.rcf.bnl.go/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#scripts"
+         Sequence:     
+           -
+              Name: TS3_flat ST1
+              UserVersionString: v6
+              TravelerActions:
+                - HarnessedJob
+           -
+              Name: TS3_fe55 ST1
+              UserVersionString: v0
+              TravelerActions:
+                - HarnessedJob
+           -
+              Name: TS3_dark ST1
+              UserVersionString: v0
+              TravelerActions:
+                - HarnessedJob
+           -
+              Name: TS3_sflat ST1
+              UserVersionString: v0
+              TravelerActions:
+                - HarnessedJob
+           -
+              Name: TS3_lambda ST1
+              UserVersionString: v0
+              TravelerActions:
+                - HarnessedJob
+           -
+              Name: TS3_ppump ST1
+              UserVersionString: v0
+              TravelerActions:
+                - HarnessedJob
+       -
+         Name: TS3 offline analysis ST1
+     # substeps are harnessed analysis jobs. 
+         Sequence:
+           -
+              Name: fe55_analysis ST1
+              UserVersionString: v0
+              TravelerActions:
+                - HarnessedJob
+              Prerequisites:
+                -
+                  PrerequisiteType:  PROCESS_STEP
+                  Name: TS3_fe55 ST1
+                  UserVersionString: v0
+           -  
+              Name: bright_pixels ST1
+              UserVersionString: v0
+              TravelerActions:
+                - HarnessedJob
+              Prerequisites:
+                -
+                  PrerequisiteType:  PROCESS_STEP
+                  Name: TS3_dark ST1
+                  UserVersionString: v0
+                -
+                  PrerequisiteType:  PROCESS_STEP
+                  Name: fe55_analysis ST1
+                  UserVersionString: v0
+           -  
+              Name: dark_current ST1
+              UserVersionString: v0
+              TravelerActions:
+                - HarnessedJob
+              Prerequisites:
+                -
+                  PrerequisiteType:  PROCESS_STEP
+                  Name: TS3_dark ST1
+                  UserVersionString: v0
+                -
+                  PrerequisiteType:  PROCESS_STEP
+                  Name: fe55_analysis ST1
+                  UserVersionString: v0
+           -  
+              Name: prnu ST1
+              UserVersionString: v0
+              TravelerActions:
+                - HarnessedJob
+              Prerequisites:
+                -
+                  PrerequisiteType:  PROCESS_STEP
+                  Name: TS3_sflat ST1
+                  UserVersionString: v0
+                -
+                  PrerequisiteType:  PROCESS_STEP
+                  Name: TS3_lambda ST1
+                  UserVersionString: v0
+                -
+                  PrerequisiteType:  PROCESS_STEP
+                  Name: fe55_analysis ST1
+                  UserVersionString: v0
+           -  
+              Name: trap ST1
+              UserVersionString: v0
+              TravelerActions:
+                - HarnessedJob
+              Prerequisites:
+                -
+                  PrerequisiteType:  PROCESS_STEP
+                  Name: TS3_ppump ST1
+                  UserVersionString: v0
+                -
+                  PrerequisiteType:  PROCESS_STEP
+                  Name: fe55_analysis ST1
+                  UserVersionString: v0
+                -
+                  PrerequisiteType:  PROCESS_STEP
+                  Name: bright_pixels ST1
+                  UserVersionString: v0
+           -  
+              Name: qe ST1
+              UserVersionString: v0
+              TravelerActions:
+                - HarnessedJob
+              Prerequisites:
+                -
+                  PrerequisiteType:  PROCESS_STEP
+                  Name: TS3_lambda ST1
+                  UserVersionString: v0
+                -
+                  PrerequisiteType:  PROCESS_STEP
+                  Name: fe55_analysis ST1
+                  UserVersionString: v0
+       -
+         Name: TS3 cryostat warmup ST1
+         Description:  Controlled warmup of cryostat; monitor thermal cycle
+         InstructionsURL: "http://www4.rcf.bnl.go/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#warmup"
+         RequiredInputs:
+            -
+             Label: Warmup log (filepath)
+             InputSemantics: filepath
+       -
+         Name: TS3 cryostat done ST1
+         Description: Move cryostat to TS5
