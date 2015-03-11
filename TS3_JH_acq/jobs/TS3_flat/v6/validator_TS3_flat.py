@@ -17,12 +17,19 @@ for line in fpfiles :
     pdfile = tokens[1]
     tstamp = tokens[2]
     try:
-        ht.addPDvals(fitsfile,pdfile,"PhotoDiode1Readings",tstamp)
-        print ht.fitsAverage(fitsfile)
-# make summary file - new info will be appended to an existing summary
-        ht.hdrsummary(fitsfile,"%s/summary.txt" % os.getcwd())
+        ht.addPDvals(fitsfile,pdfile,"AMP0.MEAS_TIMES","AMP0",tstamp)
     except:
-        print "check that %s was actually created" % fitsfile
+        print "Problem in addPDvals: Check that %s was actually created: " % fitsfile
+    try:
+        print ht.fitsAverage(fitsfile)
+    except:
+        print "Problem in fitsAverage: Check that %s was actually created: " % fitsfile
+    try:
+        ht.hdrsummary(fitsfile,"summary.txt")
+# make summary file - new info will be appended to an existing summary
+#        ht.hdrsummary(fitsfile,"%s/summary.txt" % os.getcwd())
+    except:
+        print "Problem in hdrsummary: Check that %s was actually created: " % fitsfile
 fpfiles.close()
 
 
@@ -37,12 +44,12 @@ fo.close();
 
 results.append(lcatr.schema.valid(lcatr.schema.get('TS3_flat'),stat=tsstat,volt=tsvolt,curr=tscurr,pres=tspres,temp=tstemp))
 
-files = glob.glob('%s/ArchonImage*.fits' % os.getcwd())
-bias = ht.fitsAverage('%s/ArchonImage_Bias.fits' % (jobdir));
+files = glob.glob('%s/*.fits,*values*,*log*,*summary*' % os.getcwd())
+#bias = ht.fitsAverage('%s/ArchonImage_Bias.fits' % (jobdir));
     
-for fname in files :
-    avg = ht.fitsAverage(fname)
-    print "DATA : Bias = %8.2f    Average signal = %8.2f DN" % (bias,avg - bias)
+#for fname in files :
+#    avg = ht.fitsAverage(fname)
+#    print "DATA : Bias = %8.2f    Average signal = %8.2f DN" % (bias,avg - bias)
 
 
 

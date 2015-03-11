@@ -205,10 +205,17 @@ def hdrsummary(filename,outfile):
     outfl.write("Average image signal = %f \n" % avg);
 
     phdr=hdulist[0].header
-#    outfl.write("Monochromator wavelength = %f\n" % phdr['MONOWL'])
-    outfl.write("CCD temperature = %f\n" % phdr['CCDTEMP'])
-    outfl.write("Photodiode reading  = %f\n" % phdr['MONDIOD'])
-    outfl.write("Filter position  = %d\n" % phdr['FILTPOS'])
+    try:
+        outfl.write("Monochromator wavelength = %f\n" % phdr['MONOWL'])
+    except:
+        outfl.write("Monochromator wavelength = N/A\n")
+    outfl.write("CCD temperature     = %f\n" % phdr['CCDTEMP'])
+    outfl.write("Photodiode reading  = %f\n" % phdr['MONDIODE'])
+    outfl.write("Filter position     = %d\n" % phdr['FILTPOS'])
+    try:
+        outfl.write("Exposure time       = %d\n" % phdr['EXPTIME'])
+    except:
+        outfl.write("Exposure time       = N/A\n")
     for i in range(16):
         hdr=hdulist[i+1].header
         outfl.write("%15s | AVG= %9.3f | AVGBIAS= %9.3f | WITHOUTBIAS= %9.3f | STDBIAS= %9.3f\n" % (hdr['EXTNAME'],hdr['AVERAGE'],hdr['AVGBIAS'],hdr['AVWOBIAS'],hdr['STDVBIAS']))
@@ -234,7 +241,7 @@ def hdrsummary(filename,outfile):
 #  15 | EXTNAME = 'AMP0.MEAS_TIMES'    / name of this binary table extension
 #  16 | TSTART  =     1418929454.78162 / data are recorded from this time
 
-def addPDvals(filename,pdfile,extnam,tstart):
+def addPDvals(filename,pdfile,extnam,prefix,tstart):
     if (os.path.getsize(filename) < 35000000):
         print "File %s appears to be bogus." % filename
         return 0
@@ -254,8 +261,8 @@ def addPDvals(filename,pdfile,extnam,tstart):
         ival = ival + 1
     fpd.close()
 #    hdulist.append(pf.BinTableHDU(data=(tmdata,pddata)))
-    c1 = pf.Column(name='AMP0_MEAS_TIMES', format='D', array=tmdata)
-    c2 = pf.Column(name="AMP0_A_CURRENT", format="D", array=pddata)
+    c1 = pf.Column(name="%s_MEAS_TIMES" % prefix, format='D', array=tmdata)
+    c2 = pf.Column(name="%s_A_CURRENT" % prefix, format="D", array=pddata)
     table_hdu = pf.new_table([c1, c2])
     hdulist.append(table_hdu)
 

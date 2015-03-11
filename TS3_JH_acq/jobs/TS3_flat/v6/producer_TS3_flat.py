@@ -44,8 +44,12 @@ try:
  
     print 'starting synch execution'
     result1 = ccs1.syncExecution(content);
-    print result1.getOutput();    
- 
+    llog = result1.getOutput();    
+    print llog
+    fo = open("job.log", "w");
+    fo.write(llog);
+    fo.close();
+
 
 except CcsException as ex:
     print 'Failure', ex
