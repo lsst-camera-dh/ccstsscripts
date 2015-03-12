@@ -1,0 +1,698 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.2  (Linux)">
+	<META NAME="AUTHOR" CONTENT="mrumore">
+	<META NAME="CREATED" CONTENT="20120716;12580000">
+	<META NAME="CHANGEDBY" CONTENT="mrumore">
+	<META NAME="CHANGED" CONTENT="20120821;14130000">
+	<META NAME="AppVersion" CONTENT="12.0000">
+	<META NAME="Company" CONTENT="Brookhaven National Laboratory">
+	<META NAME="DocSecurity" CONTENT="0">
+	<META NAME="HyperlinksChanged" CONTENT="false">
+	<META NAME="LinksUpToDate" CONTENT="false">
+	<META NAME="ScaleCrop" CONTENT="false">
+	<META NAME="ShareDoc" CONTENT="false">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin-left: 2.54cm; margin-right: 2.54cm; margin-top: 0.48cm; margin-bottom: 0.77cm }
+		P { margin-bottom: 0.21cm; background: #ffffff; direction: ltr; color: #000000; widows: 2; orphans: 2 }
+		P.western { font-size: 12pt }
+		P.cjk { font-size: 12pt; so-language: ru-RU }
+		P.ctl { font-size: 12pt }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" DIR="LTR">
+<DIV TYPE=HEADER>
+	<P STYLE="margin-left: -1.91cm; margin-right: -1.91cm; text-indent: 7.3cm; margin-bottom: 0cm; page-break-before: always">
+	<FONT COLOR="#a6a6a6">							LSST CCD Testing Procedure</FONT><IMG SRC="LSSTCCDSOP_html_76965280.gif" ALIGN=LEFT WIDTH=240 HEIGHT=68 BORDER=0><BR CLEAR=LEFT></P>
+	<P STYLE="margin-left: -2.22cm; margin-right: -2.22cm; margin-bottom: 0cm">
+	<FONT COLOR="#a6a6a6">	Brookhaven National Laboratory 			        
+	LCA-####-A</FONT></P>
+	<P STYLE="margin-left: -2.22cm; margin-right: -2.22cm; margin-bottom: 0cm">
+	<FONT COLOR="#a6a6a6">	Instrumentation Division	Rev: A	Rev Date:
+	7/09/12</FONT></P>
+	<P STYLE="margin-left: -2.22cm; margin-right: -2.22cm; margin-bottom: 1.96cm">
+	<FONT COLOR="#a6a6a6">					</FONT></P>
+</DIV>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><FONT SIZE=6><U><B>LSST
+CCD Testing Procedure</B></U></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm; line-height: 150%"><FONT SIZE=4><U>Approved
+By	Name				Date</U></FONT></P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">LSST Camera
+	Project Manager: Nadine Kurita	____________________	____</P>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">LSST BNL
+	Management Head: James Stewart	____________________	____</P>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">LSST BNL
+	Electro/Optic Head: Paul O’Connor	____________________	____</P>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">LSST BNL
+	Mechanical Head: Steven		____________________	____</P>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">LSST BNL
+	Metrological Head: Peter Tackas	____________________	____</P>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">LSST
+	Electronics Head: Rick Van Berg		____________________	____</P>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">Q/A:
+	??						____________________	____</P>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">ES&amp;H
+	Reviewer: Ronald Gill				____________________	____</P>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">ES&amp;H
+	Reviewer: Michael Zarcone			____________________	____</P>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">Prepared by:
+	Matthew Rumore			____________________	____</P>
+</UL>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><FONT SIZE=4><B>Revision
+History</B></FONT></P>
+<TABLE WIDTH=638 BORDER=1 BORDERCOLOR="#000001" CELLPADDING=7 CELLSPACING=0 RULES=GROUPS>
+	<COL WIDTH=53>
+	<COL WIDTH=51>
+	<COL WIDTH=100>
+	<COL WIDTH=184>
+	<COL WIDTH=58>
+	<COL WIDTH=106>
+	<TBODY>
+		<TR VALIGN=TOP>
+			<TD WIDTH=53>
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><B><FONT SIZE=2 STYLE="font-size: 11pt">Revision
+				Number</FONT></B></P>
+			</TD>
+			<TD WIDTH=51>
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><B><FONT SIZE=2 STYLE="font-size: 11pt">Date
+				Revised</FONT></B></P>
+			</TD>
+			<TD WIDTH=100>
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><B><FONT SIZE=2 STYLE="font-size: 11pt">Subject</FONT></B></P>
+			</TD>
+			<TD WIDTH=184>
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><B><FONT SIZE=2 STYLE="font-size: 11pt">Comments</FONT></B></P>
+			</TD>
+			<TD WIDTH=58>
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><B><FONT SIZE=2 STYLE="font-size: 11pt">Affected
+				Pages</FONT></B></P>
+			</TD>
+			<TD WIDTH=106>
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><B><FONT SIZE=2 STYLE="font-size: 11pt">Approval,
+				with Date</FONT></B></P>
+			</TD>
+		</TR>
+	</TBODY>
+	<TBODY>
+		<TR VALIGN=TOP>
+			<TD WIDTH=53 BGCOLOR="#c0c0c0">
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><B>A</B></P>
+			</TD>
+			<TD WIDTH=51 BGCOLOR="#c0c0c0">
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff">--</P>
+			</TD>
+			<TD WIDTH=100 BGCOLOR="#c0c0c0">
+				<P CLASS="western" STYLE="background: #ffffff">Original 
+				</P>
+			</TD>
+			<TD WIDTH=184 BGCOLOR="#c0c0c0">
+				<P CLASS="western" STYLE="background: #ffffff">Original Version</P>
+			</TD>
+			<TD WIDTH=58 BGCOLOR="#c0c0c0">
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff">--</P>
+			</TD>
+			<TD WIDTH=106 BGCOLOR="#c0c0c0">
+				<P CLASS="western" STYLE="background: #ffffff">Rumore, 7/9/12</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=53>
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=51>
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=100>
+				<P CLASS="western" STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=184>
+				<P CLASS="western" STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=58>
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=106>
+				<P CLASS="western" STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=53 BGCOLOR="#c0c0c0">
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=51 BGCOLOR="#c0c0c0">
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=100 BGCOLOR="#c0c0c0">
+				<P CLASS="western" STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=184 BGCOLOR="#c0c0c0">
+				<P CLASS="western" STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=58 BGCOLOR="#c0c0c0">
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=106 BGCOLOR="#c0c0c0">
+				<P CLASS="western" STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=53>
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=51>
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=100>
+				<P CLASS="western" STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=184>
+				<P CLASS="western" STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=58>
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=106>
+				<P CLASS="western" STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=53 BGCOLOR="#c0c0c0">
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=51 BGCOLOR="#c0c0c0">
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=100 BGCOLOR="#c0c0c0">
+				<P CLASS="western" STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=184 BGCOLOR="#c0c0c0">
+				<P CLASS="western" STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=58 BGCOLOR="#c0c0c0">
+				<P CLASS="western" ALIGN=CENTER STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=106 BGCOLOR="#c0c0c0">
+				<P CLASS="western" STYLE="background: #ffffff"><BR>
+				</P>
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Scope:</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">This document fully
+details the standard testing procedure used to prepare, test, and
+store each CCD received for LSST. These procedures will encompass:
+(1) inventory of each CCD; (2) verification of optical, electrical,
+and metrological properties; and, (3) procedure to safely store CCDs.</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Throughout assembly is
+necessary to document and qualify the working condition of each RTM
+and Raft Science Assembly (RSA), including the eletro-optical (E/O)
+and physical metrological properties of the individual CCDs,</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm; background: #ffffff"><BR>
+</P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm; page-break-before: always">
+<FONT SIZE=4 STYLE="font-size: 15pt"><U><B>Activity 1: Incoming CCD
+Receiving, Initial Inspection, and Initial Warm Metrological Study</B></U></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><B>Estimated Time:</B></P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><B>Principle Use:</B></P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><B>Scope</B>: Activity
+1 includes Test Stand 1: Receiving and Initial Inspection, and Test
+Stand 2: Initial Warm Metrological Study. All CCDs will be received
+using the procedure below to record the CCD as received by the
+vender. It will go through a cataloguing routine with an initial
+rough inspection. Following the rough inspection, the CCD will
+proceed through an initial warm metrology study, recording initial
+flatness and absolute height and dimensional properties of the CCD. 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><B>Resulting
+Documentation, Data Collection, Resulting Analyses</B>: Entry for CCD
+Receiving Logbook, New Traveler, Photographs of CCD and Shipping
+Fixture, Optical Flat, 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><B>Equipment Needed</B>:
+Permanent Marker, Lint-free Wipes, 2.5 mm Hex Key, MF01, MF02, OGP,
+Digital Camera, 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><B>Chemicals Needed:</B>
+Cleaning Mixture</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><B>Safety Overview</B>:
+None.</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><B>Addition Training
+Needed:</B></P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><B>Prepared by: </B>Matthew
+Rumore, 7/09/12.</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<OL>
+	<OL>
+		<LI><P STYLE="margin-bottom: 0cm">Package Receiving and Unpacking</P>
+		<OL>
+			<LI><P STYLE="margin-bottom: 0cm"><B>Before entering the cleanroom
+			antechamber</B>, remove the container from the cardboard box,
+			discarding packing material and recycling the cardboard. Do not
+			remove the container from the anti-static, vacuum sealed bag.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Verify the cleanroom is at
+			positive pressure.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Enter the cleanroom with the
+			bagged container. Remove the container from the anti-static bag,
+			and discard the bag.</P>
+		</OL>
+		<LI><P STYLE="margin-bottom: 0cm">Cataloging the Sensor</P>
+		<OL>
+			<LI><P STYLE="margin-bottom: 0cm">Create a new traveler in the
+			LIMs system, completing the field for the CCD Serial Number.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Find the last CCD Serial Number
+			applied in the CCD Receiving Logbook.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Apply the next CCD Serial Number
+			and record it in the traveler.</P>
+			<OL TYPE=a>
+				<LI><P STYLE="margin-bottom: 0cm"><FONT COLOR="#00000a">Numbering
+				scheme is as follows: XYR-ZZ</FONT></P>
+				<OL TYPE=i>
+					<LI><P STYLE="margin-bottom: 0cm"><FONT COLOR="#00000a">X is the
+					vender series: 1 = e2v; 2 = ITL.</FONT></P>
+					<LI><P STYLE="margin-bottom: 0cm"><FONT COLOR="#00000a">YR is
+					the year received; </FONT><FONT COLOR="#00000a"><I>e.g.</I></FONT><FONT COLOR="#00000a">
+					if a sensor is receieved in 2013, YR = 13.</FONT></P>
+					<LI><P STYLE="margin-bottom: 0cm"><FONT COLOR="#00000a">ZZ is
+					the serial count, starting at 00 at the beginning of every new
+					year.</FONT></P>
+				</OL>
+			</OL>
+			<LI><P STYLE="margin-bottom: 0cm">In the top right corner of the
+			first page, label each document received from the vender with this
+			CCD Serial Number.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Create a new entry into the CCD
+			Receiving Logbook found in the antechamber; place the original
+			vender documents in the CCD Receiving Logbook.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Create a new file directory on
+			the antechamber’s computer for the new CCD in C:\Documents and
+			Settings\...\*NewCCDSerial*</P>
+			<LI><P STYLE="margin-bottom: 0cm">Scan each document with the
+			scanner provided in the antechamber, noting all documentation in
+			the CCD Receiving Logbook.</P>
+			<LI><P STYLE="margin-bottom: 0cm">List all documents received by
+			the vender in the traveler.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Upload the vender documents into
+			the LIMs system.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Verify the documents claim the
+			CCD passes all specifications.</P>
+			<OL TYPE=a>
+				<LI><P STYLE="margin-bottom: 0cm">In the traveler, check which
+				apply and record any appropriate issues:</P>
+				<OL TYPE=i>
+					<LI><P STYLE="margin-bottom: 0cm">The vender states the CCD
+					meets all required specifications.</P>
+					<LI><P STYLE="margin-bottom: 0cm">The vender states the CCD will
+					not meet the require specifications. Detail the issue(s) in the
+					traveler.</P>
+				</OL>
+			</OL>
+		</OL>
+	</OL>
+</OL>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<OL>
+	<OL START=3>
+		<LI><P STYLE="margin-bottom: 0cm">Preparing the CCD for Initial
+		Inspection</P>
+	</OL>
+</OL>
+<P STYLE="margin-bottom: 0cm">NOTE: The metal container must be
+cleaned and labeled before entering the cleanroom.</P>
+<OL>
+	<OL>
+		<OL>
+			<LI><P STYLE="margin-bottom: 0cm">Put gloves on.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Wipe the metal container with
+			the lint-free wipes and cleaning mixture, both provided. Stray the
+			mixture onto the wipe, not onto the container directly.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Using a new wipe, dry wipe the
+			container.</P>
+			<LI><P STYLE="margin-bottom: 0cm">With a permanent marker, label
+			the container with its respective CCD Serial Number.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Leave the cleaned container in
+			the antechamber and exit to the hallway and enter the gowning
+			room.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Gown for entrance into the ISO 6
+			clean area, which includes facemask.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Enter the cleanroom, and proceed
+			to the antechamber. Receive the cleaned and labeled container and
+			place it under the laminar flow hood, located in the ISO 6 area.</P>
+		</OL>
+	</OL>
+</OL>
+<P STYLE="margin-bottom: 0cm">NOTE: You are about to expose the CCD:
+Use caution.</P>
+<OL>
+	<OL>
+		<OL>
+			<LI><P STYLE="margin-bottom: 0cm">Ensure the laminar flow hood is
+			operational and its airflow is undisturbed.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Put on an ESD protection
+			bracelet. Remove the cover of the container, using a 2.5 mm hex
+			key.</P>
+		</OL>
+		<LI><P STYLE="margin-bottom: 0cm">Perform the Preliminary Visual
+		Inspection</P>
+		<OL>
+			<LI><P STYLE="margin-bottom: 0cm">Examine the CCD, the shipping
+			jig, and the container for any possible contamination issues, such
+			as unexpected items inside the container, dirt, grime, stains,
+			liquids, or anything else unusual.</P>
+		</OL>
+	</OL>
+</OL>
+<P CLASS="western" STYLE="margin-left: 1.91cm; margin-bottom: 0cm; line-height: 115%">
+<BR>
+</P>
+<OL>
+	<OL>
+		<OL>
+			<OL TYPE=a>
+				<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">In the
+				traveler, check which apply and record any applicable issues:</P>
+			</OL>
+		</OL>
+	</OL>
+</OL>
+<OL TYPE=i>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">The CCD,
+	shipping jig, and container appear to be free of contaminants.</P>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">The CCD,
+	shipping jig, and/or container have been contaminated before its
+	initial opening. Detail the issue(s) in the traveler.</P>
+</OL>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<OL>
+	<OL>
+		<OL>
+			<LI><P STYLE="margin-bottom: 0cm">Examine the CCD for any chips,
+			cracks, loose pins or screws, discoloration of the CCD, or
+			anything else unusual.</P>
+			<OL TYPE=a>
+				<LI><P STYLE="margin-bottom: 0cm">In the traveler, check which
+				apply and record any applicable issues</P>
+			</OL>
+		</OL>
+	</OL>
+</OL>
+<OL TYPE=i>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">The CCD appears
+	to be free of apparent physical deformities.</P>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">There are
+	physical deformities.  Detail the issue(s) in the traveler.</P>
+</OL>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<OL>
+	<OL>
+		<OL>
+			<LI><P STYLE="margin-bottom: 0cm">Using the camera provided,
+			photograph the CCD and shipping fixture.</P>
+		</OL>
+		<LI><P STYLE="margin-bottom: 0cm">Turning on and testing the OGP</P>
+		<OL>
+			<LI><P STYLE="margin-bottom: 0cm">Turn on the OGP with the switch
+			on the controller</P>
+			<LI><P STYLE="margin-bottom: 0cm">Open the program.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Hit START/STOP on the
+			controller.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Record in the traveler the
+			latest date of calibration for the OGP.</P>
+			<LI><P STYLE="margin-bottom: 0cm"><FONT COLOR="#ff0000">“Testing
+			the OGP Process”</FONT></P>
+		</OL>
+		<LI><P STYLE="margin-bottom: 0cm">Prepare the CCD for Step 1.7–1.9</P>
+		<OL>
+			<LI><P STYLE="margin-bottom: 0cm">Place the CCD in MF01.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Connect the loaded MF01 to MF02.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Attach the height gauge blocks
+			to MF01.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Place the assembly onto the OGP
+			table and remove the jig cover.</P>
+		</OL>
+	</OL>
+</OL>
+<P STYLE="margin-bottom: 0cm">NOTE: Be careful not to crush the CCD
+when moving the OGP camera in the Z-direction.</P>
+<OL>
+	<OL START=7>
+		<LI><P STYLE="margin-bottom: 0cm">Set up the OGP’s Alignment and
+		Focus</P>
+		<OL>
+			<LI><P STYLE="margin-bottom: 0cm">Roughly find the lower-left
+			corner of the CCD in the image window.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Focus the camera onto the CCD
+			surface: Apply enough light using the controller, find a flat
+			surface, click the Basic Focus button, and click inside the box
+			displayed. A successful focus with result in the displayed box
+			turning green.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Once focused, click the “Z”
+			button in the Digital Readout Window to zero the Z-axis.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Use the Crosshair Button and
+			line up the X- and Y-axis to the lower left corner with the first
+			quadrant. Once aligned, click the “X” and “Y” buttons in
+			the Digital Readout Window to zero out these axes. 
+			</P>
+			<LI><P STYLE="margin-bottom: 0cm">Find the lower-right corner of
+			the CCD, and line up the axis with the second quadrant. Click the
+			“ANG” button in the Digital Readout Window to finalize the new
+			coordinate system conveying where the CCD is on the OGP stage.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Focus the OGP laser by clicking
+			the Laser Focus button, placing the crosshairs on the CCD surface,
+			and clicking inside the circle.</P>
+		</OL>
+		<LI><P STYLE="margin-bottom: 0cm">Perimeter Measurement</P>
+		<OL>
+			<LI><P STYLE="margin-bottom: 0cm">Click Open an Existing Routine
+			to open CCDPerimeter.RTN, then click Run the Current Routine.</P>
+			<LI><P STYLE="margin-bottom: 0cm">When the first contour scan is
+			complete, name and save the data file as
+			CCDSerial#_Perimeter01.DAT. Let the rest of the routine finish.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Place the cover on the CCD.
+			Remove the CCD and place optical flat in a position on the OGP
+			stage to ensure the area measured during the previous step is
+			covered.</P>
+			<LI><P STYLE="margin-bottom: 0cm">To focus the OGP camera to the
+			optical flat’s surface, click Start a New Routine button, locate
+			an area of the optical flat, click on Basic Focus and click inside
+			the box displayed. A successful focus will result in the displayed
+			box turning green. Then, click the “Z” button in the Digital
+			Readout Window to zero the Z-axis.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Focus the OGP laser by clicking
+			the Laser Focus button, placing the crosshairs on the optical
+			flat’s surface, and clicking inside the circle.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Click Open an Existing Routine
+			to open CCDPerimeter.RTN, then click Run the Current Routine. 
+			</P>
+			<LI><P STYLE="margin-bottom: 0cm">When the first contour scan is
+			complete, name and save the data file as
+			CCDSerial#_PerimeterRef01.DAT. Let the rest of the routine finish.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Raise the OGP camera to remove
+			the optical flat and return the CCD to the OGP stage.</P>
+		</OL>
+		<LI><P STYLE="margin-bottom: 0cm">Absolute Flatness Measurement</P>
+		<OL>
+			<LI><P STYLE="margin-bottom: 0cm">(If necessary) Complete Step
+			1.5–1.7 to prepare the OGP for the measurement.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Click Open an Existing Routine
+			to open CCDSurface.RTN, then click Run the Current Routine.</P>
+			<LI><P STYLE="margin-bottom: 0cm">When the first contour scan is
+			complete, name and save the data file as CCDSerial#_Surface01.DAT.
+			Let the rest of the routine finish.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Place the cover on the CCD.
+			Remove the CCD and place optical flat in a position on the OGP
+			stage to ensure the area measured during the previous step is
+			covered.</P>
+			<LI><P STYLE="margin-bottom: 0cm">To focus the OGP camera to the
+			optical flat’s surface, click Start a New Routine button, locate
+			an area of the optical flat, click on Basic Focus and click inside
+			the box displayed. A successful focus will result in the displayed
+			box turning green. Then, click the “Z” button in the Digital
+			Readout Window to zero the Z-axis.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Focus the OGP laser by clicking
+			the Laser Focus button, placing the crosshairs on the optical
+			flat’s surface, and clicking inside the circle.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Click Open an Existing Routine
+			to open CCDSurface.RTN, then click Run the Current Routine. 
+			</P>
+			<LI><P STYLE="margin-bottom: 0cm">When the first contour scan is
+			complete, name and save the data file as
+			CCDSerial#_SurfaceRef01.DAT. Let the rest of the routine finish.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Return the optical flat to its
+			container.</P>
+		</OL>
+		<LI><P STYLE="margin-bottom: 0cm">Absolute Height Measurement</P>
+		<OL>
+			<LI><P STYLE="margin-bottom: 0cm">(If necessary) Complete Step
+			1.5–1.7 to prepare the OGP for measurement.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Click Open an Existing Routine
+			to open CCDHeight.RTN, then click Run the Current Routine.</P>
+			<LI><P STYLE="margin-bottom: 0cm">When the first countour scan is
+			complete, name and save the data file as CCDSerial#_Height01.DAT.
+			Let the rest of the routine finish.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Place the cover on the CCD.
+			Remove the CCD and place optical flat in a position on the OGP
+			stage to ensure the area measured during the previous step is
+			covered.</P>
+			<LI><P STYLE="margin-bottom: 0cm">To focus the OGP camera to the
+			optical flat’s surface, click Start a New Routine button, locate
+			an area of the optical flat, click on Basic Focus and click inside
+			the box displayed. A successful focus will result in the displayed
+			box turning green. Then, click the “Z” button in the Digital
+			Readout Window to zero the Z-axis.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Focus the OGP laser by clicking
+			the Laser Focus button, placing the crosshairs on the optical
+			flat’s surface, and clicking inside the circle.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Click Open an Existing Routine
+			to open CCDHeight.RTN, then click Run the Current Routine.</P>
+			<LI><P STYLE="margin-bottom: 0cm">When the first contour scan is
+			complete, name and save the data file as
+			CCDSerial#_HeightRef01.DAT. Let the rest of the routine finish.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Return the optical flat to its
+			container.</P>
+		</OL>
+		<LI><P STYLE="margin-bottom: 0cm">Store the CCD</P>
+		<OL>
+			<LI><P STYLE="margin-bottom: 0cm">Remove the height gauge blocks. 
+			</P>
+			<LI><P STYLE="margin-bottom: 0cm">Remove the loaded MF01 from
+			MF02.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Remove the shipping jig from
+			MF01.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Blow the CCD with compressed N<SUB>2</SUB>
+			before putting the cover back on and screwing the container
+			closed.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Place the container in the clean
+			storage area.</P>
+		</OL>
+		<LI><P STYLE="margin-bottom: 0cm">Turn off the OGP</P>
+		<OL>
+			<LI><P STYLE="margin-bottom: 0cm">Hit START/STOP on the
+			controller.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Close the program.</P>
+			<LI><P STYLE="margin-bottom: 0cm">Turn off the OGP with the button
+			on the controller.</P>
+		</OL>
+		<LI><P STYLE="margin-bottom: 0cm">Analyzed and Record the Results
+		from Step 1.8 and 
+		</P>
+		<OL>
+			<LI><P STYLE="margin-bottom: 0cm"></P>
+		</OL>
+	</OL>
+</OL>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm; line-height: 115%"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm; line-height: 115%"><FONT COLOR="#ff0000">I
+would like to implement this. I’m still working on how to.</FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0cm; line-height: 115%">Please
+check the Acceptance Level (AL) that applies.</P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm; line-height: 115%">
+<I>NOTE: If the CCD is of AL2 or AL3, a Failure Report must be
+completed.</I></P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">AL1 – Pass:
+	The CCD has passed the Preliminary Visual Inspection</P>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">AL2 –
+	Conditional: There are reservations and concerns about the CCDs
+	facilities, and must be inspected more closely.</P>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">AL3 – Fail:
+	The quality of the CCD has been compromised to a point of failure.</P>
+</UL>
+<OL TYPE=i>
+	<OL TYPE=a>
+		<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">If you are to
+		stop working, return the CCD to the container, and screw the cover
+		back on. Place the container in the cleanroom storage cabinet.</P>
+	</OL>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">Record the
+	results of Procedure 1.4.ii and Procedure 1.4.iii in the LIMs
+	system. Record the results of 1.4.v in the LIMs system and the
+	traveler (add the link to the Failure Sheet, if necessary). 
+	</P>
+</OL>
+<P CLASS="western" STYLE="margin-bottom: 0cm; background: #ffffff"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<DIV TYPE=FOOTER>
+	<P STYLE="margin-left: -1.91cm; margin-right: -1.59cm; margin-top: 1.67cm; margin-bottom: 0cm; page-break-before: always">
+	<FONT COLOR="#a6a6a6">The official copy of this file is found
+	on-line on Docushare.	</FONT></P>
+	<P STYLE="margin-left: -1.91cm; margin-right: -1.59cm; margin-bottom: 0cm">
+	<FONT COLOR="#a6a6a6">Before using a printed copy, verify this is
+	the most current version.							</FONT><SDFIELD TYPE=PAGE SUBTYPE=RANDOM FORMAT=PAGE>6</SDFIELD></P>
+</DIV>
+</BODY>
+</HTML>

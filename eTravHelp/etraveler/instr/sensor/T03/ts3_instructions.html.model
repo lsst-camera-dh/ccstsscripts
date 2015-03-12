@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.2  (Linux)">
+	<META NAME="AUTHOR" CONTENT="homer">
+	<META NAME="CREATED" CONTENT="20120716;12580000">
+	<META NAME="CHANGEDBY" CONTENT="mrumore">
+	<META NAME="CHANGED" CONTENT="20120821;14130000">
+	<META NAME="AppVersion" CONTENT="12.0000">
+	<META NAME="Company" CONTENT="Brookhaven National Laboratory">
+	<META NAME="DocSecurity" CONTENT="0">
+	<META NAME="HyperlinksChanged" CONTENT="false">
+	<META NAME="LinksUpToDate" CONTENT="false">
+	<META NAME="ScaleCrop" CONTENT="false">
+	<META NAME="ShareDoc" CONTENT="false">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin-left: 2.54cm; margin-right: 2.54cm; margin-top: 0.48cm; margin-bottom: 0.77cm }
+		P { margin-bottom: 0.21cm; background: #ffffff; direction: ltr; color: #000000; widows: 2; orphans: 2 }
+		P.western { font-size: 12pt }
+		P.cjk { font-size: 12pt; so-language: ru-RU }
+		P.ctl { font-size: 12pt }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" DIR="LTR">
+<DIV TYPE=HEADER>
+	<P STYLE="margin-left: -1.91cm; margin-right: -1.91cm; text-indent: 7.3cm; margin-bottom: 0cm; page-break-before: always">
+	<FONT COLOR="#a6a6a6">							LSST CCD EO Testing Procedure</FONT><IMG SRC="LSSTCCDSOP_html_76965280.gif" ALIGN=LEFT WIDTH=240 HEIGHT=68 BORDER=0><BR CLEAR=LEFT></P>
+	<P STYLE="margin-left: -2.22cm; margin-right: -2.22cm; margin-bottom: 0cm">
+	<FONT COLOR="#a6a6a6">	Brookhaven National Laboratory 			        
+	LCA-####-A</FONT></P>
+	<P STYLE="margin-left: -2.22cm; margin-right: -2.22cm; margin-bottom: 0cm">
+	<FONT COLOR="#a6a6a6">	Instrumentation Division	Rev: A	Rev Date:
+	7/09/12</FONT></P>
+	<P STYLE="margin-left: -2.22cm; margin-right: -2.22cm; margin-bottom: 1.96cm">
+	<FONT COLOR="#a6a6a6">					</FONT></P>
+</DIV>
+<P CLASS="western" STYLE="margin-bottom: 0cm">This document
+details the standard EO testing procedure of single sensors.
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm; background: #ffffff"><BR>
+</P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm; page-break-before: always">
+<FONT SIZE=4 STYLE="font-size: 15pt"><U><B>Activity 1: Incoming CCD
+Receiving, Initial Inspection, and Initial Warm Metrological Study</B></U></FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><B>Estimated Time:</B></P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><B>Principle Use:</B></P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<a name="cryoprep">
+<a name="controller">
+<a name="pumpdown">
+<a name="electronics">
+<a name="scripts">
+* Open a window and log into the ts3prod account if not already there.
+<br>
+* cd to the "prod" directory
+<br>
+* source lcatrsetup.sh
+<br>
+* cd lcatr/TS3_acq
+<br>
+* enter the command indicated by the eTraveler
+<a name="warmup">
+
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm; line-height: 115%"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm; line-height: 115%"><FONT COLOR="#ff0000">I
+would like to implement this. I’m still working on how to.</FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0cm; line-height: 115%">Please
+check the Acceptance Level (AL) that applies.</P>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm; line-height: 115%">
+<I>NOTE: If the CCD is of AL2 or AL3, a Failure Report must be
+completed.</I></P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">AL1 – Pass:
+	The CCD has passed the Preliminary Visual Inspection</P>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">AL2 –
+	Conditional: There are reservations and concerns about the CCDs
+	facilities, and must be inspected more closely.</P>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">AL3 – Fail:
+	The quality of the CCD has been compromised to a point of failure.</P>
+</UL>
+<OL TYPE=i>
+	<OL TYPE=a>
+		<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">If you are to
+		stop working, return the CCD to the container, and screw the cover
+		back on. Place the container in the cleanroom storage cabinet.</P>
+	</OL>
+	<LI><P STYLE="margin-bottom: 0cm; line-height: 115%">Record the
+	results of Procedure 1.4.ii and Procedure 1.4.iii in the eTraveler
+	system. Record the results of 1.4.v in the eTraveler system and the
+	traveler (add the link to the Failure Sheet, if necessary). 
+	</P>
+</OL>
+<P CLASS="western" STYLE="margin-bottom: 0cm; background: #ffffff"><BR>
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
+</P>
+<DIV TYPE=FOOTER>
+	<P STYLE="margin-left: -1.91cm; margin-right: -1.59cm; margin-top: 1.67cm; margin-bottom: 0cm; page-break-before: always">
+	<FONT COLOR="#a6a6a6">The official copy of this file is found
+	on-line on Docushare.	</FONT></P>
+	<P STYLE="margin-left: -1.91cm; margin-right: -1.59cm; margin-bottom: 0cm">
+	<FONT COLOR="#a6a6a6">Before using a printed copy, verify this is
+	the most current version.							</FONT><SDFIELD TYPE=PAGE SUBTYPE=RANDOM FORMAT=PAGE>6</SDFIELD></P>
+</DIV>
+</BODY>
+</HTML>

@@ -1,0 +1,323 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.2  (Linux)">
+	<META NAME="AUTHOR" CONTENT="mrumore">
+	<META NAME="CREATED" CONTENT="20140318;12190000">
+	<META NAME="CHANGEDBY" CONTENT="paul o'connor">
+	<META NAME="CHANGED" CONTENT="20140319;14170000">
+	<META NAME="Template Version" CONTENT="LCA-XXXXX-A">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin-right: 1.91cm; margin-top: 0.64cm; margin-bottom: 0.57cm }
+		P { margin-bottom: 0.21cm; direction: ltr; color: #000000; line-height: 115%; widows: 2; orphans: 2 }
+		P.western { font-family: "Calibri", sans-serif; font-size: 10pt; so-language: fr-FR }
+		P.cjk { font-family: "MS ??", "MS Mincho"; font-size: 10pt }
+		P.ctl { font-family: "Calibri", sans-serif; font-size: 10pt; so-language: ar-SA }
+		A:link { color: #0000ff }
+		A.ctl:link { font-family: "Times New Roman", serif }
+		A:visited { color: #800080 }
+		A.western:visited { so-language: en-US }
+		A.cjk:visited { so-language: zh-CN }
+		A.ctl:visited { font-family: "Times New Roman", serif; so-language: hi-IN }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" LINK="#0000ff" VLINK="#800080" DIR="LTR">
+<DIV TYPE=HEADER>
+	<TABLE WIDTH=686 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0 FRAME=BELOW RULES=NONE>
+		<COL WIDTH=101>
+		<COL WIDTH=436>
+		<COL WIDTH=107>
+		<TR VALIGN=TOP>
+			<TD WIDTH=101 HEIGHT=21>
+				<P STYLE="margin-top: 0.21cm"><BR>
+				</P>
+			</TD>
+			<TD WIDTH=436>
+				<P ALIGN=CENTER STYLE="margin-top: 0.21cm"><FONT FACE="Times New Roman, serif">TS3
+				Design: Sensor E/O Testing</FONT></P>
+			</TD>
+			<TD WIDTH=107>
+				<P ALIGN=RIGHT STYLE="margin-top: 0.21cm"><FONT FACE="Times New Roman, serif">Page
+				<SDFIELD TYPE=PAGE SUBTYPE=RANDOM FORMAT=PAGE>5</SDFIELD> of <SDFIELD TYPE=DOCSTAT SUBTYPE=PAGE FORMAT=ARABIC>5</SDFIELD></FONT></P>
+			</TD>
+		</TR>
+	</TABLE>
+	<P LANG="fr-FR" STYLE="margin-bottom: 0.56cm; line-height: 100%"><BR>
+	</P>
+</DIV>
+<P STYLE="margin-top: 0.85cm; margin-bottom: 0cm; line-height: 100%; page-break-inside: avoid; page-break-after: avoid">
+<BR>
+</P>
+<P STYLE="margin-top: 0.85cm; margin-bottom: 0cm; line-height: 100%; page-break-inside: avoid; page-break-after: avoid"><A NAME="__RefHeading__4960_607494244"></A>
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3><U><B>1Contents</B></U></FONT></FONT></P>
+<DIV ID="Table des matières1" DIR="LTR">
+	<P STYLE="margin-bottom: 0cm; line-height: 100%"><FONT FACE="Times New Roman, serif"><A CLASS="western" HREF="#__RefHeading__4998_607494244">10
+	Procedures	14</A></FONT></P>
+	<P STYLE="margin-left: 0.35cm; margin-bottom: 0cm; line-height: 100%">
+	<FONT FACE="Times New Roman, serif"><A CLASS="western" HREF="#__RefHeading__5000_607494244">10.1
+	CCD handling (ESD and contamination)	14</A></FONT></P>
+	<P STYLE="margin-left: 0.35cm; margin-bottom: 0cm; line-height: 100%">
+	<FONT FACE="Times New Roman, serif"><A CLASS="western" HREF="#__RefHeading__5002_607494244">10.2
+	Readout System Initialization	14</A></FONT></P>
+	<P STYLE="margin-left: 0.35cm; margin-bottom: 0cm; line-height: 100%">
+	<FONT FACE="Times New Roman, serif"><A CLASS="western" HREF="#__RefHeading__5004_607494244">10.3
+	Cryostat operation	15</A></FONT></P>
+	<P STYLE="margin-left: 0.35cm; margin-bottom: 0cm; line-height: 100%">
+	<FONT FACE="Times New Roman, serif"><A CLASS="western" HREF="#__RefHeading__5006_607494244">10.4
+	Scripted Acquisition	15</A></FONT></P>
+	<P STYLE="margin-left: 0.35cm; margin-bottom: 0cm; line-height: 100%">
+	<FONT FACE="Times New Roman, serif"><A CLASS="western" HREF="#__RefHeading__5008_607494244">10.5
+	Calibrations	15</A></FONT></P>
+	<P STYLE="margin-left: 0.71cm; margin-bottom: 0cm; line-height: 100%">
+	<FONT FACE="Times New Roman, serif"><A CLASS="western" HREF="#__RefHeading__5010_607494244">10.5.1
+	Working photodiode absolute response as a function of wavelength.	15</A></FONT></P>
+	<P STYLE="margin-left: 0.71cm; margin-bottom: 0cm; line-height: 100%">
+	<FONT FACE="Times New Roman, serif"><A CLASS="western" HREF="#__RefHeading__5012_607494244">10.5.2
+	Recertification of secondary transfer standard photodiodes.	16</A></FONT></P>
+	<P STYLE="margin-left: 0.71cm; margin-bottom: 0cm; line-height: 100%">
+	<FONT FACE="Times New Roman, serif"><A CLASS="western" HREF="#__RefHeading__5014_607494244">10.5.3
+	Uniformity of illumination at sensor position in cryostat.	16</A></FONT></P>
+	<P STYLE="margin-left: 0.71cm; margin-bottom: 0cm; line-height: 100%">
+	<FONT FACE="Times New Roman, serif"><A CLASS="western" HREF="#__RefHeading__5016_607494244">10.5.4
+	Monochromator wavelength settings.	16</A></FONT></P>
+	<P STYLE="margin-left: 0.71cm; margin-bottom: 0cm; line-height: 100%">
+	<FONT FACE="Times New Roman, serif"><A CLASS="western" HREF="#__RefHeading__5018_607494244">10.5.5
+	Bandpass filter passband.	16</A></FONT></P>
+	<P STYLE="margin-left: 0.71cm; margin-bottom: 0cm; line-height: 100%">
+	<FONT FACE="Times New Roman, serif"><A CLASS="western" HREF="#__RefHeading__5020_607494244">10.5.6
+	Out-of-band transmission of bandpass and order-sorting filters.	17</A></FONT></P>
+	<P STYLE="margin-left: 0.71cm; margin-bottom: 0cm; line-height: 100%">
+	<FONT FACE="Times New Roman, serif"><A CLASS="western" HREF="#__RefHeading__5022_607494244">10.5.7
+	Calibration of picoammeters and voltage sources.	17</A></FONT></P>
+	<P STYLE="margin-left: 0.71cm; margin-bottom: 0cm; line-height: 100%">
+	<FONT FACE="Times New Roman, serif"><A CLASS="western" HREF="#__RefHeading__5024_607494244">10.5.8
+	Cross-calibration of test station equipment at BNL and at Paris.	17</A></FONT></P>
+	<P STYLE="margin-left: 0.71cm; margin-bottom: 0cm; line-height: 100%">
+	<FONT FACE="Times New Roman, serif"><A CLASS="western" HREF="#__RefHeading__5026_607494244">10.5.9
+	Shutter speed calibration for exposures.	17</A></FONT></P>
+	<P STYLE="margin-bottom: 0cm; line-height: 100%"><BR>
+	</P>
+</DIV>
+<P STYLE="margin-top: 0.85cm; margin-bottom: 0cm; line-height: 100%; page-break-inside: avoid; page-break-after: avoid"><A NAME="__RefHeading__4998_607494244"></A>
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3><U><B>2Procedures</B></U></FONT></FONT></P>
+<P STYLE="margin-top: 0.64cm; margin-bottom: 0cm; line-height: 100%; page-break-inside: avoid; page-break-after: avoid"><A NAME="__RefHeading__5000_607494244"></A>
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3><B>2.1CCD handling
+(ESD and contamination)</B></FONT></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-top: 0.21cm; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Contamination
+and electrostatic discharge control protocols are described in detail
+in [4] and [5] To prevent a potentially damaging signal reaching the
+CCD, is also critical to check, using appropriate test equipment,
+that the CCD clock and bias signals are all present on the correct
+pins of the cables that connect to the CCD. In general this check
+only needs to be done when there has been a change to the controller
+hardware or software.</FONT></FONT></P>
+<P STYLE="margin-top: 0.64cm; margin-bottom: 0cm; line-height: 100%; page-break-inside: avoid; page-break-after: avoid"><A NAME="__RefHeading__5002_607494244"></A>
+<a name="controller">
+<a name="electronics">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3><B>2.2Readout System
+Initialization</B></FONT></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-top: 0.21cm; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>After
+the CCD is installed and the controller signals have been verified,
+shorting plugs are removed and the CCD is connected to the
+controller. The controller is then powered up and a
+version-controlled configuration file is loaded. When the
+configuration parameters are APPLIED the system enters a state in
+which the clocks and biases are isolated from the CCD by
+opto-isolated solid-state relays. The controller is then commanded to
+enter the POWER-ON state, whereby the bias and clock signals are
+enabled in the appropriate sequence. The DC bias currents are then
+checked (with clocks not running); any current which is outside its
+allowed limits is an indication of a poor connection or, possibly, a
+bad device. The next step is to activate the clocks and take a test
+image, with the CCD in the dark. Operators need to be trained to
+identify the proper appearance of a room-temperature CCD image. After
+these checks are complete, the controller should be set back to the
+POWERDOWN state and cryostat pumping and cooldown can be initiated..</FONT></FONT></P>
+<P STYLE="margin-top: 0.64cm; margin-bottom: 0cm; line-height: 100%; page-break-inside: avoid; page-break-after: avoid"><A NAME="__RefHeading__5004_607494244"></A>
+<a name="cryoprep">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3><B>2.3Cryostat
+operation</B></FONT></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-top: 0.21cm; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>After
+loading a new device into the cryostat and performing the readout
+system initialization, the Dewar window is installed and the backing
+vacuum pump is started. If conditions warrant, the Dewar is purged
+with dry nitrogen gas (5X fill and evacuate). Rough pumping should
+proceed until the foreline pressure is below 5 mtorr, at which point
+the turbomolecular pump is started. Pumping should proceed until the
+chamber pressure reaches 5x10<SUP>-5</SUP> torr, when liquid nitrogen
+transfer can be started. Experience with the R&amp;D Dewars at BNL
+and Harvard indicates that the cooldown rate will not exceed the
+manufacturer’s recommended maximum; but if necessary, the
+temperature controller can be set to limit the temperature rate of
+change. When LN2 fill is complete, the temperature controller control
+loop is enabled with setpoint at -95C and the vacuum valve is closed.
+Testing can begin when the temperature becomes stable at -95C.</FONT></FONT></P>
+<a name="pumpdown">
+<a name="warmup">
+<P ALIGN=JUSTIFY STYLE="margin-top: 0.21cm; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>After
+the conclusion of testing, the controller is set to the POWERDOWN
+state. The polycold (cryo-tiger) system should be turned off.
+When the Dewar internal
+temperatures have reached a point where there is no danger of
+condensation, the Dewar pressure is brought up to 760torr with dry N2
+gas. The window flange can then be opened and the CCD exchanged.</FONT></FONT></P>
+<P STYLE="margin-top: 0.64cm; margin-bottom: 0cm; line-height: 100%; page-break-inside: avoid; page-break-after: avoid"><A NAME="__RefHeading__5006_607494244"></A>
+<a name="scripts">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3><B>2.4Scripted
+Acquisition</B></FONT></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-top: 0.21cm; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>In
+production, the eTraveler and Job Harness software (see eTraveler
+User’s Manual, available at
+<FONT COLOR="#0000ff"><U><A CLASS="western" HREF="https://confluence.slac.stanford.edu/display/LSSTCAM/eTraveler+Definition+-+User%27s+Manual">https://confluence.slac.stanford.edu/display/LSSTCAM/eTraveler+Definition+-+User%27s+Manual</A></U></FONT>
+) will coordinate the running of all test and assembly operations
+including EO testing. TS3 will be able to acquire all datasets needed
+for full CCD characterization without operator intervention. The
+Python scripting language will be used to define the image and
+metadata acquisition and produce the data products described in [1].
+Subsequent image analysis software will run (on the DAQ computer in
+the cleanroom) and generate the final performance report. </FONT></FONT>
+</P>
+<P STYLE="margin-top: 0.64cm; margin-bottom: 0cm; line-height: 100%; page-break-inside: avoid; page-break-after: avoid"><A NAME="__RefHeading__5008_607494244"></A>
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3><B>2.5Calibrations</B></FONT></FONT></P>
+<P STYLE="margin-top: 0.42cm; margin-bottom: 0cm; line-height: 100%; page-break-inside: avoid; page-break-after: avoid"><A NAME="__RefHeading__5010_607494244"></A>
+<FONT SIZE=3><U>2.5.1Working photodiode absolute response as a
+function of wavelength.</U></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-top: 0.21cm; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>LCA-10103
+par. 9.8.3 refers to a “QE system calibration file”. Working
+photodiodes are used for measuring the light flux in the integrating
+sphere during QE measurements. They are calibrated to provide
+information about the absolute irradiance at the location of the
+sensor in the cryostat during QE testing at Test Stands 3 and 8. </FONT></FONT>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-top: 0.21cm; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><U>Calibration
+process</U> – A secondary standard photodiode with a calibrated
+aperture and a known response function (amps/watt vs.wavelength) is
+placed at the location of the sensor plane. The current measured by
+this PD gives the absolute irradiance at the sensor plane. A window
+of the same thickness and with the same optical properties as that
+used on the cryostat is placed at the proper distance away from the
+standard PD. Baffles are inserted between the IS aperture and the PD
+in the same configuration as used in the actual sensor QE
+measurement. The working PD is mounted in a specific port on the
+integrating sphere. It monitors the light intensity inside the
+integrating sphere. Currents from each PD are measured with the
+Kiethley picoammeters (after adjusting for dark current). The
+monochromator slits are set at the proper width and the monochromator
+is scanned through a series of discrete wavelengths with the shutter
+open. Current from both PDs is recorded as a function of wavelength.
+The secondary standard current is converted into photon flux using
+its calibration curve and this photon flux value is used to calibrate
+the output of the working PD. The result is a response table that
+converts working PD current into absolute photon flux at the sensor
+plane as a function of wavelength. </FONT></FONT>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-top: 0.21cm; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><U>Calibration
+verification</U> – Recalibration of the working photodiodes is done
+periodically to generate updated response curves. Secondary standards
+are maintained in a controlled environment to prevent degradation
+during storage. Records are maintained in the eLog system.</FONT></FONT></P>
+<P STYLE="margin-top: 0.42cm; margin-bottom: 0cm; line-height: 100%; page-break-inside: avoid; page-break-after: avoid"><A NAME="__RefHeading__5012_607494244"></A>
+<FONT SIZE=3><U>2.5.2Recertification of secondary transfer standard
+photodiodes.</U></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-top: 0.21cm; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Secondary
+photodiode standards are sent out to an accredited calibration
+laboratory on a yearly basis for recalibration and recertification.
+The diodes will be equipped with an aperture mask that defines the
+active area and is permanently attached. The area of the mask will be
+measured with the OGP vision probe to define the precise area exposed
+to the photon flux. This is necessary because the response of the
+photodiode varies with position across its surface. Unless a
+well-defined area is selected by a mask each time it is used, the
+response of the PD will differ between measurements. Records are
+maintained in the eLog system.</FONT></FONT></P>
+<P STYLE="margin-top: 0.42cm; margin-bottom: 0cm; line-height: 100%; page-break-inside: avoid; page-break-after: avoid"><A NAME="__RefHeading__5014_607494244"></A>
+<FONT SIZE=3><U>2.5.3Uniformity of illumination at sensor position in
+cryostat.</U></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-top: 0.21cm; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Relative
+uniformity of the photon irradiance from the integrating sphere in
+the sensor plane will be measured by scanning a PD across the active
+area of the sensor and raft in Test Stands 3 and 8. Precautions will
+need to be taken to avoid extraneous light from impinging upon the PD
+during the measurement. The scanning system needs to be well-shielded
+from room lights and other potential error sources. Dark scans will
+be done to ensure that conditions are stable and low level light
+contamination is uniform and time invariant. This measurement will be
+done at a number of wavelengths to measure the field uniformity as a
+function of wavelength.</FONT></FONT></P>
+<P STYLE="margin-top: 0.42cm; margin-bottom: 0cm; line-height: 100%; page-break-inside: avoid; page-break-after: avoid"><A NAME="__RefHeading__5016_607494244"></A>
+<FONT SIZE=3><U>2.5.4Monochromator wavelength settings.</U></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-top: 0.21cm; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>The
+monochromator wavelength settings will be calibrated by using
+spectral source lamps with well-defined wavelengths throughout the
+near UV, visible, and near IR regions. Low pressure Hg PenRay lamps
+are used. Wavelength accuracy for the Cornerstone 260 monochromator
+is specified to be 0.35 nm. This accuracy is more than adequate for
+QE calibration. The use of a calibration file will probably not be
+necessary.</FONT></FONT></P>
+<P STYLE="margin-top: 0.42cm; margin-bottom: 0cm; line-height: 100%; page-break-inside: avoid; page-break-after: avoid"><A NAME="__RefHeading__5018_607494244"></A>
+<FONT SIZE=3><U>2.5.5Bandpass filter passband.</U></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-top: 0.21cm; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Filters
+used to define specific wavelength bands generally come from the
+vendor with a plot of the measured passband. In many cases, only the
+catalog information is available for the nominal filter. When
+necessary, filters will be measured for transmission characteristics
+by using the monochromator as the wavelength selector and measuring
+the transmission of the filter places at the output of the
+monochromator, immediately in front of a photodiode detector. Only
+relative transmission is important, so the recorded signal can be
+normalized to the maximum transmission. </FONT></FONT>
+</P>
+<P STYLE="margin-top: 0.42cm; margin-bottom: 0cm; line-height: 100%; page-break-inside: avoid; page-break-after: avoid"><A NAME="__RefHeading__5020_607494244"></A>
+<FONT SIZE=3><U>2.5.6Out-of-band transmission of bandpass and
+order-sorting filters.</U></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-top: 0.21cm; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Bandpass
+filters and order-sorting high-pass cut-on filters are designed to
+minimize out-of-band transmission. It will be necessary to measure
+the order-sorting filters used in front of the monochromator for
+transmission at wavelengths below the cut-on wavelength. This is
+especially important when strong lines at shorter wavelengths may
+show up in second order when the monochromator is at twice their
+wavelengths. The same measurement method can be used as for bandpass
+filters.</FONT></FONT></P>
+<P STYLE="margin-top: 0.42cm; margin-bottom: 0cm; line-height: 100%; page-break-inside: avoid; page-break-after: avoid"><A NAME="__RefHeading__5022_607494244"></A>
+<FONT SIZE=3><U>2.5.7Calibration of picoammeters and voltage sources.</U></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-top: 0.21cm; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Keithley
+picoammeters and voltage sources will be sent out to a certified
+calibration laboratory on a regular schedule for recalibration.
+Calibration certificates will be maintained on eLog.</FONT></FONT></P>
+<P STYLE="margin-top: 0.42cm; margin-bottom: 0cm; line-height: 100%; page-break-inside: avoid; page-break-after: avoid"><A NAME="__RefHeading__5024_607494244"></A>
+<FONT SIZE=3><U>2.5.8Cross-calibration of test station equipment at
+BNL and at Paris.</U></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-top: 0.21cm; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Some
+fraction of the sensors will undergo QE testing at Paris before they
+are sent to BNL for assembly into the RSA. One or more sensors will
+be tested by both laboratories to insure that our measurements agree.
+This will be done periodically to insure that there is no divergence
+in results between laboratories.</FONT></FONT></P>
+<P STYLE="margin-top: 0.42cm; margin-bottom: 0cm; line-height: 100%; page-break-inside: avoid; page-break-after: avoid"><A NAME="__RefHeading__5026_607494244"></A>
+<FONT SIZE=3><U>2.5.9Shutter speed calibration for exposures.</U></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-top: 0.21cm; line-height: 100%"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>The
+monochromator has an internal fast shutter that can be actuated at a
+40 Hz repetition rate with a minimum exposure open time of 2 msec.
+Since minimum exposure duration will be set at 0.5 s, it should not
+be necessary to calibrate the open/close dynamics of the shutter.
+Actual performance can be measured by capturing signals from a fast
+photodiode synchronized to the TTL actuation pulse. </FONT></FONT>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-top: 0.21cm; line-height: 100%; page-break-before: always">
+<BR><BR>
+</P>
+<P STYLE="margin-left: 0.46cm; margin-top: 0.21cm; line-height: 100%">
+<BR><BR>
+</P>
+<DIV TYPE=FOOTER>
+	<P LANG="fr-FR" ALIGN=CENTER STYLE="margin-top: 1.24cm; margin-bottom: 0cm; border-top: 1px solid #c0c0c0; border-bottom: none; border-left: none; border-right: none; padding-top: 0.04cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm; line-height: 100%">
+	<BR>
+	</P>
+</DIV>
+</BODY>
+</HTML>
