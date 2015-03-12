@@ -1,0 +1,2 @@
+date | awk '{printf("%s ",$0)}' >> /direct/astro+u/hneal/lsst/NetBotzData.txt
+ssh -i ~/.ssh/id_rsa2 ccdtest@130.199.20.1 Environment/nbSensorDump 130.199.47.168 apc apc |  egrep "Pod|Sensor|value" | sed 's/(.*)//g' | sed 's/units=.*//' | sed 's/NumSensor\[.\]=//' | sed 's/StateSensor\[.\]=//' | sed 's/errorsev=.*//' | sed 's/Pod\[.\]=//' | sed "s/'//g" | sed 's/value=/= /g' | awk '{printf("%s,",$0)} END{print""}' | sed 's/ //g' | sed 's/,=/=/g' >> /direct/astro+u/hneal/lsst/NetBotzData.txt

@@ -1,0 +1,1 @@
+tail -96 NetBotzData.txt | awk -F "," '{print $1,$7}'  | sed 's/ NetBotzRackMonitor450//' | sed 's/Temperature=//' | awk '{aa="date -d \""substr($0,1,28)"\"  +%s"; aa | getline tst}{print tst,$7}'

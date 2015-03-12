@@ -1,0 +1,8 @@
+#!/bin/tcsh
+cd /u/ey/homer/public_html/lsst/enviro/
+mv NetBotzData.txt NetBotzData.txt.previous
+wget http://www4.rcf.bnl.gov/~hneal/NetBotzData.txt
+source gennbtab
+bbrroot -q -b "makeenviroplots.cxx(\"Temperature\",0,-2.,0.0,55.,80.)"
+bbrroot -q -b "makeenviroplots.cxx(\"Humidity\",1,-2.,0.0,20.,60.)"
+bbrroot -q -b "makeenviroplots.cxx(\"DewPoint\",2,-2.,0.0,30.,70.)"

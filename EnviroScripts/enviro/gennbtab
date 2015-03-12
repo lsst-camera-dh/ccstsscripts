@@ -1,0 +1,2 @@
+rm nbtab
+tail -96 NetBotzData.txt | awk -F "," '{print $1,$7,$6,$5}'  | sed 's/ NetBotzRackMonitor450//' | sed 's/Temperature=//' | sed 's/Humidity=//' | sed 's/DewPoint=//' | awk '{aa="date -d \""substr($0,1,28)"\"  +%s"; aa | getline tst}{print tst,$7,$8,$9}' > nbtab.dat
