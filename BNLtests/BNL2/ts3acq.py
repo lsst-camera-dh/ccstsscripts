@@ -19,7 +19,10 @@ try:
     ccs1 = CcsJythonInterpreter("ccsscript");
  
     ccs1.syncExecution("tsCWD = '%s'" % os.getcwd());
+    ccs1.syncExecution("libdir = '%s'" % os.getcwd());
+    ccs1.syncExecution("jobdir = '%s'" % os.getcwd());
     ccs1.syncExecution("lab = 'BNL'");
+    ccs1.syncExecution("labname = 'BNL'");
     ccs1.syncExecution("LAMBDA = 500.");
     ccs1.syncExecution("EXPTIME = 29");
 #    ccs1.syncExecution("NPLC = 0.17");
@@ -43,11 +46,11 @@ for line in fpfiles :
     tokens = str.split(line)
     fitsfile = tokens[0]
     pdfile = tokens[1]
-    biasfile = tokens[2]
-    tstamp = tokens[3]
+#    biasfile = tokens[2]
+    tstamp = tokens[2]
     try:
         ht.addPDvals(fitsfile,pdfile,"AMP0.MEAS_TIMES","AMP0",tstamp)
-        ht.addPDvals(fitsfile,biasfile,"AMP1.MEAS_TIMES","AMP1",tstamp)
+#        ht.addPDvals(fitsfile,biasfile,"AMP1.MEAS_TIMES","AMP1",tstamp)
         print ht.fitsAverage(fitsfile)
         ht.hdrsummary(fitsfile,"summary.txt")
     except:
