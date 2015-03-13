@@ -9,6 +9,7 @@ results = []
 jobname = "TS3_flat"
 
 jobdir = "%sshare/%s/%s/" % (os.environ["INST_DIR"], jobname, os.environ["LCATR_VERSION"])
+sitedir = "%s/TS3_JH_acq/site" % os.environ["VIRTUAL_ENV"]
 
 fpfiles = open("%s/acqfilelist" % os.getcwd(), "r");
 for line in fpfiles :
@@ -44,7 +45,9 @@ fo.close();
 
 results.append(lcatr.schema.valid(lcatr.schema.get('TS3_flat'),stat=tsstat,volt=tsvolt,curr=tscurr,pres=tspres,temp=tstemp))
 
-files = glob.glob('%s/*.fits,*values*,*log*,*summary*' % os.getcwd())
+os.system("%s/dotemppressplots.sh" % sitedir)
+
+files = glob.glob('%s/*.fits,*values*,*log*,*summary*,*.dat,*.png' % os.getcwd())
 #bias = ht.fitsAverage('%s/ArchonImage_Bias.fits' % (jobdir));
     
 #for fname in files :
