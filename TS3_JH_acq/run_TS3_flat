@@ -1,1 +1,1 @@
-lcatr-harness --unit-type CCD --unit-id 112-10 --job TS3_flat --version v7
+lcatr-harness --unit-type CCD --unit-id 112-10 --job TS3_flat --version v10

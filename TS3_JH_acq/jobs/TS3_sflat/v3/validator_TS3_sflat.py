@@ -6,7 +6,7 @@ import os
     
 results = []
 
-jobname = "TS3_fe55"
+jobname = "TS3_sflat"
 
 jobdir = "%sshare/%s/%s/" % (os.environ["INST_DIR"], jobname, os.environ["LCATR_VERSION"])
 sitedir = "%s/TS3_JH_acq/site" % os.environ["VIRTUAL_ENV"]
@@ -30,6 +30,7 @@ for line in fpfiles :
     except:
         print "Problem in hdrsummary: Check that %s was actually created: " % fitsfile
 fpfiles.close()
+fpfiles.close()
 
 
 
@@ -37,7 +38,7 @@ fo = open("%s/status.out" % os.getcwd(), "r");
 tsstat = fo.readline();
 fo.close();
 
-results.append(lcatr.schema.valid(lcatr.schema.get('TS3_fe55'),stat=tsstat))
+results.append(lcatr.schema.valid(lcatr.schema.get('TS3_sflat'),stat=tsstat))
 
 os.system("%s/dotemppressplots.sh" % sitedir)
 

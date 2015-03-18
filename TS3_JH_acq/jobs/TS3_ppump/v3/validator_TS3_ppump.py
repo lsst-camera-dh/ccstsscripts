@@ -6,7 +6,7 @@ import os
     
 results = []
 
-jobname = "TS3_fe55"
+jobname = "TS3_ppump"
 
 jobdir = "%sshare/%s/%s/" % (os.environ["INST_DIR"], jobname, os.environ["LCATR_VERSION"])
 sitedir = "%s/TS3_JH_acq/site" % os.environ["VIRTUAL_ENV"]
@@ -37,7 +37,7 @@ fo = open("%s/status.out" % os.getcwd(), "r");
 tsstat = fo.readline();
 fo.close();
 
-results.append(lcatr.schema.valid(lcatr.schema.get('TS3_fe55'),stat=tsstat))
+results.append(lcatr.schema.valid(lcatr.schema.get('TS3_ppump'),stat=tsstat))
 
 os.system("%s/dotemppressplots.sh" % sitedir)
 

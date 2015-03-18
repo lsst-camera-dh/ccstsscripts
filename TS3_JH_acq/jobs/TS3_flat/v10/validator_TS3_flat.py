@@ -6,7 +6,7 @@ import os
     
 results = []
 
-jobname = "TS3_fe55"
+jobname = "TS3_flat"
 
 jobdir = "%sshare/%s/%s/" % (os.environ["INST_DIR"], jobname, os.environ["LCATR_VERSION"])
 sitedir = "%s/TS3_JH_acq/site" % os.environ["VIRTUAL_ENV"]
@@ -27,6 +27,8 @@ for line in fpfiles :
         print "Problem in fitsAverage: Check that %s was actually created: " % fitsfile
     try:
         ht.hdrsummary(fitsfile,"summary.txt")
+# make summary file - new info will be appended to an existing summary
+#        ht.hdrsummary(fitsfile,"%s/summary.txt" % os.getcwd())
     except:
         print "Problem in hdrsummary: Check that %s was actually created: " % fitsfile
 fpfiles.close()
@@ -37,7 +39,7 @@ fo = open("%s/status.out" % os.getcwd(), "r");
 tsstat = fo.readline();
 fo.close();
 
-results.append(lcatr.schema.valid(lcatr.schema.get('TS3_fe55'),stat=tsstat))
+results.append(lcatr.schema.valid(lcatr.schema.get('TS3_flat'),stat=tsstat))
 
 os.system("%s/dotemppressplots.sh" % sitedir)
 
