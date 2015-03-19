@@ -1,0 +1,83 @@
+%YAML  1.1
+---
+# Assumes sensor has already been registered: that is, has an entry
+# in the Hardware table and has at least one HardwareIdentifier (otherwise
+# would not have gotten through T01)
+Name: Sensor_T02 - hnmod2-3
+HardwareType: CCD
+Description: Initial sensor dimensional tests
+Sequence:
+   -
+      Name: Activate OGP machine - hnmod2-3
+      InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/activateOGP.html#ogpon"
+      Prerequisites:
+       - 
+         Name:  OGP machine - hnmod2-3
+         Description: III OGP MUST BE IN THE CALIBRATED STATE III
+         PrerequisiteType:  TEST_EQUIPMENT
+   -
+      Name: T02 Sensor jig mounting assembly - hnmod2-3
+      Description: III MOUNT JIG IN MF01 AND ATTACH IT TO MF02 BASEPLATE III
+   -
+      Name: T02 ready for measurements - hnmod2-3
+      Description: III ATTACH HEIGHT GAUGE BLOCKS TO MF01 AND REMOVE JIG SENSOR COVER III
+      Prerequisites:
+       -
+         Name: 13.00 mm gauge blocks - hnmod2-3
+         PrerequisiteType:    TEST_EQUIPMENT
+   -
+      Name: T02_surface_dimensions - hnmod2-3
+      Description: III RUN OGP SENSOR SCRIPT FOR THIS FUNCTION III
+      InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/activateOGP.html#dimensions"
+      UserVersionString: v0
+#      TravelerActions:
+#        - HarnessedJob
+   -
+      Name: T02_flatness - hnmod2-3
+      InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/activateOGP.html#flatness"
+      Description: III RUN OGP SCRIPT FOR THIS FUNCTION III
+      UserVersionString: v0
+#      TravelerActions:
+#        - HarnessedJob
+   -
+      Name: T02_flatness_size_analysis - hnmod2-3
+      InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/activateOGP.html#flatness"
+      UserVersionString: v0
+#      TravelerActions:
+#        - HarnessedJob
+      Prerequisites:
+        -
+          Name: T02_surface_dimensions - hnmod2-3
+          PrerequisiteType: PROCESS_STEP
+          UserVersionString: v0
+        -
+          Name: T02_flatness - hnmod2-3
+          PrerequisiteType: PROCESS_STEP
+          UserVersionString: v0
+   -
+       Name: T02_absolute_height - hnmod2-3
+       InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/activateOGP.html#height"
+       Description: III RUN OGP SCRIPT FOR THIS HEIGHT FUNCTION III
+       UserVersionString: v0
+#       TravelerActions:
+#         - HarnessedJob
+   -
+       Name: T02_absolute_height_analysis  - hnmod2-3
+       UserVersionString: v0
+#       TravelerActions:
+#         - HarnessedJob
+       Prerequisites:
+         -
+           Name: T02_absolute_height - hnmod2-3 
+           PrerequisiteType: PROCESS_STEP
+           UserVersionString: v0
+   -
+       Name: T02_evaluate - hnmod2-3
+       Description: III BASED ON THE OUTPUT FROM THE ANALYSIS STEPS DECIDE TO PASS OR FAIL IT III
+       Selection:
+         -
+           Name: T02_passed - hnmod2-3
+           Description: Return jig to coffin and storage
+         -
+           Name: T02_failed - hnmod2-3
+           Description: Return to vendor

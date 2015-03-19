@@ -1,0 +1,196 @@
+%YAML  1.2
+---
+# Assumes sensor has already been registered: that is, has an entry
+# in the Hardware table and has at least one HardwareIdentifier (otherwise
+# would not have gotten through T01)
+Name: Sensor_T03 - hnmod1
+HardwareType: CCD
+Description: Sensor EO characterization
+Sequence:
+   -
+     Name: Prepare TS3 cryostat - hnmod1
+     Description:  Get cryostat ready for sensor jig installation
+     Prerequisites: 
+       -  
+         Name: Cryostat - hnmod1
+         PrerequisiteType: TEST_EQUIPMENT
+     InstructionsURL: "http://www.stanford.edu/~homer/eTraveler/instructions/T03/prepare_cryostat.html"
+   -
+     Name: Access jig - hnmod1
+     Description:  Fetch coffin from storage; remove covered jig
+     Prerequisites:
+        -
+         Name: ESD station ready - hnmod1
+         PrerequisiteType: TEST_EQUIPMENT
+   - 
+     Name: TS3 jig into cryo - hnmod1
+     Description: Install jig into cryostat; connect cables
+   - 
+     Name: TS3 uncover jig - hnmod1
+     Description: Remove cover from jig
+   - 
+     Name: TS3 ready controller - hnmod1
+     Description: Close window flange; connect controller
+     InstructionsURL: "http://www.stanford.edu/~homer/eTraveler/instructions/T03/ready_controller.html"
+     Prerequisites:
+        -
+         Name: CCD Controller - hnmod1
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: TS3 pump down - hnmod1
+     Description: TS3 pump down
+     Prerequisites:
+        -
+         Name: Turbo pump station - hnmod1
+         PrerequisiteType:  TEST_EQUIPMENT
+   -
+     Name: TS3 cooldown - hnmod1
+     Description: Cool down cryostat; monitor
+     RequiredInputs:
+        -
+         Label: Cooldown log (filepath)
+         InputSemantics: filepath
+   -
+     Name: TS3_initialize_electronics - hnmod1
+     #  Is the script run via job harness?  If so, value of Name above is the
+     #  job harness "cannonical job name"; there must be a UserVersionString
+     #  key and the HarnessedJob flag must be set (normally clear)
+     #  See example of job harnessed step description below
+     Description: Start lamp and initialize electronics via script
+   -
+     Name: TS3 Set up cryostat at dark box - hnmod1
+   -
+     Name: run full EO test scripts - hnmod1
+     Sequence:      # each test script is a separate harnessed step
+       -
+          Name: TS3_flat - hnmod1
+          UserVersionString: v5
+          TravelerActions:
+            - HarnessedJob
+       -
+          Name: TS3_fe55 - hnmod1
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+       -
+          Name: TS3_dark - hnmod1
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+       -
+          Name: TS3_sflat - hnmod1
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+       -
+          Name: TS3_lambda - hnmod1
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+       -
+          Name: TS3_ppump - hnmod1
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+   -
+     Name: TS3 offline analysis - hnmod1
+     # substeps are harnessed analysis jobs. 
+     Sequence:
+       -
+          Name: fe55_analysis - hnmod1
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+          Prerequisites:
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS3_fe55 - hnmod1
+              UserVersionString: v0
+       -  
+          Name: bright_pixels - hnmod1
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+          Prerequisites:
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS3_dark - hnmod1
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: fe55_analysis
+              UserVersionString: v0
+       -  
+          Name: dark_current - hnmod1
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+          Prerequisites:
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS3_dark - hnmod1
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: fe55_analysis - hnmod1
+              UserVersionString: v0
+       -  
+          Name: prnu - hnmod1
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+          Prerequisites:
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS3_sflat - hnmod1
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS3_lambda - hnmod1
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: fe55_analysis
+              UserVersionString: v0
+       -  
+          Name: trap - hnmod1
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+          Prerequisites:
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS3_ppump - hnmod1
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: fe55_analysis - hnmod1
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: bright_pixels - hnmod1
+              UserVersionString: v0
+       -  
+          Name: qe - hnmod1
+          UserVersionString: v0
+          TravelerActions:
+            - HarnessedJob
+          Prerequisites:
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: TS3_lambda - hnmod1
+              UserVersionString: v0
+            -
+              PrerequisiteType:  PROCESS_STEP
+              Name: fe55_analysis - hnmod1
+              UserVersionString: v0
+   -
+     Name: TS3 cryostat warmup - hnmod1
+     Description:  Controlled warmup of cryostat; monitor thermal cycle
+     RequiredInputs:
+        -
+         Label: Warmup log (filepath)
+         InputSemantics: filepath
+   -
+     Name: TS3 cryostat done - hnmod1
+     Description: Move cryostat to TS5 s

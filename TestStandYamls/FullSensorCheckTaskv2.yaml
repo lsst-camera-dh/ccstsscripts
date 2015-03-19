@@ -88,15 +88,16 @@ Sequence:
              Label: _SurfaceRef01.DAT (filepath)
              InputSemantics: filepath
        -
-           Name: T02_absolute_height - ST3
-           InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/activateOGP.html#height"
-           Description: Click Open an Existing Routine to open CCDHeight.RTN, then click Run the Current Routine. When the first countour scan is complete, name and save the data file as CCDSerial_Height01.DAT. Let the rest of the routine finish. Place the cover on the CCD. Remove the CCD and place optical flat in a position on the OGP stage to ensure the area measured during the previous step is covered. To focus the OGP camera to the optical flats surface, click Start a New Routine button, locate an area of the optical flat, click on Basic Focus and click inside the box displayed. A successful focus will result in the displayed box turning green. Then, click the cd button in the Digital Readout Window to zero the Z-axis. Focus the OGP laser by clicking the Laser Focus button, placing the crosshairs on the optical flats surface, and clicking inside the circle. Click Open an Existing Routine to open CCDHeight.RTN, then click Run the Current Routine. When the first contour scan is complete, name and save the data file as CCDSerial#_HeightRef01.DAT. Let the rest of the routine finish. Return the optical flat to its container.
-           RequiredInputs:
-             -
-              Label: _HeightRef01.DAT (filepath)
+          Name: T02_absolute_height - ST3
+          InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/activateOGP.html#height"
+          Description: Click Open an Existing Routine to open CCDHeight.RTN, then click Run the Current Routine. When the first countour scan is complete, name and save the data file as CCDSerial_Height01.DAT. Let the rest of the routine finish. Place the cover on the CCD. Remove the CCD and place optical flat in a position on the OGP stage to ensure the area measured during the previous step is covered. To focus the OGP camera to the optical flats surface, click Start a New Routine button, locate an area of the optical flat, click on Basic Focus and click inside the box displayed. A successful focus will result in the displayed box turning green. Then, click the cd button in the Digital Readout Window to zero the Z-axis. Focus the OGP laser by clicking the Laser Focus button, placing the crosshairs on the optical flats surface, and clicking inside the circle. Click Open an Existing Routine to open CCDHeight.RTN, then click Run the Current Routine. When the first contour scan is complete, name and save the data file as CCDSerial#_HeightRef01.DAT. Let the rest of the routine finish. Return the optical flat to its container.
+          RequiredInputs:
+            -
+             Label: _HeightRef01.DAT (filepath)
+             InputSemantics: filepath
        -
-           Name: Turn off OGP machine and prepare to move CCD to TS3- ST3
-           Description:  Remove the height gauge blocks. Remove the loaded MF01 from MF02. Remove the shipping jig from MF01. Blow the CCD with compressed N2 before putting the cover back on and screwing the container closed.  Place the container in the clean storage area. Hit START/STOP on the controller.  Close the program. Turn off the OGP with the button on the controller.
+          Name: Turn off OGP machine and prepare to move CCD to TS3- ST3
+          Description:  Remove the height gauge blocks. Remove the loaded MF01 from MF02. Remove the shipping jig from MF01. Blow the CCD with compressed N2 before putting the cover back on and screwing the container closed.  Place the container in the clean storage area. Hit START/STOP on the controller.  Close the program. Turn off the OGP with the button on the controller.
    -
      Name: Sensor at TS3 - ST3
      Description:  Initial preparation for EO testing

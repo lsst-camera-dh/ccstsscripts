@@ -3,343 +3,421 @@
 # Assumes sensor has already been registered: that is, has an entry
 # in the Hardware table and has at least one HardwareIdentifier (otherwise
 # would not have gotten through T01)
-Name: SensorRaft_TS8
+Name: SensorRaft_TS8 - hnmod1a
+
 HardwareType: CCD
 Description: Sensor EO characterization
 Sequence:
    -
-     Name: TS8 cryostat prepare - hnmod1
+     Name: TS8 cryostat prepare - hnmod1a
+
      Description:  Get cryostat ready for raft
      Prerequisites: 
        -  
-         Name: Cryostat - hnmod1
+         Name: Cryostat - hnmod1a
+
          PrerequisiteType: TEST_EQUIPMENT
      InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/eTraveler/instructions/T08/prepare_cryostat.html"
    -
-     Name: Access raft - hnmod1
+     Name: Access raft - hnmod1a
+
      Description:  Fetch raft
      Prerequisites:
         -
-         Name: RTM station ready - hnmod1
+         Name: RTM station ready - hnmod1a
+
          PrerequisiteType: TEST_EQUIPMENT
    - 
-     Name: TS8 raft into cryo - hnmod1
+     Name: TS8 raft into cryo - hnmod1a
+
      Description: Install jig into cryostat; connect cables
    - 
-     Name: TS8 ready DAQ - hnmod1
+     Name: TS8 ready DAQ - hnmod1a
+
      Description: Close window flange; connect controller
      InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/eTraveler/instructions/T08/ready_controller.html"
      Prerequisites:
         -
-         Name: Raft Controller - REB - hnmod1
+         Name: Raft Controller - REB - hnmod1a
+
          PrerequisiteType: TEST_EQUIPMENT
    -
-     Name: TS8 pump down - hnmod
+     Name: TS8 pump down - hnmod - hnmod1a
+
      Description: TS8 pump down
      Prerequisites:
         -
-         Name: Turbo pump station - hnmod1
+         Name: Turbo pump station - hnmod1a
+
          PrerequisiteType:  TEST_EQUIPMENT
    -
-     Name: TS8 cooldown - hnmod1
+     Name: TS8 cooldown - hnmod1a
+
      Description: Cool down cryostat; monitor
      Prerequisites:
         -
-         Name: cryo-tiger on - hnmod1
+         Name: cryo-tiger on - hnmod1a
+
          PrerequisiteType: TEST_EQUIPMENT
         - 
-         Name: Thermal controller - hnmod1
+         Name: Thermal controller - hnmod1a
+
          PrerequisiteType: TEST_EQUIPMENT
      RequiredInputs:
         -
          Label: Cooldown log (filepath)
          InputSemantics: filepath
    -
-     Name: TS8_initialize_electronics - hnmod1
-     #  Is the script run via job harness?  If so, value of Name above is the
+     Name: TS8_initialize_electronics - hnmod1a
+
+     #  Is the script run via job harness?  If so, value of Name above is the - hnmod1a
+
      #  job harness "cannonical job name"; there must be a UserVersionString
      #  key and the HarnessedJob flag must be set (normally clear)
      #  See example of job harnessed step description below
      Description: Start lamp and initialize electronics via script
    -
-     Name: TS8 Set up cryostat at MOTS - hnmod1
+     Name: TS8 Set up cryostat at MOTS - hnmod1a
+
      Prerequisites:
         -
-         Name: MOTS - hnmod1
+         Name: MOTS - hnmod1a
+
          PrerequisiteType: TEST_EQUIPMENT
         -
-         Name: tunnel - hnmod1
+         Name: tunnel - hnmod1a
+
          PrerequisiteType: TEST_EQUIPMENT
    -
-     Name: TS8 Record pattern images - hnmod1
+     Name: TS8 Record pattern images - hnmod1a
+
      #  Is this a harnessed job?
      Description: Set up pattern projector; record images
      Prerequisites:
         -
-         Name: pattern projector - hnmod1
+         Name: pattern projector - hnmod1a
+
          PrerequisiteType: TEST_EQUIPMENT
      RequiredInputs:
         -
          Label: directory path for pattern images
          InputSemantics: filepath
    -
-     Name: TS8 Prepare for EO test scripts - hnmod1
+     Name: TS8 Prepare for EO test scripts - hnmod1a
+
      Description: Remove pattern projector, set up monochromator
      Prerequisites:
        -
-         Name: monochromator - hnmod1
+         Name: monochromator - hnmod1a
+
          PrerequisiteType: TEST_EQUIPMENT
    -
-     Name: run full EO test scripts - hnmod1
+     Name: run full TS8 EO test scripts - hnmod1a
+
      Sequence:      # each test script is a separate harnessed step
        -
-          Name: ccd250_mask_generation - hnmod1
+          Name: ccd250_mask_generation - hnmod1a
+
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
             # operator is told to paste job harness cmd into console window
        -
-          Name: TS8_system_noise - hnmod1
+          Name: TS8_system_noise - hnmod1a
+
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
        -
-          Name: TS8_system_xtalk - hnmod1
+          Name: TS8_system_xtalk - hnmod1a
+
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
        -
-          Name: TS8_fe55 - hnmod1
+          Name: TS8_fe55 - hnmod1a
+
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
        -
-          Name: TS8_dark - hnmod1
+          Name: TS8_dark - hnmod1a
+
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
        -
-          Name: TS8_spot - hnmod1
+          Name: TS8_spot - hnmod1a
+
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
        -
-          Name: TS8_superflat - hnmod1
+          Name: TS8_superflat - hnmod1a
+
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
        -
-          Name: TS8_lambda - hnmod1
+          Name: TS8_lambda - hnmod1a
+
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
        -
-          Name: TS8_ppump - hnmod1
+          Name: TS8_ppump - hnmod1a
+
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
    -
-     Name: TS8 offline analysis - hnmod1
+     Name: TS8 offline analysis - hnmod1a
+
      # substeps are harnessed analysis jobs. 
      Sequence:
        -
-          Name: fe55_analysis - hnmod1
+          Name: fe55_analysis - hnmod1a
+
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
           Prerequisites:
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: ccd250_mask_generation - hnmod1
+              Name: ccd250_mask_generation - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: TS8_fe55 - hnmod1
+              Name: TS8_fe55 - hnmod1a
+
               UserVersionString: v0
        -  
-          Name: bright_pixels - hnmod1
+          Name: bright_pixels - hnmod1a
+
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
           Prerequisites:
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: ccd250_mask_generation - hnmod1
+              Name: ccd250_mask_generation - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: TS8_dark - hnmod1
+              Name: TS8_dark - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: fe55_analysis - hnmod1
+              Name: fe55_analysis - hnmod1a
+
               UserVersionString: v0
        -  
-          Name: read_noise - hnmod1
+          Name: read_noise - hnmod1a
+
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
           Prerequisites:
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: ccd250_mask_generation - hnmod1
+              Name: ccd250_mask_generation - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: TS8_system_noise - hnmod1
+              Name: TS8_system_noise - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: TS8_fe55 - hnmod1
+              Name: TS8_fe55 - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: fe55_analysis - hnmod1
+              Name: fe55_analysis - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: bright_pixels - hnmod1
+              Name: bright_pixels - hnmod1a
+
               UserVersionString: v0
        -  
-          Name: dark_current - hnmod1
+          Name: dark_current - hnmod1a
+
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
           Prerequisites:
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: ccd250_mask_generation - hnmod1
+              Name: ccd250_mask_generation - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: TS8_dark - hnmod1
+              Name: TS8_dark - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: fe55_analysis - hnmod1
+              Name: fe55_analysis - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: bright_pixels - hnmod1
+              Name: bright_pixels - hnmod1a
+
               UserVersionString: v0
        -  
-          Name: crosstalk - hnmod1
+          Name: crosstalk - hnmod1a
+
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
           Prerequisites:
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: ccd250_mask_generation - hnmod1
+              Name: ccd250_mask_generation - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: TS8_system_xtalk - hnmod1
+              Name: TS8_system_xtalk - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: TS8_spot - hnmod1
+              Name: TS8_spot - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: bright_pixels
+              Name: bright_pixels - hnmod1a
+
               UserVersionString: v0
        -  
-          Name: cte
+          Name: cte - hnmod1a
+
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
           Prerequisites:
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: ccd250_mask_generation
+              Name: ccd250_mask_generation - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: TS8_superflat
+              Name: TS8_superflat - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: bright_pixels
+              Name: bright_pixels - hnmod1a
+
               UserVersionString: v0
        -  
-          Name: prnu
+          Name: prnu - hnmod1a
+
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
           Prerequisites:
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: ccd250_mask_generation
+              Name: ccd250_mask_generation - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: TS8_superflat
+              Name: TS8_superflat - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: TS8_lambda
+              Name: TS8_lambda - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: fe55_analysis
+              Name: fe55_analysis - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: bright_pixels
+              Name: bright_pixels - hnmod1a
+
               UserVersionString: v0
        -  
-          Name: trap
+          Name: trap - hnmod1a
+
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
           Prerequisites:
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: ccd250_mask_generation
+              Name: ccd250_mask_generation - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: TS8_ppump
+              Name: TS8_ppump - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: fe55_analysis
+              Name: fe55_analysis - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: bright_pixels
+              Name: bright_pixels - hnmod1a
+
               UserVersionString: v0
        -  
-          Name: qe
+          Name: qe - hnmod1a
+
           UserVersionString: v0
           TravelerActions:
             - HarnessedJob
           Prerequisites:
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: ccd250_mask_generation
+              Name: ccd250_mask_generation - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: TS8_lambda
+              Name: TS8_lambda - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: fe55_analysis
+              Name: fe55_analysis - hnmod1a
+
               UserVersionString: v0
             -
               PrerequisiteType:  PROCESS_STEP
-              Name: bright_pixels
+              Name: bright_pixels - hnmod1a
+
               UserVersionString: v0
           
    -
-     Name: TS8 cryostat warmup
+     Name: TS8 cryostat warmup - hnmod1a
+
      Description:  Controlled warmup of cryostat; monitor thermal cycle
      RequiredInputs:
         -
          Label: Warmup log (filepath)
          InputSemantics: filepath
    -
-     Name: TS8 cryostat done
+     Name: TS8 cryostat done - hnmod1a
+
      Description: Prepare for shipping RTM

@@ -1,0 +1,92 @@
+%YAML  1.1
+---
+# mini test of TS3 process
+Name: TS3mini - test - miniT1
+HardwareType: CCD
+Description: Sensor delivery and inspection
+Sequence:
+   -
+     Name: Sensor at TS3 - miniT1
+     Description:  Initial preparation for EO testing
+     Sequence:
+       -
+         Name: Sensor at TS3 - Get cryostat ready for sensor jig installation
+         Description:  After loading a new device into the cryostat and performing the readout system initialization, the Dewar window is installed and the backing vacuum pump is started. If conditions warrant, the Dewar is purged with dry nitrogen gas (5X fill and evacuate). Rough pumping should proceed until the foreline pressure is below 5 mtorr, at which point the turbomolecular pump is started.
+         InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#cryoprep"
+       -
+         Name: Access jig miniT1
+         Description:  Fetch coffin from storage; remove covered jig
+         Prerequisites:
+            -
+             Name: ESD station ready miniT1
+             PrerequisiteType: TEST_EQUIPMENT
+       - 
+         Name: TS3 jig into cryo miniT1
+         Description: Install jig into cryostat; connect cables
+       - 
+         Name: TS3 uncover jig miniT1
+         Description: Remove cover from jig
+       - 
+         Name: TS3 ready controller miniT1
+         Description: After the CCD is installed and the controller signals have been verified, shorting plugs are removed and the CCD is connected to the controller. The controller is then powered up and a version-controlled configuration file is loaded. When the configuration parameters are APPLIED the system enters a state in which the clocks and biases are isolated from the CCD by opto-isolated solid-state relays.
+         InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#controller"
+         Prerequisites:
+            -
+             Name: CCD Controller ON miniT1
+             PrerequisiteType: TEST_EQUIPMENT
+       -
+         Name: TS3 pump down miniT1
+         Description: TS3 pump down
+         InstructionsURL: "http://www4.rcf.bnl.go/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#pumpdown"
+         Prerequisites:
+            -
+             Name: turbo pump station miniT1
+             PrerequisiteType:  TEST_EQUIPMENT
+       -
+         Name: TS3 cooldown miniT1
+         Description: Cool down cryostat; monitor
+         RequiredInputs:
+            -
+             Label: Cooldown log (filepath)
+             InputSemantics: filepath
+       -
+         Name: TS3_initialize_electronics miniT1
+         InstructionsURL: "http://www4.rcf.bnl.go/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#electronics"
+         Description: Start lamp and initialize electronics via script
+       -
+        Name: TS3 Set up cryostat at dark box miniT1
+       -
+         Name: run full EO test scripts miniT1
+         InstructionsURL: "http://www4.rcf.bnl.go/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#scripts"
+         Sequence:     
+           -
+              Name: TS3_flat
+              UserVersionString: v10
+              TravelerActions:
+                - HarnessedJob
+           -
+              Name: TS3_dark
+              UserVersionString: v2
+              TravelerActions:
+                - HarnessedJob
+       -
+         Name: TS3 offline analysis miniT1
+     # substeps are harnessed analysis jobs. 
+         Sequence:
+           -
+              Name: flat_pairs
+              UserVersionString: v0
+              TravelerActions:
+                - HarnessedJob
+              Prerequisites:
+                -
+                  PrerequisiteType:  PROCESS_STEP
+                  Name: TS3_flat
+                  UserVersionString: v10
+       -
+         Name: TS3 cryostat warmup miniT1
+         Description:  After the conclusion of testing, the controller is set to the POWERDOWN state. The polycold (cryo-tiger) system should be turned off. When the Dewar internal temperatures have reached a point where there is no danger of condensation, the Dewar pressure is brought up to 760torr with dry N2 gas. The window flange can then be opened and the CCD exchanged.
+         InstructionsURL: "http://www4.rcf.bnl.go/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#warmup"
+       -
+         Name: TS3 cryostat done miniT1
+         Description: Move cryostat to TS5

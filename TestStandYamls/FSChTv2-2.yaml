@@ -1,0 +1,79 @@
+%YAML  1.1
+---
+# For sensors that will be processed through TS1 TS2 and TS3
+Name: FullSensorCheckTask - TS2 - ST3
+HardwareType: CCD
+Description: Sensor delivery and inspection. The following will step you through the procedure for sensor delivery and inspection along with descriptions of the steps that should always be reread BEFORE performing the step. These sensors are extremely valuable and can be easily destroyed if the procedures are not strictly adhered to.
+Sequence:
+   -
+     Name: Sensor at TS2 - ST3
+     Description:  Initial inspection
+     Sequence:
+       -
+          Name: Activate OGP machine - ST3
+          Description:  Using the camera provided, photograph the CCD and shipping fixture. Turn on the OGP with the switch on the controller. Open the program.  Hit START/STOP on the controller. Record in the traveler the latest date of calibration for the OGP.
+          InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/activateOGP.html#ogpon"
+       -  
+          Name: mount mf01 and remove jig covere - ST3
+          Description:  Place the CCD in MF01. Connect the loaded MF01 to MF02. Attach the height gauge blocks to MF01. Place the assembly onto the OGP table and remove the jig cover.
+          InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/mountMF01.html#mountmf01"
+       -
+          Name:  RUN EDGE INSPECTION SCRIPT AND ARCHIVE IMAGE PHOTOS - ST3
+          Description:   Roughly find the lower-left corner of the CCD in the image window.  Focus the camera onto the CCD surface- Apply enough light using the controller, find a flat surface, click the Basic Focus button, and click inside the box displayed. A successful focus with result in the displayed box turning green. Once focused, click the cd button in the Digital Readout Window to zero the Z-axis. Use the Crosshair Button and line up the X- and Y-axis to the lower left corner with the first quadrant. Once aligned, click the cXd and cYd buttons in the Digital Readout Window to zero out these axes. Find the lower-right corner of the CCD, and line up the axis with the second quadrant. Click the cANGd button in the Digital Readout Window to finalize the new coordinate system conveying where the CCD is on the OGP stage.  Focus the OGP laser by clicking the Laser Focus button, placing the crosshairs on the CCD surface, and clicking inside the circle. Click Open an Existing Routine to open CCDPerimeter.RTN, then click Run the Current Routine. When the first contour scan is complete, name and save the data file as CCDSerial#_Perimeter01.DAT. Let the rest of the routine finish.
+          InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/T01/edgeInspection.html#perimeter"
+          RequiredInputs:
+            -
+             Label: Perimeter01.DAT (filepath)
+             InputSemantics: filepath
+          Selection:
+               - 
+                 Condition: PASS
+                 Name: T01_Pass - ST3
+                 Selection:
+                    -
+                       Condition: ARE YOU DONE FOR THE DAY? IF NOT GO ON TO T02.
+                       Name: Sensor_store - ST3
+                       Description: Return jig and coffin to storage
+                    -
+                       Condition: default
+                       Name: Sensor_goto_Surface Dimension Check - ST3
+               -
+                 Condition: FAIL
+                 Name: T01_Fail - ST3
+                 Sequence:
+                        -
+                          Name: Sensor return - ST3
+                          Description: Replace jig and cover, return to vendor
+                        - 
+                          Name: Sensor abort - ST3
+                          Description: Mark sensor as rejected
+                          InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/reject.html"
+       -
+          Name: T02 Sensor jig mounting assembly - ST3
+          Description: III MOUNT JIG IN MF01 AND ATTACH IT TO MF02 BASEPLATE III
+       -
+          Name: T02 ready for measurements - ST3
+          Description: III ATTACH HEIGHT GAUGE BLOCKS TO MF01 AND REMOVE JIG SENSOR COVER III
+          Prerequisites:
+           -
+             Name: 13.00 mm gauge blocks - ST3
+             PrerequisiteType:    TEST_EQUIPMENT
+       -
+          Name: T02_surface_dimensions - ST3
+          Description: Click Open an Existing Routine to open CCDSurface.RTN, then click Run the Current Routine. When the first contour scan is complete, name and save the data file as CCDSerial_Surface01.DAT. Let the rest of the routine finish. Place the cover on the CCD. Remove the CCD and place optical flat in a position on the OGP stage to ensure the area measured during the previous step is covered. To focus the OGP camera to the optical flat\u2019s surface, click Start a New Routine button, locate an area of the optical flat, click on Basic Focus and click inside the box displayed. A successful focus will result in the displayed box turning green. Then, click the cd button in the Digital Readout Window to zero the Z-axis.Focus the OGP laser by clicking the Laser Focus button, placing the crosshairs on the optical flats surface, and clicking inside the circle. Click Open an Existing Routine to open CCDSurface.RTN, then click Run the Current Routine. When the first contour scan is complete, name and save the data file as CCDSerial_SurfaceRef01.DAT. Let the rest of the routine finish. Return the optical flat to its container.
+          InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/activateOGP.html#dimensions"
+          RequiredInputs:
+            -
+             Label: SurfaceRef01.DAT (filepath)
+             InputSemantics: filepath
+       -
+          Name: T02_absolute_height - ST3
+          InstructionsURL:    "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/activateOGP.html#height"
+          Description: Click Open an Existing Routine to open CCDHeight.RTN, then click Run the Current Routine. When the first countour scan is complete, name and save the data file as CCDSerial_Height01.DAT. Let the rest of the routine finish. Place the cover on the CCD. Remove the CCD and place optical flat in a position on the OGP stage to ensure the area measured during the previous step is covered. To focus the OGP camera to the optical flats surface, click Start a New Routine button, locate an area of the optical flat, click on Basic Focus and click inside the box displayed. A successful focus will result in the displayed box turning green. Then, click the cd button in the Digital Readout Window to zero the Z-axis. Focus the OGP laser by clicking the Laser Focus button, placing the crosshairs on the optical flats surface, and clicking inside the circle. Click Open an Existing Routine to open CCDHeight.RTN, then click Run the Current Routine. When the first contour scan is complete, name and save the data file as CCDSerial#_HeightRef01.DAT. Let the rest of the routine finish. Return the optical flat to its container.
+          RequiredInputs:
+            -
+             Label: HeightRef01.DAT (filepath)
+             InputSemantics: filepath
+       -
+          Name: Turn off OGP machine and prepare to move CCD to TS3- ST3
+          Description:  Remove the height gauge blocks. Remove the loaded MF01 from MF02. Remove the shipping jig from MF01. Blow the CCD with compressed N2 before putting the cover back on and screwing the container closed.  Place the container in the clean storage area. Hit START/STOP on the controller.  Close the program. Turn off the OGP with the button on the controller.
