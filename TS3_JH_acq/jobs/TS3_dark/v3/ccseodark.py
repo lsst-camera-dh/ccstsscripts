@@ -116,8 +116,9 @@ for line in fp:
             print "done with exposure # %d" % i
             print "getting photodiode readings"
 
-            pdfilename = "pd-values_%d-for-seq-%d-exp-%d" % (int(timestamp),seq,i)
-            pdsub.synchCommand(500,"readBuffer","%s/%s" % (cdir,pdfilename));
+            pdfilename = "pd-values_%d-for-seq-%d-exp-%d" % (int(timestamp),seq,i+1)
+            result = pdsub.synchCommand(500,"readBuffer","%s/%s" % (cdir,pdfilename));
+            awaytowait = result.getResult();
             print "Finished getting readings at %f" % time.time()
 
             fpfiles.write("%s %s/%s %f\n" % (fitsfilename,cdir,pdfilename,timestamp))
