@@ -1,0 +1,30 @@
+%YAML  1.1
+---
+# For sensors that will be processed through TS1 TS2 and TS3
+Name: FullSensorCheckTask - HEAD
+Version: next
+HardwareType: CCD
+Description: Sensor delivery and inspection. The following will step you through the procedure for sensor delivery and inspection along with descriptions of the steps that should always be reread BEFORE performing the step. These sensors are extremely valuable and can be easily destroyed if the procedures are not strictly adhered to.
+imports:
+   - FSChTv3-1.yaml
+Sequence:
+   -
+     Name: TS1 Task
+     Version: next
+     Description:  Proceed to TS1 Task
+     importss: 
+        - FullSensorCheckTask - TS1
+   -
+     Name: TS2 Task
+     Version: next
+     Description:  Proceed to TS2 Task
+     importss: FullSensorCheckTask - TS2
+   -
+     Name: TS3 Task
+     Version: next
+     Description:  Proceed to TS3 Task
+     importss: FullSensorCheckTask - TS3
+   -
+     Name: Sensor Approval after full TS1, TS2 and TS3 testing
+     Version: next
+     Description: The report should now be in the hands of the approvers. Currently, they must go to the sensor page and click on the button - pick a new status - . Please proceed with the closeout of this task and check with the approvers that they have received the report.
