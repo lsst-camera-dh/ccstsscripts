@@ -31,6 +31,7 @@ cdir = tsCWD
 
 # Initialization
 print "doing initialization"
+pdsub.synchCommand(10,"reset");
 
 arcsub.synchCommand(10,"setConfigFromFile",acffile);
 arcsub.synchCommand(20,"applyConfig");
@@ -111,7 +112,7 @@ for line in fp:
             print "after click click at %f" % time.time()
 
 # make sure the sample of the photo diode is complete
-            time.sleep(exptime+5.)
+            time.sleep(5.)
 
             print "done with exposure # %d" % i
             print "getting photodiode readings"

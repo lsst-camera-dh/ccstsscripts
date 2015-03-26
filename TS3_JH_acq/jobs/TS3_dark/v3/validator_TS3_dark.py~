@@ -43,7 +43,7 @@ tspres = fo.readline();
 tstemp = fo.readline();
 fo.close();
 
-results.append(lcatr.schema.valid(lcatr.schema.get('TS3_dark'),stat=tsstat,volt=tsvolt,curr=tscurr,pres=tspres,temp=tstemp))
+results.append(lcatr.schema.valid(lcatr.schema.get('TS3_dark'),stat=tsstat))
 
 os.system("%s/dotemppressplots.sh" % sitedir)
 

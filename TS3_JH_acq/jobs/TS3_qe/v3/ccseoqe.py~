@@ -129,7 +129,7 @@ for line in fp:
                 nplc = exptime*60/(nreads-200)
                 print "Nreads limited to 3000. nplc set to %f to cover full exposure period " % nplc
 
-            pdsub.asynchCommand("accumBuffer",int(nreads),nplc,True);
+            pdsub.asynchCommand("accumBuffer",int(nreads),float(nplc),True);
 
 # start acquisition                                                                                      
             arcsub.synchCommand(45,"printControllerStatus");
@@ -144,13 +144,14 @@ for line in fp:
             print "after click click at %f" % time.time()
 
 # make sure the sample of the photo diode is complete                                                    
-            time.sleep(2.)
+            time.sleep(exptime+2.)
 
             print "done with exposure # %d" % i
             print "getting photodiode readings"
 
             pdfilename = "pd-values_%d-for-seq-%d-exp-%d" % (timestamp,seq,i+1)
-            pdsub.synchCommand(500,"readBuffer","%s/%s" % (cdir,pdfilename));
+            result = pdsub.synchCommand(500,"readBuffer","%s/%s" % (cdir,pdfilename));
+            awaytowait = result.getResult();
             print "Finished getting readings at %f" % time.time()
 
             fpfiles.write("%s %s/%s %f\n" % (fitsfilename,cdir,pdfilename,timestamp))

@@ -1,0 +1,5 @@
+# -*- python -*-
+{
+    'schema_name' : 'flat_pairs',
+    'schema_version' : 0
+}

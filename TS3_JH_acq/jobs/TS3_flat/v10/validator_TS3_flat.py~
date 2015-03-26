@@ -37,23 +37,13 @@ fpfiles.close()
 
 fo = open("%s/status.out" % os.getcwd(), "r");
 tsstat = fo.readline();
-tsvolt = fo.readline();
-tscurr = fo.readline();
-tspres = fo.readline();
-tstemp = fo.readline();
 fo.close();
 
-results.append(lcatr.schema.valid(lcatr.schema.get('TS3_flat'),stat=tsstat,volt=tsvolt,curr=tscurr,pres=tspres,temp=tstemp))
+results.append(lcatr.schema.valid(lcatr.schema.get('TS3_flat'),stat=tsstat))
 
 os.system("%s/dotemppressplots.sh" % sitedir)
 
 files = glob.glob('%s/*.fits,*values*,*log*,*summary*,*.dat,*.png,*.py' % os.getcwd())
-#bias = ht.fitsAverage('%s/ArchonImage_Bias.fits' % (jobdir));
-    
-#for fname in files :
-#    avg = ht.fitsAverage(fname)
-#    print "DATA : Bias = %8.2f    Average signal = %8.2f DN" % (bias,avg - bias)
-
     
 data_products = [lcatr.schema.fileref.make(item) for item in files]
 results.extend(data_products)
