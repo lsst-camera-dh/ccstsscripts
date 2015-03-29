@@ -36,6 +36,7 @@ try:
     ccs1.syncExecution("labname = '%s'" % sitename);
     print "Executing libdir=%s" % jobdir
     ccs1.syncExecution("libdir = '%s'" % jobdir);
+    print "acffile = '%s/acffile'" % sitedir
     ccs1.syncExecution("acffile = '%s/acffile'" % sitedir);
     ccs1.syncExecution("acqcfgfile = '%s/cfgfile'" % sitedir);
     ccs1.syncExecution("calfile = '%s/fluxfile'" % sitedir);
