@@ -161,10 +161,10 @@ try:
                 print "getting photodiode readings at time = %f" % time.time();
 
                 pdfilename = "pd-values_%d-for-seq-%d-exp-%d" % (int(timestamp),seq,i+1)
-#                tottime = pdresult.getResult();
 # the primary purpose of this is to guarantee that the accumBuffer method has completed
                 print "starting the wait for an accumBuffer done status message at %f" % time.time()
-                msg = CCS.waitForStatusBusMessage(lambda msg : msg.source == "accumBuffer", 200000)
+                tottime = pdresult.get();
+#                msg = CCS.waitForStatusBusMessage(lambda msg : msg.source == "ts/PhotoDiode", 200000)
                 print "executing readBuffer, cdir=%s , pdfilename = %s" % (cdir,pdfilename)
                 result = pdsub.synchCommand(500,"readBuffer","%s/%s" % (cdir,pdfilename));
                 buff = result.getResult()

@@ -120,7 +120,7 @@ try:
 
 # take bias images
             print "set controller for bias exposure"
-#            arcsub.synchCommand(10,"setParameter","Light","0");
+            arcsub.synchCommand(10,"setParameter","Light","0");
             print "start bias exposure loop"
             bcount = 1
             for i in range(bcount):
@@ -138,8 +138,8 @@ try:
                 time.sleep(2.)
 
 # take light exposures
-#            arcsub.synchCommand(10,"setParameter","Light","1");
-            arcsub.synchCommand(10,"setParameter","ExpTime",str(exptime*1000));
+            arcsub.synchCommand(10,"setParameter","Light","1");
+            arcsub.synchCommand(10,"setParameter","ExpTime",str(int(exptime*1000)));
  
             for i in range(imcount):
 
@@ -148,7 +148,7 @@ try:
                 if (nreads > 3000):
                     nreads = 3000
                     nplc = exptime*60/(nreads-200)
-                print "Nreads limited to 3000. nplc set to %f to cover full exposure period " % nplc
+                    print "Nreads limited to 3000. nplc set to %f to cover full exposure period " % nplc
 
                 print "nreads set to %d and nplc set to %f" % (int(nreads),float(nplc))
                 pdresult = pdsub.asynchCommand("accumBuffer",int(nreads),float(nplc),True);
@@ -176,9 +176,13 @@ try:
                 print "getting photodiode readings"
 
                 pdfilename = "pd-values_%d-for-seq-%d-exp-%d" % (int(timestamp),seq,i+1)
-#                tottime = pdresult.getResult(); # the primary purpose of this is to guarantee that the accumBuffer method has completed
+
+# the primary purpose of this is to guarantee that the accumBuffer method has completed                                                       print "starting the wait for an accumBuffer done status message at %f" % time.time()
+                tottime = pdresult.get();
+
                 print "executing readBuffer"
-                pdsub.synchCommand(500,"readBuffer","%s/%s" % (cdir,pdfilename));
+                result = pdsub.synchCommand(500,"readBuffer","%s/%s" % (cdir,pdfilename));
+                buff = result.getResult()
                 print "Finished getting readings at %f" % time.time()
 
 
