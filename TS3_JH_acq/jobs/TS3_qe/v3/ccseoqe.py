@@ -24,6 +24,7 @@ try:
     vacsub  = CCS.attachSubsystem("ts/VacuumGauge");
     lampsub = CCS.attachSubsystem("ts/Lamp");
     monosub = CCS.attachSubsystem("ts/Monochromator");
+    monosub.synchCommand(10,"setHandshake",0);
     
     print "Attaching archon subsystem"
     arcsub  = CCS.attachSubsystem("archon");
@@ -84,7 +85,6 @@ try:
     arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
 
     print "set filter position"
-    monosub.synchCommand(10,"setHandshake",0); # open position
     monosub.synchCommand(10,"setFilter",1); # open position
 
 # go through config file looking for 'qe' instructions, take the qes
@@ -123,8 +123,6 @@ try:
 # take light exposures
             arcsub.synchCommand(10,"setParameter","Light","1");
             arcsub.synchCommand(10,"setParameter","ExpTime",str(int(exptime*1000)));
-
-            print "exptime = %f, s_exptime = %s" % (exptime,str(int(exptime*1000)))
 
 # prepare to readout diodes
             nreads = exptime*60/nplc + 200
