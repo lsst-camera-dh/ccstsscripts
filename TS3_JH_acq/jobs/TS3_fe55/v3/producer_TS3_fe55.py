@@ -14,6 +14,8 @@ print "PWD = %s" % os.environ["PWD"]
 print "OLDPWD = %s" % os.environ["OLDPWD"]
 print "getcwd = %s" % os.getcwd();
 
+os.mkdir("bias");
+
 fileName = "%s/sitename" % sitedir
 fo = open(fileName, "r");
 ssitename = fo.read();
@@ -22,7 +24,7 @@ sitename = "%s" % ssitename.rstrip()
 print "sitename = %s" % sitename
 
 
-fileName = "%s/ccseoflat.py" % jobdir
+fileName = "%s/ccseofe55.py" % jobdir
 fo = open(fileName, "r");
 content = fo.read();
 fo.close();

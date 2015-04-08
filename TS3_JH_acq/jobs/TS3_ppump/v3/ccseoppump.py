@@ -18,17 +18,22 @@ try:
 #attach CCS subsystem Devices for scripting
     print "Attaching teststand subsystems"
     tssub  = CCS.attachSubsystem("ts");
+    print "attaching Bias subsystem"
     biassub = CCS.attachSubsystem("ts/Bias");
+    print "attaching PD subsystem"
     pdsub   = CCS.attachSubsystem("ts/PhotoDiode");
+    print "attaching Cryo subsystem"
     cryosub = CCS.attachSubsystem("ts/Cryo");
+    print "attaching Vac subsystem"
     vacsub  = CCS.attachSubsystem("ts/VacuumGauge");
+    print "attaching Lamp subsystem"
     lampsub = CCS.attachSubsystem("ts/Lamp");
+    print "attaching Mono subsystem"
     monosub = CCS.attachSubsystem("ts/Monochromator");
+    monosub.synchCommand(10,"setHandshake",0);
         
     print "Attaching archon subsystem"
     arcsub  = CCS.attachSubsystem("archon");
-    
-    serno = 1   # in the future this will be passed in
     
     cdir = tsCWD
     
@@ -68,14 +73,12 @@ try:
     
     wl     = float(eolib.getCfgVal(acqcfgfile, 'PPUMP_WL', default = "550.0"))
     pcount = float(eolib.getCfgVal(acqcfgfile, 'PPUMP_BCOUNT', default = "25"))
+    imcount = 2
     
 #number of PLCs between readings
     nplc = 1
     
-    arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
-    
     seq = 0  # image pair number in sequence
-    imcount = 2
     
     monosub.synchCommand(10,"setFilter",1);
     
@@ -99,30 +102,43 @@ try:
     
             print "starting acquisition step for lambda = %8.2f with exptime %8.2f s" % (wl, exptime)
     
+            print "setup for dark exposure"
             arcsub.synchCommand(10,"setParameter","Light","0");
-            arcsub.synchCommand(10,"setParameter","Npump",nshifts);
+            print "set number of pocket pumps to %d" % nshifts
+            arcsub.synchCommand(10,"setParameter","Npump",str(nshifts));
+            print "set pocket depth"
             arcsub.synchCommand(10,"setParameter","Pdepth","1");
+            print "set wavelength to %f" % wl
             monosub.synchCommand(30,"setWave",wl);
     
 # pump with some darks then do a light exposure
 # 2sec for the bias
-            arcsub.synchCommand(10,"setParameter","ExpTime","2000"); 
+            print "take some bias images with exptime = 0"
+            arcsub.synchCommand(10,"setParameter","ExpTime","0"); 
+            arcsub.synchCommand(10,"setParameter","Light","0");
+
+            print "setting location of bias fits directory"
+            arcsub.synchCommand(10,"setFitsDirectory","%s/bias" % (cdir));
+
             for i in range(pcount):
 # start acquisition
-    
                 timestamp = time.time()
-                fitsfilename = "%s_ppump_bias_%3.3d_${timestamp}.fits" % (ccd,seq)
+                fitsfilename = "%s_ppump_bias_%3.3d_${TIMESTAMP}.fits" % (ccd,seq)
                 arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
     
                 print "Ready to take bias image. time = %f" % time.time()
                 result = arcsub.synchCommand(200,"exposeAcquireAndSave");
                 fitsfilename = result.getResult();
                 print "after click click at %f" % time.time()
-                time.sleep(2.)
-    
-            arcsub.synchCommand(10,"setParameter","ExpTime",str(int(exptime)));
+                time.sleep(0.2)
+
+# take light exposures
             arcsub.synchCommand(10,"setParameter","Light","1");
+            arcsub.synchCommand(10,"setParameter","ExpTime",str(int(exptime)));
+            print "setting location of fits exposure directory"
+            arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
     
+# prepare to readout diodes
             nreads = exptime*60/nplc + 200
             if (nreads > 3000):
                 nreads = 3000
@@ -130,22 +146,20 @@ try:
                 print "Nreads limited to 3000. nplc set to %f to cover full exposure period " % nplc
 
             for i in range(imcount):
-    
-# prepare to readout diodes
 
                 print "call accumBuffer to start PD recording at %f" % time.time()
                 pdresult =  pdsub.asynchCommand("accumBuffer",int(nreads),float(nplc),True);
 
                 print "recording should now be in progress and the time is %f" % time.time()
+
+# start acquisition
                 timestamp = time.time()
     
+                fitsfilename = "%s_ppump_%3.3d_%3.3d_ppump%d_${TIMESTAMP}.fits" % (ccd,int(wl),seq,i+1)
+                arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
+
 # make sure to get some readings before the state of the shutter changes       
                 time.sleep(0.2);
-    
-# start acquisition
-    
-                fitsfilename = "%s_ppump_%3.3d_ppump%d_${timestamp}.fits" % (ccd,seq,i+1)
-                arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
     
                 print "Ready to take image. time = %f" % time.time()
                 result = arcsub.synchCommand(2000,"exposeAcquireAndSave");
@@ -153,7 +167,7 @@ try:
                 print "after click click at %f" % time.time()
     
 # make sure the sample of the photo diode is complete
-                time.sleep(5.)
+                time.sleep(1.)
     
                 print "done with exposure # %d" % i
                 print "getting photodiode readings"
@@ -162,7 +176,7 @@ try:
 # the primary purpose of this is to guarantee that the accumBuffer method has completed
                 print "starting the wait for an accumBuffer done status message at %f" % time.time()
                 tottime = pdresult.get();
-#                msg = CCS.waitForStatusBusMessage(lambda msg : msg.source == "ts/PhotoDiode", 200000)
+
                 print "executing readBuffer, cdir=%s , pdfilename = %s" % (cdir,pdfilename)
                 result = pdsub.synchCommand(500,"readBuffer","%s/%s" % (cdir,pdfilename));
                 buff = result.getResult()

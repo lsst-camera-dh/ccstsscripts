@@ -14,6 +14,8 @@ print "PWD = %s" % os.environ["PWD"]
 print "OLDPWD = %s" % os.environ["OLDPWD"]
 print "getcwd = %s" % os.getcwd();
 
+os.mkdir("bias");
+
 fileName = "%s/sitename" % sitedir
 fo = open(fileName, "r");
 ssitename = fo.read();

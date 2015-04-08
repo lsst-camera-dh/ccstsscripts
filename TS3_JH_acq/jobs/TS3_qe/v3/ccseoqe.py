@@ -18,11 +18,17 @@ try:
 #attach CCS subsystem Devices for scripting
     print "Attaching teststand subsystems"
     tssub  = CCS.attachSubsystem("ts");
+    print "attaching Bias subsystem"
     biassub = CCS.attachSubsystem("ts/Bias");
+    print "attaching PD subsystem"
     pdsub   = CCS.attachSubsystem("ts/PhotoDiode");
+    print "attaching Cryo subsystem"
     cryosub = CCS.attachSubsystem("ts/Cryo");
+    print "attaching Vac subsystem"
     vacsub  = CCS.attachSubsystem("ts/VacuumGauge");
+    print "attaching Lamp subsystem"
     lampsub = CCS.attachSubsystem("ts/Lamp");
+    print "attaching Mono subsystem"
     monosub = CCS.attachSubsystem("ts/Monochromator");
     monosub.synchCommand(10,"setHandshake",0);
     
@@ -71,23 +77,18 @@ try:
     bcount = int(eolib.getCfgVal(acqcfgfile, 'LAMBDA_BCOUNT', default='1'))
     imcount = int(eolib.getCfgVal(acqcfgfile, 'LAMBDA_IMCOUNT', default='1'))
 
-    serno = 1   # in the future this will be passed in
-    imcount = 2         
-
     seq = 0
 
-#number of PLCs between readings                                                  
+#number of PLCs between readings
     nplc = 1
 
     ccd = CCDID
-
-    print "setting location of fits directory"
-    arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
+    print "Working on CCD %s" % ccd
 
     print "set filter position"
     monosub.synchCommand(10,"setFilter",1); # open position
 
-# go through config file looking for 'qe' instructions, take the qes
+# go through config file looking for 'qe' instructions
     print "Scanning config file for LAMBDA specifications";
     fp = open(acqcfgfile,"r");
     fpfiles = open("%s/acqfilelist" % cdir,"w");
@@ -104,25 +105,29 @@ try:
 
 # take bias images
 
-#   2sec for the bias
-            arcsub.synchCommand(10,"setParameter","ExpTime","2000"); 
+            arcsub.synchCommand(10,"setParameter","ExpTime","0"); 
             arcsub.synchCommand(10,"setParameter","Light","0");
+
+            print "setting location of bias fits directory"
+            arcsub.synchCommand(10,"setFitsDirectory","%s/bias" % (cdir));
 
             for i in range(bcount):
                 timestamp = time.time()
-                fitsfilename = "%s_qe_bias_%3.3d_${timestamp}.fits" % (ccd,seq)
+                fitsfilename = "%s_qe_bias_%3.3d_${TIMESTAMP}.fits" % (ccd,seq)
                 arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
 
                 print "Ready to take bias image. time = %f" % time.time()
                 result = arcsub.synchCommand(200,"exposeAcquireAndSave");
                 fitsfilename = result.getResult();
                 print "after click click at %f" % time.time()
-                time.sleep(2.)
+                time.sleep(0.2)
 
 
 # take light exposures
             arcsub.synchCommand(10,"setParameter","Light","1");
             arcsub.synchCommand(10,"setParameter","ExpTime",str(int(exptime*1000)));
+            print "setting location of fits exposure directory"
+            arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
 
 # prepare to readout diodes
             nreads = exptime*60/nplc + 200
@@ -140,11 +145,15 @@ try:
                 pdresult =  pdsub.asynchCommand("accumBuffer",int(nreads),float(nplc),True);
 
                 print "recording should now be in progress and the time is %f" % time.time()
-# start acquisition
 
+# start acquisition
                 timestamp = time.time()
-                fitsfilename = "%s_qe_%3.3d_qe%d_${timestamp}.fits" % (ccd,seq,i+1)
+                fitsfilename = "%s_qe_%3.3d_%3.3d_qe%d_${TIMESTAMP}.fits" % (ccd,int(wl),seq,i+1)
                 arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
+
+# make sure to get some readings before the state of the shutter changes       
+                time.sleep(0.2);
+ 
 
                 print "Ready to take image. time = %f" % time.time()
                 result = arcsub.synchCommand(200,"exposeAcquireAndSave");
@@ -153,7 +162,7 @@ try:
 
 # make sure the sample of the photo diode is complete
 
-                time.sleep(5.)
+                time.sleep(1.)
 
                 print "done with exposure # %d" % i
                 print "getting photodiode readings at time = %f" % time.time();

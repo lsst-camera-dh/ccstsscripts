@@ -42,8 +42,10 @@ results.append(lcatr.schema.valid(lcatr.schema.get('TS3_sflat'),stat=tsstat))
 
 os.system("%s/dotemppressplots.sh" % sitedir)
 
-files = glob.glob('%s/*.fits,*values*,*log*,*summary*,*.dat,*.png,*.py' % os.getcwd())
-    
+#copy all the lcatr job files too
+os.system("cp -vp %s/{*.py,*.fits} ." % jobdir)
+
+files = glob.glob('%s/*.fits,*values*,*log*,*summary*,*.dat,*.png,*.py,bias/*.fits' % os.getcwd())
 data_products = [lcatr.schema.fileref.make(item) for item in files]
 results.extend(data_products)
 

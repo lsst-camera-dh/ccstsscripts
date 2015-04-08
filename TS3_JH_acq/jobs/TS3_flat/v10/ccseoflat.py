@@ -25,12 +25,19 @@ try:
 #attach CCS subsystem Devices for scripting
     print "Attaching teststand subsystems"
     tssub  = CCS.attachSubsystem("ts");
+    print "attaching Bias subsystem"
     biassub = CCS.attachSubsystem("ts/Bias");
+    print "attaching PD subsystem"
     pdsub   = CCS.attachSubsystem("ts/PhotoDiode");
+    print "attaching Cryo subsystem"
     cryosub = CCS.attachSubsystem("ts/Cryo");
+    print "attaching Vac subsystem"
     vacsub  = CCS.attachSubsystem("ts/VacuumGauge");
+    print "attaching Lamp subsystem"
     lampsub = CCS.attachSubsystem("ts/Lamp");
+    print "attaching Mono subsystem"
     monosub = CCS.attachSubsystem("ts/Monochromator");
+    monosub.synchCommand(10,"setHandshake",0);
 
     print "Attaching archon subsystem"
     arcsub  = CCS.attachSubsystem("archon");
@@ -79,23 +86,21 @@ try:
     hi_lim = float(eolib.getCfgVal(acqcfgfile, 'FLAT_HILIM', default='120.0'))
     imcount = float(eolib.getCfgVal(acqcfgfile, 'FLAT_BCOUNT', default = "2"))
     wl     = float(eolib.getCfgVal(acqcfgfile, 'FLAT_WL', default = "550.0"))
+    bcount = 1
 
 #number of PLCs between readings
     nplc = 1
 
-    print "set the fits directory"
-    arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
-
     seq = 0  # image pair number in sequence
 
-#    monosub.synchCommand(10,"setFilter",5);
+    monosub.synchCommand(10,"setFilter",1);
+
+
+    ccd = CCDID
+    print "Working on CCD %s" % ccd
 
 # go through config file looking for 'flat' instructions, take the flats
     print "Scanning config file for FLAT specifications";
-    ccd = CCDID
-
-    print "Working on CCD %s" % ccd
-
     fp = open(acqcfgfile,"r");
     fpfiles = open("%s/acqfilelist" % cdir,"w");
 
@@ -109,38 +114,41 @@ try:
 
             exptime = eolib.expCheck(calfile, labname, target, wl, hi_lim, lo_lim, test='FLAT', use_nd=False)
 
-# 2sec for the bias
-            arcsub.synchCommand(10,"setParameter","ExpTime","2000"); 
+# take bias images
+            print "set controller for bias exposure"
+            arcsub.synchCommand(10,"setParameter","Light","0");
+            arcsub.synchCommand(10,"setParameter","ExpTime","0");
+ 
+            print "setting location of bias fits directory"
+            arcsub.synchCommand(10,"setFitsDirectory","%s/bias" % (cdir));
 
             print "starting acquisition step for lambda = %8.2f with exptime %8.2f s" % (wl, exptime)
  
             print "setting the monochromator wavelength"
-#            if (exptime > lo_lim):
-#                monosub.synchCommand(30,"setWave",wl);
+            if (exptime > lo_lim):
+                monosub.synchCommand(30,"setWave",wl);
 
-# take bias images
-            print "set controller for bias exposure"
-            arcsub.synchCommand(10,"setParameter","Light","0");
             print "start bias exposure loop"
-            bcount = 1
+
             for i in range(bcount):
                 timestamp = time.time()
-# 113-03_flat_000_flat1_20140709201020.fits
-# 113-03_flat_bias_000_20140709200311.fits
+
                 print "set fits filename"
-                fitsfilename = "%s_flat_bias_%3.3d_${timestamp}.fits" % (ccd,seq)
+                fitsfilename = "%s_flat_bias_%3.3d_${TIMESTAMP}.fits" % (ccd,seq)
                 arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
 
-                print "Ready to take image. time = %f" % time.time()
+                print "Ready to take bias image. time = %f" % time.time()
                 result = arcsub.synchCommand(200,"exposeAcquireAndSave");
                 fitsfilename = result.getResult();
                 print "after click click at %f" % time.time()
-                time.sleep(2.)
+                time.sleep(0.2)
 
 # take light exposures
             arcsub.synchCommand(10,"setParameter","Light","1");
             arcsub.synchCommand(10,"setParameter","ExpTime",str(int(exptime*1000)));
- 
+            print "setting location of fits exposure directory"
+            arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
+
             for i in range(imcount):
 
 # prepare to readout diodes
@@ -158,10 +166,8 @@ try:
                 time.sleep(0.2);
 
 # start acquisition
-#                arcsub.synchCommand(45,"printControllerStatus");
                 print "set fits filename"
-
-                fitsfilename = "%s_flat_%3.3d_flat%d_${timestamp}.fits" % (ccd,seq,i+1)
+                fitsfilename = "%s_flat_%3.3d_%3.3d_flat%d_${TIMESTAMP}.fits" % (ccd,int(wl),seq,i+1)
                 arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
 
                 print "Ready to take image. time = %f" % time.time()

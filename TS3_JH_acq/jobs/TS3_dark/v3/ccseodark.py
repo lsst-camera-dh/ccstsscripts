@@ -18,11 +18,17 @@ try:
 #attach CCS subsystem Devices for scripting
     print "Attaching teststand subsystems"
     tssub  = CCS.attachSubsystem("ts");
+    print "attaching Bias subsystem"
     biassub = CCS.attachSubsystem("ts/Bias");
-    pdsub = CCS.attachSubsystem("ts/PhotoDiode");
+    print "attaching PD subsystem"
+    pdsub   = CCS.attachSubsystem("ts/PhotoDiode");
+    print "attaching Cryo subsystem"
     cryosub = CCS.attachSubsystem("ts/Cryo");
+    print "attaching Vac subsystem"
     vacsub  = CCS.attachSubsystem("ts/VacuumGauge");
+    print "attaching Lamp subsystem"
     lampsub = CCS.attachSubsystem("ts/Lamp");
+    print "attaching Mono subsystem"
     monosub = CCS.attachSubsystem("ts/Monochromator");
     monosub.synchCommand(10,"setHandshake",0);
     
@@ -42,7 +48,6 @@ try:
     
     arcsub.synchCommand(10,"setParameter","Expo","1");
     arcsub.synchCommand(10,"setParameter","Light","0");
-    arcsub.synchCommand(10,"applyParams");
     
 # move to TS acquisition state
     print "setting acquisition state"
@@ -73,15 +78,15 @@ try:
     
     arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
     
+#number of PLCs between readings
     nplc = 1.0
     
-    print "Scanning config file for DARK specifications";
     ccd = CCDID
-    
+    print "Working on CCD %s" % ccd
+
     seq = 0
     
-    print "Working on CCD %s" % ccd
-    
+        print "Scanning config file for DARK specifications";
     fp = open(acqcfgfile,"r");
     fpfiles = open("%s/acqfilelist" % cdir,"w");
     
@@ -93,14 +98,15 @@ try:
     
             arcsub.synchCommand(10,"setParameter","ExpTime",str(int(exptime*1000)));
     
+# prepare to readout diodes
+            nreads = exptime*60/nplc + 200
+            if (nreads > 3000):
+                nreads = 3000
+                nplc = exptime*60/(nreads-200)
+                print "Nreads limited to 3000. nplc set to %f to cover full exposure period " % nplc
+
             for i in range(imcount):
-    
-                nreads = exptime*60/nplc + 200
-                if (nreads > 3000):
-                    nreads = 3000
-                    nplc = exptime*60/(nreads-200)
-                    print "Nreads limited to 3000. nplc set to %f to cover full exposure period, exptime = %f " % (nplc,exptime)
-    
+
                 print "call accumBuffer to start PD recording at %f" % time.time()
                 pdresult =  pdsub.asynchCommand("accumBuffer",int(nreads),float(nplc),True);
 
@@ -109,7 +115,8 @@ try:
 # start acquisition
 
                 timestamp = time.time()
-                fitsfilename = "%s_dark_%3.3d_dark%d_${timestamp}.fits" % (ccd,seq,i+1)
+
+                fitsfilename = "%s_dark_%3.3d_dark%d_${TIMESTAMP}.fits" % (ccd,seq,i+1)
                 arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
     
                 print "Ready to take image. time = %f" % time.time()
@@ -118,16 +125,16 @@ try:
                 print "after click click at %f" % time.time()
     
 # make sure the sample of the photo diode is complete
-                time.sleep(5.)
+                time.sleep(1.)
     
                 print "done with exposure # %d" % i
                 print "getting photodiode readings at time = %f" % time.time();
 
                 pdfilename = "pd-values_%d-for-seq-%d-exp-%d" % (int(timestamp),seq,i+1)
+
 # the primary purpose of this is to guarantee that the accumBuffer method has completed
                 print "starting the wait for an accumBuffer done status message at %f" % time.time()
                 tottime = pdresult.get();
-#                msg = CCS.waitForStatusBusMessage(lambda msg : msg.source == "ts/PhotoDiode", 200000)
                 print "executing readBuffer, cdir=%s , pdfilename = %s" % (cdir,pdfilename)
                 result = pdsub.synchCommand(500,"readBuffer","%s/%s" % (cdir,pdfilename));
                 buff = result.getResult()

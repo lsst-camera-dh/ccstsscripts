@@ -34,20 +34,21 @@ for line in fpfiles :
 fpfiles.close()
 
 
-
-fo = open("%s/status.out" % os.getcwd(), "r");
-tsstat = fo.readline();
-fo.close();
+try:
+    fo = open("%s/status.out" % os.getcwd(), "r");
+    tsstat = fo.readline();
+    fo.close();
+except:
+    print "Status file MISSING! Something went wrong."
 
 results.append(lcatr.schema.valid(lcatr.schema.get('TS3_flat'),stat=tsstat))
 
 os.system("%s/dotemppressplots.sh" % sitedir)
 
 #copy all the lcatr job files too
-os.system("cp -vp %s/* ." % jobdir)
+os.system("cp -vp %s/{*.py,*.fits} ." % jobdir)
 
-files = glob.glob('%s/*.fits,*values*,*log*,*summary*,*.dat,*.png,*.py' % os.getcwd())
-    
+files = glob.glob('%s/*.fits,*values*,*log*,*summary*,*.dat,*.png,*.py,bias/*.fits' % os.getcwd())    
 data_products = [lcatr.schema.fileref.make(item) for item in files]
 results.extend(data_products)
 

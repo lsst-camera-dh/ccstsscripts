@@ -18,12 +18,17 @@ try:
     #attach CCS subsystem Devices for scripting
     print "Attaching teststand subsystems"
     tssub  = CCS.attachSubsystem("ts");
+    print "attaching Bias subsystem"
     biassub = CCS.attachSubsystem("ts/Bias");
+    print "attaching PD subsystem"
     pdsub   = CCS.attachSubsystem("ts/PhotoDiode");
+    print "attaching Cryo subsystem"
     cryosub = CCS.attachSubsystem("ts/Cryo");
+    print "attaching Vac subsystem"
     vacsub  = CCS.attachSubsystem("ts/VacuumGauge");
+    print "attaching Lamp subsystem"
     lampsub = CCS.attachSubsystem("ts/Lamp");
-    xedsub  = CCS.attachSubsystem("ts/XED");
+    print "attaching Mono subsystem"
     monosub = CCS.attachSubsystem("ts/Monochromator");
     monosub.synchCommand(10,"setHandshake",0);
 
@@ -37,18 +42,23 @@ try:
     
     print "resetting PD device"
     pdsub.synchCommand(20,"reset")
+
+    print "load CCD controller config file"
     arcsub.synchCommand(10,"setConfigFromFile",acffile);
     arcsub.synchCommand(20,"applyConfig");
     arcsub.synchCommand(10,"powerOnCCD");
     
+    print "set controller parameters for an exposure with the shutter closed"
     arcsub.synchCommand(10,"setParameter","Expo","1");
     arcsub.synchCommand(10,"setParameter","Light","0");
     
-    monosub.synchCommand(10,"closeShutter");
+#    monosub.synchCommand(10,"closeShutter");
+    print "set filter wheel to position 1"
     monosub.synchCommand(10,"setFilter",1); # open position
     
     # extend the Fe55 arm
-    xedsub.synchCommand(30,"extendFe55");
+    print "extend the Fe55 arm"
+#    xedsub.synchCommand(30,"extendFe55");
     
     #result = arcsub.synchCommand(10,"clearCCD");
     
@@ -77,20 +87,20 @@ try:
     print "go teststand go"
     tssub.synchCommand(120,"goTestStand");
     
-    seq = 0  # image pair number in sequence
-    
-#number of PLCs between readings                                                                         
+    seq = 0
+
+#number of PLCs between readings
     nplc = 1
-    
+
     ccd = CCDID
-    
     print "Working on CCD %s" % ccd
+
+    print "set filter position"
+    monosub.synchCommand(10,"setFilter",1); # open position
+    
     
     
 # go through config file looking for 'fe55' instructions, take the fe55s
-    arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
-    
-    
     print "Scanning config file for fe55 specifications";
     
     fp = open(acqcfgfile,"r");
@@ -103,7 +113,6 @@ try:
             imcount = int(tokens[2])
     
             arcsub.synchCommand(10,"setParameter","ExpTime",str(int(exptime*1000)));
-            arcsub.synchCommand(30,"applyParams");
     
             for i in range(imcount):
 # prepare to readout diodes                                                                              
@@ -123,9 +132,7 @@ try:
                 time.sleep(0.2);
 
 # start acquisition
-                arcsub.synchCommand(45,"printControllerStatus");
-    
-                fitsfilename = "%s_fe55_%3.3d_fe55%d_${timestamp}.fits" % (ccd,seq,i+1)
+                fitsfilename = "%s_fe55_%3.3d_fe55%d_${TIMESTAMP}.fits" % (ccd,seq,i+1)
                 arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
     
                 print "Ready to take image. time = %f" % time.time()
@@ -134,16 +141,13 @@ try:
                 print "after click click at %f" % time.time()
    
 # make sure the sample of the photo diode is complete
-                time.sleep(5.)
+                time.sleep(1.)
                 print "done with exposure # %d" % i
                 print "getting photodiode readings at time = %f" % time.time();
-                print "getting photodiode readings"
     
                 pdfilename = "pd-values_%d-for-seq-%d-exp-%d" % (timestamp,seq,i+1)
-
                 print "starting the wait for an accumBuffer done status message at %f" % time.time()
                 tottime = pdresult.get();
-#                msg = CCS.waitForStatusBusMessage(lambda msg : msg.source == "ts/PhotoDiode", 200000)
                 print "executing readBuffer, cdir=%s , pdfilename = %s" % (cdir,pdfilename)
                 result = pdsub.synchCommand(500,"readBuffer","%s/%s" % (cdir,pdfilename));
                 buff = result.getResult()
@@ -158,7 +162,7 @@ try:
     
     
     # retract the Fe55 arm
-    xedsub.synchCommand(30,"retractFe55");
+#    xedsub.synchCommand(30,"retractFe55");
     
     fp = open("%s/status.out" % (cdir),"w");
     
