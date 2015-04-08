@@ -11,205 +11,197 @@ Sequence:
      Version: next
      Description:  Initial preparation for EO testing
      Sequence:
-       -
-         Name: Sensor at TS3 - Get cryostat ready for sensor jig installation
-         Version: next
-         Description:  After loading a new device into the cryostat and performing the readout system initialization, the Dewar window is installed and the backing vacuum pump is started. If conditions warrant, the Dewar is purged with dry nitrogen gas (5X fill and evacuate). Rough pumping should proceed until the foreline pressure is below 5 mtorr, at which point the turbomolecular pump is started.
-         InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#cryoprep"
-       -
-         Name: Access jig
-         Version: next
-         Description:  Fetch coffin from storage; remove covered jig
-         Prerequisites:
-            -
-             Name: ESD station ready
-             PrerequisiteType: TEST_EQUIPMENT
        - 
-         Name: TS3 jig into cryo
+         Name: TS3 - place jig into cryostat and connect cables
          Version: next
-         Description: Install jig into cryostat; connect cables. More detail is needed here and perhaps pictures demonstrating the procedure should be in the detailed instructions. See- http://www4.rcf.bnl.gov/~hneal//etraveler/instr/sensor/T01/IMAG1314.jpg , http://www4.rcf.bnl.gov/~hneal//etraveler/instr/sensor/T01/IMAG1315.jpg , http://www4.rcf.bnl.gov/~hneal//etraveler/instr/sensor/T01/IMAG1316.jpg , http://www4.rcf.bnl.gov/~hneal//etraveler/instr/sensor/T01/IMAG1317.jpg , http://www4.rcf.bnl.gov/~hneal//etraveler/instr/sensor/T01/IMAG1318.jpg , http://www4.rcf.bnl.gov/~hneal//etraveler/instr/sensor/T01/IMAG1319.jpg . Also, will the operator really be responding to the eTraveler between the previous and next steps.
+         Description: <ul><li>Fetch coffin from storage; remove covered jig.</li><li>Install jig into cryostat; connect cables. More detail is needed here and perhaps pictures demonstrating the procedure should be in the detailed instructions. See- <img src=http://www4.rcf.bnl.gov/~hneal/etraveler/instr/sensor/T01/IMAG1314.jpg> , <img src=http://www4.rcf.bnl.gov/~hneal//etraveler/instr/sensor/T01/IMAG1315.jpg></li><li>Remove cover from jig</li></ul>
        - 
-         Name: TS3 uncover jig
+         Name:  TS3 - reClose window flange; connect controller
          Version: next
-         Description: Remove cover from jig
-       - 
-         Name: TS3 ready Close window flange; connect controller
-         Version: next
-         Description: After the CCD is installed and the controller signals have been verified, shorting plugs are removed and the CCD is connected to the controller. The controller is then powered up and a version-controlled configuration file is loaded. When the configuration parameters are APPLIED the system enters a state in which the clocks and biases are isolated from the CCD by opto-isolated solid-state relays. The controller is then commanded to enter the POWER-ON state, whereby the bias and clock signals are enabled in the appropriate sequence. The DC bias currents are then checked (with clocks not running); any current which is outside its allowed limits is an indication of a poor connection or, possibly, a bad device. The next step is to activate the clocks and take a test image, with the CCD in the dark. Operators need to be trained to identify the proper appearance of a room-temperature CCD image. After these checks are complete, the controller should be set back to the POWERDOWN state and cryostat pumping and cooldown can be initiated..
+         Description: After the CCD is installed and the controller signals have been verified, shorting plugs are removed and the CCD is connected to the controller.
          InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#controller"
          Prerequisites:
             -
              Name: CCD Controller ON
              PrerequisiteType: TEST_EQUIPMENT
        -
-         Name: TS3 pump down
+         Name:  TS3 - pump down the Dewar
          Version: next
-         Description: After loading a new device into the cryostat and performing the readout system initialization, the Dewar window is installed and the backing vacuum pump is started. If conditions warrant, the Dewar is purged with dry nitrogen gas (5X fill and evacuate). Rough pumping should proceed until the foreline pressure is below 5 mtorr, at which point the turbomolecular pump is started. Pumping should proceed until the chamber pressure reaches 5x10-5 torr.
-         InstructionsURL: "http://www4.rcf.bnl.go/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#pumpdown"
+         Description: <ul><li>install the Dewar window</li><li>start the backing vacuum pump</li><li>purge the Dewar with dry nitrogen gas (5X fill and evacuate). Rough pumping should proceed until the foreline pressure is below 5 mtorr, at which point the turbomolecular pump is started. Pumping should proceed until the chamber pressure reaches 5x10-5 torr.</li><li>start the turbomolecular pump a verify that the chamber pressure has dropped below 5x10-5 torr before proceeding</li></ul>
+         InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#pumpdown"
        -
-         Name: TS3 cooldown cryostat
+         Name:  TS3 - lower cryostat temperature to -95C
          Version: next
-         Description: Experience with the R&D Dewars at BNL and Harvard indicates that the cooldown rate will not exceed the manufacturer\u2019s recommended maximum; but if necessary, the temperature controller can be set to limit the temperature rate of change. The temperature controller control loop is enabled with setpoint at -95C and the vacuum valve is closed. Testing can begin when the temperature becomes stable at -95C.
+         Description: verify that the temperature is stable at -95C
+#         RequiredInputs:
+#            -
+#             Label: Cooldown log (filepath)
+#             InputSemantics: filepath
        -
-         Name: TS3 Set up cryostat at dark box
+         Name: Set up cryostat at dark box
          Version: next
          Description: After reverifying that the pressure is below  5x10-5 torr and the temperature is stable at -95C then set up the cryostat at the dark box.
        -
-         Name: run EO Acquisition Scripts
-         Version: next
-         Description: Verify that the CCS applications are running by clicking on the checktsappswidget. If any app is not shown as running (green) or if the widget itself is not present, please refer to the detailed instructions below. Start a new window. Do - cd /home/ts3prod/prod - then - source lcatrsetup.sh - then - cd lcatr/TS3_JH_acq - then select and paste the command provided at the next step. Verify that the acquisitions have started and that there are no inidications of problem in the CCS windows.
+         Name:  TS3 - run all acquisition and analysis scripts
+         Version:  next
+         Description: You are about to start the automated execution of all acquisition and analysis scripts<br><ul><li>Verify that the CCS applications are running by clicking on the checktsappswidget.</li><li>If any app is not shown as running (green) or if the widget itself is not present, please refer to the detailed instructions below. Start a new window. Do - cd /home/ts3prod/prod - then - source lcatrsetup2.sh - then - cd lcatr/TS3_JH_acq - then select and paste the command provided when you click - start work. </li><li>Verify that the acquisitions have started and that there are no indications of problem in the CCS windows.</li><li>verify occasionally by reloading this eTraveler page or clicking - current step - that there are no failures</ul>
          InstructionsURL: "https://confluence.slac.stanford.edu/display/LSSTCAM/Using+CCS+for+TS3+at+BNL"
          TravelerActions:
            - Automatable
          Sequence:     
            -
-              Name: TS3_flat
-              Version: next
-              UserVersionString: v10
+              Name:  TS3 - run EO Acquisition Scripts
+              Version:  next
               TravelerActions:
-                - HarnessedJob
+                - Automatable
+              Sequence:     
+                -
+                   Name: TS3_fe55 
+                   Version:  next
+                   UserVersionString: v3
+                   TravelerActions:
+                     - HarnessedJob
+                -
+                   Name: TS3_flat 
+                   Version:  next
+                   UserVersionString: v10
+                   TravelerActions:
+                     - HarnessedJob
+                -
+                   Name: TS3_dark
+                   Version:  next
+                   UserVersionString: v3
+                   TravelerActions:
+                     - HarnessedJob
+                -
+                   Name: TS3_sflat
+                   Version: next
+                   UserVersionString: v3
+                   TravelerActions:
+                     - HarnessedJob
+                -
+                   Name: TS3_qe
+                   Version: next
+                   UserVersionString: v3
+                   TravelerActions:
+                     - HarnessedJob
+                -
+                   Name: TS3_ppump
+                   Version: next
+                   UserVersionString: v3
+                   TravelerActions:
+                     - HarnessedJob
            -
-              Name: TS3_fe55
-              Version: next
-              UserVersionString: v3
+              Name:  TS3 - run EO Offline Analysis Scripts
+              Version:  next
               TravelerActions:
-                - HarnessedJob
-           -
-              Name: TS3_dark
-              Version: next
-              UserVersionString: v3
-              TravelerActions:
-                - HarnessedJob
-           -
-              Name: TS3_sflat
-              Version: next
-              UserVersionString: v3
-              TravelerActions:
-                - HarnessedJob
-           -
-              Name: TS3_qe
-              Version: next
-              UserVersionString: v3
-              TravelerActions:
-                - HarnessedJob
-           -
-              Name: TS3_ppump
-              Version: next
-              UserVersionString: v3
-              TravelerActions:
-                - HarnessedJob
-       -
-         Name: run EO Offline Analysis Scripts
-         Version: next
-     # substeps are harnessed analysis jobs. 
-         TravelerActions:
-           - Automatable
-         Sequence:
-           -
-              Name: flat_pairs
-              Version: next
-              UserVersionString: v0
-              TravelerActions:
-                - HarnessedJob
-              Prerequisites:
+                - Automatable
+              Sequence:
                 -
-                  PrerequisiteType:  PROCESS_STEP
-                  Name: TS3_flat
-                  UserVersionString: v10
-           -
-              Name: fe55_analysis
-              Version: next
-              UserVersionString: v0
-              TravelerActions:
-                - HarnessedJob
-              Prerequisites:
+                   Name: flat_pairs
+                   Version:  next
+                   UserVersionString: v0
+                   TravelerActions:
+                     - HarnessedJob
+                   Prerequisites:
+                     -
+                       PrerequisiteType:  PROCESS_STEP
+                       Name: TS3_flat
+                       UserVersionString: v10
                 -
-                  PrerequisiteType:  PROCESS_STEP
-                  Name: TS3_fe55
-                  UserVersionString: v3
-           -  
-              Name: bright_pixels
-              Version: next
-              UserVersionString: v0
-              TravelerActions:
-                - HarnessedJob
-              Prerequisites:
-                -
-                  PrerequisiteType:  PROCESS_STEP
-                  Name: TS3_dark
-                  UserVersionString: v3
-                -
-                  PrerequisiteType:  PROCESS_STEP
-                  Name: fe55_analysis
-                  UserVersionString: v0
-           -  
-              Name: dark_current
-              Version: next
-              UserVersionString: v0
-              TravelerActions:
-                - HarnessedJob
-              Prerequisites:
-                -
-                  PrerequisiteType:  PROCESS_STEP
-                  Name: TS3_dark
-                  UserVersionString: v3
-                -
-                  PrerequisiteType:  PROCESS_STEP
-                  Name: fe55_analysis
-                  UserVersionString: v0
-           -  
-              Name: prnu
-              Version: next
-              UserVersionString: v0
-              TravelerActions:
-                - HarnessedJob
-              Prerequisites:
-                -
-                  PrerequisiteType:  PROCESS_STEP
-                  Name: TS3_sflat
-                  UserVersionString: v3
-                -
-                  PrerequisiteType:  PROCESS_STEP
-                  Name: TS3_qe
-                  UserVersionString: v3
-                -
-                  PrerequisiteType:  PROCESS_STEP
-                  Name: fe55_analysis
-                  UserVersionString: v0
-           -  
-              Name: trap
-              Version: next
-              UserVersionString: v0
-              TravelerActions:
-                - HarnessedJob
-              Prerequisites:
-                -
-                  PrerequisiteType:  PROCESS_STEP
-                  Name: TS3_ppump
-                  UserVersionString: v3
-                -
-                  PrerequisiteType:  PROCESS_STEP
-                  Name: fe55_analysis
-                  UserVersionString: v0
-                -
-                  PrerequisiteType:  PROCESS_STEP
-                  Name: bright_pixels
-                  UserVersionString: v0
-           -  
-              Name: qe
-              Version: next
-              UserVersionString: v0
-              TravelerActions:
-                - HarnessedJob
-              Prerequisites:
-                -
-                  PrerequisiteType:  PROCESS_STEP
-                  Name: TS3_qe
-                  UserVersionString: v3
-                -
-                  PrerequisiteType:  PROCESS_STEP
-                  Name: fe55_analysis
-                  UserVersionString: v0
+                   Name: fe55_analysis
+                   Version: next
+                   UserVersionString: v0
+                   TravelerActions:
+                     - HarnessedJob
+                   Prerequisites:
+                     -
+                       PrerequisiteType:  PROCESS_STEP
+                       Name: TS3_fe55
+                       UserVersionString: v3
+                -  
+                   Name: bright_pixels
+                   Version: next
+                   UserVersionString: v0
+                   TravelerActions:
+                     - HarnessedJob
+                   Prerequisites:
+                     -
+                       PrerequisiteType:  PROCESS_STEP
+                       Name: TS3_dark
+                       UserVersionString: v3
+                     -
+                       PrerequisiteType:  PROCESS_STEP
+                       Name: fe55_analysis
+                       UserVersionString: v0
+                -  
+                   Name: dark_current
+                   Version: next
+                   UserVersionString: v0
+                   TravelerActions:
+                     - HarnessedJob
+                   Prerequisites:
+                     -
+                       PrerequisiteType:  PROCESS_STEP
+                       Name: TS3_dark
+                       UserVersionString: v3
+                     -
+                       PrerequisiteType:  PROCESS_STEP
+                       Name: fe55_analysis
+                       UserVersionString: v0
+                -  
+                   Name: prnu
+                   Version: next
+                   UserVersionString: v0
+                   TravelerActions:
+                     - HarnessedJob
+                   Prerequisites:
+                     -
+                       PrerequisiteType:  PROCESS_STEP
+                       Name: TS3_sflat
+                       UserVersionString: v3
+                     -
+                       PrerequisiteType:  PROCESS_STEP
+                       Name: TS3_qe
+                       UserVersionString: v3
+                     -
+                       PrerequisiteType:  PROCESS_STEP
+                       Name: fe55_analysis
+                       UserVersionString: v0
+                -  
+                   Name: trap
+                   Version: next
+                   UserVersionString: v0
+                   TravelerActions:
+                     - HarnessedJob
+                   Prerequisites:
+                     -
+                       PrerequisiteType:  PROCESS_STEP
+                       Name: TS3_ppump
+                       UserVersionString: v3
+                     -
+                       PrerequisiteType:  PROCESS_STEP
+                       Name: fe55_analysis
+                       UserVersionString: v0
+                     -
+                       PrerequisiteType:  PROCESS_STEP
+                       Name: bright_pixels
+                       UserVersionString: v0
+                -  
+                   Name: qe
+                   Version: next
+                   UserVersionString: v0
+                   TravelerActions:
+                     - HarnessedJob
+                   Prerequisites:
+                     -
+                       PrerequisiteType:  PROCESS_STEP
+                       Name: TS3_qe
+                       UserVersionString: v3
+                     -
+                       PrerequisiteType:  PROCESS_STEP
+                       Name: fe55_analysis
+                       UserVersionString: v0
        -
          Name: TS3 cryostat warmup
          Version: next
