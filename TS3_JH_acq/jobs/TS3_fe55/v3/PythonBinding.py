@@ -34,8 +34,6 @@ class CcsJythonInterpreter:
 
     def __init__(self,name=None,host=None,port=4444):
         CcsJythonInterpreter.port = port;
-        host = "127.0.0.1";
-        print "host = %s" % host;
         if host == None:
             CcsJythonInterpreter.host = socket.gethostname() # Get local machine name
         else:
@@ -47,8 +45,9 @@ class CcsJythonInterpreter:
             raise CcsException("Could not establish a connection with CCS Python Interpreter on host "+CcsJythonInterpreter.host+":"+str(CcsJythonInterpreter.port));
         
         if name != None :
+            name = name.replace("\n","");
             self.syncExecution("initializeInterpreter "+name);
-
+            
     @staticmethod
     def __establishSocketConnectionToCcsJythonInterpreter__():
          s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -109,7 +108,11 @@ class _CcsPythonExecutorThread:
         self.running = True;
         self.outputThread.start();        
         content = "startContent:"+self.threadId+"\n"+content+"\nendContent:"+self.threadId+"\n";
-        self.s.send(content);
+        try:
+            self.s.send(content);
+        except:
+            raise CcsException("Something went wrong with the execution ");
+        self.s.send
         return CcsExecutionResult(self);
 
     def listenToSocketOutput(self):
@@ -119,8 +122,10 @@ class _CcsPythonExecutorThread:
                 output = self.s.recv(1024)
             except:
                 raise CcsException("Communication Problem with Socket");
-            self.executionOutput += output
-            if "doneExecution:"+self.threadId in self.executionOutput:
+            if "doneExecution:"+self.threadId not in output:
+                print output.replace("\n","");
+#            self.executionOutput += output
+            if "doneExecution:"+self.threadId in output:
                 self.running = False;
                 self.executionOutput = self.executionOutput.replace("doneExecution:"+self.threadId+"\n","");
         self.outputThread._Thread__stop();

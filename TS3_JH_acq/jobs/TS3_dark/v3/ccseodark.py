@@ -86,7 +86,7 @@ try:
 
     seq = 0
     
-        print "Scanning config file for DARK specifications";
+    print "Scanning config file for DARK specifications";
     fp = open(acqcfgfile,"r");
     fpfiles = open("%s/acqfilelist" % cdir,"w");
     
@@ -116,7 +116,7 @@ try:
 
                 timestamp = time.time()
 
-                fitsfilename = "%s_dark_%3.3d_dark%d_${TIMESTAMP}.fits" % (ccd,seq,i+1)
+                fitsfilename = "%s_dark_dark%d_${TIMESTAMP}.fits" % (ccd,i+1)
                 arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
     
                 print "Ready to take image. time = %f" % time.time()

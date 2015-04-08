@@ -1,0 +1,5 @@
+# -*- python -*-
+{
+    'schema_name' : 'trap',
+    'schema_version' : 0,
+}

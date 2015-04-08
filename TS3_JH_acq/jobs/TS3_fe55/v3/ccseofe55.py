@@ -132,7 +132,7 @@ try:
                 time.sleep(0.2);
 
 # start acquisition
-                fitsfilename = "%s_fe55_%3.3d_fe55%d_${TIMESTAMP}.fits" % (ccd,seq,i+1)
+                fitsfilename = "%s_fe55_fe55%d_${TIMESTAMP}.fits" % (ccd,i+1)
                 arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
     
                 print "Ready to take image. time = %f" % time.time()

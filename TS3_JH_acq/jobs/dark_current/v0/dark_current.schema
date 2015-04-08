@@ -1,0 +1,7 @@
+# -*- python -*-
+{
+    'schema_name' : 'dark_current',
+    'schema_version' : 0,
+    'amp' : int,
+    'dark_current_95CL' : float
+}

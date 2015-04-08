@@ -113,7 +113,7 @@ try:
 
             for i in range(bcount):
                 timestamp = time.time()
-                fitsfilename = "%s_qe_bias_%3.3d_${TIMESTAMP}.fits" % (ccd,seq)
+                fitsfilename = "%s_lambda_bias_%3.3d_${TIMESTAMP}.fits" % (ccd,seq)
                 arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
 
                 print "Ready to take bias image. time = %f" % time.time()
@@ -148,7 +148,7 @@ try:
 
 # start acquisition
                 timestamp = time.time()
-                fitsfilename = "%s_qe_%3.3d_%3.3d_qe%d_${TIMESTAMP}.fits" % (ccd,int(wl),seq,i+1)
+                fitsfilename = "%s_lambda_%3.3d_%3.3d_lambda%d_${TIMESTAMP}.fits" % (ccd,int(wl),seq,i+1)
                 arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
 
 # make sure to get some readings before the state of the shutter changes       

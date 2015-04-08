@@ -1,0 +1,7 @@
+# -*- python -*-
+{
+    'schema_name' : 'fe55_analysis',
+    'schema_version' : 0,
+    'amp' : int,
+    'gain' : float
+}

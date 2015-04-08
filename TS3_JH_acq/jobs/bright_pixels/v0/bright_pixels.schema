@@ -1,0 +1,8 @@
+# -*- python -*-
+{
+    'schema_name' : 'bright_pixels',
+    'schema_version' : 0,
+    'amp' : int,
+    'bright_pixels' : int,
+    'bright_columns' : int
+}

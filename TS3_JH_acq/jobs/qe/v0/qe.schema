@@ -1,0 +1,5 @@
+# -*- python -*-
+{
+    'schema_name' : 'qe',
+    'schema_version' : 0,
+}
