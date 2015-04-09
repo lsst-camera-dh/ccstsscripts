@@ -118,7 +118,7 @@ try:
                 result = arcsub.synchCommand(200,"exposeAcquireAndSave");
                 fitsfilename = result.getResult();
                 print "after click click at %f" % time.time()
-                time.sleep(2.)
+                time.sleep(0.2)
     
 # take light exposures
             result = arcsub.synchCommand(10,"setParameter","Light","1");

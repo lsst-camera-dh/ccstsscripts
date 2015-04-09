@@ -113,6 +113,8 @@ try:
             imcount = int(tokens[2])
     
             arcsub.synchCommand(10,"setParameter","ExpTime",str(int(exptime*1000)));
+            print "setting location of fits exposure directory"
+            arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
     
             for i in range(imcount):
 # prepare to readout diodes                                                                              

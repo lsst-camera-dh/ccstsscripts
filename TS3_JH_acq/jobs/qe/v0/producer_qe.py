@@ -17,7 +17,7 @@ mask_files = dependency_glob('*_mask.fits')
 sensor_id = os.path.basename(lambda_files[0]).split('_')[0]
 
 gain_file = dependency_glob('%s_eotest_results.fits' % sensor_id,
-                            jobname='trap')[0]
+                            jobname='fe55_analysis')[0]
 gains = sensorTest.EOTestResults(gain_file)['GAIN']
 
 # Handle annoying off-by-one issue in amplifier numbering:

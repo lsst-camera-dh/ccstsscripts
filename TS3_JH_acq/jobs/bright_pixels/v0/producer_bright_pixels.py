@@ -7,7 +7,7 @@ import lsst.eotest.image_utils as imutils
 import lsst.eotest.sensor as sensorTest
 from lcatr.harness.helpers import dependency_glob
 
-dark_files = dependency_glob('*_dark_dark_*.fits', jobname='TS3_dark')
+dark_files = dependency_glob('*_dark_dark*.fits', jobname='TS3_dark')
 mask_files = dependency_glob('*_mask.fits', jobname='fe55_analysis')
 
 print dark_files
