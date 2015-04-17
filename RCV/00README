@@ -1,0 +1,40 @@
+This is prototype code for the harnessed jobs in the electro-optical
+testing task, T03, for Test Stand 3.  This is set up to be run using
+the SLAC installation of the Job Harness code.
+
+A "fake" LIMS server is implemented in my_fakelims.py to take the
+place of the real LIMS or eTraveler applications.  The T03 traveler is
+expressed as a python dictionary in the file ts3_traveler.py to show
+the dependencies between tasks.  my_fakelims.py is a modified version
+of the fakelims.py script in the lcatr repo.  This version allows the
+progress of a traveler execution to be saved in a pickled file so that
+the fakelims server can be stopped and restarted without losing the
+job id information.
+
+To use it, source the setup.sh from bash, and run my_fakelims.py under
+python:
+
+% source ./setup.sh
+% (python my_fakelims.py ts3_traveler.py) >& fakelims.out
+
+To stop the fake LIMS server, hit ctrl-c, and a file called
+my_fakelims.db will be written to the local directory with the
+persisted traveler information.  If you rerun the my_fakelims.py
+server, the job id and dependency info will be recovered from the
+pickle file, and you can pickup where you left off in executing the
+harnessed jobs.
+
+The bash script run_job.sh has the full sequence of harnessed jobs, in
+the proper execution order, for the dependency tree described in
+ts3_traveler.py.  While developing, I typically start with a clean
+setup, execute the data acquistion steps, and then comment out lines
+in run_job.sh except for the job(s) I am working on so that I can
+rerun it/them as needed.
+
+If you checkout a separate instance of this code and run on SLAC
+linux, please change the paths in cleanup.sh and the unit_id in
+lcatr.cfg so that you don't clobber my work.
+
+-Jim, 2014-03-14
+
+

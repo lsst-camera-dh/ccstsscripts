@@ -1,0 +1,96 @@
+%YAML  1.1
+---
+# LSST Hardware Receipt - Inspection
+Name: SR-RCV-4
+Version: next
+HardwareType: CCD
+Description: Hardware Receipt
+Sequence:
+   -
+     Name: Process
+     Description: SR-4.Step-<ul></ul>
+     Version:  next
+   -
+     Name: Sensor Height Metrology
+     Description: SR-4.-<ul></ul>
+     Version:  next
+   -
+     Name: Begin- Sensor is selected to proceed through Task 4.
+     Description: SR-4.0-<ul></ul>
+     Version:  next
+   -
+     Name: Set up the OGP for measurements.
+     Description: SR-4.1-<ul><li>Turn on the computer.</li><li>Turn on the OGP using controller I/O switch.</li><li>Open MeasureMind and follow the initialization prompts.</li><li>Raise Z-stage and move the platen forward.</li><li>Ensure MF02 is installed.</li><li>Prepare the local directory for the measurements to be performed.</li><li>Add a new directory folder for each measurement to be performed and a directory folder for the resulting data products.</li><li>Copy each routine file which will be used to the respective directory.</li></ul>
+     Version:  next
+   -
+     Name: Set up EPA and transport coffin.
+     Description: SR-4.2-<ul><li>Set up and verify the workstation is an EPA.</li><li>Attach the OGP to the ESD network/monitor.</li><li>Transport needed tooling to workstation.</li><li>Transport coffin to workstation.</li></ul>
+     Version:  next
+   -
+     Name: Prepare to open coffin.
+     Description: SR-4.3-<ul><li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furnature.</li><li>Place one finger of each hand away from each other on the ESD mat</li><li>Un-screw outer screws of coffin cover.</li><li>Loosen coffin cover</li></ul>
+     Version:  next
+   -
+     Name: Remove coffin cover.
+     Description: SR-4.4-<ul></ul>
+     Version:  next
+   -
+     Name: Install onto MF01.
+     Description: SR-4.5-<ul><li>Remove jig from coffin base.</li><li>Place jig onto MF01 and tighten thumbscrews.</li><li>Place gage blocks onto MF01.</li></ul>
+     Version:  next
+   -
+     Name: Transfer loaded MF01 to OGP.
+     Description: SR-4.6-<ul></ul>
+     Version:  next
+   -
+     Name: Remove protective cover.
+     Description: SR-4.7-<ul></ul>
+     Version:  next
+   -
+     Name: Perform Height OGP Routine.
+     Description: SR-4.8-<ul><li>Click Open Existing Routine and select the routine.</li><li>Click Run the Current Routine.</li><li>When prompted</li><li>Wait for the rountine to finish.</li><li>Brief data check</li></ul>
+     Version:  next
+   -
+     Name: Raise Z-stage and move the stage to the front.
+     Description: SR-4.9-<ul></ul>
+     Version:  next
+   -
+     Name: Add protective cover.
+     Description: SR-4.10-<ul></ul>
+     Version:  next
+   -
+     Name: Transfer loaded MF01 to workstation.
+     Description: SR-4.11-<ul></ul>
+     Version:  next
+   -
+     Name: Removed from MF01.
+     Description: SR-4.12-<ul><li>Remove gage blocks.</li><li>Remove thumbscrews.</li><li>Remove jig from MF01.</li><li>Secure jig back onto coffin base with screws.</li></ul>
+     Version:  next
+   -
+     Name: Close up coffin.
+     Description: SR-4.13-<ul></ul>
+     Version:  next
+   -
+     Name: Verify data.
+     Description: SR-4.14-<ul><li>Run quick analysis script.</li><li>Check data is acceptable.</li><li>Repeat any testing</li></ul>
+     Version:  next
+   -
+     Name: Store sensor 1/2
+     Description: SR-4.15-<ul></ul>
+     Version:  next
+   -
+     Name: Register the work performed with eManufacturing and upload resulting data products. 
+     Description: SR-4.16-<ul></ul>
+     Version:  next
+   -
+     Name: Analyze the results
+     Description: SR-4.17-<ul><li>Open the appropriate Mathematica analysis script.</li><li>Change the data set and execute the script.</li><li>Save result files and analysis script information.</li><li>Upload result files to database.</li></ul>
+     Version:  next
+   -
+     Name: Review and determine disposition of test data and visual inspection.
+     Description: SR-4.18-<ul></ul>
+     Version:  next
+   -
+     Name: Store sensor 2/2
+     Description: SR-4.End-<ul></ul>
+     Version:  next

@@ -1,0 +1,19 @@
+[eotest]$ ls -lrt jh_inst_novirtualenv/*
+-rw-rw-r--. 1 ts3prod ts3prod    0 Oct 30 18:40 jh_inst_novirtualenv/lcatr_harness.log
+lrwxrwxrwx. 1 ts3prod ts3prod   11 Mar 25 13:28 jh_inst_novirtualenv/share -> ../../share
+lrwxrwxrwx. 1 ts3prod ts3prod   13 Mar 25 13:28 jh_inst_novirtualenv/Modules -> ../../Modules
+lrwxrwxrwx. 1 ts3prod ts3prod   35 Mar 25 20:56 jh_inst_novirtualenv/TS3_JH_acq -> /home/ts3prod/prod/lcatr/TS3_JH_acq
+
+jh_inst_novirtualenv/bin:
+total 16
+-rw-rw-r--. 1 ts3prod ts3prod  377 Oct 29 18:38 check_python~
+-rw-rw-r--. 1 ts3prod ts3prod  417 Oct 29 18:39 check_python
+-rw-rw-r--. 1 ts3prod ts3prod 1095 Oct 30 17:30 jh_setup~
+lrwxrwxrwx. 1 ts3prod ts3prod   53 Mar 25 13:34 lcatr-modulefiles-config -> /home/ts3prod/prod/lcatr/bin/lcatr-modulefiles-config
+lrwxrwxrwx. 1 ts3prod ts3prod   42 Mar 25 13:34 lcatr-harness -> /home/ts3prod/prod/lcatr/bin/lcatr-harness
+lrwxrwxrwx. 1 ts3prod ts3prod   43 Mar 25 13:49 lcatr-iterator -> /home/ts3prod/prod/lcatr/bin/lcatr-iterator
+-rw-rw-r--. 1 ts3prod ts3prod 1100 Mar 25 13:53 jh_setup
+
+jh_inst_novirtualenv/python:
+total 0
+lrwxrwxrwx. 1 ts3prod ts3prod 58 Mar 25 14:28 lcatr -> /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/lcatr

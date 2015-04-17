@@ -51,7 +51,8 @@ try:
     
 # move to TS acquisition state
     print "setting acquisition state"
-    tssub.synchCommand(10,"setTSTEST");
+    result = tssub.synchCommand(10,"setTSTEST");
+    rply = result.getResult();
 
 #check state of ts devices
     print "wait for ts state to become ready";
@@ -71,7 +72,8 @@ try:
         time.sleep(5.)
 #put in acquisition state
     print "go teststand go"
-    tssub.synchCommand(120,"goTestStand");
+    result = tssub.synchCommand(120,"goTestStand");
+    rply = result.getResult();
 
     
     # go through config file looking for 'dark' instructions, take the darks
@@ -124,22 +126,30 @@ try:
                 fitsfilename = result.getResult();
                 print "after click click at %f" % time.time()
     
-# make sure the sample of the photo diode is complete
-                time.sleep(1.)
-    
                 print "done with exposure # %d" % i
                 print "getting photodiode readings at time = %f" % time.time();
 
-                pdfilename = "pd-values_%d-for-seq-%d-exp-%d" % (int(timestamp),seq,i+1)
+                pdfilename = "pd-values_%d-for-seq-%d-exp-%d.txt" % (int(timestamp),seq,i+1)
 
 # the primary purpose of this is to guarantee that the accumBuffer method has completed
                 print "starting the wait for an accumBuffer done status message at %f" % time.time()
                 tottime = pdresult.get();
+
+# make sure the sample of the photo diode is complete
+                time.sleep(5.)
+    
+# adjust timeout because we will be waiting for the data to become ready
+                mywait = nplc/60.*nreads*1.10 ;
+                print "Setting timeout to %f s" % mywait
+                pdsub.synchCommand(1000,"setTimeout",mywait);
+
                 print "executing readBuffer, cdir=%s , pdfilename = %s" % (cdir,pdfilename)
-                result = pdsub.synchCommand(500,"readBuffer","%s/%s" % (cdir,pdfilename));
+                result = pdsub.synchCommand(900,"readBuffer","%s/%s" % (cdir,pdfilename));
                 buff = result.getResult()
                 print "Finished getting readings at %f" % time.time()
 
+# reset timeout to something reasonable for a regular command
+                pdsub.synchCommand(1000,"setTimeout",10.);
 
                 fpfiles.write("%s %s/%s %f\n" % (fitsfilename,cdir,pdfilename,timestamp))
  

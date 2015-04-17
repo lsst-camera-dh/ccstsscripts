@@ -1,0 +1,44 @@
+%YAML  1.1
+---
+# LSST Hardware Receipt - Inspection
+Name: SR-RCV-2
+Version: next
+HardwareType: CCD
+Description: Hardware Receipt - Vendor hardware is received
+Sequence:
+   -
+     Name: Scan-and-Ingest-Vendor-Data
+#     Description: Vendor hardware is received
+     Description: SR-2.4-<ul><li>0. - Specify the location of the hardware by going to <a href=http://lsst-camera.slac.stanford.edu/eTraveler/exp/LSST-CAMERA/displayHardware.jsp?hardwareId=40>LOCATION</a> and returning here<li>1. - Unpack hardware.</li><li>1.1 - Open package.</li><li>1.2 - Secure documentation.</li><li>1.3 - Remove hardware from packaging.</li><li>1.4 - Verify Vendor S/N matches ID description in documentation </li><li>1.5 - Dispose of shipping materials.</li><li>2. - Place hardware/documentation in anteroom.</li><li>4.2 - Upload scanned documents by using the lcatr-harness command shown below.</li><li>3.6 - Label hardware with LSST S/N.</li><li>3.7 - Label all documentation with LSST S/N.</li></ul>
+     Version:  next
+     UserVersionString: v0
+#     Prerequisites:
+#        -
+#         Name: Ingest vendor data.
+#         PrerequisiteType: TEST_EQUIPMENT
+     TravelerActions:
+       - HarnessedJob
+   -
+     Name: Check_Vendor_Data
+     Description: Review and determine disposition of vendor test data (Phase 1/2).
+     Version:  next
+     UserVersionString: v0
+     Prerequisites:
+       -
+         PrerequisiteType:  PROCESS_STEP
+         Name: Vendor-Data-Acceptance
+         UserVersionString: v0
+     TravelerActions:
+       - HarnessedJob
+   -
+     Name: Store hardcopies and inspect hardware
+     Description: SR-2.5-<ul><li>5. - Store hardcopies of documentation.</li><li>5. - Perform Visual Inspection.</li></ul>
+     Version:  next
+   -
+     Name: Prepare to clean the hardware (or packaging).
+     Description: SR-2.7-<ul><li>6.1 - Place hardware on cleaning bench.</li><li>6.2 - Leave the anteroom.</li><li>6.3 - Repeat Pre-Entrance Procedure</li><li>6.4 - Gown and enter clean area.</li><li>6.5 - Proceed to anteroom.</li><li>6.6 - Remove hardware from shipping package.</li><li>6.7 - Clean hardware.</li><li>6.8 - Carry hardware into clean area.</li><li>6.9 - Re-clean hardware</li><li>7. - Review and determine disposition of vendor test data (Phase 2/2) and visual inspection of hardware.</li></ul>
+     Version:  next
+     Prerequisites:
+        -
+         Name: Review and determine disposition of vendor test data (Phase 2/2) and visual inspection of hardware.
+         PrerequisiteType: TEST_EQUIPMENT

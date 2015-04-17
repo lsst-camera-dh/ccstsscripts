@@ -1,0 +1,7 @@
+# -*- python -*-
+{
+    'schema_name' : 'TS3_flat',
+    'schema_version' : 0,
+    'stat' : int,
+}
+

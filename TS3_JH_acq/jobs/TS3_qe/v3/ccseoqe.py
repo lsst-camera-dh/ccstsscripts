@@ -48,9 +48,13 @@ try:
 
     arcsub.synchCommand(10,"setParameter","Expo","1");
 
+    biassub.synchCommand(10,"setCurrentRange",0.0002)
+    pdsub.synchCommand(10,"setCurrentRange",0.0002)
+
 # move to TS acquisition state
     print "setting acquisition state"
-    tssub.synchCommand(10,"setTSTEST");
+    result = tssub.synchCommand(10,"setTSTEST");
+    rply = result.getResult();
 
 #check state of ts devices
     print "wait for ts state to become ready";
@@ -68,9 +72,11 @@ try:
         if tsstate!=0 :
             break
         time.sleep(5.)
+
 #put in acquisition state
     print "go teststand go"
-    tssub.synchCommand(120,"goTestStand");
+    result = tssub.synchCommand(120,"goTestStand");
+    rply = result.getResult();
 
     lo_lim = float(eolib.getCfgVal(acqcfgfile, 'LAMBDA_LOLIM', default='1.0'))
     hi_lim = float(eolib.getCfgVal(acqcfgfile, 'LAMBDA_HILIM', default='120.0'))
@@ -148,7 +154,7 @@ try:
 
 # start acquisition
                 timestamp = time.time()
-                fitsfilename = "%s_lambda_%3.3d_%3.3d_lambda%d_${TIMESTAMP}.fits" % (ccd,int(wl),seq,i+1)
+                fitsfilename = "%s_lambda_%3.3d_%3.3d_lambda_%d_${TIMESTAMP}.fits" % (ccd,int(wl),seq,i+1)
                 arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
 
 # make sure to get some readings before the state of the shutter changes       
@@ -160,22 +166,29 @@ try:
                 fitsfilename = result.getResult();
                 print "after click click at %f" % time.time()
 
-# make sure the sample of the photo diode is complete
-
-                time.sleep(1.)
-
                 print "done with exposure # %d" % i
                 print "getting photodiode readings at time = %f" % time.time();
 
-                pdfilename = "pd-values_%d-for-seq-%d-exp-%d" % (int(timestamp),seq,i+1)
+                pdfilename = "pd-values_%d-for-seq-%d-exp-%d.txt" % (int(timestamp),seq,i+1)
 # the primary purpose of this is to guarantee that the accumBuffer method has completed
                 print "starting the wait for an accumBuffer done status message at %f" % time.time()
                 tottime = pdresult.get();
-#                msg = CCS.waitForStatusBusMessage(lambda msg : msg.source == "ts/PhotoDiode", 200000)
+
+# make sure the sample of the photo diode is complete
+                time.sleep(10.)
+
+# adjust timeout because we will be waiting for the data to become ready
+                mywait = nplc/60.*nreads*1.10 ;
+                print "Setting timeout to %f s" % mywait
+                pdsub.synchCommand(1000,"setTimeout",mywait);
+
                 print "executing readBuffer, cdir=%s , pdfilename = %s" % (cdir,pdfilename)
-                result = pdsub.synchCommand(500,"readBuffer","%s/%s" % (cdir,pdfilename));
+                result = pdsub.synchCommand(1000,"readBuffer","%s/%s" % (cdir,pdfilename));
                 buff = result.getResult()
                 print "Finished getting readings at %f" % time.time()
+
+# reset timeout to something reasonable for a regular command
+                pdsub.synchCommand(1000,"setTimeout",10.);
 
 
                 fpfiles.write("%s %s/%s %f\n" % (fitsfilename,cdir,pdfilename,timestamp))

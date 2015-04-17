@@ -260,6 +260,8 @@ def addPDvals(filename,pdfile,extnam,prefix,tstart):
         tmdata[ival] = pdtime
         ival = ival + 1
     fpd.close()
+    pddata.resize(ival)
+    tmdata.resize(ival)
 #    hdulist.append(pf.BinTableHDU(data=(tmdata,pddata)))
     c1 = pf.Column(name="%s_MEAS_TIMES" % prefix, format='D', array=tmdata)
     c2 = pf.Column(name="%s_A_CURRENT" % prefix, format="D", array=pddata)

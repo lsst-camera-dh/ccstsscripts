@@ -1,0 +1,12 @@
+[DEFAULT] 
+archive_host = localhost
+archive_user = ts3prod
+archive_root = /home/ts3prod/jobHarness/jh_archive
+stage_root = /home/ts3prod/jobHarness/jh_stage
+lims_url = http://lsst-camera.slac.stanford.edu/eTraveler/Dev/
+job = ts3_superflat
+version = v0
+unit_type = ccd
+unit_id = 112-04
+operator = ts3prod
+modules-path = /home/ts3prod/prod/lcatr/

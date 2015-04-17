@@ -28,6 +28,8 @@ try:
     vacsub  = CCS.attachSubsystem("ts/VacuumGauge");
     print "attaching Lamp subsystem"
     lampsub = CCS.attachSubsystem("ts/Lamp");
+    print "attaching XED subsystem"
+    xedsub = CCS.attachSubsystem("ts/XED");
     print "attaching Mono subsystem"
     monosub = CCS.attachSubsystem("ts/Monochromator");
     monosub.synchCommand(10,"setHandshake",0);
@@ -58,13 +60,14 @@ try:
     
     # extend the Fe55 arm
     print "extend the Fe55 arm"
-#    xedsub.synchCommand(30,"extendFe55");
+    xedsub.synchCommand(30,"extendFe55");
     
     #result = arcsub.synchCommand(10,"clearCCD");
     
     # move to TS acquisition state
     print "setting acquisition state"
-    tssub.synchCommand(10,"setTSTEST");
+    result = tssub.synchCommand(10,"setTSTEST");
+    rply = result.getResult();
     
     #check state of ts devices
     print "wait for ts state to become ready";
@@ -85,7 +88,8 @@ try:
 
     #put in acquisition state
     print "go teststand go"
-    tssub.synchCommand(120,"goTestStand");
+    result = tssub.synchCommand(120,"goTestStand");
+    rply = result.getResult();
     
     seq = 0
 
@@ -142,14 +146,21 @@ try:
                 fitsfilename = result.getResult();
                 print "after click click at %f" % time.time()
    
-# make sure the sample of the photo diode is complete
-                time.sleep(1.)
                 print "done with exposure # %d" % i
                 print "getting photodiode readings at time = %f" % time.time();
     
-                pdfilename = "pd-values_%d-for-seq-%d-exp-%d" % (timestamp,seq,i+1)
+                pdfilename = "pd-values_%d-for-seq-%d-exp-%d.txt" % (timestamp,seq,i+1)
                 print "starting the wait for an accumBuffer done status message at %f" % time.time()
                 tottime = pdresult.get();
+
+# make sure the sample of the photo diode is complete
+                time.sleep(5.)
+
+# adjust timeout because we will be waiting for the data to become ready
+                mywait = nplc/60.*nreads*1.10 ;
+                print "Setting timeout to %f s" % mywait
+                pdsub.synchCommand(1000,"setTimeout",mywait);
+
                 print "executing readBuffer, cdir=%s , pdfilename = %s" % (cdir,pdfilename)
                 result = pdsub.synchCommand(500,"readBuffer","%s/%s" % (cdir,pdfilename));
                 buff = result.getResult()
@@ -164,7 +175,7 @@ try:
     
     
     # retract the Fe55 arm
-#    xedsub.synchCommand(30,"retractFe55");
+    xedsub.synchCommand(30,"retractFe55");
     
     fp = open("%s/status.out" % (cdir),"w");
     

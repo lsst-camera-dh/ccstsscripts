@@ -1,0 +1,1 @@
+lcatr-harness --unit-type CCD --unit-id 112-10 --job qe --version v0
