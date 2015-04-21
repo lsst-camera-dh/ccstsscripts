@@ -32,8 +32,8 @@ try:
     monosub = CCS.attachSubsystem("ts/Monochromator");
     monosub.synchCommand(10,"setHandshake",0);
     
-    print "Attaching archon subsystem"
-    arcsub  = CCS.attachSubsystem("archon");
+#    print "Attaching archon subsystem"
+#    arcsub  = CCS.attachSubsystem("archon");
     
     cdir = tsCWD
     
@@ -41,13 +41,13 @@ try:
     print "doing initialization"
     pdsub.synchCommand(10,"reset");
     
-    arcsub.synchCommand(10,"setConfigFromFile",acffile);
-    arcsub.synchCommand(20,"applyConfig");
+#    arcsub.synchCommand(10,"setConfigFromFile",acffile);
+#    arcsub.synchCommand(20,"applyConfig");
     
-    arcsub.synchCommand(10,"powerOnCCD");
+#    arcsub.synchCommand(10,"powerOnCCD");
 
-    arcsub.synchCommand(10,"setParameter","Expo","1");
-    arcsub.synchCommand(10,"setParameter","Light","0");
+#    arcsub.synchCommand(10,"setParameter","Expo","1");
+#    arcsub.synchCommand(10,"setParameter","Light","0");
     
 # move to TS acquisition state
     print "setting acquisition state"
@@ -75,9 +75,10 @@ try:
     result = tssub.synchCommand(120,"goTestStand");
     rply = result.getResult();
 
-# go through config file looking for 'dark' instructions, take the darks
     
-    arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
+    # go through config file looking for 'dark' instructions, take the darks
+    
+#    arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
     
 #number of PLCs between readings
     nplc = 1.0
@@ -97,7 +98,7 @@ try:
             exptime = float(tokens[1])
             imcount = int(tokens[2])
 
-            arcsub.synchCommand(10,"setParameter","ExpTime",str(int(exptime*1000)));
+#            arcsub.synchCommand(10,"setParameter","ExpTime",str(int(exptime*1000)));
     
 # prepare to readout diodes
             nreads = exptime*60/nplc + 200
@@ -124,10 +125,10 @@ try:
                 timestamp = time.time()
 
                 fitsfilename = "%s_dark_dark%d_${TIMESTAMP}.fits" % (ccd,i+1)
-                arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
+#                arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
     
                 print "Ready to take image. time = %f" % time.time()
-                result = arcsub.synchCommand(2000,"exposeAcquireAndSave");
+#                result = arcsub.synchCommand(2000,"exposeAcquireAndSave");
                 fitsfilename = result.getResult();
                 print "after click click at %f" % time.time()
     

@@ -8,8 +8,8 @@ results = []
 
 jobname = "TS3_flat"
 
-jobdir = "%sshare/%s/%s/" % (os.environ["INST_DIR"], jobname, os.environ["LCATR_VERSION"])
-sitedir = "%s/TS3_JH_acq/site" % os.environ["VIRTUAL_ENV"]
+jobdir = "%sshare/%s/%s/" % (os.environ["LCATR_MODULES-PATH"], jobname, os.environ["LCATR_VERSION"])
+sitedir = "%sTS3_JH_acq/site" % os.environ["LCATR_MODULES-PATH"]
 
 fpfiles = open("%s/acqfilelist" % os.getcwd(), "r");
 for line in fpfiles :
