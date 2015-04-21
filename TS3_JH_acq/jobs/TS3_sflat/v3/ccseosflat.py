@@ -128,6 +128,13 @@ try:
             print "setting location of fits exposure directory"
             arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
     
+# prepare to readout diodes                                                                              
+            nreads = exptime*60/nplc + 200
+            if (nreads > 3000):
+                nreads = 3000
+                nplc = exptime*60/(nreads-200)
+                print "Nreads limited to 3000. nplc set to %f to cover full exposure period " % nplc
+
             for i in range(imcount):
                 print "starting acquisition step for lambda = %8.2f" % wl
     
@@ -135,12 +142,10 @@ try:
     
                 result = monosub.synchCommand(10,"setFilter",1); # open position
     
-# prepare to readout diodes                                                                              
-                nreads = exptime*60/nplc + 200
-                if (nreads > 3000):
-                    nreads = 3000
-                    nplc = exptime*60/(nreads-200)
-                    print "Nreads limited to 3000. nplc set to %f to cover full exposure period " % nplc
+# adjust timeout because we will be waiting for the data to become ready
+                mywait = nplc/60.*nreads*1.10 ;
+                print "Setting timeout to %f s" % mywait
+                pdsub.synchCommand(1000,"setTimeout",mywait);
 
                 print "call accumBuffer to start PD recording at %f" % time.time()
                 pdresult =  pdsub.asynchCommand("accumBuffer",int(nreads),float(nplc),True);
@@ -175,11 +180,6 @@ try:
 # make sure the sample of the photo diode is complete
                 time.sleep(5.)
     
-# adjust timeout because we will be waiting for the data to become ready
-                mywait = nplc/60.*nreads*1.10 ;
-                print "Setting timeout to %f s" % mywait
-                pdsub.synchCommand(1000,"setTimeout",mywait);
-
                 print "executing readBuffer, cdir=%s , pdfilename = %s" % (cdir,pdfilename)
                 result = pdsub.synchCommand(500,"readBuffer","%s/%s" % (cdir,pdfilename));
                 buff = result.getResult()

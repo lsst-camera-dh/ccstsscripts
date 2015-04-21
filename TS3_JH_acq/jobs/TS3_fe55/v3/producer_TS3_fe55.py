@@ -5,10 +5,10 @@ import sys
 
 jobname = "TS3_fe55"
 
-jobdir = "%sshare/%s/%s/" % (os.environ["INST_DIR"], jobname, os.environ["LCATR_VERSION"])
+jobdir = "%sshare/%s/%s/" % (os.environ["LCATR_MODULES-PATH"], jobname, os.environ["LCATR_VERSION"])
 print "jobdir = %s" % jobdir
 
-sitedir = "%s/TS3_JH_acq/site" % os.environ["VIRTUAL_ENV"]
+sitedir = "%sTS3_JH_acq/site" % os.environ["LCATR_MODULES-PATH"]
 
 print "PWD = %s" % os.environ["PWD"]
 print "OLDPWD = %s" % os.environ["OLDPWD"]
