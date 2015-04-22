@@ -1,6 +1,6 @@
 ###############################################################################
-# qe
-# Acquire qe images
+# dark
+# Acquire dark image pairs
 #
 ###############################################################################
 
@@ -10,7 +10,7 @@ import sys
 import time
 
 sys.path.append(libdir);
-import eolib
+#import eolib
 
 CCS.setThrowExceptions(True);
 
@@ -30,32 +30,25 @@ try:
     lampsub = CCS.attachSubsystem("ts/Lamp");
     print "attaching Mono subsystem"
     monosub = CCS.attachSubsystem("ts/Monochromator");
-#    monosub.synchCommand(10,"setHandshake",0);
+    monosub.synchCommand(10,"setHandshake",0);
     
     print "Attaching archon subsystem"
-    arcsub  = CCS.attachSubsystem("archonSim");
-
-    time.sleep(3.)
-
+    arcsub  = CCS.attachSubsystem("archon");
+    
     cdir = tsCWD
-
+    
 # Initialization
     print "doing initialization"
-
-    print "resetting PD device"
-#    result = pdsub.synchCommand(20,"reset")
-#    reply = result.getResult();
-#    time.sleep(5.)
-
+    pdsub.synchCommand(10,"reset");
+    
     arcsub.synchCommand(10,"setConfigFromFile",acffile);
     arcsub.synchCommand(20,"applyConfig");
+    
     arcsub.synchCommand(10,"powerOnCCD");
 
     arcsub.synchCommand(10,"setParameter","Expo","1");
-
-    biassub.synchCommand(10,"setCurrentRange",0.0002)
-    pdsub.synchCommand(10,"setCurrentRange",0.0002)
-
+    arcsub.synchCommand(10,"setParameter","Light","0");
+    
 # move to TS acquisition state
     print "setting acquisition state"
     result = tssub.synchCommand(10,"setTSTEST");
@@ -77,69 +70,35 @@ try:
         if tsstate!=0 :
             break
         time.sleep(5.)
-
 #put in acquisition state
     print "go teststand go"
     result = tssub.synchCommand(120,"goTestStand");
     rply = result.getResult();
 
-    lo_lim = float(eolib.getCfgVal(acqcfgfile, 'LAMBDA_LOLIM', default='1.0'))
-    hi_lim = float(eolib.getCfgVal(acqcfgfile, 'LAMBDA_HILIM', default='120.0'))
-    bcount = int(eolib.getCfgVal(acqcfgfile, 'LAMBDA_BCOUNT', default='1'))
-    imcount = int(eolib.getCfgVal(acqcfgfile, 'LAMBDA_IMCOUNT', default='1'))
-
-    seq = 0
-
+# go through config file looking for 'dark' instructions, take the darks
+    
+    arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
+    
 #number of PLCs between readings
-    nplc = 1
-
+    nplc = 1.0
+    
     ccd = CCDID
     print "Working on CCD %s" % ccd
 
-    print "set filter position"
-    monosub.synchCommand(30,"setFilter",1); # open position
-
-# go through config file looking for 'qe' instructions
-    print "Scanning config file for LAMBDA specifications";
+    seq = 0
+    
+    print "Scanning config file for DARK specifications";
     fp = open(acqcfgfile,"r");
     fpfiles = open("%s/acqfilelist" % cdir,"w");
-
+    
     for line in fp:
         tokens = str.split(line)
-        if ((len(tokens) > 0) and (tokens[0] == 'lambda')):
-            wl = int(tokens[1])
-            target = float(tokens[1])
-            print "target wl = %f" % target;
+        if ((len(tokens) > 0) and (tokens[0] == 'dark')):
+            exptime = float(tokens[1])
+            imcount = int(tokens[2])
 
-            exptime = eolib.expCheck(calfile, labname, target, wl, hi_lim, lo_lim, test='LAMBDA', use_nd=False)
-
-
-# take bias images
-
-            arcsub.synchCommand(10,"setParameter","ExpTime","0"); 
-            arcsub.synchCommand(10,"setParameter","Light","0");
-
-            print "setting location of bias fits directory"
-            arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
-
-            for i in range(bcount):
-                timestamp = time.time()
-                fitsfilename = "%s_lambda_bias_%3.3d_${TIMESTAMP}.fits" % (ccd,seq)
-                arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
-
-                print "Ready to take bias image. time = %f" % time.time()
-                result = arcsub.synchCommand(200,"exposeAcquireAndSave");
-                fitsfilename = result.getResult();
-                print "after click click at %f" % time.time()
-                time.sleep(0.2)
-
-
-# take light exposures
-            arcsub.synchCommand(10,"setParameter","Light","1");
             arcsub.synchCommand(10,"setParameter","ExpTime",str(int(exptime*1000)));
-            print "setting location of fits exposure directory"
-            arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
-
+    
 # prepare to readout diodes
             nreads = exptime*60/nplc + 200
             if (nreads > 3000):
@@ -148,11 +107,9 @@ try:
                 print "Nreads limited to 3000. nplc set to %f to cover full exposure period " % nplc
 
             for i in range(imcount):
-                print "starting acquisition step for lambda = %8.2f" % wl
 
-                monosub.synchCommand(30,"setWave",wl);
-
-# adjust timeout because we will be waiting for the data to become ready
+# adjust timeout because we will be waiting for the data to become ready both
+# at the accumbuffer stage and the readbuffer stage
                 mywait = nplc/60.*nreads*1.10 ;
                 print "Setting timeout to %f s" % mywait
                 pdsub.synchCommand(1000,"setTimeout",mywait);
@@ -163,61 +120,62 @@ try:
                 print "recording should now be in progress and the time is %f" % time.time()
 
 # start acquisition
+
                 timestamp = time.time()
-                fitsfilename = "%s_lambda_%3.3d_%3.3d_lambda_%d_${TIMESTAMP}.fits" % (ccd,int(wl),seq,i+1)
+
+                fitsfilename = "%s_dark_dark%d_${TIMESTAMP}.fits" % (ccd,i+1)
                 arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
-
-# make sure to get some readings before the state of the shutter changes       
-                time.sleep(0.2);
- 
-
+    
                 print "Ready to take image. time = %f" % time.time()
-                result = arcsub.synchCommand(200,"exposeAcquireAndSave");
+                result = arcsub.synchCommand(2000,"exposeAcquireAndSave");
                 fitsfilename = result.getResult();
                 print "after click click at %f" % time.time()
-
+    
                 print "done with exposure # %d" % i
                 print "getting photodiode readings at time = %f" % time.time();
 
                 pdfilename = "pd-values_%d-for-seq-%d-exp-%d.txt" % (int(timestamp),seq,i+1)
+
 # the primary purpose of this is to guarantee that the accumBuffer method has completed
                 print "starting the wait for an accumBuffer done status message at %f" % time.time()
                 tottime = pdresult.get();
 
 # make sure the sample of the photo diode is complete
-                time.sleep(10.)
-
+                time.sleep(5.)
+    
                 print "executing readBuffer, cdir=%s , pdfilename = %s" % (cdir,pdfilename)
-                result = pdsub.synchCommand(1000,"readBuffer","%s/%s" % (cdir,pdfilename));
+                result = pdsub.synchCommand(900,"readBuffer","%s/%s" % (cdir,pdfilename));
                 buff = result.getResult()
                 print "Finished getting readings at %f" % time.time()
 
 # reset timeout to something reasonable for a regular command
                 pdsub.synchCommand(1000,"setTimeout",10.);
 
-
                 fpfiles.write("%s %s/%s %f\n" % (fitsfilename,cdir,pdfilename,timestamp))
-
+ 
+  
             seq = seq + 1
-
+    
     fpfiles.close();
     fp.close();
-
+    
     fp = open("%s/status.out" % (cdir),"w");
-
+    
     istate=0;
     result = tssub.synchCommandLine(10,"getstate");
     istate=result.getResult();
     fp.write(`istate`+"\n");
+    
     fp.close();
-
+    
 # move TS to idle state
-                    
-    tssub.synchCommand(10,"setTSReady");
+                        
+    tssub.synchCommand(10,"setTSIdle");
+#except CcsException as ex:                                                     
+except:
 
-except Exception, ex:
+#    print "There was ean exception in the acquisition of type %s" % ex         
+    print "There was an exception in the acquisition at time %f" % time.time()
 
-    raise Exception("There was an exception in the acquisition producer script. The message is\n (%s)\nPlease retry the step or contact an expert," % ex)
 
-
-print "QE: END"
+print "DARK: END"

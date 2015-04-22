@@ -30,7 +30,7 @@ try:
     lampsub = CCS.attachSubsystem("ts/Lamp");
     print "attaching Mono subsystem"
     monosub = CCS.attachSubsystem("ts/Monochromator");
-    monosub.synchCommand(10,"setHandshake",0);
+#    monosub.synchCommand(10,"setHandshake",0);
     
 #    print "Attaching archon subsystem"
 #    arcsub  = CCS.attachSubsystem("archon");

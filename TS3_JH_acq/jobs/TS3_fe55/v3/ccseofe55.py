@@ -32,21 +32,24 @@ try:
     xedsub = CCS.attachSubsystem("ts/XED");
     print "attaching Mono subsystem"
     monosub = CCS.attachSubsystem("ts/Monochromator");
-    monosub.synchCommand(10,"setHandshake",0);
+#    monosub.synchCommand(10,"setHandshake",0);
 
     print "Attaching archon subsystem"
-    arcsub  = CCS.attachSubsystem("archon");
+    arcsub  = CCS.attachSubsystem("archonSim");
     
+    time.sleep(3.)
+
     cdir = tsCWD
     
     # Initialization
     print "doing initialization"
     
-    print "resetting PD device"
-    pdsub.synchCommand(20,"reset")
+#    print "resetting PD device"
+#    result = pdsub.synchCommand(20,"reset")
+#    reply = result.getResult();
 
     print "load CCD controller config file"
-    arcsub.synchCommand(10,"setConfigFromFile",acffile);
+    arcsub.synchCommand(20,"setConfigFromFile",acffile);
     arcsub.synchCommand(20,"applyConfig");
     arcsub.synchCommand(10,"powerOnCCD");
     
@@ -57,10 +60,6 @@ try:
 #    monosub.synchCommand(10,"closeShutter");
     print "set filter wheel to position 1"
     monosub.synchCommand(10,"setFilter",1); # open position
-    
-    # extend the Fe55 arm
-    print "extend the Fe55 arm"
-    xedsub.synchCommand(30,"extendFe55");
     
     #result = arcsub.synchCommand(10,"clearCCD");
     
@@ -147,10 +146,18 @@ try:
                 arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
     
                 print "Ready to take image. time = %f" % time.time()
+
+# extend the Fe55 arm
+                print "extend the Fe55 arm"
+                xedsub.synchCommand(30,"extendFe55");
+    
                 result = arcsub.synchCommand(200,"exposeAcquireAndSave");
                 fitsfilename = result.getResult();
                 print "after click click at %f" % time.time()
-   
+
+# retract the Fe55 arm
+                xedsub.synchCommand(30,"retractFe55");
+    
                 print "done with exposure # %d" % i
                 print "getting photodiode readings at time = %f" % time.time();
     
@@ -174,9 +181,6 @@ try:
     fp.close();
     
     
-    # retract the Fe55 arm
-    xedsub.synchCommand(30,"retractFe55");
-    
     fp = open("%s/status.out" % (cdir),"w");
     
     istate=0;
@@ -189,10 +193,8 @@ try:
                         
     tssub.synchCommand(10,"setTSIdle");
 
-#except CcsException as ex:                                                     
-except:
+except Exception, ex:                                                     
 
-#    print "There was ean exception in the acquisition of type %s" % ex         
-    print "There was an exception in the acquisition at time %f" % time.time()
+    raise Exception("There was an exception in the acquisition producer script. The message is\n (%s)\nPlease retry the step or contact an expert," % ex)
 
 print "FE55: END"

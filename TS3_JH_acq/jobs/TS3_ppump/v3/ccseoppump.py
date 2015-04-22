@@ -30,18 +30,22 @@ try:
     lampsub = CCS.attachSubsystem("ts/Lamp");
     print "attaching Mono subsystem"
     monosub = CCS.attachSubsystem("ts/Monochromator");
-    monosub.synchCommand(10,"setHandshake",0);
+#    monosub.synchCommand(10,"setHandshake",0);
         
     print "Attaching archon subsystem"
-    arcsub  = CCS.attachSubsystem("archon");
+    arcsub  = CCS.attachSubsystem("archonSim");
     
     cdir = tsCWD
     
+    time.sleep(3.)
+
 # Initialization
     print "doing initialization"
     
-    arcsub.synchCommand(10,"setConfigFromFile",acffile);
-    arcsub.synchCommand(20,"applyConfig");
+    result = arcsub.synchCommand(20,"setConfigFromFile",acffile);
+    reply = result.getResult();
+    result = arcsub.synchCommand(25,"applyConfig");
+    reply = result.getResult();
     arcsub.synchCommand(10,"powerOnCCD");
     
     arcsub.synchCommand(10,"setParameter","Expo","1");
@@ -49,7 +53,7 @@ try:
     
 # move to TS acquisition state
     print "setting acquisition state"
-    result = tssub.synchCommand(10,"setTSTEST");
+    result = tssub.synchCommand(40,"setTSTEST");
     rply = result.getResult();
     
 #check state of ts devices
@@ -82,7 +86,7 @@ try:
     
     seq = 0  # image pair number in sequence
     
-    monosub.synchCommand(10,"setFilter",1);
+    monosub.synchCommand(30,"setFilter",1);
     
 # go through config file looking for 'ppump' instructions, take the flats
     print "Scanning config file for PPUMP specifications";
@@ -120,7 +124,7 @@ try:
             arcsub.synchCommand(10,"setParameter","Light","0");
 
             print "setting location of bias fits directory"
-            arcsub.synchCommand(10,"setFitsDirectory","%s/bias" % (cdir));
+            arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
 
             for i in range(pcount):
 # start acquisition
@@ -210,10 +214,9 @@ try:
                         
     tssub.synchCommand(10,"setTSIdle");
 
-#except CcsException as ex:                                                     
-except:
+except Exception, ex:                                                     
 
-#    print "There was ean exception in the acquisition of type %s" % ex         
-    print "There was an exception in the acquisition at time %f" % time.time()
+    raise Exception("There was an exception in the acquisition producer script. The message is\n (%s)\nPlease retry the step or contact an expert," % ex)         
+
 
 print "PPUMP: END"

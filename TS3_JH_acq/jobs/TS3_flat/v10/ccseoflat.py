@@ -37,19 +37,26 @@ try:
     lampsub = CCS.attachSubsystem("ts/Lamp");
     print "attaching Mono subsystem"
     monosub = CCS.attachSubsystem("ts/Monochromator");
-    monosub.synchCommand(10,"setHandshake",0);
+
+    print "pdsub=%s" % pdsub
+
+#    monosub.synchCommand(10,"setHandshake",0);
 
     print "Attaching archon subsystem"
-    arcsub  = CCS.attachSubsystem("archon");
+    arcsub  = CCS.attachSubsystem("archonSim");
 
-    serno = 1   # in the future this will be passed in
+    time.sleep(3.)
 
     cdir = tsCWD
 
 # Initialization
     print "doing initialization"
-    print "resetting PD device"
-    pdsub.synchCommand(20,"reset")
+
+#    print "resetting PD device"
+#    result=pdsub.synchCommand(20,"reset")
+#    rply = result.getResult();
+#    time.sleep(5.)
+
     print "initializing archon controller with file %s" % acffile
     arcsub.synchCommand(10,"setConfigFromFile",acffile);
     arcsub.synchCommand(20,"applyConfig");
@@ -95,7 +102,7 @@ try:
 
     seq = 0  # image pair number in sequence
 
-    monosub.synchCommand(10,"setFilter",1);
+    monosub.synchCommand(30,"setFilter",1);
 
 
     ccd = CCDID
@@ -122,7 +129,7 @@ try:
             arcsub.synchCommand(10,"setParameter","ExpTime","0");
  
             print "setting location of bias fits directory"
-            arcsub.synchCommand(10,"setFitsDirectory","%s/bias" % (cdir));
+            arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
 
             print "starting acquisition step for lambda = %8.2f with exptime %8.2f s" % (wl, exptime)
  
@@ -225,12 +232,11 @@ try:
 
 # move TS to idle state
                     
-    tssub.synchCommand(10,"setTSIdle");
+    tssub.synchCommand(20,"setTSReady");
 
 #except CcsException as ex:
-except:
+except Exception, ex:
 
-#    print "There was ean exception in the acquisition of type %s" % ex
-    print "There was an exception in the acquisition"
+    raise Exception("There was an exception in the acquisition producer script. The message is\n (%s)\nPlease retry the step or contact an expert," % ex)
 
 print "FLAT: END"

@@ -6,8 +6,7 @@ import os
     
 results = []
 
-jobname = "TS3_fe55"
-
+jobname = os.environ["LCATR_JOB"]
 jobdir = "%sshare/%s/%s/" % (os.environ["LCATR_MODULES-PATH"], jobname, os.environ["LCATR_VERSION"])
 sitedir = "%sTS3_JH_acq/site" % os.environ["LCATR_MODULES-PATH"]
 
@@ -27,26 +26,32 @@ for line in fpfiles :
         print "Problem in fitsAverage: Check that %s was actually created: " % fitsfile
     try:
         ht.hdrsummary(fitsfile,"summary.txt")
+# make summary file - new info will be appended to an existing summary
+#        ht.hdrsummary(fitsfile,"%s/summary.txt" % os.getcwd())
     except:
         print "Problem in hdrsummary: Check that %s was actually created: " % fitsfile
 fpfiles.close()
 
 
+try:
+    fo = open("%s/status.out" % os.getcwd(), "r");
+    tsstat = fo.readline();
+    fo.close();
+except:
+    print "Status file MISSING! Something went wrong."
 
-fo = open("%s/status.out" % os.getcwd(), "r");
-tsstat = fo.readline();
-fo.close();
-
-results.append(lcatr.schema.valid(lcatr.schema.get('TS3_fe55'),stat=tsstat))
+results.append(lcatr.schema.valid(lcatr.schema.get('TS3_flat'),stat=tsstat))
 
 os.system("%s/dotemppressplots.sh" % sitedir)
 
 #copy all the lcatr job files too
 os.system("cp -vp %s/{*.py,*.fits} ." % jobdir)
-os.system("cp -vp %s ." % acffile)
-os.system("cp -vp %s ." % acqcfgfile)
+os.mkdir("bias")
+biasfiles = glob.glob('*bias*.fits')
+for file in biasfiles :
+    os.system("ln -t bias -s ../%s" % file)
 
-files = glob.glob('*.fits,*values*,*log*,*summary*,*.dat,*.png,*.py,bias/*.fits')
+files = glob.glob('*.fits,*values*,*log*,*summary*,*.dat,*.png,*.py')
 data_products = [lcatr.schema.fileref.make(item) for item in files]
 results.extend(data_products)
 

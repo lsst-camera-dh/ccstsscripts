@@ -30,17 +30,22 @@ try:
     lampsub = CCS.attachSubsystem("ts/Lamp");
     print "attaching Mono subsystem"
     monosub = CCS.attachSubsystem("ts/Monochromator");
-    monosub.synchCommand(10,"setHandshake",0);
+#    monosub.synchCommand(10,"setHandshake",0);
 
     print "Attaching archon subsystem"
-    arcsub  = CCS.attachSubsystem("archon");
-    
+    arcsub  = CCS.attachSubsystem("archonSim");
+
+    time.sleep(3.)
+
     cdir = tsCWD
     
 # Initialization
     print "doing initialization"
     print "resetting PD device"
-    pdsub.synchCommand(20,"reset")
+#    result = pdsub.synchCommand(20,"reset")
+#    rply = result.getResult();
+#    time.sleep(5.)
+
     arcsub.synchCommand(10,"setConfigFromFile",acffile);
     arcsub.synchCommand(20,"applyConfig");
     arcsub.synchCommand(10,"powerOnCCD");
@@ -109,7 +114,11 @@ try:
             result = arcsub.synchCommand(10,"setParameter","Light","0");
 
             print "setting location of bias fits directory"
-            arcsub.synchCommand(10,"setFitsDirectory","%s/bias" % (cdir));
+            arcsub.synchCommand(10,"setFitsDirectory","%s" % (cdir));
+
+            print "set filter position"
+            result = monosub.synchCommand(60,"setFilter",1); # open position
+            reply = result.getResult();
 
             for i in range(bcount):
                 timestamp = time.time()
@@ -139,8 +148,7 @@ try:
                 print "starting acquisition step for lambda = %8.2f" % wl
     
                 result = monosub.synchCommand(30,"setWave",wl);
-    
-                result = monosub.synchCommand(10,"setFilter",1); # open position
+                reply = result.getResult();
     
 # adjust timeout because we will be waiting for the data to become ready
                 mywait = nplc/60.*nreads*1.10 ;
@@ -206,12 +214,11 @@ try:
     
 # move TS to idle state
                         
-    tssub.synchCommand(10,"setTSIdle");
+    tssub.synchCommand(10,"setTSReady");
 
 #except CcsException as ex:                                                     
-except:
+except Exception, ex:
 
-#    print "There was ean exception in the acquisition of type %s" % ex         
-    print "There was an exception in the acquisition at time %f" % time.time()
+    raise Exception("There was an exception in the acquisition producer script. The message is\n (%s)\nPlease retry the step or contact an expert," % ex)
 
 print "SFLAT: END"
