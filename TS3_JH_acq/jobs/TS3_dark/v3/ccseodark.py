@@ -33,7 +33,7 @@ try:
 #    monosub.synchCommand(10,"setHandshake",0);
     
     print "Attaching archon subsystem"
-    arcsub  = CCS.attachSubsystem("archonSim");
+    arcsub  = CCS.attachSubsystem("archon");
     
     cdir = tsCWD
     

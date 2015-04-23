@@ -35,7 +35,7 @@ try:
 #    monosub.synchCommand(10,"setHandshake",0);
 
     print "Attaching archon subsystem"
-    arcsub  = CCS.attachSubsystem("archonSim");
+    arcsub  = CCS.attachSubsystem("archon");
     
     time.sleep(3.)
 
@@ -59,7 +59,7 @@ try:
     
 #    monosub.synchCommand(10,"closeShutter");
     print "set filter wheel to position 1"
-    monosub.synchCommand(10,"setFilter",1); # open position
+    monosub.synchCommand(30,"setFilter",1); # open position
     
     #result = arcsub.synchCommand(10,"clearCCD");
     
@@ -98,11 +98,6 @@ try:
     ccd = CCDID
     print "Working on CCD %s" % ccd
 
-    print "set filter position"
-    monosub.synchCommand(10,"setFilter",1); # open position
-    
-    
-    
 # go through config file looking for 'fe55' instructions, take the fe55s
     print "Scanning config file for fe55 specifications";
     
@@ -132,7 +127,8 @@ try:
                 print "Setting timeout to %f s" % mywait
                 pdsub.synchCommand(1000,"setTimeout",mywait);
 
-                pdresult =  pdsub.asynchCommand("accumBuffer",int(nreads),float(nplc),True);
+#                pdresult =  pdsub.asynchCommand("accumBuffer",int(nreads),float(nplc),True);
+                pdresult =  pdsub.synchCommand(10,"accumBuffer",int(nreads),float(nplc),False);
                 print "recording should now be in progress and the time is %f" % time.time()
 # start acquisition
 
@@ -163,7 +159,7 @@ try:
     
                 pdfilename = "pd-values_%d-for-seq-%d-exp-%d.txt" % (timestamp,seq,i+1)
                 print "starting the wait for an accumBuffer done status message at %f" % time.time()
-                tottime = pdresult.get();
+#                tottime = pdresult.get();
 
 # make sure the sample of the photo diode is complete
                 time.sleep(5.)
@@ -191,7 +187,7 @@ try:
     
 # move TS to idle state
                         
-    tssub.synchCommand(10,"setTSIdle");
+    tssub.synchCommand(60,"setTSReady");
 
 except Exception, ex:                                                     
 

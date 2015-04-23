@@ -33,7 +33,7 @@ try:
 #    monosub.synchCommand(10,"setHandshake",0);
         
     print "Attaching archon subsystem"
-    arcsub  = CCS.attachSubsystem("archonSim");
+    arcsub  = CCS.attachSubsystem("archon");
     
     cdir = tsCWD
     
@@ -53,7 +53,7 @@ try:
     
 # move to TS acquisition state
     print "setting acquisition state"
-    result = tssub.synchCommand(40,"setTSTEST");
+    result = tssub.synchCommand(60,"setTSTEST");
     rply = result.getResult();
     
 #check state of ts devices
@@ -212,7 +212,7 @@ try:
     
 # move TS to idle state
                         
-    tssub.synchCommand(10,"setTSIdle");
+    tssub.synchCommand(60,"setTSIdle");
 
 except Exception, ex:                                                     
 
