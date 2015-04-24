@@ -1,93 +1,62 @@
 %YAML  1.1
 ---
 # LSST Hardware Receipt - Inspection
-Name: SR-RCV-6
+Name: SR-MET-6
 Version: next
 HardwareType: CCD
 Description: Hardware Receipt
 Sequence:
    -
-     Name: Process
-     Description: SR-6.Step-<ul></ul>
+     Name: Store sensor
+     Description: SR-6.5-<ul><li>0. - Begin- Sensor is selected to proceed through Task 6.</li><li>1. - Set up laminar flow hood.</li><li>1.1 - Turn on laminar flow hood.</li><li>1.2 - Check for obstructions and/or malfunctions.</li><li>1.3 - Turn on Air Ionizer Bar.</li><li>2. - Set up the OGP for measurements.</li><li>2.1 - Turn on the computer.</li><li>2.2 - Turn on the OGP using controller I/O switch.</li><li>2.3 - Open MeasureMind and follow the initialization prompts.</li><li>2.4 - Raise Z-stage and move the platen forward towards the Operator.</li><li>2.5 - Ensure MF02 is installed.</li><li>2.6 - Add a new directory folder for the measurement to be performed and a directory folder for the resulting data products.</li><li>2.7 - Copy each routine file which will be used to the respective directory.</li><li>3. - Set up EPA and transport coffin and Mechanical Fixtures.</li><li>3.1 - Set up and verify the workstation is an EPA.</li><li>3.2 - Attach the OGP to the ESD network/monitor.</li><li>3.3 - Transport required tooling to TS2 Workstation.</li><li>3.4 - Transport coffin to TS2 Workstation.</li><li>4. - Prepare to open coffin.</li><li>4.1 - ESD wrist strap is worn.</li><li>4.2 - Sit or stand using the provided ESD-protective furniture.</li><li>4.3 - Place one finger of each hand away from each other on the ESD mat</li><li>4.4 - Un-screw outer screws of coffin cover.</li><li>4.5 - Loosen coffin cover</li><li>5. - Remove coffin cover.</li></ul>
      Version:  next
+     Prerequisites:
+        -
+         Name: Remove coffin cover.
+         PrerequisiteType: TEST_EQUIPMENT
    -
-     Name: Sensor Pin Metrology
-     Description: SR-6.-<ul></ul>
+     Name: MET-S4-Install loaded MF07 onto MF04.
+     Description: SR-63.7-<ul><li>6. - Transfer loaded MF04 to OGP.</li><li>7. - Remove protective cover.</li></ul>
      Version:  next
+     Prerequisites:
+        -
+         Name: Remove protective cover.
+         PrerequisiteType: TEST_EQUIPMENT
    -
-     Name: Begin- Sensor is selected to proceed through Task 6.
-     Description: SR-6.0-<ul></ul>
+     Name: MET-S4-Perform Height OGP Routine.
+     Description: SR-6.10-<ul><li>8.1 - Click Open Existing Routine and select the routine.</li><li>8.2 - Click Run the Current Routine.</li><li>8.3 - When prompted</li><li>8.4 - Wait for the routine to finish.</li><li>8.5 - Brief data check</li><li>9. - Raise Z-stage and move the stage to the front.</li><li>10. - Add protective cover.</li></ul>
      Version:  next
+     Prerequisites:
+        -
+         Name: Add protective cover.
+         PrerequisiteType: TEST_EQUIPMENT
    -
-     Name: Set up the OGP for measurements.
-     Description: SR-6.1-<ul><li>Turn on the computer.</li><li>Turn on the OGP using controller I/O switch.</li><li>Open MeasureMind and follow the initialization prompts.</li><li>Raise Z-stage and move the platen forward.</li><li>Ensure MF02 is installed.</li><li>Prepare the local directory for the measurements to be performed.</li><li>Add a new directory folder for each measurement to be performed and a directory folder for the resulting data products.</li><li>Copy each routine file which will be used to the respective directory.</li></ul>
+     Name: MET-S4-Transfer loaded MF04 to workstation.
+     Description: SR-6.13-<ul><li>12. - Removed from MF04.</li><li>12.1 - Remove gage blocks.</li><li>12.2 - Remove thumbscrews.</li><li>12.3 - Remove MF07 from MF04.</li><li>12.4 - Secure jig back onto coffin base with screws.</li><li>13. - Close up MF07.</li></ul>
      Version:  next
-     Instructions: blah blah blah
-   -
-     Name: Set up EPA and transport coffin.
-     Description: SR-6.2-<ul><li>Set up and verify the workstation is an EPA.</li><li>Attach the OGP to the ESD network/monitor.</li><li>Transport needed tooling to workstation.</li><li>Transport coffin to workstation.</li></ul>
-     Version:  next
-   -
-     Name: Prepare to open coffin.
-     Description: SR-6.3-<ul><li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furnature.</li><li>Place one finger of each hand away from each other on the ESD mat</li><li>Un-screw outer screws of coffin cover.</li><li>Loosen coffin cover</li></ul>
-     Version:  next
-   -
-     Name: Remove coffin cover.
-     Description: SR-6.4-<ul></ul>
-     Version:  next
-   -
-     Name: Install onto MF01.
-     Description: SR-6.5-<ul><li>Remove jig from coffin base.</li><li>Place jig onto MF01 and tighten thumbscrews.</li><li>Place gage blocks onto MF01.</li></ul>
-     Version:  next
-   -
-     Name: Transfer loaded MF01 to OGP.
-     Description: SR-6.6-<ul></ul>
-     Version:  next
-   -
-     Name: Remove protective cover.
-     Description: SR-6.7-<ul></ul>
-     Version:  next
-   -
-     Name: Perform Height OGP Routine.
-     Description: SR-6.8-<ul><li>Click Open Existing Routine and select the routine.</li><li>Click Run the Current Routine.</li><li>When prompted</li><li>Wait for the rountine to finish.</li><li>Brief data check</li></ul>
-     Version:  next
-   -
-     Name: Raise Z-stage and move the stage to the front.
-     Description: SR-6.9-<ul></ul>
-     Version:  next
-   -
-     Name: Add protective cover.
-     Description: SR-6.10-<ul></ul>
-     Version:  next
-   -
-     Name: Transfer loaded MF01 to workstation.
-     Description: SR-6.11-<ul></ul>
-     Version:  next
-   -
-     Name: Removed from MF01.
-     Description: SR-6.12-<ul><li>Remove gage blocks.</li><li>Remove thumbscrews.</li><li>Remove jig from MF01.</li><li>Secure jig back onto coffin base with screws.</li></ul>
-     Version:  next
-   -
-     Name: Close up coffin.
-     Description: SR-6.13-<ul></ul>
-     Version:  next
+     Prerequisites:
+        -
+         Name: Close up MF07.
+         PrerequisiteType: TEST_EQUIPMENT
    -
      Name: Verify data.
-     Description: SR-6.14-<ul><li>Run quick analysis script.</li><li>Check data is acceptable.</li><li>Repeat any testing</li></ul>
+     Description: SR-6.16-<ul><li>14.1 - Run quick analysis script.</li><li>14.2 - Check data is acceptable.</li><li>14.3 - Repeat any testing</li><li>15. - Store sensor</li><li>16. - Register the work performed with eManufacturing and upload resulting data products. </li></ul>
      Version:  next
-   -
-     Name: Store sensor
-     Description: SR-6.15-<ul></ul>
-     Version:  next
-   -
-     Name: Register the work performed with eManufacturing and upload resulting data products. 
-     Description: SR-6.16-<ul></ul>
-     Version:  next
+     Prerequisites:
+        -
+         Name: Register the work performed with eManufacturing and upload resulting data products. 
+         PrerequisiteType: TEST_EQUIPMENT
    -
      Name: Analyze the results
-     Description: SR-6.17-<ul><li>Open the appropriate Mathematica analysis script.</li><li>Change the data set and execute the script.</li><li>Save result files and analysis script information.</li><li>Upload result files to database.</li></ul>
+     Description: SR-6.17-<ul><li>17.1 - Open the appropriate Mathematica analysis script.</li><li>17.2 - Change the data set and execute the script.</li><li>17.3 - Save result files and analysis script information.</li></ul>
+     Version:  next
+     Prerequisites:
+        -
+         Name: Save result files and analysis script information.
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Upload result files to database.
      Version:  next
    -
      Name: Review and determine disposition of test data and visual inspection.
-     Description: SR-6.18-<ul></ul>
      Version:  next

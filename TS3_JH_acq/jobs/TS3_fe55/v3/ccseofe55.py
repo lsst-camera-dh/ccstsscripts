@@ -18,16 +18,16 @@ try:
     #attach CCS subsystem Devices for scripting
     print "Attaching teststand subsystems"
     tssub  = CCS.attachSubsystem("ts");
-    print "attaching Bias subsystem"
-    biassub = CCS.attachSubsystem("ts/Bias");
+#    print "attaching Bias subsystem"
+#    biassub = CCS.attachSubsystem("ts/Bias");
     print "attaching PD subsystem"
     pdsub   = CCS.attachSubsystem("ts/PhotoDiode");
-    print "attaching Cryo subsystem"
-    cryosub = CCS.attachSubsystem("ts/Cryo");
-    print "attaching Vac subsystem"
-    vacsub  = CCS.attachSubsystem("ts/VacuumGauge");
-    print "attaching Lamp subsystem"
-    lampsub = CCS.attachSubsystem("ts/Lamp");
+#    print "attaching Cryo subsystem"
+#    cryosub = CCS.attachSubsystem("ts/Cryo");
+#    print "attaching Vac subsystem"
+#    vacsub  = CCS.attachSubsystem("ts/VacuumGauge");
+#    print "attaching Lamp subsystem"
+#    lampsub = CCS.attachSubsystem("ts/Lamp");
     print "attaching XED subsystem"
     xedsub = CCS.attachSubsystem("ts/XED");
     print "attaching Mono subsystem"

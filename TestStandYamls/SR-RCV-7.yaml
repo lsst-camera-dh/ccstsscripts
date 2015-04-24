@@ -1,472 +1,232 @@
-     Name: 
-     Description: SR-.- 
-     Version:  next
-   -
 %YAML  1.1
 ---
 # LSST Hardware Receipt - Inspection
-Name: SR-RCV-1
+Name: SR-EO-7
 Version: next
 HardwareType: CCD
 Description: Hardware Receipt
 Sequence:
-   -
-     Name: Process
-     Description: SR-1.Step- 
-     Version:  next
-   -
-     Name: Vendor Data Acceptance
-     Description: SR-1.- 
-     Version:  next
-   -
-     Name: Begin- Vendor data is received before hardware.
-     Description: SR-1.0- 
-     Version:  next
-   -
-     Name: Select hardware type.
-     Description: SR-1.1- 
-     Version:  next
-   -
-     Name: Select vendor.
-     Description: SR-1.2- 
-     Version:  next
-   -
-     Name: Enter vendor serial number and revision.
-     Description: SR-1.3- 
-     Version:  next
-   -
-     Name: Ingest vendor data.
-     Description: SR-1.4- 
-     Version:  next
-   -
-     Name: Review and determine disposition of vendor test data.
-     Description: SR-1.6- 
-     Version:  next
-   -
-     Name: Hardware proceeds to next task.
-     Description: SR-1.End- 
-     Version:  next
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-2
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-     Name: Process
-     Description: SR-2.Step- 
-     Version:  next
-   -
-     Name: Initial Hardware Receipt
-     Description: SR-2.- 
-     Version:  next
-   -
-     Name: Begin- Vendor hardware is received. User and the package are in front of the anteroom.
-     Description: SR-2.0- 
-     Version:  next
-   -
-     Name: Unpack hardware.
-     Description: SR-2.1-<li>Open package.</li><li>Secure documentation.</li><li>Remove hardware from packaging.</li><li>Verify Vendor S/N matches ID description in documentation </li><li>Dispose of shipping materials.</li> 
-     Version:  next
-   -
-     Name: Place hardware/documentation in anteroom.
-     Description: SR-2.2- 
-     Version:  next
-   -
-     Name: Register received hardware.
-     Description: SR-2.3-<li>Log into eManufacturing software</li><li>Select hardware type.</li><li>Select vendor.</li><li>Enter vendor serial number and revision.</li><li>Retrieve LSST S/N.</li><li>Label hardware with LSST S/N.</li><li>Label all documentation with LSST S/N.</li> 
-     Version:  next
-   -
-     Name: Inspect documentation.
-     Description: SR-2.4-<li>Scan documentation.</li><li>Upload scanned documents.</li><li>Ingest vendor data.</li><li>Review and determine disposition of vendor test data (Phase 1/2).</li><li>Store hardcopies of documentation.</li> 
-     Version:  next
-   -
-     Name: Perform Visual Inspection.
-     Description: SR-2.5- 
-     Version:  next
-   -
-     Name: Prepare to clean the hardware (or packaging).
-     Description: SR-2.6-<li>Place hardware on cleaning bench.</li><li>Leave the anteroom.</li><li>Repeat Pre-Entrance Procedure</li><li>Gown and enter clean area.</li><li>Proceed to anteroom.</li><li>Remove hardware from shipping package.</li><li>Clean hardware.</li><li>Carry hardware into clean area.</li><li>Re-clean hardware</li> 
-     Version:  next
-   -
-     Name: Review and determine disposition of vendor test data (Phase 2/2) and visual inspection of hardware.
-     Description: SR-2.7- 
-     Version:  next
-   -
-     Name: Hardware may proceed to next Task
-     Description: SR-2.End- 
-     Version:  next
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-5
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-     Name: Process
-     Description: SR-5.Step- 
-     Version:  next
-   -
-     Name: Hardware Cleaning
-     Description: SR-5.- 
-     Version:  next
-   -
-     Name: Begin- 
-     Description: SR-5.0- 
-     Version:  next
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-3
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-     Name: Process
-     Description: SR-3.Step- 
-     Version:  next
-   -
-     Name: Initial Inspection of Sensor
-     Description: SR-3.- 
-     Version:  next
-   -
-     Name: Begin- Sensor is selected to proceed through Task 3.
-     Description: SR-3.0- 
-     Version:  next
-   -
-     Name: Set up laminar flow hood.
-     Description: SR-3.1-<li>Turn on laminar flow hood.</li><li>Check for obstructions and/or malfunctions.</li> 
-     Version:  next
-   -
-     Name: Set up EPA workstation and transport the coffin.
-     Description: SR-3.2-<li>Set up and verify the EPA.</li><li>Transport required tooling to workstation.</li><li>Transport coffin to workstation.</li> 
-     Version:  next
-   -
-     Name: Prepare to open coffin.
-     Description: SR-3.3-<li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furnature.</li><li>Perform ESD discharge procedure</li><li>Un-screw outer screws of coffin cover.</li><li>Dislodge coffin cover</li> 
-     Version:  next
-   -
-     Name: Remove coffin cover.
-     Description: SR-3.4- 
-     Version:  next
-   -
-     Name: Verify S/N on sensor package.
-     Description: SR-3.5- 
-     Version:  next
-   -
-     Name: Perform Visual Inspection.
-     Description: SR-3.6- 
-     Version:  next
-   -
-     Name: Close the coffin.
-     Description: SR-3.7- 
-     Version:  next
-   -
-     Name: Set up the OGP for measurements.
-     Description: SR-3.8-<li>Turn on the computer.</li><li>Turn on the OGP using controller I/O switch.</li><li>Open MeasureMind and follow the initialization prompts.</li><li>Raise Z-stage and move the platen forward towards the Operator.</li><li>Excluding MF02</li><li>Add a new directory folder for the new sensor.</li><li>Add a new directory folder for each measurement to be performed and a directory folder for the resulting data products.</li><li>Copy the routine file to automate the OGP during the measurements to each respective directory.</li> 
-     Version:  next
-   -
-     Name: Set up EPA and transport coffin.
-     Description: SR-3.9-<li>Set up and verify the workstation is an EPA.</li><li>Attach the OGP to the ESD network/monitor.</li><li>Transport required tooling to TS-2 workstation.</li><li>Transport coffin to TS-2 workstation.</li> 
-     Version:  next
-   -
-     Name: Prepare to open coffin.
-     Description: SR-3.10-<li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furnature.</li><li>Place one finger of each hand away from each other on the ESD mat</li><li>Un-screw outer screws of coffin cover.</li><li>Dislodge coffin cover</li> 
-     Version:  next
-   -
-     Name: Remove coffin cover.
-     Description: SR-3.11- 
-     Version:  next
-   -
-     Name: Transfer sensor (in coffen base) to OGP.
-     Description: SR-3.12- 
-     Version:  next
-   -
-     Name: Remove protective cover.
-     Description: SR-3.13- 
-     Version:  next
-   -
-     Name: Perform Edge Scan OGP Routine.
-     Description: SR-3.14-<li>Click Open Existing Routine and select Edge_Scan.RTN. </li><li>Click Run the Current Routine.</li><li>When prompted</li><li>Wait for the rountine to finish.</li><li>If the user is approved</li> 
-     Version:  next
-   -
-     Name: Perform Flatness OGP Routine.
-     Description: SR-3.15-<li>Click Open Existing Routine and select Flatness.RTN.</li><li>Click Run the Current Routine.</li><li>Enter appropriate path and filename for data products.</li><li>Wait for the rountine to finish.</li><li>If the user is approved</li> 
-     Version:  next
-   -
-     Name: Raise Z-stage and move the stage to the front.
-     Description: SR-3.16- 
-     Version:  next
-   -
-     Name: Install protective cover.
-     Description: SR-3.17- 
-     Version:  next
-   -
-     Name: Transfer to TS-2 workstation.
-     Description: SR-3.18- 
-     Version:  next
-   -
-     Name: Install coffin cover.
-     Description: SR-3.19- 
-     Version:  next
-   -
-     Name: Check whether collected data is acceptable.
-     Description: SR-3.20-<li>Run quick analysis script.</li><li>Check data is acceptable.</li><li>Repeat Edge or Flattness Scan if necessary</li> 
-     Version:  next
-   -
-     Name: Transport the sensor to storage -or- set up for next measurement.
-     Description: SR-3.21-<li>If the sensor is directed to Task 4</li><li>If the sensor is being stored</li> 
-     Version:  next
-   -
-     Name: Update eManufacturing and upload resulting data products. 
-     Description: SR-3.22-<li>Log into eManufacturing.</li><li>Verify the S/N of the tested sensor to the S/N displayed by eManufacturing.</li><li>Upload all data products and scripts. </li> 
-     Version:  next
-   -
-     Name: Analyze results.
-     Description: SR-3.23-<li>Open the appropriate Mathematica analysis script.</li><li>Change the data set and execute the script.</li><li>Save result files and analysis script information.</li><li>Upload results of annalysis to database.</li> 
-     Version:  next
-   -
-     Name: Review and determine disposition of flattness data and visual inspection.
-     Description: SR-3.24- 
-     Version:  next
-   -
-     Name: Store or Task 4 or Re-test.
-     Description: SR-3.End- 
-     Version:  next
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-4
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-     Name: Process
-     Description: SR-4.Step- 
-     Version:  next
-   -
-     Name: Sensor Height Metrology
-     Description: SR-4.- 
-     Version:  next
-   -
-     Name: Begin- Sensor is selected to proceed through Task 4.
-     Description: SR-4.0- 
-     Version:  next
-   -
-     Name: Set up the OGP for measurements.
-     Description: SR-4.1-<li>Turn on the computer.</li><li>Turn on the OGP using controller I/O switch.</li><li>Open MeasureMind and follow the initialization prompts.</li><li>Raise Z-stage and move the platen forward.</li><li>Ensure MF02 is installed.</li><li>Prepare the local directory for the measurements to be performed.</li><li>Add a new directory folder for each measurement to be performed and a directory folder for the resulting data products.</li><li>Copy each routine file which will be used to the respective directory.</li> 
-     Version:  next
-   -
-     Name: Set up EPA and transport coffin.
-     Description: SR-4.2-<li>Set up and verify the workstation is an EPA.</li><li>Attach the OGP to the ESD network/monitor.</li><li>Transport needed tooling to workstation.</li><li>Transport coffin to workstation.</li> 
-     Version:  next
-   -
-     Name: Prepare to open coffin.
-     Description: SR-4.3-<li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furnature.</li><li>Place one finger of each hand away from each other on the ESD mat</li><li>Un-screw outer screws of coffin cover.</li><li>Loosen coffin cover</li> 
-     Version:  next
-   -
-     Name: Remove coffin cover.
-     Description: SR-4.4- 
-     Version:  next
-   -
-     Name: Install onto MF01.
-     Description: SR-4.5-<li>Remove jig from coffin base.</li><li>Place jig onto MF01 and tighten thumbscrews.</li><li>Place gage blocks onto MF01.</li> 
-     Version:  next
-   -
-     Name: Transfer loaded MF01 to OGP.
-     Description: SR-4.6- 
-     Version:  next
-   -
-     Name: Remove protective cover.
-     Description: SR-4.7- 
-     Version:  next
-   -
-     Name: Perform Height OGP Routine.
-     Description: SR-4.8-<li>Click Open Existing Routine and select the routine.</li><li>Click Run the Current Routine.</li><li>When prompted</li><li>Wait for the rountine to finish.</li><li>Brief data check</li> 
-     Version:  next
-   -
-     Name: Raise Z-stage and move the stage to the front.
-     Description: SR-4.9- 
-     Version:  next
-   -
-     Name: Add protective cover.
-     Description: SR-4.10- 
-     Version:  next
-   -
-     Name: Transfer loaded MF01 to workstation.
-     Description: SR-4.11- 
-     Version:  next
-   -
-     Name: Removed from MF01.
-     Description: SR-4.12-<li>Remove gage blocks.</li><li>Remove thumbscrews.</li><li>Remove jig from MF01.</li><li>Secure jig back onto coffin base with screws.</li> 
-     Version:  next
-   -
-     Name: Close up coffin.
-     Description: SR-4.13- 
-     Version:  next
-   -
-     Name: Verify data.
-     Description: SR-4.14-<li>Run quick analysis script.</li><li>Check data is acceptable.</li><li>Repeat any testing</li> 
-     Version:  next
    -
      Name: Store sensor
-     Description: SR-4.15- 
+     Description: SR-7.1-<ul><li>0. - Begin- Sensor is selected to proceed through Task 7.</li><li>1. - Prepare TS3 for testing. Run preflight script</li><li>1.1 - Power-on sequence (auto)</li><li>1.2 - Lamp is warmed up and stable (at least 2 hrs). The rest of the preflight</li><li>1.3 - shutter actuates</li></ul>
+     Version:  next
+     Prerequisites:
+        -
+         Name: shutter actuates
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: monochromator grating is in place (can monoc or eMan software confirm working state? Tech must confirm if not. This is not really a test of technical ability of the grating
+     Description: SR-7.1-<ul><li>1.5 - confirm filter wheel is rotating</li></ul>
      Version:  next
    -
-     Name: Register the work performed with eManufacturing and upload resulting data products. 
-     Description: SR-4.16- 
+     Name: confirm keithley is working (software)
+     Description: SR-7.6-<ul><li>1.8 - final check- readout of IS-Photodiode (would like to do multiple readings depending on permutations of configuration)</li><li>2. - Set up EPA and transport coffin.</li><li>2.1 - Set up and verify the workstation is an EPA.</li><li>2.2 - Attach the TS3-Cryostat to the ESD network/monitor.</li><li>2.3 - Transport required tooling to TS3 Workstation.</li><li>2.4 - Transport coffin to TS3 Workstation.</li><li>3. - Remove screws TS3-Cryostat Window.</li><li>4. - Prepare to open coffin.</li><li>4.1 - ESD wrist strap is worn.</li><li>4.2 - Sit or stand using the provided ESD-protective furniture.</li><li>4.3 - Place one finger of each hand away from each other on the ESD mat</li><li>4.4 - Un-screw outer screws of coffin cover.</li><li>4.5 - Dislodge coffin cover</li><li>6. - Remove coffin cover.</li></ul>
      Version:  next
+     Prerequisites:
+        -
+         Name: Remove coffin cover.
+         PrerequisiteType: TEST_EQUIPMENT
    -
-     Name: Analyze the results
-     Description: SR-4.17-<li>Open the appropriate Mathematica analysis script.</li><li>Change the data set and execute the script.</li><li>Save result files and analysis script information.</li><li>Upload result files to database.</li> 
+     Name: Remove jig-screws from coffin base.
+     Description: SR-7.13-<ul><li>9. - Install jig onto cryostat nest registration pins.</li><li>10. - Secure jig onto nest with jig-screws.</li><li>11. - Remove micro-D connectors from the grounding plug (which is part of the jig).</li><li>12. - plug micro-D connectors into readout cable.</li><li>13. - Remove protective cover.</li></ul>
      Version:  next
+     Prerequisites:
+        -
+         Name: Remove protective cover.
+         PrerequisiteType: TEST_EQUIPMENT
+   - 
+     Name:  reClose window flange; connect controller
+     Version: next
+     Description: After the CCD is installed and the controller signals have been verified, shorting plugs are removed and the CCD is connected to the controller.
+     InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#controller"
+     Prerequisites:
+        -
+         Name: CCD Controller ON
+         PrerequisiteType: TEST_EQUIPMENT
    -
-     Name: Review and determine disposition of test data and visual inspection.
-     Description: SR-4.18- 
+     Name:  pump down the Dewar
+     Version: next
+     Description: <ul><li>install the Dewar window</li><li>start the backing vacuum pump</li><li>purge the Dewar with dry nitrogen gas (5X fill and evacuate). Rough pumping should proceed until the foreline pressure is below 5 mtorr, at which point the turbomolecular pump is started. Pumping should proceed until the chamber pressure reaches 5x10-5 torr.</li><li>start the turbomolecular pump a verify that the chamber pressure has dropped below 5x10-5 torr before proceeding</li></ul>
+     InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#pumpdown"
+   -
+     Name:  lower cryostat temperature to -95C
+     Version: next
+     Description: verify that the temperature is stable at -95C
+     RequiredInputs:
+         -
+          Label: Cooldown log (filepath)
+          InputSemantics: filepath
+   -
+     Name: Set up cryostat at dark box
+     Version: next
+     Description: After reverifying that the pressure is below  5x10-5 torr and the temperature is stable at -95C then set up the cryostat at the dark box.
+   -
+     Name:  run all acquisition and analysis scripts
      Version:  next
+     Description: You are about to start the automated execution of all acquisition and analysis scripts<br><ul><li>Verify that the CCS applications are running by clicking on the checktsappswidget.</li><li>If any app is not shown as running (green) or if the widget itself is not present, please refer to the detailed instructions below. Start a new window. Do - cd /home/ts3prod/prod - then - source lcatrsetup2.sh - then - cd lcatr/TS3_JH_acq - then select and paste the command provided when you click - start work. </li><li>Verify that the acquisitions have started and that there are no indications of problem in the CCS windows.</li><li>verify occasionally by reloading this eTraveler page or clicking - current step - that there are no failures</ul>
+     InstructionsURL: "https://confluence.slac.stanford.edu/display/LSSTCAM/Using+CCS+for+TS3+at+BNL"
+     TravelerActions:
+       - Automatable
+     Sequence:     
+       -
+          Name:  run EO Acquisition Scripts
+          Version:  next
+          TravelerActions:
+            - Automatable
+          Sequence:     
+            -
+               Name: TS3_fe55 
+               Version:  next
+               UserVersionString: v3
+               TravelerActions:
+                 - HarnessedJob
+            -
+               Name: TS3_flat 
+               Version:  next
+               UserVersionString: v10
+               TravelerActions:
+                 - HarnessedJob
+            -
+               Name: TS3_dark
+               Version:  next
+               UserVersionString: v3
+               TravelerActions:
+                 - HarnessedJob
+            -
+               Name: TS3_sflat
+               Version: next
+               UserVersionString: v3
+               TravelerActions:
+                 - HarnessedJob
+            -
+               Name: TS3_qe
+               Version: next
+               UserVersionString: v3
+               TravelerActions:
+                 - HarnessedJob
+            -
+               Name: TS3_ppump
+               Version: next
+               UserVersionString: v3
+               TravelerActions:
+                 - HarnessedJob
+       -
+          Name:  run EO Offline Analysis Scripts
+          Version:  next
+          TravelerActions:
+            - Automatable
+          Sequence:
+            -
+               Name: flat_pairs
+               Version:  next
+               UserVersionString: v0
+               TravelerActions:
+                 - HarnessedJob
+               Prerequisites:
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: TS3_flat
+                   UserVersionString: v10
+            -
+               Name: fe55_analysis
+               Version: next
+               UserVersionString: v0
+               TravelerActions:
+                 - HarnessedJob
+               Prerequisites:
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: TS3_fe55
+                   UserVersionString: v3
+            -  
+               Name: bright_pixels
+               Version: next
+               UserVersionString: v0
+               TravelerActions:
+                 - HarnessedJob
+               Prerequisites:
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: TS3_dark
+                   UserVersionString: v3
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: fe55_analysis
+                   UserVersionString: v0
+            -  
+               Name: dark_current
+               Version: next
+               UserVersionString: v0
+               TravelerActions:
+                 - HarnessedJob
+               Prerequisites:
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: TS3_dark
+                   UserVersionString: v3
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: fe55_analysis
+                   UserVersionString: v0
+            -  
+               Name: prnu
+               Version: next
+               UserVersionString: v0
+               TravelerActions:
+                 - HarnessedJob
+               Prerequisites:
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: TS3_sflat
+                   UserVersionString: v3
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: TS3_qe
+                   UserVersionString: v3
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: fe55_analysis
+                   UserVersionString: v0
+            -  
+               Name: trap
+               Version: next
+               UserVersionString: v0
+               TravelerActions:
+                 - HarnessedJob
+               Prerequisites:
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: TS3_ppump
+                   UserVersionString: v3
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: fe55_analysis
+                   UserVersionString: v0
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: bright_pixels
+                   UserVersionString: v0
+            -  
+               Name: qe
+               Version: next
+               UserVersionString: v0
+               TravelerActions:
+                 - HarnessedJob
+               Prerequisites:
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: TS3_qe
+                   UserVersionString: v3
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: fe55_analysis
+                   UserVersionString: v0
    -
-     Name: Store sensor
-     Description: SR-4.End- 
-     Version:  next
+     Name: TS3 cryostat warmup
+     Version: next
+     Description:  After the conclusion of testing, the controller is set to the POWERDOWN state. The polycold (cryo-tiger) system should be turned off. When the Dewar internal temperatures have reached a point where there is no danger of condensation, the Dewar pressure is brought up to 760torr with dry N2 gas. The window flange can then be opened and the CCD exchanged.
+     InstructionsURL: "http://www4.rcf.bnl.go/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#warmup"
    -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-6
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-     Name: Process
-     Description: SR-6.Step- 
-     Version:  next
-   -
-     Name: Sensor Pin Metrology
-     Description: SR-6.- 
-     Version:  next
-   -
-     Name: Begin- Sensor is selected to proceed through Task 6.
-     Description: SR-6.0- 
-     Version:  next
-   -
-     Name: Set up the OGP for measurements.
-     Description: SR-6.1-<li>Turn on the computer.</li><li>Turn on the OGP using controller I/O switch.</li><li>Open MeasureMind and follow the initialization prompts.</li><li>Raise Z-stage and move the platen forward.</li><li>Ensure MF02 is installed.</li><li>Prepare the local directory for the measurements to be performed.</li><li>Add a new directory folder for each measurement to be performed and a directory folder for the resulting data products.</li><li>Copy each routine file which will be used to the respective directory.</li> 
-     Version:  next
-   -
-     Name: Set up EPA and transport coffin.
-     Description: SR-6.2-<li>Set up and verify the workstation is an EPA.</li><li>Attach the OGP to the ESD network/monitor.</li><li>Transport needed tooling to workstation.</li><li>Transport coffin to workstation.</li> 
-     Version:  next
-   -
-     Name: Prepare to open coffin.
-     Description: SR-6.3-<li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furnature.</li><li>Place one finger of each hand away from each other on the ESD mat</li><li>Un-screw outer screws of coffin cover.</li><li>Loosen coffin cover</li> 
-     Version:  next
-   -
-     Name: Remove coffin cover.
-     Description: SR-6.4- 
-     Version:  next
-   -
-     Name: Install onto MF01.
-     Description: SR-6.5-<li>Remove jig from coffin base.</li><li>Place jig onto MF01 and tighten thumbscrews.</li><li>Place gage blocks onto MF01.</li> 
-     Version:  next
-   -
-     Name: Transfer loaded MF01 to OGP.
-     Description: SR-6.6- 
-     Version:  next
-   -
-     Name: Remove protective cover.
-     Description: SR-6.7- 
-     Version:  next
-   -
-     Name: Perform Height OGP Routine.
-     Description: SR-6.8-<li>Click Open Existing Routine and select the routine.</li><li>Click Run the Current Routine.</li><li>When prompted</li><li>Wait for the rountine to finish.</li><li>Brief data check</li> 
-     Version:  next
-   -
-     Name: Raise Z-stage and move the stage to the front.
-     Description: SR-6.9- 
-     Version:  next
-   -
-     Name: Add protective cover.
-     Description: SR-6.10- 
-     Version:  next
-   -
-     Name: Transfer loaded MF01 to workstation.
-     Description: SR-6.11- 
-     Version:  next
-   -
-     Name: Removed from MF01.
-     Description: SR-6.12-<li>Remove gage blocks.</li><li>Remove thumbscrews.</li><li>Remove jig from MF01.</li><li>Secure jig back onto coffin base with screws.</li> 
-     Version:  next
-   -
-     Name: Close up coffin.
-     Description: SR-6.13- 
-     Version:  next
-   -
-     Name: Verify data.
-     Description: SR-6.14-<li>Run quick analysis script.</li><li>Check data is acceptable.</li><li>Repeat any testing</li> 
-     Version:  next
-   -
-     Name: Store sensor
-     Description: SR-6.15- 
-     Version:  next
-   -
-     Name: Register the work performed with eManufacturing and upload resulting data products. 
-     Description: SR-6.16- 
-     Version:  next
-   -
-     Name: Analyze the results
-     Description: SR-6.17-<li>Open the appropriate Mathematica analysis script.</li><li>Change the data set and execute the script.</li><li>Save result files and analysis script information.</li><li>Upload result files to database.</li> 
-     Version:  next
-   -
-     Name: Review and determine disposition of test data and visual inspection.
-     Description: SR-6.18- 
-     Version:  next
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-7
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-     Name: Process
-     Description: SR-7.Step- 
-     Version:  next
-   -
-     Name: Single Sensor Electro-optical Testing
-     Description: SR-7.- 
-     Version:  next
-   -
-     Name: Begin- Sensor is selected to proceed through Task 7.
-     Description: SR-7.0- 
-     Version:  next
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-8
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-     Name: Process
-     Description: SR-8.Step- 
-     Version:  next
-   -
-     Name: Raft Baseplate Metrology
-     Description: SR-8.- 
-     Version:  next
-   -
+     Name: TS3 cryostat done
+     Version: next
+     Description: Move cryostat to TS5
