@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import glob
+import lcatr.schema
 import os
     
 results = []
@@ -7,9 +8,9 @@ results = []
 #results.append(lcatr.schema.valid(lcatr.schema.get('TS3_flat'),stat=tsstat))
 
 #copy
-os.system("cp -vp /tmp/scan/* .")
+os.system("cp -vp /tmp/scan/vendorReceipt/* .")
 
-files = glob.glob('*.*' % os.getcwd())    
+files = glob.glob('*.*')    
 data_products = [lcatr.schema.fileref.make(item) for item in files]
 results.extend(data_products)
 
