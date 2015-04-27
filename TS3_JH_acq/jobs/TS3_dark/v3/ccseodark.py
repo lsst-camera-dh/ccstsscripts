@@ -17,31 +17,18 @@ CCS.setThrowExceptions(True);
 try:
 #attach CCS subsystem Devices for scripting
     print "Attaching teststand subsystems"
-    tssub  = CCS.attachSubsystem("ts");
-#    print "attaching Bias subsystem"
-#    biassub = CCS.attachSubsystem("ts/Bias");
+    tssub  = CCS.attachSubsystem("%s" % ts);
     print "attaching PD subsystem"
-    pdsub   = CCS.attachSubsystem("ts/PhotoDiode");
-#    print "attaching Cryo subsystem"
-#    cryosub = CCS.attachSubsystem("ts/Cryo");
-#    print "attaching Vac subsystem"
-#    vacsub  = CCS.attachSubsystem("ts/VacuumGauge");
-#    print "attaching Lamp subsystem"
-#    lampsub = CCS.attachSubsystem("ts/Lamp");
+    pdsub   = CCS.attachSubsystem("%s/PhotoDiode" % ts);
     print "attaching Mono subsystem"
-    monosub = CCS.attachSubsystem("ts/Monochromator");
-#    monosub.synchCommand(10,"setHandshake",0);
-    
+    monosub = CCS.attachSubsystem("%s/Monochromator" % ts );
     print "Attaching archon subsystem"
-    arcsub  = CCS.attachSubsystem("archon");
+    arcsub  = CCS.attachSubsystem("%s" % archon);
     
     cdir = tsCWD
     
 # Initialization
     print "doing initialization"
-#    result = pdsub.synchCommand(10,"reset");
-#    reply = result.getResult();
-#    time.sleep(5.)
 
     arcsub.synchCommand(10,"setConfigFromFile",acffile);
     arcsub.synchCommand(20,"applyConfig");
@@ -72,6 +59,7 @@ try:
         if tsstate!=0 :
             break
         time.sleep(5.)
+
 #put in acquisition state
     print "go teststand go"
     result = tssub.synchCommand(120,"goTestStand");
@@ -129,7 +117,7 @@ try:
                 arcsub.synchCommand(10,"setFitsFilename",fitsfilename);
     
                 print "Ready to take image. time = %f" % time.time()
-                result = arcsub.synchCommand(2000,"exposeAcquireAndSave");
+                result = arcsub.synchCommand(200,"exposeAcquireAndSave");
                 fitsfilename = result.getResult();
                 print "after click click at %f" % time.time()
     
@@ -177,8 +165,6 @@ try:
 except Exception, ex:                                                     
 
 
-    print "There was ean exception in the acquisition: %s" % ex         
-#    print "There was an exception in the acquisition at time %f" % time.time()
-
+    raise Exception("There was an exception in the acquisition producer script. The message is\n (%s)\nPlease retry the step or contact an expert," % ex)
 
 print "DARK: END"

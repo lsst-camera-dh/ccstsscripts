@@ -17,23 +17,13 @@ CCS.setThrowExceptions(True);
 try:
 #attach CCS subsystem Devices for scripting
     print "Attaching teststand subsystems"
-    tssub  = CCS.attachSubsystem("ts");
-#    print "attaching Bias subsystem"
-#    biassub = CCS.attachSubsystem("ts/Bias");
+    tssub  = CCS.attachSubsystem("%s" % ts);
     print "attaching PD subsystem"
-    pdsub   = CCS.attachSubsystem("ts/PhotoDiode");
-#    print "attaching Cryo subsystem"
-#    cryosub = CCS.attachSubsystem("ts/Cryo");
-#    print "attaching Vac subsystem"
-#    vacsub  = CCS.attachSubsystem("ts/VacuumGauge");
-#    print "attaching Lamp subsystem"
-#    lampsub = CCS.attachSubsystem("ts/Lamp");
+    pdsub   = CCS.attachSubsystem("%s/PhotoDiode" % ts);
     print "attaching Mono subsystem"
-    monosub = CCS.attachSubsystem("ts/Monochromator");
-#    monosub.synchCommand(10,"setHandshake",0);
-
+    monosub = CCS.attachSubsystem("%s/Monochromator" % ts );
     print "Attaching archon subsystem"
-    arcsub  = CCS.attachSubsystem("archon");
+    arcsub  = CCS.attachSubsystem("%s" % archon);
 
     time.sleep(3.)
 
@@ -42,9 +32,6 @@ try:
 # Initialization
     print "doing initialization"
     print "resetting PD device"
-#    result = pdsub.synchCommand(20,"reset")
-#    rply = result.getResult();
-#    time.sleep(5.)
 
     arcsub.synchCommand(10,"setConfigFromFile",acffile);
     arcsub.synchCommand(20,"applyConfig");

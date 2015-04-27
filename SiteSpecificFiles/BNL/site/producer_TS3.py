@@ -31,7 +31,7 @@ fo.close();
 
 try:
 #Create an instance of the python binding
-    ccs1 = CcsJythonInterpreter();
+    ccs1 = CcsJythonInterpreter("ts");
  
     ccs1.syncExecution("tsCWD = '%s'" % os.getcwd());
     print "Executing labname=%s" % sitename
@@ -50,6 +50,8 @@ try:
 
     ccs1.syncExecution("calfile = '%s/fluxfile'" % sitedir);
     ccs1.syncExecution("CCDID = '%s'" % os.environ["LCATR_UNIT_ID"]);
+    ccs1.syncExecution("ts = 'ts'");
+    ccs1.syncExecution("archon = 'archon'");
 
     print 'starting synch execution'
     result1 = ccs1.syncExecution(content);
