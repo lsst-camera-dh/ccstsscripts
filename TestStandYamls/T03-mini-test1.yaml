@@ -45,7 +45,7 @@ Sequence:
          Name: TS3 pump down
          Version: next
          Description: After loading a new device into the cryostat and performing the readout system initialization, the Dewar window is installed and the backing vacuum pump is started. If conditions warrant, the Dewar is purged with dry nitrogen gas (5X fill and evacuate). Rough pumping should proceed until the foreline pressure is below 5 mtorr, at which point the turbomolecular pump is started. Pumping should proceed until the chamber pressure reaches 5x10-5 torr.
-         InstructionsURL: "http://www4.rcf.bnl.go/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#pumpdown"
+         InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#pumpdown"
          Prerequisites:
             -
              Name: turbo pump station

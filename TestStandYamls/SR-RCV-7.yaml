@@ -15,7 +15,7 @@ Sequence:
          Name: shutter actuates
          PrerequisiteType: TEST_EQUIPMENT
    -
-     Name: monochromator grating is in place (can monoc or eMan software confirm working state? Tech must confirm if not. This is not really a test of technical ability of the grating
+     Name: monochromator grating works
      Description: SR-7.1-<ul><li>1.5 - confirm filter wheel is rotating</li></ul>
      Version:  next
    -
@@ -26,20 +26,9 @@ Sequence:
         -
          Name: Remove coffin cover.
          PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: Remove jig-screws from coffin base.
-     Description: SR-7.13-<ul><li>9. - Install jig onto cryostat nest registration pins.</li><li>10. - Secure jig onto nest with jig-screws.</li><li>11. - Remove micro-D connectors from the grounding plug (which is part of the jig).</li><li>12. - plug micro-D connectors into readout cable.</li><li>13. - Remove protective cover.</li></ul>
-     Version:  next
-     Prerequisites:
         -
          Name: Remove protective cover.
          PrerequisiteType: TEST_EQUIPMENT
-   - 
-     Name:  reClose window flange; connect controller
-     Version: next
-     Description: After the CCD is installed and the controller signals have been verified, shorting plugs are removed and the CCD is connected to the controller.
-     InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/eTraveler/instr/sensor/T03/ts3_instructions.html#controller"
-     Prerequisites:
         -
          Name: CCD Controller ON
          PrerequisiteType: TEST_EQUIPMENT

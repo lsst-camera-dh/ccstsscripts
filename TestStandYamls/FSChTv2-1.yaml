@@ -1,29 +1,33 @@
 %YAML  1.1
 ---
 # For sensors that will be processed through TS1 TS2 and TS3
-Name: FullSensorCheckTask - TS1 - ST3
+Name: FullSensorCheckTask - TS1 - ST4
 HardwareType: CCD
 Description: Sensor delivery and inspection. The following will step you through the procedure for sensor delivery and inspection along with descriptions of the steps that should always be reread BEFORE performing the step. These sensors are extremely valuable and can be easily destroyed if the procedures are not strictly adhered to.
 Sequence:
    -
-     Name: Sensor at TS1 - ST3
+     Name: Sensor at TS1 - ST4
      Description:  Operations done at test stand 1
      Sequence:
        -
-         Name: TS1 Sensor receive - ST3
+         Name: TS1 Sensor receive - ST4
          Description:  Before entering the cleanroom antechamber, remove the container from the cardboard box, discarding packing material and recycling the cardboard. Do not remove the container from the anti-static, vacuum sealed bag.
          InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/etraveler/instr/sensor/T01/TS1_receive.html#receiving"
        -  
-         Name: Check that the serial and log number agree - ST3
-         Description: Create a new traveler in the eTraveler system, completing the field for the CCD MANUFACTURE Serial Number. Then find the last LSST Number applied in the eTraveler. Apply the next LSST Number and record it in the traveler. Numbering scheme is as follows - XYR-ZZ, X is the vender series - 1 = e2v; 2 = ITL, YR is the year received; e.g. if a sensor is receieved in 2013, YR = 13, ZZ is the serial count, starting at 00 at the beginning of every new year.Create a new file directory on the antechambers computer for the new CCD in CCDVendorDOCS Scan each document with the scanner provided in the antechamber, noting all documentation in the CCD Receiving Logbook. List all documents received by the vender in the traveler.
+         Name: Check that the serial and log number agree - ST4
+         Description: Create a new traveler in the eTraveler system, completing the field for the CCD MANUFACTURE Serial Number. Then find the last LSST Number applied in the eTraveler. Apply the next LSST Number and record it in the traveler. Numbering scheme is as follows - XYR-ZZ, X is the vender series - 1 = e2v; 2 = ITL, YR is the year received; e.g. if a sensor is receieved in 2013, YR = 13, ZZ is the serial count, starting at 00 at the beginning of every new year.Create a new file directory on the antechambers computer for the new CCD in CCDVendorDOCS Scan the document with the scanner provided in the antechamber. Select the file using the eTraveler query below and then click on the record button.
          InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/etraveler/instr/sensor/T01/sensorID.html#cataloging"
+         RequiredInputs:
+           -
+            Label: VendorData (filepath)
+            InputSemantics: filepath
        -  
-         Name: Sensor coffin clean - ST3
+         Name: Sensor coffin clean - ST4
          Description: Put gloves on. Wipe the metal container with the lint-free wipes and cleaning mixture, both provided. Stray the mixture onto the wipe, not onto the container directly. Using a new wipe, dry wipe the container. With a permanent marker, label the container with its respective CCD Serial Number. Leave the cleaned container in the antechamber and exit to the hallway and enter the gowning room. Gown for entrance into the ISO 6 clean area, which includes facemask. Enter the cleanroom, and proceed to the antechamber. Receive the cleaned and labeled container and place it under the laminar flow hood, located in the ISO 6 area.
          InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/etraveler/instr/sensor/T01/clean_coffin_1.html#clean"
        -  
-         Name: Sensor T01 in-jig inspection - ST3
+         Name: Sensor T01 in-jig inspection - ST4
          Description: Ensure the laminar flow hood is operational and its airflow is undisturbed. Put on an ESD protection bracelet. Remove the cover of the container, using a 2.5 mm hex key. Perform the Preliminary Visual Inspection- Examine the CCD, the shipping jig, and the container for any possible contamination issues, such as unexpected items inside the container, dirt, grime, stains, liquids, or anything else unusual. In the traveler, check which apply and record any applicable issues- The CCD, shipping jig, and container appear to be free of contaminants. The CCD, shipping jig, and/or container have been contaminated before its initial opening. Detail the issue(s) in the traveler. Examine the CCD for any chips, cracks, loose pins or screws, discoloration of the CCD, or anything else unusual. In the traveler, check which apply and record any applicable issues
          InstructionsURL: "http://www4.rcf.bnl.gov/~hneal/etraveler/instr/sensor/T01/inspect_in_jig.html#inspect"  
        -
-         Name:  Sensor move to TS2 - ST3
+         Name:  Sensor move to TS2 - ST4
