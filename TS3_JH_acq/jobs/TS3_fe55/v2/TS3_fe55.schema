@@ -1,7 +1,0 @@
-# -*- python -*-
-{
-    'schema_name' : 'TS3_fe55',
-    'schema_version' : 0,
-    'stat' : int
-}
-
