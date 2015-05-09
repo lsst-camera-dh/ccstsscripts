@@ -12,11 +12,16 @@ Sequence:
      Description: NA
      Prerequisites:
         -
-         Name: SR-2.4a
+         PrerequisiteType:  PROCESS_STEP
+         Name: vendorIngest
+#         Name: Vendor-Data-Acceptance
+         UserVersionString: v0
+        -
+         Name: SR-2.4a - Instructions
          Description: <ul><li>0. - Specify the location of the hardware by going to <a href=http://lsst-camera.slac.stanford.edu/eTraveler/exp/LSST-CAMERA/displayHardware.jsp?hardwareId=40>LOCATION</a> and returning here</li><li>1.4 - Verify Vendor S/N matches ID description in documentation </li><li>1.5 - Dispose of shipping materials.</li><li>2. - Place hardware/documentation in anteroom.</li><li>3.6 - Label hardware with LSST S/N.</li><li>3.7 - Label all documentation with LSST S/N.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
         -
-         Name: SR-2.4b
+         Name: SR-2.4b - Instructions
          Description: <ul><li>4.2 - Upload scanned documents by using the lcatr-harness command shown below (after having clicked Start).</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
      Version:  next
@@ -24,23 +29,19 @@ Sequence:
      TravelerActions:
        - HarnessedJob
    -
-     Name: Check_Vendor_Data
+     Name: Check Vendor Data - Store Hardcopies - Visual Inspection
      Description: In case of an inconsistency, please click Stop, give a detailed description of the problem and then Fail this task.
      Version:  next
      UserVersionString: v0
      Prerequisites:
        -
-         PrerequisiteType:  PROCESS_STEP
-         Name: Vendor-Data-Acceptance
-         UserVersionString: v0
-       -
          Name: Have you checked to make sure that the vendor data and the documentation received with the hardware are consistent?
          PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: Store hardcopies and inspect hardware
-     Description: NA
-     Version:  next
-     Prerequisites:
+#   -
+#     Name: Store hardcopies and inspect hardware
+#     Description: NA
+#     Version:  next
+#     Prerequisites:
        -
          PrerequisiteType: TEST_EQUIPMENT 
          Name: SR-2.5
@@ -51,8 +52,8 @@ Sequence:
      Version:  next
      Prerequisites:
        -
-         Name: SR-2.7
-         Description: <ul><li>6.1 - Place hardware on cleaning bench.</li><li>6.2 - Leave the anteroom.</li><li>6.3 - Repeat Pre-Entrance Procedure</li><li>6.4 - Gown and enter clean area.</li><li>6.5 - Proceed to anteroom.</li><li>6.6 - Remove hardware from shipping package.</li><li>6.7 - Clean hardware.</li><li>6.8 - Carry hardware into clean area.</li><li>6.9 - Re-clean hardware</li></ul>
+         Name: SR-2.7 - Instructions
+         Description: <ul><li>6.1 - Place hardware on cleaning bench.</li><li>6.2 - Leave the anteroom.</li><li>6.3 - Repeat Pre-Entrance Procedure</li><li>6.4 - Gown and enter clean area.</li><li>6.5 - Proceed to anteroom.</li><li>6.6 - Remove hardware from shipping package.</li><li>6.7 - Clean hardware.</li><li>6.8 - Carry hardware into clean area.</li><li>6.9 - Re-clean hardware, if necessary</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
        -
          Name: Review and determine disposition of vendor test data (Phase 2/2) and visual inspection of hardware.
@@ -63,11 +64,10 @@ Sequence:
      Version: next
      Prerequisites:
        -
-         Name: Photo
+         Name: Photo Instructions
          Description: <ul><li>Take picture of hardware</li><li>upload picture</li><li>specify path to the file</ul>
          PrerequisiteType: TEST_EQUIPMENT
      RequiredInputs:
        -
          Label: Enter photo filepath here (filepath)
          InputSemantics: filepath
-

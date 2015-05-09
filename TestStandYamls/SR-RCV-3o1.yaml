@@ -1,0 +1,81 @@
+%YAML  1.1
+---
+# LSST Hardware Receipt - Inspection
+Name: SR-RCV-3
+Version: next
+HardwareType: CCD
+Description: Hardware Receipt
+Sequence:
+   -
+     Name: Hardware may proceed to next Task
+     Description: SR-3.4-<ul><li>0. - Begin- </li><li>0. - Begin- Sensor is selected to proceed through Task 3.</li><li>1. - Set up laminar flow hood.</li><li>1.1 - Turn on laminar flow hood.</li><li>1.2 - Check for obstructions and/or malfunctions.</li><li>2. - Set up EPA workstation and transport the coffin.</li><li>2.1 - Set up and verify the EPA.</li><li>2.2 - Transport required tooling to workstation.</li><li>2.3 - Transport coffin to workstation.</li><li>3. - Prepare to open coffin.</li><li>3.1 - ESD wrist strap is worn.</li><li>3.2 - Sit or stand using the provided ESD-protective furnature.</li><li>3.3 - Perform ESD discharge procedure</li><li>3.4 - Un-screw outer screws of coffin cover.</li><li>3.5 - Dislodge coffin cover</li><li>4. - Remove coffin cover.</li></ul>
+     Version:  next
+     Prerequisites:
+        -
+         Name: Remove coffin cover.
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Verify S/N on sensor package.
+     Version:  next
+   -
+     Name: Perform Visual Inspection.
+     Version:  next
+   -
+     Name: Close the coffin.
+     Version:  next
+   -
+     Name: Set up the OGP for measurements.
+     Description: SR-3.11-<ul><li>8.1 - Turn on the computer.</li><li>8.2 - Turn on the OGP using controller I/O switch.</li><li>8.3 - Open MeasureMind and follow the initialization prompts.</li><li>8.4 - Raise Z-stage and move the platen forward towards the Operator.</li><li>8.5 - Excluding MF02</li><li>8.7 - Add a new directory folder for the new sensor.</li><li>8.8 - Add a new directory folder for each measurement to be performed and a directory folder for the resulting data products.</li><li>8.9 - Copy the routine file to automate the OGP during the measurements to each respective directory.</li><li>9. - Set up EPA and transport coffin.</li><li>9.1 - Set up and verify the workstation is an EPA.</li><li>9.2 - Attach the OGP to the ESD network/monitor.</li><li>9.3 - Transport required tooling to TS-2 workstation.</li><li>9.4 - Transport coffin to TS-2 workstation.</li><li>10. - Prepare to open coffin.</li><li>10.1 - ESD wrist strap is worn.</li><li>10.2 - Sit or stand using the provided ESD-protective furnature.</li><li>10.3 - Place one finger of each hand away from each other on the ESD mat</li><li>10.4 - Un-screw outer screws of coffin cover.</li><li>10.5 - Dislodge coffin cover</li><li>11. - Remove coffin cover.</li></ul>
+     Version:  next
+     Prerequisites:
+        -
+         Name: Remove coffin cover.
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Transfer sensor (in coffen base) to OGP.
+     Description: SR-3.13-<ul><li>13. - Remove protective cover.</li></ul>
+     Version:  next
+   -
+     Name: Perform Edge Scan OGP Routine.
+     Description: SR-3.17-<ul><li>14.1 - Click Open Existing Routine and select Edge_Scan.RTN. </li><li>14.2 - Click Run the Current Routine.</li><li>14.3 - When prompted</li><li>14.4 - Wait for the rountine to finish.</li><li>14.5 - If the user is approved</li><li>15. - Perform Flatness OGP Routine.</li><li>15.1 - Click Open Existing Routine and select Flatness.RTN.</li><li>15.2 - Click Run the Current Routine.</li><li>15.3 - Enter appropriate path and filename for data products.</li><li>15.4 - Wait for the rountine to finish.</li><li>15.5 - If the user is approved</li><li>16. - Raise Z-stage and move the stage to the front.</li><li>17. - Install protective cover.</li></ul>
+     Version:  next
+     Prerequisites:
+        -
+         Name: Install protective cover.
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Transfer to TS-2 workstation.
+     Description: SR-3.19-<ul><li>19. - Install coffin cover.</li></ul>
+     Version:  next
+   -
+     Name: Check whether collected data is acceptable.
+     Description: SR-3.21-<ul><li>20.1 - Run quick analysis script.</li><li>20.2 - Check data is acceptable.</li><li>20.3 - Repeat Edge or Flattness Scan if necessary</li><li>21. - Transport the sensor to storage -or- set up for next measurement.</li><li>21.1 - If the sensor is directed to Task 4</li><li>21.2 - If the sensor is being stored</li></ul>
+     Version:  next
+     Prerequisites:
+        -
+         Name: If the sensor is being stored
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Update eManufacturing and upload resulting data products. 
+     Version:  next
+   -
+     Name: Log into eManufacturing.
+     Version:  next
+   -
+     Name: Verify the S/N of the tested sensor to the S/N displayed by eManufacturing.
+     Description: SR-3.22-<ul><li>22.3 - Upload all data products and scripts. </li></ul>
+     Version:  next
+   -
+     Name: Analyze results.
+     Description: SR-3.23-<ul><li>23.1 - Open the appropriate Mathematica analysis script.</li><li>23.2 - Change the data set and execute the script.</li><li>23.3 - Save result files and analysis script information.</li></ul>
+     Version:  next
+     Prerequisites:
+        -
+         Name: Save result files and analysis script information.
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Upload results of annalysis to database.
+     Version:  next
+   -
+     Name: Review and determine disposition of flattness data and visual inspection.
+     Version:  next

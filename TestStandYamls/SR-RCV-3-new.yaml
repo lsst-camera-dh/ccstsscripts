@@ -1,0 +1,175 @@
+%YAML  1.1
+---
+# LSST Hardware Receipt - Inspection
+Name: SR-INS-1
+Version: next
+HardwareType: CCD
+Description: Hardware Receipt
+Sequence:
+   -
+     Name: Prepare for OGP measurements
+     Description: NA
+     Version:  next
+     Prerequisites:
+       -
+         Name: SR-3.9-INSTRUCTIONS
+         Description: <ul><li>1. - Set up laminar flow hood functionality and EPA.</li><li>1.1 - Turn on laminar flow hood.</li><li>1.2 - Check for obstructions and/or malfunctions.</li><li>1.3 - Turn on Air Ionizer Bar.</li><li>1.4 - Set up and verify the EPA.</li><li>1.5 - Transport required tooling to workstation.</li><li>1.6 - If the laminar flow hood was turned on recently</li><li>2. - Set up EPA at TS2.</li><li>2.1 - Set up and verify the TS2 workstation EPA.</li><li>2.2 - Attach the OGP to the ESD network/monitor.</li><li>2.3 - Transport required tooling to TS2 Workstation.</li><li>3. - Set up the OGP for measurements.</li><li>3.1 - Turn on the computer.</li><li>3.2 - Turn on the OGP using controller I/O switch.</li><li>3.3 - Open MeasureMind and follow the initialization prompts.</li><li>3.4 - Raise Z-stage and move the platen forward towards the Operator.</li><li>3.7 - Add a new directory folder for the new sensor.</li><li>3.8 - Add a new directory folder for each measurement to be performed and a directory folder for the resulting data products.</li><li>3.9 - Copy the routine file to automate the OGP during the measurements to each respective directory.</li><li>4. - Transport coffin to laminar flow hood.</li></ul>
+#<li>5. - Log into the eTraveler system.</li><li>6. - Find and select the corresponding LSST S/N.</li><li>7. - Initiate SR-INS-01 eTraveler.</li>
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Prepare to open coffin
+     Description: NA
+     Version:  next
+     Prerequisites:
+       -
+         Name: SR-3.9b-INSTRUCTIONS
+         Description: <ul><li>8.1 - ESD wrist strap is worn.</li><li>8.2 - Sit or stand using the provided ESD-protective furniture.</li><li>8.3 - Perform ESD discharge procedure</li><li>8.4 - Un-screw outer screws of coffin cover.</li><li>8.5 - Cautiously dislodge coffin cover</li><li>9. - Remove coffin cover.</li></ul>
+         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: 9. - Remove coffin cover.
+#         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: INS-S2 Perform Visual Inspection.
+     Description: NA
+     Version:  next
+     Prerequisites:
+       -
+         Name: SR-3.10-INSTRUCTIONS
+         Description: <ul><li>10.1 - Initiate the Visual Inspection in eTraveler.</li><li>10.2 - Verify S/N on sensor package.</li></ul>
+         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: SR-3.10-Verify S/N on sensor package.
+#         PrerequisiteType: TEST_EQUIPMENT
+#   -
+#     Name: INS-S2 Fill in all fields; if there is nothing to be put in a field
+#         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: INS-S2 Take pictures to capture the condition of the jig and sensor.
+     Description: NA
+     Version:  next
+     Prerequisites:
+       -
+         Name: 10.4-INSTRUCTIONS
+         Description: <ul><li>10.5 - Take picture of the jig and sensor</li></ul>
+#         Description: <ul><li>10.5 - Upload pictures and place in appropriate directory.</li><li>10.6 - Ingest pictures using the Job Harness.</li></ul>
+         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Ingest pictures using the Job Harness.
+#         PrerequisiteType: TEST_EQUIPMENT
+     RequiredInputs:
+       -
+         Label: Enter photo1 filepath here (filepath)
+         InputSemantics: filepath
+       -
+         Label: Enter photo2 filepath here (filepath)
+         InputSemantics: filepath
+       -
+         Label: Enter photo3 filepath here (filepath)
+         InputSemantics: filepath
+   -
+     Name: INS-S2 Review and determine disposition of the condition of the jig and sensor
+     Version: next
+#         PrerequisiteType: TEST_EQUIPMENT
+     Selection:
+       -
+         Condition: FAIL
+         Name: condition_NOT_OK
+         Version: next
+         Description: condition not OK, return to coffin and store
+       -
+         Condition: PASS
+         Name: condition_OK
+         Version: next
+         Description: condition OK, proceed with OGP test
+         Sequence:
+            -
+              Name: INS-S2 Close the coffin so that it can be safely transported to the TS2 work area
+              Description: close the coffin so that
+              Version: next
+#              PrerequisiteType: TEST_EQUIPMENT
+            -
+              Name: INS-S2 Transport coffin to TS2 Workstation.
+              Description: NA
+              Version:  next
+              Prerequisites:
+                -
+                  Name: SR-3.17-INSTRUCTIONS
+#<li>13. - Log into the eTraveler system.</li><li>14. - Find and select the corresponding LSST S/N.</li><li>15. - Continue SR-INS-01 eTraveler.</li><li>16. - Prepare to open coffin.</li>
+                  Description: <ul><li>16.1 - ESD wrist strap is worn.</li><li>16.2 - Sit or stand using the provided ESD-protective furniture.</li><li>16.3 - Place one finger of each hand away from each other on the ESD mat</li><li>16.4 - Un-screw outer screws of coffin cover.</li><li>16.5 - Dislodge coffin cover</li><li>17. - Remove coffin cover.</li></ul>
+                  PrerequisiteType: TEST_EQUIPMENT
+                -
+                  Name: 18. - Remove coffin cover.
+                  PrerequisiteType: TEST_EQUIPMENT
+            -
+              Name:  Transfer sensor on coffin base to OGP.
+              Description: NA
+              Version:  next
+              Prerequisites:
+                -
+                  Name: SR-3.19-INSTRUCTIONS
+                  Description: <ul><li>19. - Remove protective cover.</li></ul>
+                  PrerequisiteType: TEST_EQUIPMENT
+            -
+              Name: INS-S4 Perform Edge Scan OGP Routine.
+              Description: NA
+              Version:  next
+              Prerequisites:
+                -
+                  Name: SR-3.23-INSTRUCTIONS
+                  Description: <ul><li>20.1 - Click Open Existing Routine and select Edge_Scan.RTN. </li><li>20.2 - Click Run the Current Routine.</li><li>20.3 - When prompted</li><li>20.4 - Wait for the routine to finish.</li><li>20.5 - If the user is approved</li><li>21. - Perform Flatness OGP Routine.</li><li>21.1 - Click Open Existing Routine and select Flatness.RTN.</li><li>21.2 - Click Run the Current Routine.</li><li>21.3 - Enter appropriate path and filename for data products.</li><li>21.4 - Wait for the routine to finish.</li><li>21.5 - If the user is approved</li><li>22. - Raise Z-stage and move the stage to the front.</li><li>23. - Install protective cover.</li></ul>
+                  PrerequisiteType: TEST_EQUIPMENT
+                -
+                  Name: INS-S4 - Install protective cover.
+                  PrerequisiteType: TEST_EQUIPMENT
+            -
+              Name:  Transfer to TS2 workstation.
+              Description: NA
+              Version:  next
+              Prerequisites:
+                -
+                  Name: SR-3.25-INSTRUCTIONS
+                  Description: <ul><li>25. - Install coffin cover.</li></ul>
+                  PrerequisiteType: TEST_EQUIPMENT
+            -
+              Name:  Run data check script to ensure data is acceptable
+              Description: NA
+              Version:  next
+              Prerequisites:
+                -
+                  Name: SR-3.28-INSTRUCTIONS
+#<li>27. - If the sensor is directed to next task</li>
+                  Description: <ul><li>28. - Upload resulting data products from Edge Scan and Flatness. </li></ul>
+                  PrerequisiteType: TEST_EQUIPMENT
+                -
+                  Name: Upload resulting data products from Edge Scan and Flatness. 
+                  PrerequisiteType: TEST_EQUIPMENT
+#   -
+#     Name:  Log into the eTraveler system.
+#     Description: NA
+#     Version:  next
+#     Prerequisites:
+#       -
+#         Name: SR-3.28-INSTRUCTIONS
+#         Description: <ul><li>28.2 - Find and select the corresponding LSST S/N.</li><li>28.3 - Continue SR-INS-01 eTraveler.</li><li>28.4 - Upload data products from Edge Scan.</li></ul>
+#         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Upload data products from Edge Scan.
+#         PrerequisiteType: TEST_EQUIPMENT
+#   -
+#     Name:  Upload data products from Flatness Measurement.
+#         PrerequisiteType: TEST_EQUIPMENT
+#   -
+#     Name: INS-S4-Log into the eTraveler system.
+#     Description: NA
+#     Version:  next
+#     Prerequisites:
+#       -
+#         Name: SR-3.32-INSTRUCTIONS
+#         Description: <ul><li>30. - Find and select the corresponding LSST S/N.</li><li>31. - Continue SR-INS-01 eTraveler.</li><li>32. - Analyze results.</li><li>32.1 - Open the appropriate Mathematica analysis script.</li><li>32.2 - Change the data set and execute the script.</li><li>32.3 - Save result files.</li></ul>
+#         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Save result files.
+#         PrerequisiteType: TEST_EQUIPMENT
+#   -
+#     Name:  Upload results with eTraveler.
+#         PrerequisiteType: TEST_EQUIPMENT

@@ -1,0 +1,16 @@
+%YAML  1.1
+---
+# LSST Hardware Receipt
+Name: SR-RCV-1
+Version: next
+HardwareType: CCD
+Description: Hardware Receipt
+Sequence:
+   -
+     Name: Vendor-Data-Upload
+     Description: Enter the lcatr-harness command shown below in the linux window in order to curate the vendor data
+     InstructionsURL: "http://www4.rcf.bnl.gov/~ccdtest/etraveler/SR-RCV-1-Step1.html"
+     Version:  next
+     UserVersionString: v3
+     TravelerActions:
+       - HarnessedJob

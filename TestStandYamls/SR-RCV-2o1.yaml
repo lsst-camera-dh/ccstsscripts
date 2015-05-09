@@ -1,0 +1,67 @@
+%YAML  1.1
+---
+# LSST Hardware Receipt - Inspection
+Name: SR-RCV-2
+Version: next
+HardwareType: CCD
+Description: Hardware Receipt
+Sequence:
+   -
+     Name: Scan-and-Ingest-Vendor-Data
+     Description: <ul><li>Scan all documents received with the hardware</li><li>Enter the lcatr-harness command shown below in the linux window in order to curate the scans</li></ul>
+     InstructionsURL: "http://www4.rcf.bnl.gov/~ccdtest/etraveler/SR-RCV-3-Step1.html"
+     Version:  next
+     UserVersionString: v0
+#     TravelerActions:
+#       - HarnessedJob
+   -
+     Name: Review and determine disposition of vendor test data
+     Description: Check that the documents received with the hardware are consistent with the vendor data recorded for this hardware and insure that serial numbers agree
+     InstructionsURL: "http://www4.rcf.bnl.gov/~ccdtest/etraveler/SR-RCV-3-Step2.html"
+     Version:  next
+     Prerequisites:
+        -
+         Name: documents are consistent with existing record
+         PrerequisiteType: TEST_EQUIPMENT
+        -
+         Name: serial numbers of records and hardware match 
+         PrerequisiteType: TEST_EQUIPMENT
+        -
+         Name: documents clearly indicate that hardware passed the vendor inspections
+         PrerequisiteType: TEST_EQUIPMENT
+#     Prerequisites:
+#       -
+#         PrerequisiteType:  PROCESS_STEP
+#         Name: Vendor-Data-Upload
+#         UserVersionString: v3
+     Selection:
+       -
+         Condition: PASS
+         Name: SR-RCV-3 docs OK
+         Version: next
+         Description: continue to visual inspection
+       -
+         Condition: FAIL
+         Name: SR-RCV-3 docs problem
+         Version: next
+         Description: Contact vendor
+   -
+     Name: Perform Visual Inspection
+     Description: Accept -or- generate NCR if required.
+     InstructionsURL: "http://www4.rcf.bnl.gov/~ccdtest/etraveler/SR-RCV-3-Step3.html"
+     Version:  next
+     Prerequisites:
+        -
+         Name: visual inspection done
+         PrerequisiteType: TEST_EQUIPMENT
+     Selection:
+       -
+         Condition: PASS
+         Name: SR-RCV-3 hardware passed
+         Version: next
+         Description: Return jig to coffin and storage
+       -
+         Condition: FAIL
+         Name: SR-RCV-3 hardware failed
+         Version: next
+         Description: Return to vendor
