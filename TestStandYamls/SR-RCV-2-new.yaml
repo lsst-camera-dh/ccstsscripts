@@ -3,7 +3,7 @@
 # LSST Hardware Receipt - Inspection
 Name: SR-RCV-2
 Version: next
-HardwareType: CCD
+HardwareType: ITL-CCD
 Description: Hardware Receipt - Vendor hardware is received
 Sequence:
    -
@@ -13,8 +13,8 @@ Sequence:
      Prerequisites:
         -
          PrerequisiteType:  PROCESS_STEP
-         Name: vendorIngest
-#         Name: Vendor-Data-Acceptance
+#         Name: vendorIngest
+         Name: Vendor-Data-Acceptance
          UserVersionString: v0
         -
          Name: SR-2.4a - Instructions

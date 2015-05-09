@@ -3,7 +3,7 @@
 # LSST Hardware Receipt - Inspection
 Name: SR-INS-1
 Version: next
-HardwareType: CCD
+HardwareType: ITL-CCD
 Description: Hardware Receipt
 Sequence:
    -

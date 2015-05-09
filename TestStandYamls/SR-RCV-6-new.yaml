@@ -1,548 +1,70 @@
 %YAML  1.1
 ---
 # LSST Hardware Receipt - Inspection
-Name: SR-RCV-1
+Name: SR-MET-2
 Version: next
-HardwareType: CCD
+HardwareType: ITL-CCD
 Description: Hardware Receipt
 Sequence:
    -
-     Name: -Vendor Data Acceptance (SR-RCV-01)
-     Description: SR-1.3-<ul><li>0. - Begin- Vendor data is received before hardware.</li><li>1. - Log into the eTraveler system.</li><li>2. - Go to Register Hardware on the eTraveler page.</li><li>3. - Fill in all fields and write N/A where appropriate.</li></ul>
+     Name:  Review and determine disposition of absolute height data.
+   -
+     Name:  Sensor Pin Metrology (SR-MET-02)
+     Description: NA
      Version:  next
      Prerequisites:
-        -
-         Name: Fill in all fields and write N/A where appropriate.
+       -
+         Name: SR-6.6-INSTRUCTIONS
+         Description: <ul><li>4. - Set up laminar flow hood.</li><li>4.1 - Turn on laminar flow hood.</li><li>4.2 - Check for obstructions and/or malfunctions.</li><li>4.3 - Turn on Air Ionizer Bar.</li><li>4.4 - Set up and verify the EPA.</li><li>4.5 - Transport required tooling to workstation.</li><li>4.6 - If the laminar flow hood was turned on recently</li><li>5. - Prepare to open coffin.</li><li>5.1 - ESD wrist strap is worn.</li><li>5.2 - Sit or stand using the provided ESD-protective furniture.</li><li>5.3 - Place one finger of each hand away from each other on the ESD mat</li><li>5.4 - Un-screw outer screws of coffin cover.</li><li>5.5 - Dislodge coffin cover</li><li>6. - Remove sensor from jig and install into MF07 using MF05.</li><li>6.1 - Unscrew jig from coffin base and attach jig to MF05.</li><li>6.2 - Place coffin cover on (empty) coffin.</li><li>6.3 - Attach one MF05-Rod to a mounting stud.</li><li>6.4 - Remove the screw from one alignment pin.</li><li>6.5 - Attach other MF05-Rods to mounting studs.</li><li>6.6 - Remove protective cover.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: RCV-S1-Upload received vendor data.
-     Description: SR-1.4-<ul><li>4.1 - Download vendor data to appropriate directory.</li><li>4.2 - Find and select the corresponding LSST S/N.</li><li>4.3 - Initiate SR-RCV-01 eTraveler.</li><li>4.4 - Ingest vendor data using the Job Harness.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Ingest vendor data using the Job Harness.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Review and determine disposition of vendor test data.
-     Version:  next
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-2
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-     Name: RCV-S2-Wait for hardware to be received. 
-     Description: SR-2.4-<ul><li>0. - Begin- Vendor hardware is received. User and the package are in front of the anteroom.</li><li>1. - Unpack hardware.</li><li>1.1 - Open package.</li><li>1.2 - Secure documentation.</li><li>1.3 - Remove hardware from all non-essential packaging.</li><li>1.4 - Verify Vendor S/N matches ID description in documentation </li><li>1.5 - Dispose of shipping materials.</li><li>2. - Place hardware/documentation in anteroom for cleaning.</li><li>3. - Register Hardware Receipt.</li><li>3.1 - Log into the eTraveler system.</li><li>3.2 - Find and select the corresponding LSST S/N.</li><li>3.3 - Initiate SR-RCV-02 eTraveler.</li><li>3.4 - Change location of hardware.</li><li>3.5 - Label hardware's essential packaging with LSST S/N.</li><li>3.6 - Label all documentation with LSST S/N.</li><li>4. - Upload and review documentation.</li><li>4.1 - Review and inspect documentation.</li><li>4.2 - Scan documentation and place in appropriate directory.</li><li>4.3 - Ingest documentation using the Job Harness.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Ingest documentation using the Job Harness.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: RCV-S2-Review and determine disposition of documentation.
-     Version:  next
-   -
-     Name: RCV-S2-Store hardcopies of documentation.
-     Description: SR-2.9-<ul><li>5. - Prepare to clean the hardware (or packaging).</li><li>5.1 - Place hardware on cleaning bench.</li><li>5.2 - Leave the anteroom.</li><li>5.3 - Repeat Pre-Entrance Procedure</li><li>5.4 - Gown and enter clean area.</li><li>5.5 - Proceed to anteroom.</li><li>5.6 - Remove hardware from shipping package.</li><li>5.7 - Clean hardware.</li><li>5.8 - Carry hardware into clean area.</li><li>5.9 - Re-clean hardware</li><li>6. - Log into the eTraveler system.</li><li>7. - Find and select the corresponding LSST S/N.</li><li>8. - Continue SR-RCV-02 eTraveler.</li><li>9. - Perform Visual Inspection.</li><li>9.1 - Initiate the Visual Inspection in eTraveler.</li><li>9.2 - Fill in all fields; if there is nothing to be put in a field</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Fill in all fields; if there is nothing to be put in a field
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: INS-S1-If the LSST S/N is not visible on the essential packaging or the hardware
-     Description: SR-2.9-<ul><li>9.4 - Take pictures to capture the condition of the hardware.</li><li>9.5 - Upload pictures and place in appropriate directory.</li><li>9.6 - Ingest pictures using the Job Harness.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Ingest pictures using the Job Harness.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: INS-S1-Review and determine disposition of hardware's condition.
-     Version:  next
-   -
-     Name: -Log into the eTraveler system.
-     Description: SR-2.13-<ul><li>11. - Find and select the corresponding LSST S/N.</li><li>12. - Continue SR-RCV-02 eTraveler.</li><li>13. - Review and determine disposition of vendor test data and visual inspection of hardware.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Review and determine disposition of vendor test data and visual inspection of hardware.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-5
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-3
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-     Name: -If allowed
-     Description: SR-3.9-<ul><li>0. - Begin- Items in storage</li><li>1. - Remove from storage</li><li>0. - Begin- Sensor is selected to proceed through Task 3.</li><li>1. - Set up laminar flow hood functionality and EPA.</li><li>1.1 - Turn on laminar flow hood.</li><li>1.2 - Check for obstructions and/or malfunctions.</li><li>1.3 - Turn on Air Ionizer Bar.</li><li>1.4 - Set up and verify the EPA.</li><li>1.5 - Transport required tooling to workstation.</li><li>1.6 - If the laminar flow hood was turned on recently</li><li>2. - Set up EPA at TS2.</li><li>2.1 - Set up and verify the TS2 workstation EPA.</li><li>2.2 - Attach the OGP to the ESD network/monitor.</li><li>2.3 - Transport required tooling to TS2 Workstation.</li><li>3. - Set up the OGP for measurements.</li><li>3.1 - Turn on the computer.</li><li>3.2 - Turn on the OGP using controller I/O switch.</li><li>3.3 - Open MeasureMind and follow the initialization prompts.</li><li>3.4 - Raise Z-stage and move the platen forward towards the Operator.</li><li>3.7 - Add a new directory folder for the new sensor.</li><li>3.8 - Add a new directory folder for each measurement to be performed and a directory folder for the resulting data products.</li><li>3.9 - Copy the routine file to automate the OGP during the measurements to each respective directory.</li><li>4. - Transport coffin to laminar flow hood.</li><li>5. - Log into the eTraveler system.</li><li>6. - Find and select the corresponding LSST S/N.</li><li>7. - Initiate SR-INS-01 eTraveler.</li><li>8. - Prepare to open coffin.</li><li>8.1 - ESD wrist strap is worn.</li><li>8.2 - Sit or stand using the provided ESD-protective furniture.</li><li>8.3 - Perform ESD discharge procedure</li><li>8.4 - Un-screw outer screws of coffin cover.</li><li>8.5 - Cautiously dislodge coffin cover</li><li>9. - Remove coffin cover.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Remove coffin cover.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: INS-S2-Perform Visual Inspection.
-     Description: SR-3.10-<ul><li>10.1 - Initiate the Visual Inspection in eTraveler.</li><li>10.2 - Verify S/N on sensor package.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Verify S/N on sensor package.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: INS-S2-Fill in all fields; if there is nothing to be put in a field
-     Version:  next
-   -
-     Name: INS-S2-Take pictures to capture the condition of the jig and sensor.
-     Description: SR-3.10-<ul><li>10.5 - Upload pictures and place in appropriate directory.</li><li>10.6 - Ingest pictures using the Job Harness.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Ingest pictures using the Job Harness.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: INS-S2-Review and determine disposition of jig's and sensor's condition.
-     Version:  next
-   -
-     Name: -Close the coffin.
-     Version:  next
-   -
-     Name: -Transport coffin to TS2 Workstation.
-     Description: SR-3.17-<ul><li>13. - Log into the eTraveler system.</li><li>14. - Find and select the corresponding LSST S/N.</li><li>15. - Continue SR-INS-01 eTraveler.</li><li>16. - Prepare to open coffin.</li><li>16.1 - ESD wrist strap is worn.</li><li>16.2 - Sit or stand using the provided ESD-protective furniture.</li><li>16.3 - Place one finger of each hand away from each other on the ESD mat</li><li>16.4 - Un-screw outer screws of coffin cover.</li><li>16.5 - Dislodge coffin cover</li><li>17. - Remove coffin cover.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Remove coffin cover.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Transfer sensor (on coffin base) to OGP.
-     Description: SR-3.19-<ul><li>19. - Remove protective cover.</li></ul>
-     Version:  next
-   -
-     Name: INS-S4-Perform Edge Scan OGP Routine.
-     Description: SR-3.23-<ul><li>20.1 - Click Open Existing Routine and select Edge_Scan.RTN. </li><li>20.2 - Click Run the Current Routine.</li><li>20.3 - When prompted</li><li>20.4 - Wait for the routine to finish.</li><li>20.5 - If the user is approved</li><li>21. - Perform Flatness OGP Routine.</li><li>21.1 - Click Open Existing Routine and select Flatness.RTN.</li><li>21.2 - Click Run the Current Routine.</li><li>21.3 - Enter appropriate path and filename for data products.</li><li>21.4 - Wait for the routine to finish.</li><li>21.5 - If the user is approved</li><li>22. - Raise Z-stage and move the stage to the front.</li><li>23. - Install protective cover.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Install protective cover.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Transfer to TS2 workstation.
-     Description: SR-3.25-<ul><li>25. - Install coffin cover.</li></ul>
-     Version:  next
-   -
-     Name: -Run data check script to ensure data is acceptable
-     Description: SR-3.28-<ul><li>27. - If the sensor is directed to next task</li><li>28. - Upload resulting data products from Edge Scan and Flatness. </li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Upload resulting data products from Edge Scan and Flatness. 
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Log into the eTraveler system.
-     Description: SR-3.28-<ul><li>28.2 - Find and select the corresponding LSST S/N.</li><li>28.3 - Continue SR-INS-01 eTraveler.</li><li>28.4 - Upload data products from Edge Scan.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Upload data products from Edge Scan.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Upload data products from Flatness Measurement.
-     Version:  next
-   -
-     Name: -Log into the eTraveler system.
-     Description: SR-3.32-<ul><li>30. - Find and select the corresponding LSST S/N.</li><li>31. - Continue SR-INS-01 eTraveler.</li><li>32. - Analyze results.</li><li>32.1 - Open the appropriate Mathematica analysis script.</li><li>32.2 - Change the data set and execute the script.</li><li>32.3 - Save result files.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Save result files.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Upload results with eTraveler.
-     Version:  next
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-4
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-     Name: -Review and determine disposition of flatness data and visual inspection.
-     Version:  next
-   -
-     Name: -Sensor Height Metrology (SR-MET-01)
-     Description: SR-4.5-<ul><li>0. - Begin- Sensor is selected to proceed through Task 4.</li><li>1. - Set up the OGP for measurements.</li><li>1.1 - Turn on the computer.</li><li>1.2 - Turn on the OGP using controller I/O switch.</li><li>1.3 - Open MeasureMind and follow the initialization prompts.</li><li>1.4 - Raise Z-stage and move the platen forward towards the Operator.</li><li>1.5 - Ensure MF02 is installed.</li><li>1.6 - Add a new directory folder for the measurement to be performed and a directory folder for the resulting data products.</li><li>1.7 - Copy each routine file which will be used to the respective directory.</li><li>2. - Set up EPA at TS2.</li><li>2.1 - Set up and verify the EPA at the TS2 Workstation.</li><li>2.2 - Attach the OGP to the ESD network/monitor.</li><li>2.3 - Transport required tooling to TS2 Workstation.</li><li>X.(1) - IF e2v (1)- </li><li>3. - Transport coffin to TS2 Workstation.</li><li>4. - Prepare to open coffin.</li><li>4.1 - ESD wrist strap is worn.</li><li>4.2 - Sit or stand using the provided ESD-protective furniture.</li><li>4.3 - Place one finger of each hand away from each other on the ESD mat</li><li>4.4 - Un-screw outer screws of coffin cover.</li><li>4.5 - Dislodge coffin cover</li><li>5. - Remove coffin cover. </li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Remove coffin cover. 
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Install jig onto MF01.
-     Description: SR-4.5-<ul><li>6.1 - Unscrew jig from coffin base.</li><li>6.2 - Place jig onto MF01 and tighten thumbscrews.</li><li>6.3 - Place gage blocks onto MF01. </li><li>X.(2) - IF ITL (2)- </li><li>3. - Set up EPA at Laminar Flow Hood.</li><li>3.1 - Set up and verify the EPA at the Laminar Flow Hood.</li><li>3.2 - Transport required tooling to Laminar Flow Hood.</li><li>3.3 - Attach tooling (including MF05) to EPA.</li><li>3.4 - Transport coffin to Laminar Flow Hood.</li><li>4. - Prepare to open coffin.</li><li>4.1 - ESD wrist strap is worn.</li><li>4.2 - Sit or stand using the provided ESD-protective furniture.</li><li>4.3 - Place one finger of each hand away from each other on the ESD mat</li><li>4.4 - Un-screw outer screws of coffin cover.</li><li>4.5 - Dislodge coffin cover</li><li>5. - Remove coffin cover.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Remove coffin cover.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Remove sensor from jig and install into MF07 using MF05.
-     Description: SR-4.6-<ul><li>6.1 - Unscrew jig from coffin base and attach jig to MF05.</li><li>6.2 - Place coffin cover on (empty) coffin.</li><li>6.3 - Attach one MF05-Rod to a mounting stud.</li><li>6.4 - Remove the screw from one alignment pin.</li><li>6.5 - Attach other MF05-Rods to mounting studs.</li><li>6.6 - Remove protective cover.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
+       -
          Name: Remove protective cover.
          PrerequisiteType: TEST_EQUIPMENT
    -
-     Name: -Remove other screw from alignment pin.
-     Description: SR-4.6-<ul><li>6.8 - Push sensor into MF05-Cove.</li><li>6.9 - Install MF07 onto sensor/cove.</li><li>6.10 - Attach side screw into MF07.</li><li>6.11 - Using MF05-Rods</li><li>6.12 - Place MF07-Cover on an edge and attach with one screw.</li><li>6.13 - Slide MF07-Cover into place</li><li>6.14 - Attach other 3 screws.</li><li>6.15 - Remove Loaded-MF07.</li></ul>
+     Name:  Remove other screw from alignment pin.
+     Description: NA
      Version:  next
      Prerequisites:
-        -
+       -
+         Name: SR-6.6-INSTRUCTIONS
+         Description: <ul><li>6.8 - Push sensor into MF05-Cove.</li><li>6.9 - Install MF07 onto sensor/cove.</li><li>6.10 - Attach side screw into MF07.</li><li>6.11 - Using MF05-Rods</li><li>6.12 - Place MF07-Cover on an edge and attach with one screw.</li><li>6.13 - Slide MF07-Cover into place</li><li>6.14 - Attach other 3 screws.</li><li>6.15 - Remove Loaded-MF07.</li></ul>
+         PrerequisiteType: TEST_EQUIPMENT
+       -
          Name: Remove Loaded-MF07.
          PrerequisiteType: TEST_EQUIPMENT
    -
-     Name: -Remove (empty) jig from MF05 and place in coffin. Place cover back on coffin.
-     Description: SR-4.11-<ul><li>7. - Transport MF07 to TS2 Workstation.</li><li>8. - Install MF07 onto MF01.</li><li>8.2 - Place Loaded-MF07 onto MF01 and tighten thumbscrews.</li><li>8.3 - Place gage blocks onto MF01.</li><li>X.(78) - GENERIC SENSOR (78)-</li><li>9. - Raise Z-stage and move the stage to the front.</li><li>10. - Transfer loaded-MF01 to OGP.</li><li>11. - Remove protective cover.</li></ul>
+     Name:  Remove (empty) jig from MF05 and place in coffin. Place cover back on coffin.
+     Description: NA
      Version:  next
      Prerequisites:
-        -
-         Name: Remove protective cover.
+       -
+         Name: SR-6.14-INSTRUCTIONS
+         Description: <ul><li>X.(78) - GENERIC SENSOR (78)-</li><li>7. - Set up the OGP for measurements.</li><li>7.1 - Turn on the computer.</li><li>7.2 - Turn on the OGP using controller I/O switch.</li><li>7.3 - Open MeasureMind and follow the initialization prompts.</li><li>7.4 - Raise Z-stage and move the platen forward towards the Operator.</li><li>7.5 - Ensure MF02 is installed.</li><li>7.6 - Add a new directory folder for the measurement to be performed and a directory folder for the resulting data products.</li><li>7.7 - Copy each routine file which will be used to the respective directory.</li><li>8. - Set up EPA at TS2.</li><li>8.1 - Set up and verify the EPA at the TS2 Workstation.</li><li>8.2 - Attach the OGP to the ESD network/monitor.</li><li>8.3 - Transport required tooling to TS2 Workstation.</li><li>9. - Transport Loaded-MF07 to TS2 Workstation.</li><li>10. - Prepare to work with Loaded-MF07.</li><li>10.1 - ESD wrist strap is worn.</li><li>10.2 - Sit or stand using the provided ESD-protective furniture.</li><li>10.3 - Place one finger of each hand away from each other on the ESD mat</li><li>11. - Install loaded-MF07 onto MF04.</li><li>12. - Remove two screws from MF07-Cover.</li><li>13. - Transfer loaded-MF04 to OGP.</li><li>14. - Remove protective cover.</li><li>14.1 - Remove the third screw from MF07-Cover.</li><li>14.2 - Slide MF07-Cover off of sensor place</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Perform Absolute Height OGP Routine.
-     Description: SR-4.14-<ul><li>12.1 - Click Open Existing Routine and select Abs_Height.RTN.</li><li>12.2 - Click Run the Current Routine.</li><li>12.3 - When prompted</li><li>12.4 - Wait for the routine to finish.</li><li>12.5 - If the user is approved</li><li>13. - Raise Z-stage and move the stage to the front.</li><li>X.(1) - IF e2v (1)- </li><li>14. - Add protective cover.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Add protective cover.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Transfer loaded-MF01 to TS2 workstation.
-     Description: SR-4.17-<ul><li>16. - Remove jig from MF01.</li><li>16.1 - Remove gage blocks.</li><li>16.2 - Remove thumbscrews.</li><li>16.3 - Remove jig from MF01.</li><li>16.4 - Secure jig back onto coffin base.</li><li>17. - Install coffin cover.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Install coffin cover.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -IF ITL (2)- 
-     Description: SR-4.18-<ul><li>18. - Add protective cover.</li></ul>
-     Version:  next
-   -
-     Name: -Place MF07-Cover with one screw.
-     Description: SR-4.23-<ul><li>18.2 - Slide MF07-Cover to cover sensor.</li><li>18.3 - Attach other 3 screws.</li><li>19. - Transfer loaded-MF01 to TS2 workstation.</li><li>20. - Remove Loaded-MF07 from MF01.</li><li>20.1 - Remove gage blocks.</li><li>20.2 - Remove thumbscrews.</li><li>20.3 - Remove Loaded-MF07 from MF01.</li><li>X.(78) - GENERIC SENSOR (78)-</li><li>21. - Check whether collected data is acceptable.</li><li>21.1 - Run quick analysis script.</li><li>21.2 - Check data is acceptable.</li><li>21.3 - Repeat measurement</li><li>22. - If the sensor is directed to next task</li><li>23. - Register the work performed with eManufacturing and upload resulting data products. </li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Register the work performed with eManufacturing and upload resulting data products. 
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Analyze results.
-     Description: SR-4.24-<ul><li>24.1 - Open the appropriate Mathematica analysis script.</li><li>24.2 - Change the data set and execute the script.</li><li>24.3 - Save result files and analysis script information.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Save result files and analysis script information.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Upload results of analysis to database.
-     Version:  next
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-6
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-     Name: -Review and determine disposition of absolute height data.
-     Version:  next
-   -
-     Name: -Sensor Pin Metrology (SR-MET-02)
-     Description: SR-6.6-<ul><li>0. - Begin- Sensor is selected to proceed through Task 6.</li><li>1. - Log into the eTraveler system.</li><li>2. - Find and select the corresponding LSST S/N.</li><li>3. - Initiate SR-MET-02 eTraveler.</li><li>X.(1) - IF e2v (1)-</li><li>4. - Set up laminar flow hood.</li><li>4.1 - Turn on laminar flow hood.</li><li>4.2 - Check for obstructions and/or malfunctions.</li><li>4.3 - Turn on Air Ionizer Bar.</li><li>4.4 - Set up and verify the EPA.</li><li>4.5 - Transport required tooling to workstation.</li><li>4.6 - If the laminar flow hood was turned on recently</li><li>5. - Prepare to open coffin.</li><li>5.1 - ESD wrist strap is worn.</li><li>5.2 - Sit or stand using the provided ESD-protective furniture.</li><li>5.3 - Place one finger of each hand away from each other on the ESD mat</li><li>5.4 - Un-screw outer screws of coffin cover.</li><li>5.5 - Dislodge coffin cover</li><li>6. - Remove sensor from jig and install into MF07 using MF05.</li><li>6.1 - Unscrew jig from coffin base and attach jig to MF05.</li><li>6.2 - Place coffin cover on (empty) coffin.</li><li>6.3 - Attach one MF05-Rod to a mounting stud.</li><li>6.4 - Remove the screw from one alignment pin.</li><li>6.5 - Attach other MF05-Rods to mounting studs.</li><li>6.6 - Remove protective cover.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Remove protective cover.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Remove other screw from alignment pin.
-     Description: SR-6.6-<ul><li>6.8 - Push sensor into MF05-Cove.</li><li>6.9 - Install MF07 onto sensor/cove.</li><li>6.10 - Attach side screw into MF07.</li><li>6.11 - Using MF05-Rods</li><li>6.12 - Place MF07-Cover on an edge and attach with one screw.</li><li>6.13 - Slide MF07-Cover into place</li><li>6.14 - Attach other 3 screws.</li><li>6.15 - Remove Loaded-MF07.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Remove Loaded-MF07.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Remove (empty) jig from MF05 and place in coffin. Place cover back on coffin.
-     Description: SR-6.14-<ul><li>X.(78) - GENERIC SENSOR (78)-</li><li>7. - Set up the OGP for measurements.</li><li>7.1 - Turn on the computer.</li><li>7.2 - Turn on the OGP using controller I/O switch.</li><li>7.3 - Open MeasureMind and follow the initialization prompts.</li><li>7.4 - Raise Z-stage and move the platen forward towards the Operator.</li><li>7.5 - Ensure MF02 is installed.</li><li>7.6 - Add a new directory folder for the measurement to be performed and a directory folder for the resulting data products.</li><li>7.7 - Copy each routine file which will be used to the respective directory.</li><li>8. - Set up EPA at TS2.</li><li>8.1 - Set up and verify the EPA at the TS2 Workstation.</li><li>8.2 - Attach the OGP to the ESD network/monitor.</li><li>8.3 - Transport required tooling to TS2 Workstation.</li><li>9. - Transport Loaded-MF07 to TS2 Workstation.</li><li>10. - Prepare to work with Loaded-MF07.</li><li>10.1 - ESD wrist strap is worn.</li><li>10.2 - Sit or stand using the provided ESD-protective furniture.</li><li>10.3 - Place one finger of each hand away from each other on the ESD mat</li><li>11. - Install loaded-MF07 onto MF04.</li><li>12. - Remove two screws from MF07-Cover.</li><li>13. - Transfer loaded-MF04 to OGP.</li><li>14. - Remove protective cover.</li><li>14.1 - Remove the third screw from MF07-Cover.</li><li>14.2 - Slide MF07-Cover off of sensor place</li></ul>
-     Version:  next
-     Prerequisites:
-        -
+       -
          Name: Slide MF07-Cover off of sensor place
          PrerequisiteType: TEST_EQUIPMENT
    -
-     Name: -Remove final screw from MF07-Cover
-     Description: SR-6.17-<ul><li>15. - Perform Pin Metrology OGP Routine.</li><li>15.1 - Click Open Existing Routine and select Pin_Metrology.RTN.</li><li>15.2 - Click Run the Current Routine.</li><li>15.3 - Enter appropriate path and filename for data products.</li><li>15.4 - Wait for the routine to finish.</li><li>15.5 - If the user is approved</li><li>16. - Raise Z-stage and move the platen forward towards the Operator.</li><li>17. - Add protective cover.</li></ul>
+     Name:  Remove final screw from MF07-Cover
+     Description: NA
      Version:  next
      Prerequisites:
-        -
+       -
+         Name: SR-6.17-INSTRUCTIONS
+         Description: <ul><li>15. - Perform Pin Metrology OGP Routine.</li><li>15.1 - Click Open Existing Routine and select Pin_Metrology.RTN.</li><li>15.2 - Click Run the Current Routine.</li><li>15.3 - Enter appropriate path and filename for data products.</li><li>15.4 - Wait for the routine to finish.</li><li>15.5 - If the user is approved</li><li>16. - Raise Z-stage and move the platen forward towards the Operator.</li><li>17. - Add protective cover.</li></ul>
+         PrerequisiteType: TEST_EQUIPMENT
+       -
          Name: Add protective cover.
          PrerequisiteType: TEST_EQUIPMENT
    -
-     Name: -Place MF07-Cover on an edge and attach with one screw.
-     Description: SR-6.17-<ul><li>17.2 - Slide MF07-Cover into place</li><li>17.3 - Attach other 3 screws.</li></ul>
+     Name:  Place MF07-Cover on an edge and attach with one screw.
+     Description: NA
      Version:  next
      Prerequisites:
-        -
+       -
+         Name: SR-6.17-INSTRUCTIONS
+         Description: <ul><li>17.2 - Slide MF07-Cover into place</li><li>17.3 - Attach other 3 screws.</li></ul>
+         PrerequisiteType: TEST_EQUIPMENT
+       -
          Name: Attach other 3 screws.
          PrerequisiteType: TEST_EQUIPMENT
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-3
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-6
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-2
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-     Name: -Transfer loaded-MF04 to workstation.
-     Description: SR-2.22-<ul><li>19. - Remove loaded-MF07 from MF04.</li><li>20. - Run data check script to ensure data is acceptable</li><li>21. - Store loaded-MF07.</li><li>22. - Register the work performed with eManufacturing and upload resulting data products. </li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Register the work performed with eManufacturing and upload resulting data products. 
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-6
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-     Name: -Log into the eTraveler system.
-     Description: SR-6.26-<ul><li>24. - Find and select the corresponding LSST S/N.</li><li>25. - Continue SR-MET-02 eTraveler.</li><li>26. - Analyze the results</li><li>26.1 - Open the appropriate Mathematica analysis script.</li><li>26.2 - Change the data set and execute the script.</li><li>26.3 - Save result files and analysis script information.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Save result files and analysis script information.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Upload result files to database.
-     Version:  next
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-7
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-     Name: -Review and determine disposition of test data and visual inspection.
-     Version:  next
-   -
-     Name: -Single Sensor Electro-optical Testing (SR-EOT-01)
-     Description: SR-7.4-<ul><li>0. - Begin- Sensor is selected to proceed through Task 7.</li><li>1. - Log into the eTraveler system.</li><li>2. - Find and select the corresponding LSST S/N.</li><li>3. - Initiate SR-EOT-01 eTraveler.</li><li>4. - Run TS3-Preflight Job Harness.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Run TS3-Preflight Job Harness.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Set up EPA at TS3.
-     Description: SR-7.6-<ul><li>5.1 - Set up and verify the TS3 workstation EPA.</li><li>5.2 - Attach the TS3 equipment to the ESD network/monitor.</li><li>5.3 - Transport required tooling to TS3 Workstation.</li><li>6. - Prepare TS3-Cryostat for sensor insertion.</li><li>6.1 - Ensure vacuum valve is closed.</li><li>6.2 - Turn on nitrogen injection and open the valve.</li><li>6.3 - Remove the screws TS3-Cryostat Window.</li><li>6.4 - Place a non-linting wipe on the TS3 table.</li><li>6.5 - Remove the TS3-Cryostat Window and place on non-linting wipe.</li><li>6.6 - Place a non-linting wipe on top of the TS3-Cryostat window.</li><li>6.7 - Visually inspect the O-ring; replace if necessary.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Visually inspect the O-ring; replace if necessary.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Transport coffin to TS3 Workstation.
-     Description: SR-7.6-<ul><li>8. - Prepare to open coffin.</li><li>8.1 - ESD wrist strap is worn.</li><li>8.2 - Sit or stand using the provided ESD-protective furniture.</li><li>8.3 - Place one finger of each hand away from each other on the ESD mat</li><li>8.4 - Un-screw outer screws of coffin cover.</li><li>8.5 - Dislodge coffin cover</li><li>6. - Remove coffin cover.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Remove coffin cover.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Remove the loaded-jig from the coffin base.
-     Description: SR-7.8-<ul><li>8. - Remove grounding connectors.</li></ul>
-     Version:  next
-   -
-     Name: -For ITL (2)- plug in TS3 testing flex cables.
-     Description: SR-7.10-<ul><li>10. - Secure sensor into TS3-Cryostat.</li><li>10.1 - Secure jig onto nest.</li><li>10.2 - Plug micro-D connectors to the readout cables in TS3-Cryostat.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Plug micro-D connectors to the readout cables in TS3-Cryostat.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Remove protective cover.
-     Version:  next
-   -
-     Name: -Attach mask to jig.
-     Description: SR-7.10-<ul><li>10.5 - Install and secure TS3-Cryostat Window.</li></ul>
-     Version:  next
-   -
-     Name: -Close (empty) coffin.
-     Description: SR-7.12-<ul><li>11. - Turn off nitrogen injection and close the valve.</li><li>12. - Plug-in the two readout boards.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Plug-in the two readout boards.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Move TS3-Cryostat to attach to the dark tunnel.
-     Description: SR-7.16-<ul><li>14. - Push in dark tunnel cover's handle to open the dark tunnel.</li><li>15. - Verify vacuum valve is open and the bleed valve is closed.</li><li>16. - Run the pump and cool Job Harness to pump-down and cool the TS3-Cryostat.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Run the pump and cool Job Harness to pump-down and cool the TS3-Cryostat.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Once at proper temperature
-     Version:  next
-   -
-     Name: -After successful testing
-     Version:  next
-   -
-     Name: -Once the sensor returns to room pressure and temperature
-     Version:  next
-   -
-     Name: -Log into the eTraveler system.
-     Description: SR-7.25-<ul><li>21. - Find and select the corresponding LSST S/N.</li><li>22. - Continue SR-EOT-01 eTraveler.</li><li>23. - Set up EPA at TS3.</li><li>23.1 - Set up and verify the TS3 workstation EPA.</li><li>23.2 - Attach the TS3 equipment to the ESD network/monitor.</li><li>23.3 - Transport required tooling to TS3 Workstation.</li><li>23.4 - ESD wrist strap is worn.</li><li>23.5 - Sit or stand using the provided ESD-protective furniture.</li><li>23.6 - Place one finger of each hand away from each other on the ESD mat</li><li>23.7 - Un-screw outer screws of coffin cover.</li><li>23.8 - Dislodge coffin cover</li><li>24. - Pull dark tunnel cover's handle to close the dark tunnel.</li><li>25. - Prepare TS3-Cryostat for sensor removal.</li><li>25.1 - Verify the sensor is at room temperature.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Verify the sensor is at room temperature.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Close the vacuum valve and turn off the vacuum.
-     Description: SR-7.25-<ul><li>25.3 - Open the bleed valve.</li><li>25.4 - Verify the TS3-Cryostat is close to room pressure.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Verify the TS3-Cryostat is close to room pressure.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Move TS3-Cryostat after detaching from the dark tunnel.
-     Description: SR-7.25-<ul><li>25.6 - Unplug the two readout boards.</li></ul>
-     Version:  next
-   -
-     Name: -Turn on nitrogen injection and open the valve.
-     Description: SR-7.29-<ul><li>27. - Close the bleed valve.</li><li>28. - Place a non-linting wipe on the TS3 table.</li><li>29. - Remove the TS3-Cryostat Window and place on non-linting wipe.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Remove the TS3-Cryostat Window and place on non-linting wipe.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Place a non-linting wipe on top of the TS3-Cryostat window.
-     Description: SR-7.32-<ul><li>31. - Remove the mask from the jig.</li><li>32. - Install protective cover.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Install protective cover.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Unplug micro-D connectors from the readout out cable in TS3-Cryostat.
-     Description: SR-7.34-<ul><li>34. - For e2v (1)- Plug micro-D connectors into grounding connectors on jig.</li></ul>
-     Version:  next
-   -
-     Name: -Open the (empty) coffin.
-     Description: SR-7.37-<ul><li>36. - Remove jig from nest.</li><li>37. - IF ITL (2)- Remove TS3 testing flex cables and re-install grounding plugs.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: IF ITL (2)- Remove TS3 testing flex cables and re-install grounding plugs.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: -Install jig onto coffin base.
-     Description: SR-7.39-<ul><li>39. - Install coffin cover.</li></ul>
-     Version:  next
-   -
-     Name: -Secure cryostat window onto the TS3-Cryostat.
-     Version:  next
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-8
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-     Name: -Turn off nitrogen injection and close the valve.
-     Description: SR-8.46-<ul><li>42. - If the sensor is directed to next task</li><li>43. - Log into the eTraveler system.</li><li>44. - Find and select the corresponding LSST S/N.</li><li>45. - Continue SR-EOT-01 eTraveler.</li><li>46. - Review and determine disposition of test data.</li></ul>
-     Version:  next
-     Prerequisites:
-        -
-         Name: Review and determine disposition of test data.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-9
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
-%YAML  1.1
----
-# LSST Hardware Receipt - Inspection
-Name: SR-RCV-10
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt
-Sequence:
-   -
