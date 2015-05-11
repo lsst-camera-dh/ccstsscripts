@@ -3,20 +3,17 @@
 # LSST Hardware Receipt - Inspection
 Name: SR-EOT-1
 Version: next
-HardwareType: ITL-CCD
+HardwareType: CCD
 Description: Hardware Receipt
 Sequence:
    -
-     Name:  TS3 ready check
-     Description: NA
+     Name: TS3_ready
      Version:  next
      Prerequisites:
        -
-         Name: Run TS3-Preflight Job Harness.
+         Name: run the teststand pre-flight checker
+         Description: Here you will run the TS3_ready Job Harness to verify that the teststand is ready for EO testing. After clicking Start, you will be presented with an lcatr-harness command which must be copy and pasted into the Linux Terminal window. When the job is finished, reload this page to continue.
          PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: TS3_ready
-     Version:  next
      UserVersionString: v0
      TravelerActions:
        - HarnessedJob
@@ -67,6 +64,7 @@ Sequence:
          PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Remove protective cover.
+     Version: next
 #     PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Attach mask to jig.
@@ -359,3 +357,4 @@ Sequence:
          PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Secure cryostat window onto the TS3-Cryostat.
+     Version: next

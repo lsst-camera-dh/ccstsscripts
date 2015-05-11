@@ -3,22 +3,28 @@
 # LSST Hardware Receipt - Inspection
 Name: SR-RCV-1
 Version: next
-HardwareType: ITL-CCD
+HardwareType: CCD
 Description: Hardware Receipt
 Sequence:
    -
      Name: Vendor-Data-Acceptance
-     Description: Once you have clicked "Start", you will be instructed to enter a command in the Linux terminal window. Do this and respond to any further questions. In some cases, where the location is pre-defined, the curation will proceed without any questions. After it appears to have completed, reload this page to see the result and proceed to the next/final step.
+     Description: NA
 #     InstructionsURL: "http://www4.rcf.bnl.gov/~ccdtest/etraveler/SR-RCV-1-Step1.html"
      Version:  next
      UserVersionString: v0
-     Prerequisites:
-        -
-         Name: Has the data been scanned or copied to the vendorData folder on the Desktop?
-         PrerequisiteType: TEST_EQUIPMENT
      TravelerActions:
        - HarnessedJob
+     Prerequisites:
+       -
+         Name: Has the data been scanned or copied to the vendorData folder on the Desktop?
+         PrerequisiteType: TEST_EQUIPMENT
+       -
+         Name: Upload instructions
+         Description: Once you have clicked "Start", you will be instructed to enter a command in the Linux terminal window. Do this and respond to any further questions. In some cases, where the location is pre-defined, the curation will proceed without any questions. After it appears to have completed, reload this page to see the result and proceed to the next/final step.
+         PrerequisiteType: TEST_EQUIPMENT
    -
-     Name: Review and determine disposition of vendor test data.
-     Description: Please carefully review the vendor data and make sure nothing is missing or indicative of the hardware not being reading for use. Please stop and fail this traveler if there is a problem. If you click stop, please give a detailed reason for no accepting the data.
-     Version:  next
+      Name: Review and determine disposition of vendor test data.
+      Version:  next
+      Description: Please carefully review the vendor data and make sure nothing is missing or indicative of the hardware not being reading for use. Please stop and fail this traveler if there is a problem. If you click stop, please give a detailed reason for no accepting the data.
+#      PrerequisiteType: TEST_EQUIPMENT
+

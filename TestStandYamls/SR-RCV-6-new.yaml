@@ -3,11 +3,12 @@
 # LSST Hardware Receipt - Inspection
 Name: SR-MET-2
 Version: next
-HardwareType: ITL-CCD
+HardwareType: CCD
 Description: Hardware Receipt
 Sequence:
    -
      Name:  Review and determine disposition of absolute height data.
+     Version: next
    -
      Name:  Sensor Pin Metrology (SR-MET-02)
      Description: NA
@@ -39,7 +40,7 @@ Sequence:
      Prerequisites:
        -
          Name: SR-6.14-INSTRUCTIONS
-         Description: <ul><li>X.(78) - GENERIC SENSOR (78)-</li><li>7. - Set up the OGP for measurements.</li><li>7.1 - Turn on the computer.</li><li>7.2 - Turn on the OGP using controller I/O switch.</li><li>7.3 - Open MeasureMind and follow the initialization prompts.</li><li>7.4 - Raise Z-stage and move the platen forward towards the Operator.</li><li>7.5 - Ensure MF02 is installed.</li><li>7.6 - Add a new directory folder for the measurement to be performed and a directory folder for the resulting data products.</li><li>7.7 - Copy each routine file which will be used to the respective directory.</li><li>8. - Set up EPA at TS2.</li><li>8.1 - Set up and verify the EPA at the TS2 Workstation.</li><li>8.2 - Attach the OGP to the ESD network/monitor.</li><li>8.3 - Transport required tooling to TS2 Workstation.</li><li>9. - Transport Loaded-MF07 to TS2 Workstation.</li><li>10. - Prepare to work with Loaded-MF07.</li><li>10.1 - ESD wrist strap is worn.</li><li>10.2 - Sit or stand using the provided ESD-protective furniture.</li><li>10.3 - Place one finger of each hand away from each other on the ESD mat</li><li>11. - Install loaded-MF07 onto MF04.</li><li>12. - Remove two screws from MF07-Cover.</li><li>13. - Transfer loaded-MF04 to OGP.</li><li>14. - Remove protective cover.</li><li>14.1 - Remove the third screw from MF07-Cover.</li><li>14.2 - Slide MF07-Cover off of sensor place</li></ul>
+         Description: <ul><li>7. - Set up the OGP for measurements.</li><li>7.1 - Turn on the computer.</li><li>7.2 - Turn on the OGP using controller I/O switch.</li><li>7.3 - Open MeasureMind and follow the initialization prompts.</li><li>7.4 - Raise Z-stage and move the platen forward towards the Operator.</li><li>7.5 - Ensure MF02 is installed.</li><li>7.6 - Add a new directory folder for the measurement to be performed and a directory folder for the resulting data products.</li><li>7.7 - Copy each routine file which will be used to the respective directory.</li><li>8. - Set up EPA at TS2.</li><li>8.1 - Set up and verify the EPA at the TS2 Workstation.</li><li>8.2 - Attach the OGP to the ESD network/monitor.</li><li>8.3 - Transport required tooling to TS2 Workstation.</li><li>9. - Transport Loaded-MF07 to TS2 Workstation.</li><li>10. - Prepare to work with Loaded-MF07.</li><li>10.1 - ESD wrist strap is worn.</li><li>10.2 - Sit or stand using the provided ESD-protective furniture.</li><li>10.3 - Place one finger of each hand away from each other on the ESD mat</li><li>11. - Install loaded-MF07 onto MF04.</li><li>12. - Remove two screws from MF07-Cover.</li><li>13. - Transfer loaded-MF04 to OGP.</li><li>14. - Remove protective cover.</li><li>14.1 - Remove the third screw from MF07-Cover.</li><li>14.2 - Slide MF07-Cover off of sensor place</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
        -
          Name: Slide MF07-Cover off of sensor place

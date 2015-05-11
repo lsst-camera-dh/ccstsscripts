@@ -3,17 +3,27 @@
 # LSST Hardware Receipt - Inspection
 Name: SR-INS-1
 Version: next
-HardwareType: ITL-CCD
+HardwareType: CCD
 Description: Hardware Receipt
 Sequence:
    -
-     Name: Prepare for OGP measurements
+     Name: Prepare the workstation for OGP measurements
      Description: NA
      Version:  next
      Prerequisites:
        -
          Name: SR-3.9-INSTRUCTIONS
-         Description: <ul><li>1. - Set up laminar flow hood functionality and EPA.</li><li>1.1 - Turn on laminar flow hood.</li><li>1.2 - Check for obstructions and/or malfunctions.</li><li>1.3 - Turn on Air Ionizer Bar.</li><li>1.4 - Set up and verify the EPA.</li><li>1.5 - Transport required tooling to workstation.</li><li>1.6 - If the laminar flow hood was turned on recently</li><li>2. - Set up EPA at TS2.</li><li>2.1 - Set up and verify the TS2 workstation EPA.</li><li>2.2 - Attach the OGP to the ESD network/monitor.</li><li>2.3 - Transport required tooling to TS2 Workstation.</li><li>3. - Set up the OGP for measurements.</li><li>3.1 - Turn on the computer.</li><li>3.2 - Turn on the OGP using controller I/O switch.</li><li>3.3 - Open MeasureMind and follow the initialization prompts.</li><li>3.4 - Raise Z-stage and move the platen forward towards the Operator.</li><li>3.7 - Add a new directory folder for the new sensor.</li><li>3.8 - Add a new directory folder for each measurement to be performed and a directory folder for the resulting data products.</li><li>3.9 - Copy the routine file to automate the OGP during the measurements to each respective directory.</li><li>4. - Transport coffin to laminar flow hood.</li></ul>
+         Description: <ul><li>1. - Set up laminar flow hood functionality and EPA.</li><li>1.1 - Turn on laminar flow hood.</li><li>1.2 - Check for obstructions and/or malfunctions.</li><li>1.3 - Turn on Air Ionizer Bar.</li><li>1.4 - Set up and verify the EPA.</li><li>1.5 - Transport required tooling to workstation.</li><li>1.6 - If the laminar flow hood was turned on recently</li><li>2. - Set up EPA at TS2.</li><li>2.1 - Set up and verify the TS2 workstation EPA.</li><li>2.2 - Attach the OGP to the ESD network/monitor.</li><li>2.3 - Transport required tooling to TS2 Workstation.</li></ul>
+#<li>3. - Set up the OGP for measurements.</li><li>3.1 - Turn on the computer.</li><li>3.2 - Turn on the OGP using controller I/O switch.</li><li>3.3 - Open MeasureMind and follow the initialization prompts.</li><li>3.4 - Raise Z-stage and move the platen forward towards the Operator.</li><li>3.7 - Add a new directory folder for the new sensor.</li><li>3.8 - Add a new directory folder for each measurement to be performed and a directory folder for the resulting data products.</li><li>3.9 - Copy the routine file to automate the OGP during the measurements to each respective directory.</li><li>4. - Transport coffin to laminar flow hood.</li>#<li>5. - Log into the eTraveler system.</li><li>6. - Find and select the corresponding LSST S/N.</li><li>7. - Initiate SR-INS-01 eTraveler.</li>
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Set up the OGP for measurements
+     Description: NA
+     Version:  next
+     Prerequisites:
+       -
+         Name: SR-3.9-INSTRUCTIONS
+         Description: <ul><li>3.1 - Turn on the computer.</li><li>3.2 - Turn on the OGP using controller I/O switch.</li><li>3.3 - Open MeasureMind and follow the initialization prompts.</li><li>3.4 - Raise Z-stage and move the platen forward towards the Operator.</li><li>3.7 - Add a new directory folder for the new sensor.</li><li>3.8 - Add a new directory folder for each measurement to be performed and a directory folder for the resulting data products.</li><li>3.9 - Copy the routine file to automate the OGP during the measurements to each respective directory.</li><li>4. - Transport coffin to laminar flow hood.</li></ul>
 #<li>5. - Log into the eTraveler system.</li><li>6. - Find and select the corresponding LSST S/N.</li><li>7. - Initiate SR-INS-01 eTraveler.</li>
          PrerequisiteType: TEST_EQUIPMENT
    -
