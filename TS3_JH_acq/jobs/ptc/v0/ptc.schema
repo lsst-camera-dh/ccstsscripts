@@ -1,0 +1,5 @@
+# -*- python -*-
+{
+    'schema_name' : 'ptc',
+    'schema_version' : 0
+}

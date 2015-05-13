@@ -51,7 +51,8 @@ Sequence:
          Description: <ul><li>8. - Remove grounding connectors.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
    -
-     Name:  For ITL (2)- plug in TS3 testing flex cables.
+#     Name:  For ITL (2)- plug in TS3 testing flex cables.
+     Name:  plug in TS3 testing flex cables.
      Description: NA
      Version:  next
      Prerequisites:
@@ -251,6 +252,21 @@ Sequence:
                    Name: bright_pixels
                    UserVersionString: v0
             -  
+               Name: ptc
+               Version: next
+               UserVersionString: v0
+               TravelerActions:
+                 - HarnessedJob
+               Prerequisites:
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: flat_pairs
+                   UserVersionString: v0
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: trap
+                   UserVersionString: v0
+            -  
                Name: qe
                Version: next
                UserVersionString: v0
@@ -265,8 +281,40 @@ Sequence:
                    PrerequisiteType:  PROCESS_STEP
                    Name: fe55_analysis
                    UserVersionString: v0
+            -  
+               Name: test_report
+               Version: next
+               UserVersionString: v0
+               TravelerActions:
+                 - HarnessedJob
+               Prerequisites:
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: qe
+                   UserVersionString: v0
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: fe55_analysis
+                   UserVersionString: v0
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: flat_pairs
+                   UserVersionString: v0
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: trap
+                   UserVersionString: v0
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: prnu
+                   UserVersionString: v0
+                 -
+                   PrerequisiteType:  PROCESS_STEP
+                   Name: dark_current
+                   UserVersionString: v0
    -
      Name:  Has the sensor returned to room pressure and temperature
+     Version: next
 #     PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Prepare TS3-Cryostat for sensor removal
@@ -325,15 +373,15 @@ Sequence:
        -
          Name: Install protective cover.
          PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name:  Unplug micro-D connectors from the readout out cable in TS3-Cryostat.
-     Description: NA
-     Version:  next
-     Prerequisites:
-       -
-         Name: SR-7.34-INSTRUCTIONS
-         Description: <ul><li>34. - For e2v (1)- Plug micro-D connectors into grounding connectors on jig.</li></ul>
-         PrerequisiteType: TEST_EQUIPMENT
+#   -
+#     Name:  Unplug micro-D connectors from the readout out cable in TS3-Cryostat.
+#     Description: NA
+#     Version:  next
+#     Prerequisites:
+#       -
+#         Name: SR-7.34-INSTRUCTIONS
+#         Description: <ul><li>34. - For e2v (1)- Plug micro-D connectors into grounding connectors on jig.</li></ul>
+#         PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Open the (empty) coffin.
      Description: NA
@@ -341,7 +389,8 @@ Sequence:
      Prerequisites:
        -
          Name: SR-7.37-INSTRUCTIONS
-         Description: <ul><li>36. - Remove jig from nest.</li><li>37. - IF ITL (2)- Remove TS3 testing flex cables and re-install grounding plugs.</li></ul>
+#         Description: <ul><li>36. - Remove jig from nest.</li><li>37. - IF ITL (2)- Remove TS3 testing flex cables and re-install grounding plugs.</li></ul>
+         Description: <ul><li>36. - Remove jig from nest.</li><li>37. - Remove TS3 testing flex cables and re-install grounding plugs.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
        -
          Name: Remove TS3 testing flex cables and re-install grounding plugs.

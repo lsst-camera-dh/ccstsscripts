@@ -20,6 +20,8 @@ try:
     tssub  = CCS.attachSubsystem("%s" % ts);
     print "attaching PD subsystem"
     pdsub   = CCS.attachSubsystem("%s/PhotoDiode" % ts);
+    print "attaching XED subsystem"
+    xedsub   = CCS.attachSubsystem("%s/XED" % ts);
     print "attaching Mono subsystem"
     monosub = CCS.attachSubsystem("%s/Monochromator" % ts );
     print "Attaching archon subsystem"
