@@ -100,7 +100,7 @@ try:
     fpfiles = open("%s/acqfilelist" % cdir,"w");
 
     print "Scan at a low and a high wavelength to test monochromator and filter wheel"
-    for wl in [400 900]
+    for wl in range(400,900,500) :
 
             target = float(wl)
             print "target wl = %f" % target;

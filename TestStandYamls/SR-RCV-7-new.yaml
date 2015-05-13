@@ -85,9 +85,9 @@ Sequence:
          Name: SR-7.12-INSTRUCTIONS
          Description: <ul><li>11. - Turn off nitrogen injection and close the valve.</li><li>12. - Plug-in the two readout boards.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Plug-in the two readout boards.
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Plug-in the two readout boards.
+#         PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Move TS3-Cryostat to attach to the dark tunnel.
      Description: NA
@@ -101,15 +101,20 @@ Sequence:
      Name:  lower cryostat temperature to -95C
      Version: next
      Description: verify that the temperature is stable at -95C
-     RequiredInputs:
-         -
-          Label: Cooldown log (filepath)
-          InputSemantics: filepath
+#     RequiredInputs:
+#         -
+#          Label: Cooldown log (filepath)
+#          InputSemantics: filepath
    -
      Name:  run all acquisition and analysis scripts
      Version:  next
-     Description: You are about to start the automated execution of all acquisition and analysis scripts<br><ul><li>Verify that the CCS applications are running by clicking on the checktsappswidget.</li><li>If any app is not shown as running (green) or if the widget itself is not present, please refer to the detailed instructions below. Start a new window. Do - cd /home/ts3prod/prod - then - source lcatrsetup2.sh - then - cd lcatr/TS3_JH_acq - then select and paste the command provided when you click - start work. </li><li>Verify that the acquisitions have started and that there are no indications of problem in the CCS windows.</li><li>verify occasionally by reloading this eTraveler page or clicking - current step - that there are no failures</ul>
+     Description: NA
      InstructionsURL: "https://confluence.slac.stanford.edu/display/LSSTCAM/Using+CCS+for+TS3+at+BNL"
+     Prerequisites:
+       -
+         Name: INSTRUCTIONS
+         Description: You are about to start the automated execution of all acquisition and analysis scripts<br><ul><li>Verify that the CCS applications are running by clicking on the checktsappswidget.</li><li>If any app is not shown as running (green) or if the widget itself is not present, please refer to the detailed instructions below. Start a new window. Do - cd /home/ts3prod/prod - then - source lcatrsetup2.sh - then - cd lcatr/TS3_JH_acq - then select and paste the command provided when you click - start work. </li><li>Verify that the acquisitions have started and that there are no indications of a problem in the CCS windows.</li><li>verify occasionally by reloading this eTraveler page or clicking - current step - that there are no failures</ul>
+         PrerequisiteType: TEST_EQUIPMENT
      TravelerActions:
        - Automatable
      Sequence:     
@@ -260,8 +265,8 @@ Sequence:
                Prerequisites:
                  -
                    PrerequisiteType:  PROCESS_STEP
-                   Name: flat_pairs
-                   UserVersionString: v0
+                   Name: TS3_flat
+                   UserVersionString: v10
                  -
                    PrerequisiteType:  PROCESS_STEP
                    Name: trap

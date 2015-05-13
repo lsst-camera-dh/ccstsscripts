@@ -6,7 +6,7 @@ import lsst.eotest.image_utils as imutils
 import lsst.eotest.sensor as sensorTest
 from lcatr.harness.helpers import dependency_glob
 
-flat_files = dependency_glob('*_flat*flat?_*.fits', jobname='flat_pairs')
+flat_files = dependency_glob('*_flat*flat?_*.fits', jobname='TS3_flat')
 mask_files = dependency_glob('*_mask.fits')
 
 # Infer the sensor_id from the first dark filename as per LCA-10140.
