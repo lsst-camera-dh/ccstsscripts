@@ -3,7 +3,7 @@
 # LSST Hardware Receipt - Inspection
 Name: SR-MET-1
 Version: next
-HardwareType: CCD
+HardwareGroup: Generic-CCD
 Description: Hardware Receipt
 Sequence:
    -

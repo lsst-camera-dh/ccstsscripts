@@ -3,7 +3,7 @@
 # LSST Hardware Receipt - Inspection
 Name: SR-RCV-2
 Version: next
-HardwareType: CCD
+HardwareGroup: Generic-CCD
 Description: Hardware Receipt - Vendor hardware is received
 Sequence:
    -
@@ -11,18 +11,18 @@ Sequence:
 #     Description: Vendor hardware is received
      Description: NA
      Prerequisites:
-        -
-         PrerequisiteType:  PROCESS_STEP
-#         Name: vendorIngest
-         Name: Vendor-Data-Acceptance
-         UserVersionString: v0
+#        -
+#         PrerequisiteType:  PROCESS_STEP
+##         Name: vendorIngest
+#         Name: Vendor-Data-Acceptance
+#         UserVersionString: v0
         -
          Name: SR-2.4a - Instructions
-         Description: <ul><li>0. - Specify the location of the hardware by going to <a href=http://lsst-camera.slac.stanford.edu/eTraveler/exp/LSST-CAMERA/displayHardware.jsp?hardwareId=40>LOCATION</a> and returning here</li><li>1.4 - Verify Vendor S/N matches ID description in documentation </li><li>1.5 - Dispose of shipping materials.</li><li>2. - Place hardware/documentation in anteroom.</li><li>3.6 - Label hardware with LSST S/N.</li><li>3.7 - Label all documentation with LSST S/N.</li></ul>
+         Description: <ul style=" margin-top:0px; list-style:none; padding-left:0px;"><li>0. - If the current location was not already specified on the Hardware Component page, specify the location of the hardware by going to <a href=http://lsst-camera.slac.stanford.edu/eTraveler/exp/LSST-CAMERA/displayHardware.jsp?hardwareId=40>LOCATION</a> and then use the back button to return here</li><li>1.4 - Verify that the vendor S/N matches ID description in documentation </li><li>1.5 - Dispose of shipping materials.</li><li>2. - Place hardware/documentation in anteroom.</li><li>3.6 - Label hardware with LSST S/N.</li><li>3.7 - Label all documentation with LSST S/N.</li><br><b>If you are DONE reading these instructions, please click the button to the right:</b></ul>
          PrerequisiteType: TEST_EQUIPMENT
         -
          Name: SR-2.4b - Instructions
-         Description: <ul><li>4.2 - Upload scanned documents by using the lcatr-harness command shown below (after having clicked Start).</li></ul>
+         Description: <ul style=" margin-top:0px; list-style:none; padding-left:0px;"><li>4.2 - Upload scanned documents by using the lcatr-harness command shown below (after having clicked Start).</li><br><b>If you are DONE reading these instructions, please click the button to the right:</b></ul>
          PrerequisiteType: TEST_EQUIPMENT
      Version:  next
      UserVersionString: v0
@@ -36,7 +36,7 @@ Sequence:
      Prerequisites:
        -
          Name: Consistency check
-         Description: Have you checked to make sure that the vendor data and the documentation received with the hardware are consistent?  In case of an inconsistency, please click Stop, give a detailed description of the problem and then Fail this task.
+         Description: Have you checked to make sure that the vendor data and the documentation received with the hardware are consistent?  In case of an inconsistency, please click Stop, give a detailed description of the problem and then Fail this task.<ul style=" margin-top:0px; list-style:none; padding-left:0px;"><br><b>If you are DONE reading these instructions, please click the button to the right:</b></li>
          PrerequisiteType: TEST_EQUIPMENT
 #   -
 #     Name: Store hardcopies and inspect hardware
@@ -44,9 +44,9 @@ Sequence:
 #     Version:  next
 #     Prerequisites:
        -
-         PrerequisiteType: TEST_EQUIPMENT 
+         PrerequisiteType: TEST_EQUIPMENT
          Name: SR-2.5
-         Description: <ul><li>5. - Store hardcopies of documentation.</li><li>5. - Perform Visual Inspection.</li></ul>
+         Description: <ul style=" margin-top:0px; list-style:none; padding-left:0px;"><li>Store hardcopies of documentation.</li><li>Perform Visual Inspection.</li></ul>
    -
      Name: Prepare to clean the hardware (or packaging).
      Description: NA
@@ -54,11 +54,11 @@ Sequence:
      Prerequisites:
        -
          Name: SR-2.7 - Instructions
-         Description: <ul><li>6.1 - Place hardware on cleaning bench.</li><li>6.2 - Leave the anteroom.</li><li>6.3 - Repeat Pre-Entrance Procedure</li><li>6.4 - Gown and enter clean area.</li><li>6.5 - Proceed to anteroom.</li><li>6.6 - Remove hardware from shipping package.</li><li>6.7 - Clean hardware.</li><li>6.8 - Carry hardware into clean area.</li><li>6.9 - Re-clean hardware, if necessary</li></ul>
+         Description: <ul style=" margin-top:0px; list-style:none; padding-left:0px;"><li>6.1 - Place hardware on cleaning bench.</li><li>6.2 - Leave the anteroom.</li><li>6.3 - Repeat Pre-Entrance Procedure</li><li>6.4 - Gown and enter clean area.</li><li>6.5 - Proceed to anteroom.</li><li>6.6 - Remove hardware from shipping package.</li><li>6.7 - Clean hardware.</li><li>6.8 - Carry hardware into clean area.</li><li>6.9 - Re-clean hardware, if necessary</li><li>Perform another visual inspection of the hardware now that it had been cleaned.</li><br><b>If you are DONE reading these instructions, please click the button to the right:</b></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Review and determine disposition of vendor test data (Phase 2/2) and visual inspection of hardware.
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Review and determine disposition of vendor test data (Phase 2/2) and visual inspection of hardware.
+#         PrerequisiteType: TEST_EQUIPMENT
    -
      Name: Record picture of hardware
      Description: NA
@@ -66,9 +66,9 @@ Sequence:
 #     Prerequisites:
 #       -
 #         Name: Photo Instructions
-#         Description: <ul><li>Take picture of hardware</li><li>upload picture</li><li>specify path to the file</ul>
+#         Description: <ul style=" margin-top:0px; list-style:none; padding-left:0px;"><li>Take picture of hardware</li><li>upload picture</li><li>specify path to the file</ul>
 #         PrerequisiteType: TEST_EQUIPMENT
      RequiredInputs:
        -
-         Label: <ul><li>Take picture of hardware</li><li>upload picture</li><li>specify path to the file</ul> (filepath)
+         Label: <ul style=" margin-top:0px; list-style:none; padding-left:0px;"><li>Take picture of hardware</li><li>upload picture</li><li>specify path to the file</ul> (filepath)
          InputSemantics: filepath
