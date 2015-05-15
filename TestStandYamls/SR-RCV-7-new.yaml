@@ -123,200 +123,223 @@ Sequence:
           Version:  next
           TravelerActions:
             - Automatable
-          Sequence:     
-            -
-               Name: TS3_fe55 
-               Version:  next
-               UserVersionString: v3
-               TravelerActions:
-                 - HarnessedJob
-            -
-               Name: TS3_flat 
-               Version:  next
-               UserVersionString: v10
-               TravelerActions:
-                 - HarnessedJob
-            -
-               Name: TS3_dark
-               Version:  next
-               UserVersionString: v3
-               TravelerActions:
-                 - HarnessedJob
-            -
-               Name: TS3_sflat
+          Sequence:
+             - Name: fe55_acq
+               TravelerActions: [HarnessedJob]
                Version: next
-               UserVersionString: v3
-               TravelerActions:
-                 - HarnessedJob
-            -
-               Name: TS3_qe
+               UserVersionString: v0
+             - Name: dark_acq
+               TravelerActions: [HarnessedJob]
                Version: next
-               UserVersionString: v3
-               TravelerActions:
-                 - HarnessedJob
-            -
-               Name: TS3_ppump
+               UserVersionString: v0
+             - Name: flat_acq
+               TravelerActions: [HarnessedJob]
                Version: next
-               UserVersionString: v3
-               TravelerActions:
-                 - HarnessedJob
+               UserVersionString: v0
+             - Name: ppump_acq
+               TravelerActions: [HarnessedJob]
+               Version: next
+               UserVersionString: v0
+             - Name: sflat_acq
+               TravelerActions: [HarnessedJob]
+               Version: next
+               UserVersionString: v0
+             - Name: xtalk_acq
+               TravelerActions: [HarnessedJob]
+               Version: next
+               UserVersionString: v0
+             - Name: qe_acq
+               TravelerActions: [HarnessedJob]
+               Version: next
+               UserVersionString: v0
        -
           Name:  run EO Offline Analysis Scripts
           Version:  next
           TravelerActions:
             - Automatable
           Sequence:
-            -
-               Name: flat_pairs
-               Version:  next
-               UserVersionString: v0
-               TravelerActions:
-                 - HarnessedJob
+             - Name: fe55_analysis
+               Description: Fe55 analysis for system gain and PSF size
                Prerequisites:
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: TS3_flat
-                   UserVersionString: v10
-            -
-               Name: fe55_analysis
+               - {Name: fe55_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               TravelerActions: [HarnessedJob]
                Version: next
                UserVersionString: v0
-               TravelerActions:
-                 - HarnessedJob
+             - Name: read_noise
+               Description: CCD Read Noise
                Prerequisites:
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: TS3_fe55
-                   UserVersionString: v3
-            -  
-               Name: bright_pixels
+               - {Name: fe55_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               TravelerActions: [HarnessedJob]
                Version: next
                UserVersionString: v0
-               TravelerActions:
-                 - HarnessedJob
+             - Name: bright_defects
+               Description: Bright defects from darks
                Prerequisites:
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: TS3_dark
-                   UserVersionString: v3
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: fe55_analysis
-                   UserVersionString: v0
-            -  
-               Name: dark_current
+               - {Name: dark_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               TravelerActions: [HarnessedJob]
                Version: next
                UserVersionString: v0
-               TravelerActions:
-                 - HarnessedJob
+             - Name: dark_defects
+               Description: Dark defects from superflat data
                Prerequisites:
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: TS3_dark
-                   UserVersionString: v3
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: fe55_analysis
-                   UserVersionString: v0
-            -  
-               Name: prnu
+               - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: sflat_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               TravelerActions: [HarnessedJob]
                Version: next
                UserVersionString: v0
-               TravelerActions:
-                 - HarnessedJob
+             - Name: traps
+               Description: Charge traps from pocket pumping data
                Prerequisites:
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: TS3_sflat
-                   UserVersionString: v3
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: TS3_qe
-                   UserVersionString: v3
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: fe55_analysis
-                   UserVersionString: v0
-            -  
-               Name: trap
+               - {Name: ppump_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               TravelerActions: [HarnessedJob]
                Version: next
                UserVersionString: v0
-               TravelerActions:
-                 - HarnessedJob
+             - Name: dark_current
+               Description: dark current
                Prerequisites:
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: TS3_ppump
-                   UserVersionString: v3
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: fe55_analysis
-                   UserVersionString: v0
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: bright_pixels
-                   UserVersionString: v0
-            -  
-               Name: ptc
+               - {Name: dark_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               TravelerActions: [HarnessedJob]
                Version: next
                UserVersionString: v0
-               TravelerActions:
-                 - HarnessedJob
+             - Name: cte
+               Description: Parallel and serial charge transfer efficiencies
                Prerequisites:
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: TS3_flat
-                   UserVersionString: v10
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: trap
-                   UserVersionString: v0
-            -  
-               Name: qe
+               - {Name: sflat_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               TravelerActions: [HarnessedJob]
                Version: next
                UserVersionString: v0
-               TravelerActions:
-                 - HarnessedJob
+             - Name: prnu
+               Description: Photo-response non-uniformity
                Prerequisites:
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: TS3_qe
-                   UserVersionString: v3
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: fe55_analysis
-                   UserVersionString: v0
-            -  
-               Name: test_report
+               - {Name: qe_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               TravelerActions: [HarnessedJob]
                Version: next
                UserVersionString: v0
-               TravelerActions:
-                 - HarnessedJob
+             - Name: flat_pairs
+               Description: Non-linearity and blooming full well from flat pair data
                Prerequisites:
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: qe
-                   UserVersionString: v0
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: fe55_analysis
-                   UserVersionString: v0
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: flat_pairs
-                   UserVersionString: v0
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: trap
-                   UserVersionString: v0
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: prnu
-                   UserVersionString: v0
-                 -
-                   PrerequisiteType:  PROCESS_STEP
-                   Name: dark_current
-                   UserVersionString: v0
+               - {Name: flat_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               TravelerActions: [HarnessedJob]
+               Version: next
+               UserVersionString: v0
+             - Name: ptc
+               Description: Photon Transfer Curve
+               Prerequisites:
+               - {Name: flat_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               TravelerActions: [HarnessedJob]
+               Version: next
+               UserVersionString: v0
+             - Name: qe_analysis
+               Description: Quantum Efficiency
+               Prerequisites:
+               - {Name: qe_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               TravelerActions: [HarnessedJob]
+               Version: next
+               UserVersionString: v0
+             - Name: test_report
+               Description: Test report
+               Prerequisites:
+               - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: read_noise, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: dark_current, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: cte, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: prnu, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: flat_pairs, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: ptc, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: qe_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: qe_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               - {Name: crosstalk, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+                 UserVersionString: v0}
+               TravelerActions: [HarnessedJob]
+               Version: next
+               UserVersionString: v0
    -
      Name:  Has the sensor returned to room pressure and temperature
      Version: next
