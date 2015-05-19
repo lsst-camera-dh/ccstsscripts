@@ -7,7 +7,11 @@ HardwareGroup: Generic-CCD
 Description: Hardware Receipt
 Sequence:
    -
-     Name: TS3_ready
+     Name: Set the location of the hardware for this EO testing
+     NewLocation: "(?)"
+     Version:  next
+   -
+     Name: ready_acq
      Version:  next
      Prerequisites:
        -
@@ -15,74 +19,75 @@ Sequence:
          Description: Here you will run the TS3_ready Job Harness to verify that the teststand is ready for EO testing. After clicking Start, you will be presented with an lcatr-harness command which must be copy and pasted into the Linux Terminal window. When the job is finished, reload this page to continue.
          PrerequisiteType: TEST_EQUIPMENT
      UserVersionString: v0
+     MaxIteration: '3'
      TravelerActions:
        - HarnessedJob
    -
      Name:  Set up EPA at TS3.
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.6-INSTRUCTIONS
+         Name: SR-7.6-<br>INSTRUCTIONS
          Description: <ul><li>5.1 - Set up and verify the TS3 workstation EPA.</li><li>5.2 - Attach the TS3 equipment to the ESD network/monitor.</li><li>5.3 - Transport required tooling to TS3 Workstation.</li><li>6. - Prepare TS3-Cryostat for sensor insertion.</li><li>6.1 - Ensure vacuum valve is closed.</li><li>6.2 - Turn on nitrogen injection and open the valve.</li><li>6.3 - Remove the screws TS3-Cryostat Window.</li><li>6.4 - Place a non-linting wipe on the TS3 table.</li><li>6.5 - Remove the TS3-Cryostat Window and place on non-linting wipe.</li><li>6.6 - Place a non-linting wipe on top of the TS3-Cryostat window.</li><li>6.7 - Visually inspect the O-ring; replace if necessary.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Visually inspect the O-ring; replace if necessary.
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Visually inspect the O-ring; replace if necessary.
+#         PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Transport coffin to TS3 Workstation.
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.6-INSTRUCTIONS
-         Description: <ul><li>8. - Prepare to open coffin.</li><li>8.1 - ESD wrist strap is worn.</li><li>8.2 - Sit or stand using the provided ESD-protective furniture.</li><li>8.3 - Place one finger of each hand away from each other on the ESD mat</li><li>8.4 - Un-screw outer screws of coffin cover.</li><li>8.5 - Dislodge coffin cover</li><li>6. - Remove coffin cover.</li></ul>
+         Name: SR-7.6-<br>INSTRUCTIONS
+         Description: <ul><li>8. - Prepare to open coffin.</li><li>8.1 - ESD wrist strap is worn.</li><li>8.2 - Sit or stand using the provided ESD-protective furniture.</li><li>8.3 - Place one finger of each hand away from each other on the ESD mat</li><li>8.4 - Un-screw outer screws of coffin cover.</li><li>8.5 - Dislodge coffin cover</li><li>8.6 - Remove coffin cover.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Remove coffin cover.
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Remove coffin cover.
+#         PrerequisiteType: TEST_EQUIPMENT
    -
-     Name:  Remove the loaded-jig from the coffin base.
-     Description: NA
+     Name:  Remove the loaded-jig from the coffin base after removing the grounding connectors
+     Description: " "
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.8-INSTRUCTIONS
-         Description: <ul><li>8. - Remove grounding connectors.</li></ul>
+         Name: SR-7.8-<br>INSTRUCTIONS
+         Description: <ul><li>8. - Remove grounding connectors.</li><li>Remove the loaded-jig from the coffin base.<li></li></ul>
          PrerequisiteType: TEST_EQUIPMENT
    -
 #     Name:  For ITL (2)- plug in TS3 testing flex cables.
      Name:  plug in TS3 testing flex cables.
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.10-INSTRUCTIONS
+         Name: SR-7.10-<br>INSTRUCTIONS
          Description: <ul><li>10. - Secure sensor into TS3-Cryostat.</li><li>10.1 - Secure jig onto nest.</li><li>10.2 - Plug micro-D connectors to the readout cables in TS3-Cryostat.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Plug micro-D connectors to the readout cables in TS3-Cryostat.
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Plug micro-D connectors to the readout cables in TS3-Cryostat.
+#         PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Remove protective cover.
      Version: next
 #     PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Attach mask to jig.
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.10-INSTRUCTIONS
+         Name: SR-7.10-<br>INSTRUCTIONS
          Description: <ul><li>10.5 - Install and secure TS3-Cryostat Window.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Close (empty) coffin.
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.12-INSTRUCTIONS
+         Name: SR-7.12-<br>INSTRUCTIONS
          Description: <ul><li>11. - Turn off nitrogen injection and close the valve.</li><li>12. - Plug-in the two readout boards.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
 #       -
@@ -90,11 +95,11 @@ Sequence:
 #         PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Move TS3-Cryostat to attach to the dark tunnel.
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.16-INSTRUCTIONS
+         Name: SR-7.16-<br>INSTRUCTIONS
          Description: <ul><li>14. - Push in dark tunnel cover's handle to open the dark tunnel.</li><li>15. - Verify vacuum valve is open and the bleed valve is closed.</li><li>16. - Run the pump and cool Job Harness to pump-down and cool the TS3-Cryostat.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
    -
@@ -108,7 +113,7 @@ Sequence:
    -
      Name:  run all acquisition and analysis scripts
      Version:  next
-     Description: NA
+     Description: " "
      InstructionsURL: "https://confluence.slac.stanford.edu/display/LSSTCAM/Using+CCS+for+TS3+at+BNL"
      Prerequisites:
        -
@@ -128,30 +133,32 @@ Sequence:
                TravelerActions: [HarnessedJob]
                Version: next
                UserVersionString: v0
+               MaxIteration: 3
              - Name: dark_acq
                TravelerActions: [HarnessedJob]
                Version: next
                UserVersionString: v0
+               MaxIteration: 3
              - Name: flat_acq
                TravelerActions: [HarnessedJob]
                Version: next
                UserVersionString: v0
+               MaxIteration: 3
              - Name: ppump_acq
                TravelerActions: [HarnessedJob]
                Version: next
                UserVersionString: v0
+               MaxIteration: 3
              - Name: sflat_acq
                TravelerActions: [HarnessedJob]
                Version: next
                UserVersionString: v0
-             - Name: xtalk_acq
-               TravelerActions: [HarnessedJob]
-               Version: next
-               UserVersionString: v0
+               MaxIteration: 3
              - Name: qe_acq
                TravelerActions: [HarnessedJob]
                Version: next
                UserVersionString: v0
+               MaxIteration: 3
        -
           Name:  run EO Offline Analysis Scripts
           Version:  next
@@ -346,23 +353,23 @@ Sequence:
 #     PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Prepare TS3-Cryostat for sensor removal
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.25-INSTRUCTIONS
+         Name: SR-7.25-<br>INSTRUCTIONS
          Description: <ul><li>23.2 - Attach the TS3 equipment to the ESD network/monitor.</li><li>23.3 - Transport required tooling to TS3 Workstation.</li><li>23.4 - ESD wrist strap is worn.</li><li>23.5 - Sit or stand using the provided ESD-protective furniture.</li><li>23.6 - Place one finger of each hand away from each other on the ESD mat</li><li>23.7 - Un-screw outer screws of coffin cover.</li><li>23.8 - Dislodge coffin cover</li><li>24. - Pull dark tunnel cover's handle to close the dark tunnel.</li><li>25. - Prepare TS3-Cryostat for sensor removal.</li><li>25.1 - Verify the sensor is at room temperature.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Verify the sensor is at room temperature.
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Verify the sensor is at room temperature.
+#         PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Close the vacuum valve and turn off the vacuum.
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.25-INSTRUCTIONS
+         Name: SR-7.25-<br>INSTRUCTIONS
          Description: <ul><li>25.3 - Open the bleed valve.</li><li>25.4 - Verify the TS3-Cryostat is close to room pressure.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
        -
@@ -370,66 +377,66 @@ Sequence:
          PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Move TS3-Cryostat after detaching from the dark tunnel.
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.25-INSTRUCTIONS
+         Name: SR-7.25-<br>INSTRUCTIONS
          Description: <ul><li>25.6 - Unplug the two readout boards.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Turn on nitrogen injection and open the valve.
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.29-INSTRUCTIONS
+         Name: SR-7.29-<br>INSTRUCTIONS
          Description: <ul><li>27. - Close the bleed valve.</li><li>28. - Place a non-linting wipe on the TS3 table.</li><li>29. - Remove the TS3-Cryostat Window and place on non-linting wipe.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Remove the TS3-Cryostat Window and place on non-linting wipe.
-         PrerequisiteType: TEST_EQUIPMENT
+ #      -
+ #        Name: Remove the TS3-Cryostat Window and place on non-linting wipe.
+ #        PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Place a non-linting wipe on top of the TS3-Cryostat window.
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.32-INSTRUCTIONS
+         Name: SR-7.32-<br>INSTRUCTIONS
          Description: <ul><li>31. - Remove the mask from the jig.</li><li>32. - Install protective cover.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Install protective cover.
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Install protective cover.
+#         PrerequisiteType: TEST_EQUIPMENT
 #   -
 #     Name:  Unplug micro-D connectors from the readout out cable in TS3-Cryostat.
-#     Description: NA
+#     Description: " "
 #     Version:  next
 #     Prerequisites:
 #       -
-#         Name: SR-7.34-INSTRUCTIONS
+#         Name: SR-7.34-<br>INSTRUCTIONS
 #         Description: <ul><li>34. - For e2v (1)- Plug micro-D connectors into grounding connectors on jig.</li></ul>
 #         PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Open the (empty) coffin.
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.37-INSTRUCTIONS
+         Name: SR-7.37-<br>INSTRUCTIONS
 #         Description: <ul><li>36. - Remove jig from nest.</li><li>37. - IF ITL (2)- Remove TS3 testing flex cables and re-install grounding plugs.</li></ul>
          Description: <ul><li>36. - Remove jig from nest.</li><li>37. - Remove TS3 testing flex cables and re-install grounding plugs.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Remove TS3 testing flex cables and re-install grounding plugs.
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Remove TS3 testing flex cables and re-install grounding plugs.
+#         PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Install jig onto coffin base.
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.39-INSTRUCTIONS
+         Name: SR-7.39-<br>INSTRUCTIONS
          Description: <ul><li>39. - Install coffin cover.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
    -

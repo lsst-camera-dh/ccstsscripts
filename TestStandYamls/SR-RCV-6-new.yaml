@@ -7,65 +7,69 @@ HardwareGroup: Generic-CCD
 Description: Hardware Receipt
 Sequence:
    -
+     Name: Set the location that the hardware will be at during this metrology testing
+     Version:  next
+     NewLocation: "(?)"
+   -
      Name:  Review and determine disposition of absolute height data.
      Version: next
    -
      Name:  Sensor Pin Metrology (SR-MET-02)
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
          Name: SR-6.6-INSTRUCTIONS
          Description: <ul><li>4. - Set up laminar flow hood.</li><li>4.1 - Turn on laminar flow hood.</li><li>4.2 - Check for obstructions and/or malfunctions.</li><li>4.3 - Turn on Air Ionizer Bar.</li><li>4.4 - Set up and verify the EPA.</li><li>4.5 - Transport required tooling to workstation.</li><li>4.6 - If the laminar flow hood was turned on recently</li><li>5. - Prepare to open coffin.</li><li>5.1 - ESD wrist strap is worn.</li><li>5.2 - Sit or stand using the provided ESD-protective furniture.</li><li>5.3 - Place one finger of each hand away from each other on the ESD mat</li><li>5.4 - Un-screw outer screws of coffin cover.</li><li>5.5 - Dislodge coffin cover</li><li>6. - Remove sensor from jig and install into MF07 using MF05.</li><li>6.1 - Unscrew jig from coffin base and attach jig to MF05.</li><li>6.2 - Place coffin cover on (empty) coffin.</li><li>6.3 - Attach one MF05-Rod to a mounting stud.</li><li>6.4 - Remove the screw from one alignment pin.</li><li>6.5 - Attach other MF05-Rods to mounting studs.</li><li>6.6 - Remove protective cover.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Remove protective cover.
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Remove protective cover.
+#         PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Remove other screw from alignment pin.
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
          Name: SR-6.6-INSTRUCTIONS
          Description: <ul><li>6.8 - Push sensor into MF05-Cove.</li><li>6.9 - Install MF07 onto sensor/cove.</li><li>6.10 - Attach side screw into MF07.</li><li>6.11 - Using MF05-Rods</li><li>6.12 - Place MF07-Cover on an edge and attach with one screw.</li><li>6.13 - Slide MF07-Cover into place</li><li>6.14 - Attach other 3 screws.</li><li>6.15 - Remove Loaded-MF07.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Remove Loaded-MF07.
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Remove Loaded-MF07.
+#         PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Remove (empty) jig from MF05 and place in coffin. Place cover back on coffin.
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
          Name: SR-6.14-INSTRUCTIONS
          Description: <ul><li>7. - Set up the OGP for measurements.</li><li>7.1 - Turn on the computer.</li><li>7.2 - Turn on the OGP using controller I/O switch.</li><li>7.3 - Open MeasureMind and follow the initialization prompts.</li><li>7.4 - Raise Z-stage and move the platen forward towards the Operator.</li><li>7.5 - Ensure MF02 is installed.</li><li>7.6 - Add a new directory folder for the measurement to be performed and a directory folder for the resulting data products.</li><li>7.7 - Copy each routine file which will be used to the respective directory.</li><li>8. - Set up EPA at TS2.</li><li>8.1 - Set up and verify the EPA at the TS2 Workstation.</li><li>8.2 - Attach the OGP to the ESD network/monitor.</li><li>8.3 - Transport required tooling to TS2 Workstation.</li><li>9. - Transport Loaded-MF07 to TS2 Workstation.</li><li>10. - Prepare to work with Loaded-MF07.</li><li>10.1 - ESD wrist strap is worn.</li><li>10.2 - Sit or stand using the provided ESD-protective furniture.</li><li>10.3 - Place one finger of each hand away from each other on the ESD mat</li><li>11. - Install loaded-MF07 onto MF04.</li><li>12. - Remove two screws from MF07-Cover.</li><li>13. - Transfer loaded-MF04 to OGP.</li><li>14. - Remove protective cover.</li><li>14.1 - Remove the third screw from MF07-Cover.</li><li>14.2 - Slide MF07-Cover off of sensor place</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Slide MF07-Cover off of sensor place
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Slide MF07-Cover off of sensor place
+#         PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Remove final screw from MF07-Cover
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
          Name: SR-6.17-INSTRUCTIONS
          Description: <ul><li>15. - Perform Pin Metrology OGP Routine.</li><li>15.1 - Click Open Existing Routine and select Pin_Metrology.RTN.</li><li>15.2 - Click Run the Current Routine.</li><li>15.3 - Enter appropriate path and filename for data products.</li><li>15.4 - Wait for the routine to finish.</li><li>15.5 - If the user is approved</li><li>16. - Raise Z-stage and move the platen forward towards the Operator.</li><li>17. - Add protective cover.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Add protective cover.
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Add protective cover.
+#         PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Place MF07-Cover on an edge and attach with one screw.
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
          Name: SR-6.17-INSTRUCTIONS
          Description: <ul><li>17.2 - Slide MF07-Cover into place</li><li>17.3 - Attach other 3 screws.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Attach other 3 screws.
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Attach other 3 screws.
+#         PrerequisiteType: TEST_EQUIPMENT

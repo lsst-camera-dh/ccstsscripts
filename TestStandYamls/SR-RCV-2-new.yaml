@@ -7,9 +7,13 @@ HardwareGroup: Generic-CCD
 Description: Hardware Receipt - Vendor hardware is received
 Sequence:
    -
+     Name: Set the current location of the hardware
+     Version:  next
+     NewLocation: "(?)"
+   -
      Name: Scan-and-Ingest-Vendor-Data
 #     Description: Vendor hardware is received
-     Description: NA
+     Description: " "
      Prerequisites:
 #        -
 #         PrerequisiteType:  PROCESS_STEP
@@ -18,7 +22,8 @@ Sequence:
 #         UserVersionString: v0
         -
          Name: SR-2.4a - Instructions
-         Description: <ul style=" margin-top:0px; list-style:none; padding-left:0px;"><li>0. - If the current location was not already specified on the Hardware Component page, specify the location of the hardware by going to <a href=http://lsst-camera.slac.stanford.edu/eTraveler/exp/LSST-CAMERA/displayHardware.jsp?hardwareId=40>LOCATION</a> and then use the back button to return here</li><li>1.4 - Verify that the vendor S/N matches ID description in documentation </li><li>1.5 - Dispose of shipping materials.</li><li>2. - Place hardware/documentation in anteroom.</li><li>3.6 - Label hardware with LSST S/N.</li><li>3.7 - Label all documentation with LSST S/N.</li><br><b>If you are DONE reading these instructions, please click the button to the right:</b></ul>
+#<li>0. - If the current location was not already specified on the Hardware Component page, specify the location of the hardware by going to <a href=http://lsst-camera.slac.stanford.edu/eTraveler/exp/LSST-CAMERA/displayHardware.jsp?hardwareId=40>LOCATION</a> and then use the back button to return here</li>
+         Description: <ul style=" margin-top:0px; list-style:none; padding-left:0px;"><li>1.4 - Verify that the vendor S/N matches ID description in documentation </li><li>1.5 - Dispose of shipping materials.</li><li>2. - Place hardware/documentation in anteroom.</li><li>3.6 - Label hardware with LSST S/N.</li><li>3.7 - Label all documentation with LSST S/N.</li><br><b>If you are DONE reading these instructions, please click the button to the right:</b></ul>
          PrerequisiteType: TEST_EQUIPMENT
         -
          Name: SR-2.4b - Instructions
@@ -30,7 +35,7 @@ Sequence:
        - HarnessedJob
    -
      Name: Check Vendor Data - Store Hardcopies - Visual Inspection
-     Description: NA
+     Description: " "
      Version:  next
      UserVersionString: v0
      Prerequisites:
@@ -40,7 +45,7 @@ Sequence:
          PrerequisiteType: TEST_EQUIPMENT
 #   -
 #     Name: Store hardcopies and inspect hardware
-#     Description: NA
+#     Description: " "
 #     Version:  next
 #     Prerequisites:
        -
@@ -49,7 +54,7 @@ Sequence:
          Description: <ul style=" margin-top:0px; list-style:none; padding-left:0px;"><li>Store hardcopies of documentation.</li><li>Perform Visual Inspection.</li></ul>
    -
      Name: Prepare to clean the hardware (or packaging).
-     Description: NA
+     Description: " "
      Version:  next
      Prerequisites:
        -
@@ -61,7 +66,7 @@ Sequence:
 #         PrerequisiteType: TEST_EQUIPMENT
    -
      Name: Record picture of hardware
-     Description: NA
+     Description: " "
      Version: next
 #     Prerequisites:
 #       -
