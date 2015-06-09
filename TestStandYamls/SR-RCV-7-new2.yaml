@@ -1,0 +1,434 @@
+%YAML  1.1
+---
+# LSST Hardware Receipt - Inspection
+Name: SR-EOT-1
+Version: next
+HardwareGroup: Generic-CCD
+Description: Hardware Receipt
+Sequence:
+   -
+     Name: Set the location of the hardware for this EO testing
+     NewLocation: "(?)"
+     Version:  next
+   -
+     Name: ready_acq
+     Version:  next
+#     Prerequisites:
+#       -
+#         Name: run the teststand pre-flight checker
+#         Description: Here you will run the TS3_ready Job Harness to verify that the teststand is ready for EO testing. After clicking Start, click on the launcher button that will appear. When the job is finished, reload this page to continue.<b>If you are DONE reading these instructions, please click the button to the right:</b>
+#         PrerequisiteType: PREPARATION
+     Description: Here you will run the TS3_ready Job Harness to verify that the teststand is ready for EO testing. After clicking Start, click on the launcher button that will appear. When the job is finished, reload this page to continue.
+     UserVersionString: v0
+     MaxIteration: 5
+     TravelerActions:
+       - HarnessedJob
+   -
+     Name:  Set up EPA at TS3.
+     Description: 6.7 - Visually inspect the O-ring; replace if necessary.
+     Version:  next
+     Prerequisites:
+       -
+         Name: SR-7.6-<br>INSTRUCTIONS
+         Description: <ul><li>5.1 - Set up and verify the TS3 workstation EPA.</li><li>5.2 - Attach the TS3 equipment to the ESD network/monitor.</li><li>5.3 - Transport required tooling to TS3 Workstation.</li><li>6. - Prepare TS3-Cryostat for sensor insertion.</li><li>6.1 - Ensure vacuum valve is closed.</li><li>6.2 - Turn on nitrogen injection and open the valve.</li><li>6.3 - Remove the screws TS3-Cryostat Window.</li><li>6.4 - Place a non-linting wipe on the TS3 table.</li><li>6.5 - Remove the TS3-Cryostat Window and place on non-linting wipe.</li><li>6.6 - Place a non-linting wipe on top of the TS3-Cryostat window.</li></ul><br><b>If you are DONE reading these instructions, please click the button to the right:</b>
+         PrerequisiteType: PREPARATION
+#       -
+#         Name: Visually inspect the O-ring; replace if necessary.
+#         PrerequisiteType: PREPARATION
+   -
+     Name:  Transport coffin to TS3 Workstation.
+     Description: 8.6 - Remove coffin cover
+     Version:  next
+     Prerequisites:
+       -
+         Name: SR-7.6-<br>INSTRUCTIONS
+         Description: <ul><li>8. - Prepare to open coffin.</li><li>8.1 - ESD wrist strap is worn.</li><li>8.2 - Sit or stand using the provided ESD-protective furniture.</li><li>8.3 - Place one finger of each hand away from each other on the ESD mat</li><li>8.4 - Un-screw outer screws of coffin cover.</li><li>8.5 - Dislodge coffin cover</li></ul><br><b>If you are DONE reading these instructions, please click the button to the right:</b>
+         PrerequisiteType: PREPARATION
+#       -
+#         Name: Remove coffin cover.
+#         PrerequisiteType: PREPARATION
+   -
+     Name:  Remove the loaded-jig from the coffin base after removing the grounding connectors
+     Description: plug in TS3 testing flex cables.
+     Version:  next
+     Prerequisites:
+       -
+         Name: SR-7.8-<br>INSTRUCTIONS
+         Description: <ul><li>8. - Remove grounding connectors.</li><li>Remove the loaded-jig from the coffin base.</li></ul><b>If you are DONE reading these instructions, please click the button to the right:</b>
+         PrerequisiteType: PREPARATION
+#   -
+#     Name:  For ITL (2)- plug in TS3 testing flex cables.
+#     Name:  plug in TS3 testing flex cables.
+#     Description: " "
+#     Version:  next
+#     Prerequisites:
+       -
+         Name: SR-7.10-<br>INSTRUCTIONS
+         Description: <ul><li>10. - Secure sensor into TS3-Cryostat.</li><li>10.1 - Secure jig onto nest.</li><li>10.2 - Plug micro-D connectors to the readout cables in TS3-Cryostat.</li></ul>
+         PrerequisiteType: PREPARATION
+#       -
+#         Name: Plug micro-D connectors to the readout cables in TS3-Cryostat.
+#         PrerequisiteType: PREPARATION
+   -
+     Name:  Remove protective cover.
+     Version: next
+#     PrerequisiteType: PREPARATION
+   -
+     Name:  Attach mask to jig.
+     Description: " "
+     Version:  next
+     Prerequisites:
+       -
+         Name: SR-7.10-<br>INSTRUCTIONS
+         Description: <ul><li>10.5 - Install and secure TS3-Cryostat Window.</li></ul><b>If you are DONE reading these instructions, please click the button to the right:</b>
+         PrerequisiteType: PREPARATION
+   -
+     Name:  Close (empty) coffin.
+     Description: " "
+     Version:  next
+     Prerequisites:
+       -
+         Name: SR-7.12-<br>INSTRUCTIONS
+         Description: <ul><li>11. - Turn off nitrogen injection and close the valve.</li><li>12. - Plug-in the two readout boards.</li></ul><b>If you are DONE reading these instructions, please click the button to the right:</b>
+         PrerequisiteType: PREPARATION
+#       -
+#         Name: Plug-in the two readout boards.
+#         PrerequisiteType: PREPARATION
+   -
+     Name:  Move TS3-Cryostat to attach to the dark tunnel.
+     Description: " "
+     Version:  next
+     Prerequisites:
+       -
+         Name: SR-7.16-<br>INSTRUCTIONS
+         Description: <ul><li>14. - Push in dark tunnel cover's handle to open the dark tunnel.</li><li>15. - Verify vacuum valve is open and the bleed valve is closed.</li><li>16. - Run the pump and cool Job Harness to pump-down and cool the TS3-Cryostat.</li></ul><b>If you are DONE reading these instructions, please click the button to the right:</b>
+         PrerequisiteType: PREPARATION
+   -
+     Name:  lower cryostat temperature to -95C
+     Version: next
+     Description: verify that the temperature is stable at -95C
+#     RequiredInputs:
+#         -
+#          Label: Cooldown log (filepath)
+#          InputSemantics: filepath
+   -
+     Name:  run all acquisition and analysis scripts
+     Version:  next
+     Description: " "
+     InstructionsURL: "https://confluence.slac.stanford.edu/display/LSSTCAM/Using+CCS+for+TS3+at+BNL"
+     Prerequisites:
+       -
+         Name: INSTRUCTIONS
+         Description: You are about to start the automated execution of all acquisition and analysis scripts<br><ul><li>Verify that the CCS applications are running by looking at the CCS-Apps widget.</li><li>If any app is not shown as running (green) or if the widget itself is not present, please refer to the detailed instructions below.</li><b>If you are DONE reading these instructions, please click the button to the right:</b><br><b>Then click on the LAUNCHER BUTTON below.</b>
+         PrerequisiteType: PREPARATION
+     TravelerActions:
+       - Automatable
+     Sequence:
+        - Name: fe55_acq
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+          MaxIteration: 5
+        - Name: dark_acq
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+          MaxIteration: 5
+        - Name: flat_acq
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+          MaxIteration: 5
+        - Name: ppump_acq
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+          MaxIteration: 5
+        - Name: sflat_acq
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+          MaxIteration: 5
+        - Name: qe_acq
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+          MaxIteration: 5
+        - Name: fe55_analysis
+          Description: Fe55 analysis for system gain and PSF size
+          Prerequisites:
+          - {Name: fe55_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+        - Name: read_noise
+          Description: CCD Read Noise
+          Prerequisites:
+          - {Name: fe55_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+        - Name: bright_defects
+          Description: Bright defects from darks
+          Prerequisites:
+          - {Name: dark_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+        - Name: dark_defects
+          Description: Dark defects from superflat data
+          Prerequisites:
+          - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: sflat_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+        - Name: traps
+          Description: Charge traps from pocket pumping data
+          Prerequisites:
+          - {Name: ppump_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+        - Name: dark_current
+          Description: dark current
+          Prerequisites:
+          - {Name: dark_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+        - Name: cte
+          Description: Parallel and serial charge transfer efficiencies
+          Prerequisites:
+          - {Name: sflat_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+        - Name: prnu
+          Description: Photo-response non-uniformity
+          Prerequisites:
+          - {Name: qe_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+        - Name: flat_pairs
+          Description: Non-linearity and blooming full well from flat pair data
+          Prerequisites:
+          - {Name: flat_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+        - Name: ptc
+          Description: Photon Transfer Curve
+          Prerequisites:
+          - {Name: flat_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+        - Name: qe_analysis
+          Description: Quantum Efficiency
+          Prerequisites:
+          - {Name: qe_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+        - Name: test_report
+          Description: Test report
+          Prerequisites:
+          - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: read_noise, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: dark_current, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: cte, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: prnu, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: flat_pairs, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: ptc, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: qe_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: qe_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          - {Name: crosstalk, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+            UserVersionString: v0}
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+   -
+     Name:  Has the sensor returned to room pressure and temperature
+     Version: next
+#     PrerequisiteType: PREPARATION
+   -
+     Name:  Prepare TS3-Cryostat for sensor removal
+     Description: " "
+     Version:  next
+     Prerequisites:
+       -
+         Name: SR-7.25-<br>INSTRUCTIONS
+         Description: <ul><li>23.2 - Attach the TS3 equipment to the ESD network/monitor.</li><li>23.3 - Transport required tooling to TS3 Workstation.</li><li>23.4 - ESD wrist strap is worn.</li><li>23.5 - Sit or stand using the provided ESD-protective furniture.</li><li>23.6 - Place one finger of each hand away from each other on the ESD mat</li><li>23.7 - Un-screw outer screws of coffin cover.</li><li>23.8 - Dislodge coffin cover</li><li>24. - Pull dark tunnel cover's handle to close the dark tunnel.</li><li>25. - Prepare TS3-Cryostat for sensor removal.</li><li>25.1 - Verify the sensor is at room temperature.</li></ul>
+         PrerequisiteType: PREPARATION
+#       -
+#         Name: Verify the sensor is at room temperature.
+#         PrerequisiteType: PREPARATION
+   -
+     Name:  Close the vacuum valve and turn off the vacuum.
+     Description: " "
+     Version:  next
+     Prerequisites:
+       -
+         Name: SR-7.25-<br>INSTRUCTIONS
+         Description: <ul><li>25.3 - Open the bleed valve.</li><li>25.4 - Verify the TS3-Cryostat is close to room pressure.</li></ul>
+         PrerequisiteType: PREPARATION
+       -
+         Name: Verify the TS3-Cryostat is close to room pressure.
+         PrerequisiteType: PREPARATION
+   -
+     Name:  Move TS3-Cryostat after detaching from the dark tunnel.
+     Description: " "
+     Version:  next
+     Prerequisites:
+       -
+         Name: SR-7.25-<br>INSTRUCTIONS
+         Description: <ul><li>25.6 - Unplug the two readout boards.</li></ul>
+         PrerequisiteType: PREPARATION
+   -
+     Name:  Turn on nitrogen injection and open the valve.
+     Description: " "
+     Version:  next
+     Prerequisites:
+       -
+         Name: SR-7.29-<br>INSTRUCTIONS
+         Description: <ul><li>27. - Close the bleed valve.</li><li>28. - Place a non-linting wipe on the TS3 table.</li><li>29. - Remove the TS3-Cryostat Window and place on non-linting wipe.</li></ul><b>If you are DONE reading these instructions, please click the button to the right:</b>
+         PrerequisiteType: PREPARATION
+ #      -
+ #        Name: Remove the TS3-Cryostat Window and place on non-linting wipe.
+ #        PrerequisiteType: PREPARATION
+   -
+     Name:  Place a non-linting wipe on top of the TS3-Cryostat window.
+     Description: " "
+     Version:  next
+     Prerequisites:
+       -
+         Name: SR-7.32-<br>INSTRUCTIONS
+         Description: <ul><li>31. - Remove the mask from the jig.</li><li>32. - Install protective cover.</li></ul><b>If you are DONE reading these instructions, please click the button to the right:</b>
+         PrerequisiteType: PREPARATION
+#       -
+#         Name: Install protective cover.
+#         PrerequisiteType: PREPARATION
+#   -
+#     Name:  Unplug micro-D connectors from the readout out cable in TS3-Cryostat.
+#     Description: " "
+#     Version:  next
+#     Prerequisites:
+#       -
+#         Name: SR-7.34-<br>INSTRUCTIONS
+#         Description: <ul><li>34. - For e2v (1)- Plug micro-D connectors into grounding connectors on jig.</li></ul>
+#         PrerequisiteType: PREPARATION
+   -
+     Name:  Open the (empty) coffin.
+     Description: " "
+     Version:  next
+     Prerequisites:
+       -
+         Name: SR-7.37-<br>INSTRUCTIONS
+#         Description: <ul><li>36. - Remove jig from nest.</li><li>37. - IF ITL (2)- Remove TS3 testing flex cables and re-install grounding plugs.</li></ul>
+         Description: <ul><li>36. - Remove jig from nest.</li><li>37. - Remove TS3 testing flex cables and re-install grounding plugs.</li></ul><b>If you are DONE reading these instructions, please click the button to the right:</b>
+         PrerequisiteType: PREPARATION
+#       -
+#         Name: Remove TS3 testing flex cables and re-install grounding plugs.
+#         PrerequisiteType: PREPARATION
+   -
+     Name:  Install jig onto coffin base.
+     Description: " "
+     Version:  next
+     Prerequisites:
+       -
+         Name: SR-7.39-<br>INSTRUCTIONS
+         Description: <ul><li>39. - Install coffin cover.</li></ul>
+         PrerequisiteType: PREPARATION
+   -
+     Name:  Secure cryostat window onto the TS3-Cryostat.
+     Description: <b>THIS IS THE LAST STEP OF THE EO TESTING. THIS TRAVELER WILL BE COMPLETE AFTER YOU HAVE COMPLETED THIS STEP AND CLOSED OUT THE PARENT STEPS.    THANK YOU.</b>
+     Version: next
