@@ -1,0 +1,115 @@
+%YAML  1.1
+---
+# LSST Hardware Receipt - Inspection
+Name: SR-RCV-2
+Version: next
+HardwareGroup: Generic-CCD
+Description: Welcome to the HARDWARE RECEIPT traveler. Please click "Start Work" to begin. Pay attention to the PREPARATION prerequisites and make sure they have been deligently executed before starting work on a step. Thank you.
+Sequence:
+   -
+     Name: SR-RCV-2 - Confirm/Deny that the hardware has been approved for receiving
+     Description: If the hardware has not been approved for receiving, do not continue and contact your Sub-system Manager.
+     Version: next
+     RequiredInputs:
+       -
+         Label: Do you confirm that the hardware had been approved for receiving?
+         InputSemantics: string
+   -
+     Name: SR-RCV-2 - Set the current location of the hardware
+     Version:  next
+     Prerequisites:
+        -
+         Name: Instructions
+         Description: Please acknowledge that you have done the follow:<ul><li>openned package.</li><li>Secured documentation.</li><li>Removed hardware from shipping package.</li><li>If possible, verified that the vendor S/N matches ID description in documentation </li><li>Disposed of shipping materials.</li><li>Transported hardware/documentation in anteroom following the procedures outlined in LCA-XXX.</li></ul><br><b>If there are any inconsistencies, please contact the Sub-system Manager before proceeding. If you are DONE reading these instructions, please click the DONE button to the right and then the Start Work button to register the current location of the hardware:</b>
+         PrerequisiteType: PREPARATION
+     NewLocation: "(?)"
+   -
+     Name: SR-RCV-2 - Confirm/Deny if the hardware has been cleaned
+     Description: Respond to the following questions about the cleanliness of the hardware. <button type="button" id="b2" title="If Confirm, describe the cleaning process. If Deny and hardware would not be damaged, use LCA-XXX, SR Assembly Cleanroom CoO- Procedure A-9 to clean the hardware and place in a clean plastic bag."><label style="font-size':' 4px;">details</label></button>.
+     Version: next
+     RequiredInputs:
+       -
+         Label: Was the hardware clean when it was received?
+         InputSemantics: string
+       -
+         Label: What cleaning process was used?
+         InputSemantics: string
+   -
+     Name: Scan-and-Ingest-Vendor-Data
+#     Description: Upload and review documentation
+     Prerequisites:
+        -
+         Name: Instructions
+         Description: Please acknowledge that you have done the follow:<ul><li>Label hardware's protective packaging with LSST S/N.</li><li>Label all documentation with LSST S/N.<button type="button" id="b2" title="In the top right corner, write the LSST S/N onto each document received."><label style="font-size':' 4px;">details</label></button> </li></ul><br><b>If you are DONE reading these instructions, please click the button to the right and proceed to Start Work:</b>
+         PrerequisiteType: PREPARATION
+     Description: <ul><li>Review and inspect documentation.</li><Scan documentation into the Hardware Receipt folder on the Desktop<li>Upload scanned documents by clicking on the launcher button below which will appear after having clicked Start Work.</li>
+     Version:  next
+     UserVersionString: v0
+     TravelerActions:
+       - HarnessedJob
+   -
+     Name: SR-RCV-2 - Review and determine disposition of documentation
+     Description:  Check that the vendor data and the documentation received with the hardware are consistent. In case of an inconsistency, please click Stop Work, give a detailed description of the problem and contact the Sub-system Manager.
+     Version: next
+   -
+     Name: SR-RCV-2 - Compare information in documentation with information from SR-RCV-01
+     Description:  Look for the vendor documents under <a href=http://srs.slac.stanford.edu/DataCatalog/folder.jsp?folder=13448248>vendor data</a> . In case of an inconsistency, please click Stop Work, give a detailed description of the problem andcontact the Sub-system Manager.
+     Version: next
+   -
+     Name: SR-RCV-2 - Store hardcopies of documentation 
+     Description: Place all hardcopies in the provided folder.
+     Version:  next
+   -
+     Name: SR-RCV-2 - Bringing hardware to the cleanroom TS1 workstation
+     Description: Transport hardware to the cleanroom TS1 workstation following the procedures outlined in LCA-XXX and LCA-XXY. Log on to the computer at that workstation and continue this traveler there.
+     Version:  next
+#     UserVersionString: v0
+     Prerequisites:
+       -
+         Name: Instructions
+         Description: <ul><li>Prepare to clean the hardware's protective packaging.</li><li>Place hardware on cleaning bench.</li><li>Leave the anteroom.<button type="button" id="b2" title="Leaving the hardware in the anteroom."><label style="font-size':' 4px;">detail</label></button> Vacate the anteroom to proceed to the gowning room.</li><li>Repeat Pre-Entrance Procedure, if necessary. </li><li>Gown and enter clean area.</li><li>Proceed to anteroom.</li><li>Remove hardware from all but the protective packaging.</li><li>Clean hardware's protective packaging.<button type="button" id="b2" title="Use LCA-XXX, SR Assembly Cleanroom CoO':' Procedure A-9, and re-label the LSST S/N if it was comprimised during cleaning."><label style="font-size':' 4px;">detail</label></button></li><li>Transport hardware to TS1 Workstation.</ul><br><b>If you are DONE reading these instructions, please click the button to the right:</b></li>
+         PrerequisiteType: PREPARATION
+   -
+     Name: SR-RCV-2 - Visual Inspection
+     Description:  Fill in the visual inspection form below.
+     Version:  next
+#     UserVersionString: v0
+     Prerequisites:
+       -
+         Name: Instructions
+         Description: <ul><li>Re-clean hardware's protective packaging, if necessary. Do not remove any protective packaging. Perform the Visual Inspection of the hardware with the packaging on, if possible.</li></ul><br><b>If you are DONE reading these instructions, please click the button to the right:</b></li>
+         PrerequisiteType: PREPARATION
+     RequiredInputs:
+       -
+         Label: Are there any scratches?
+         InputSemantics: string
+       -
+         Label: Are there any signs of contamination/residue inside the package?
+         InputSemantics: string
+       -
+         Label: Does anything appear to be loose?
+         InputSemantics: string
+       -
+         Label: Is the quantity in the package as expected?
+         InputSemantics: string
+   -
+     Name: SR-RCV-2 - Record pictures of the hardware
+     Description: If the LSST S/N is not visible on the hardware or hardware's packaging, write the LSST S/N on a piece of paper and place it in the frame of the photograph. Take pictures to capture the condition of the hardware.
+     Version: next
+     RequiredInputs:
+       -
+         Label: Picture 1 (filepath)
+         InputSemantics: filepath
+       -
+         Label: Picture 2 (filepath)
+         InputSemantics: filepath
+       -
+         Label: Picture 3 (filepath)
+         InputSemantics: filepath
+       -
+         Label: Picture 4 (filepath)
+         InputSemantics: filepath
+   -
+     Name: SR-RCV-2 - Review and determine disposition of vendor test data and visual inspection
+     Description: After having completed this final check of the vendor test data and final visual inspection of the hardware, you will be done with this traveler and ready to proceed to SR-INS-1. <b>Thank you.</b>
+     Version: next

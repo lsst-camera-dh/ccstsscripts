@@ -1,10 +1,10 @@
 %YAML  1.1
 ---
-# LSST Hardware Receipt - Inspection
+# LSST Sensor Metrology 1
 Name: SR-MET-1
 Version: next
 HardwareGroup: Generic-CCD
-Description: Hardware Receipt
+Description: Sensor Metrology 1
 Sequence:
    -
      Name:  Review and determine disposition of flatness data and visual inspection.
@@ -17,12 +17,12 @@ Sequence:
      Prerequisites:
        -
          Name: SR-4.5-INSTRUCTIONS
-         Description: <ul><li>1.1 - Turn on the OGP computer.</li><li>1.2 - Turn on the OGP using controller I/O switch.</li><li>1.3 - Open MeasureMind and follow the initialization prompts.</li><li>1.4 - Raise Z-stage and move the platen forward towards the Operator.</li><li>1.5 - Ensure MF02 is installed.</li><li>1.6 - Add a new directory folder for the measurement to be performed and a directory folder for the resulting data products.</li><li>1.7 - Copy each routine file which will be used to the respective directory.</li><li>2. - Set up EPA at TS2.</li><li>2.1 - Set up and verify the EPA at the TS2 Workstation.</li><li>2.2 - Attach the OGP to the ESD network/monitor.</li><li>2.3 - Transport required tooling to TS2 Workstation.</li></ul>
-#<li>X.(1) - IF e2v (1)- </li><li>3. - Transport coffin to TS2 Workstation.</li><li>4. - Prepare to open coffin.</li><li>4.1 - ESD wrist strap is worn.</li><li>4.2 - Sit or stand using the provided ESD-protective furniture.</li><li>4.3 - Place one finger of each hand away from each other on the ESD mat</li><li>4.4 - Un-screw outer screws of coffin cover.</li><li>4.5 - Dislodge coffin cover</li><li>5. - Remove coffin cover. </li></ul>
+         Description: <ul><li>1.1 - Turn on the OGP computer.</li><li>1.2 - Turn on the OGP using controller I/O switch.</li><li>1.3 - Open MeasureMind and follow the initialization prompts.</li><li>1.4 - Raise Z-stage and move the platen forward towards the Operator.</li><li>1.5 - Ensure MF02 is installed.</li><li>1.6 - Add a new directory folder for the measurement to be performed and a directory folder for the resulting data products.</li><li>1.7 - Copy each routine file which will be used to the respective directory.</li><li>2. - Set up EPA at TS2.</li><li>2.1 - Set up and verify the EPA at the TS2 Workstation.</li><li>2.2 - Attach the OGP to the ESD network/monitor.</li><li>2.3 - Transport required tooling to TS2 Workstation.<br><b>If you are DONE reading these instructions, please click the button to the right:</b></li></ul>
+#<li>X.(1) - IF e2v (1)- </li><li>3. - Transport coffin to TS2 Workstation.</li><li>4. - Prepare to open coffin.</li><li>4.1 - ESD wrist strap is worn.</li><li>4.2 - Sit or stand using the provided ESD-protective furniture.</li><li>4.3 - Place one finger of each hand away from each other on the ESD mat</li><li>4.4 - Un-screw outer screws of coffin cover.</li><li>4.5 - Dislodge coffin cover</li><li>5. - Remove coffin cover.<br><b>If you are DONE reading these instructions, please click the button to the right:</b></li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Remove coffin cover. 
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Remove coffin cover. 
+#         PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Install jig onto MF01.
      Description: NA
@@ -30,7 +30,7 @@ Sequence:
      Prerequisites:
        -
          Name: SR-4.5-INSTRUCTIONS
-         Description: <ul><li>6.1 - Unscrew jig from coffin base.</li><li>6.2 - Place jig onto MF01 and tighten thumbscrews.</li><li>6.3 - Place gauge blocks onto MF01. </li><li>3. - Set up EPA at Laminar Flow Hood.</li><li>3.1 - Set up and verify the EPA at the Laminar Flow Hood.</li><li>3.2 - Transport required tooling to Laminar Flow Hood.</li><li>3.3 - Attach tooling (including MF05) to EPA.</li><li>3.4 - Transport coffin to Laminar Flow Hood.</li><li>4. - Prepare to open coffin.</li><li>4.1 - ESD wrist strap is worn.</li><li>4.2 - Sit or stand using the provided ESD-protective furniture.</li><li>4.3 - Place one finger of each hand away from each other on the ESD mat</li><li>4.4 - Un-screw outer screws of coffin cover.</li><li>4.5 - Dislodge coffin cover</li><li>5. - Remove coffin cover.</li></ul>
+         Description: <ul><li>6.1 - Unscrew jig from coffin base.</li><li>6.2 - Place jig onto MF01 and tighten thumbscrews.</li><li>6.3 - Place gauge blocks onto MF01. </li><li>3. - Set up EPA at Laminar Flow Hood.</li><li>3.1 - Set up and verify the EPA at the Laminar Flow Hood.</li><li>3.2 - Transport required tooling to Laminar Flow Hood.</li><li>3.3 - Attach tooling (including MF05) to EPA.</li><li>3.4 - Transport coffin to Laminar Flow Hood.</li><li>4. - Prepare to open coffin.</li><li>4.1 - ESD wrist strap is worn.</li><li>4.2 - Sit or stand using the provided ESD-protective furniture.</li><li>4.3 - Place one finger of each hand away from each other on the ESD mat</li><li>4.4 - Un-screw outer screws of coffin cover.</li><li>4.5 - Dislodge coffin cover</li><li>5. - Remove coffin cover.</li><br><b>If you are DONE reading these instructions, please click the button to the right:</b></ul>
          PrerequisiteType: TEST_EQUIPMENT
        -
          Name: Remove coffin cover.
@@ -42,11 +42,12 @@ Sequence:
      Prerequisites:
        -
          Name: SR-4.6-INSTRUCTIONS
-         Description: <ul><li>6.1 - Unscrew jig from coffin base and attach jig to MF05.</li><li>6.2 - Place coffin cover on (empty) coffin.</li><li>6.3 - Attach one MF05-Rod to a mounting stud.</li><li>6.4 - Remove the screw from one alignment pin.</li><li>6.5 - Attach other MF05-Rods to mounting studs.</li><li>6.6 - Remove protective cover.</li></ul>
+         Description: <ul><li>6.1 - Unscrew jig from coffin base and attach jig to MF05.</li><li>6.2 - Place coffin cover on (empty) coffin.</li><li>6.3 - Attach one MF05-Rod to a mounting stud.</li><li>6.4 - Remove the screw from one alignment pin.</li><li>6.5 - Attach other MF05-Rods to mounting studs.</li><li>6.6 - Remove protective cover<br><b>If you are DONE reading these instructions, please click the button to the right:</b>.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Remove protective cover.
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: INSTRUCTIONS
+#	 Description: Remove protective cover. <br><b>If you are DONE reading these instructions, please click the button to the right:</b>
+#         PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Remove other screw from alignment pin.
      Description: NA
@@ -54,7 +55,7 @@ Sequence:
      Prerequisites:
        -
          Name: SR-4.6-INSTRUCTIONS
-         Description: <ul><li>6.8 - Push sensor into MF05-Cove.</li><li>6.9 - Install MF07 onto sensor/cove.</li><li>6.10 - Attach side screw into MF07.</li><li>6.11 - Using MF05-Rods</li><li>6.12 - Place MF07-Cover on an edge and attach with one screw.</li><li>6.13 - Slide MF07-Cover into place</li><li>6.14 - Attach other 3 screws.</li><li>6.15 - Remove Loaded-MF07.</li></ul>
+         Description: <ul><li>6.8 - Push sensor into MF05-Cove.</li><li>6.9 - Install MF07 onto sensor/cove.</li><li>6.10 - Attach side screw into MF07.</li><li>6.11 - Using MF05-Rods</li><li>6.12 - Place MF07-Cover on an edge and attach with one screw.</li><li>6.13 - Slide MF07-Cover into place</li><li>6.14 - Attach other 3 screws.</li><li>6.15 - Remove Loaded-MF07.<br><b>If you are DONE reading these instructions, please click the button to the right:</b></li></ul>
          PrerequisiteType: TEST_EQUIPMENT
        -
          Name: Remove Loaded-MF07.
@@ -66,11 +67,11 @@ Sequence:
      Prerequisites:
        -
          Name: SR-4.11-INSTRUCTIONS
-         Description: <ul><li>7. - Transport MF07 to TS2 Workstation.</li><li>8. - Install MF07 onto MF01.</li><li>8.2 - Place Loaded-MF07 onto MF01 and tighten thumbscrews.</li><li>8.3 - Place gauge blocks onto MF01.</li><li>9. - Raise Z-stage and move the stage to the front.</li><li>10. - Transfer loaded-MF01 to OGP.</li><li>11. - Remove protective cover.</li></ul>
+         Description: <ul><li>7. - Transport MF07 to TS2 Workstation.</li><li>8. - Install MF07 onto MF01.</li><li>8.2 - Place Loaded-MF07 onto MF01 and tighten thumbscrews.</li><li>8.3 - Place gauge blocks onto MF01.</li><li>9. - Raise Z-stage and move the stage to the front.</li><li>10. - Transfer loaded-MF01 to OGP.</li><li>11. - Remove protective cover.<br><b>If you are DONE reading these instructions, please click the button to the right:</b></li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Remove protective cover.
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Remove protective cover.
+#         PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Perform Absolute Height OGP Routine.
      Description: NA
@@ -78,11 +79,12 @@ Sequence:
      Prerequisites:
        -
          Name: SR-4.14-INSTRUCTIONS
-         Description: <ul><li>12.1 - Click Open Existing Routine and select Abs_Height.RTN.</li><li>12.2 - Click Run the Current Routine.</li><li>12.3 - When prompted</li><li>12.4 - Wait for the routine to finish.</li><li>12.5 - If the user is approved</li><li>13. - Raise Z-stage and move the stage to the front.</li><li>X.(1) - IF e2v (1)- </li><li>14. - Add protective cover.</li></ul>
+         Description: <ul><li>12.1 - Click Open Existing Routine and select Abs_Height.RTN.</li><li>12.2 - Click Run the Current Routine.</li><li>12.3 - When prompted</li><li>12.4 - Wait for the routine to finish.</li><li>12.5 - If the user is approved</li><li>13. - Raise Z-stage and move the stage to the front.</li><li></ul><br><b>If you are DONE reading these instructions, please click the button to the right:</b>
+#X.(1) - IF e2v (1)- </li><li>14. - Add protective cover.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Add protective cover.
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Add protective cover.
+#         PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Transfer loaded-MF01 to TS2 workstation.
      Description: NA
@@ -90,11 +92,11 @@ Sequence:
      Prerequisites:
        -
          Name: SR-4.17-INSTRUCTIONS
-         Description: <ul><li>16. - Remove jig from MF01.</li><li>16.1 - Remove gage blocks.</li><li>16.2 - Remove thumbscrews.</li><li>16.3 - Remove jig from MF01.</li><li>16.4 - Secure jig back onto coffin base.</li><li>17. - Install coffin cover.</li></ul>
+         Description: <ul><li>16. - Remove jig from MF01.</li><li>16.1 - Remove gage blocks.</li><li>16.2 - Remove thumbscrews.</li><li>16.3 - Remove jig from MF01.</li><li>16.4 - Secure jig back onto coffin base.</li><li>17. - Install coffin cover.</li><br><b>If you are DONE reading these instructions, please click the button to the right:</b></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Install coffin cover.
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Install coffin cover.
+#         PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  For an ITL sensor
      Description: NA
@@ -111,7 +113,7 @@ Sequence:
      Prerequisites:
        -
          Name: SR-4.23-INSTRUCTIONS
-         Description: <ul><li>18.2 - Slide MF07-Cover to cover sensor.</li><li>18.3 - Attach other 3 screws.</li><li>19. - Transfer loaded-MF01 to TS2 workstation.</li><li>20. - Remove Loaded-MF07 from MF01.</li><li>20.1 - Remove gage blocks.</li><li>20.2 - Remove thumbscrews.</li><li>20.3 - Remove Loaded-MF07 from MF01.</li><li>21. - Check whether collected data is acceptable.</li><li>21.1 - Run quick analysis script.</li><li>21.2 - Check data is acceptable.</li><li>21.3 - Repeat measurement</li></ul>
+         Description: <ul><li>18.2 - Slide MF07-Cover to cover sensor.</li><li>18.3 - Attach other 3 screws.</li><li>19. - Transfer loaded-MF01 to TS2 workstation.</li><li>20. - Remove Loaded-MF07 from MF01.</li><li>20.1 - Remove gage blocks.</li><li>20.2 - Remove thumbscrews.</li><li>20.3 - Remove Loaded-MF07 from MF01.</li><li>21. - Check whether collected data is acceptable.</li><li>21.1 - Run quick analysis script.</li><li>21.2 - Check data is acceptable.</li><li>21.3 - Repeat measurement</li><br><b>If you are DONE reading these instructions, please click the button to the right:</b></ul>
 #<li>22. - If the sensor is directed to next task</li><li>23. - Register the work performed with eManufacturing and upload resulting data products. </li></ul>
          PrerequisiteType: TEST_EQUIPMENT
        -
@@ -124,14 +126,26 @@ Sequence:
      Prerequisites:
        -
          Name: SR-4.24-INSTRUCTIONS
-         Description: <ul><li>24.1 - Open the appropriate Mathematica analysis script.</li><li>24.2 - Change the data set and execute the script.</li><li>24.3 - Save result files and analysis script information.</li></ul>
+         Description: <ul><li>24.1 - Open the appropriate Mathematica analysis script.</li><li>24.2 - Change the data set and execute the script.</li><li>24.3 - Save result files and analysis script information.</li><br><b>If you are DONE reading these instructions, please click the button to the right:</b></ul>
          PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Save result files and analysis script information.
-         PrerequisiteType: TEST_EQUIPMENT
+#       -
+#         Name: Save result files and analysis script information.
+#         PrerequisiteType: TEST_EQUIPMENT
    -
      Name:  Upload results of analysis to database.
      Version: next
      Description: NA
 #     PrerequisiteType: TEST_EQUIPMENT
- 
+     RequiredInputs:
+        -
+         Label: Deviation of this sensor from nominal flatness
+         InputSemantics: float
+         Units: microns
+         MinValue: -100.
+         MaxValue: 100.
+        -
+         Label: Deviation of this sensor from nominal absolute height
+         InputSemantics: float
+         Units: microns
+         MinValue: -100.
+         MaxValue: 100.
