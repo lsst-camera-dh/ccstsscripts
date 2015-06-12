@@ -137,5 +137,5 @@ Sequence:
          InputSemantics: string
    -
      Name: SR-RCV-2 - Review and determine disposition of the received documentation and the hardware and its protective packaging
-     Description: Based on the findings of the previous steps, is this piece of hardware acceptable for further processing? If so, hit Complete, otherwise, hit Stop Work and contact the Sub-system Manager.<br><b>Thank you.</b>
+     Description: Based on the findings of the previous steps, is this piece of hardware acceptable for further processing? If so, hit Complete, otherwise, hit Stop Work and contact the Sub-system Manager.<br><b>Thank you, after having completed this step you will be returned to the SR-RCV-2 header and you will be required to hit Complete once again.</b>
      Version: next
