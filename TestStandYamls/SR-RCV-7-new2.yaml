@@ -1,116 +1,106 @@
 %YAML  1.1
 ---
-# LSST Hardware Receipt - Inspection
+# LSST Sensor EO Testing
 Name: SR-EOT-1
 Version: next
 HardwareGroup: Generic-CCD
-Description: Hardware Receipt
+Description: Welcome to the traveler for Sensor EO Testing. Provided that you have the necessary training and the permission of the Sub-system Manager, please use the "Start Work" button to proceed with the EO testing preparation and execution. Please do pay close attention to any instructions including those in the preparation section which appears for most steps. Thank you.
 Sequence:
    -
      Name: Set the location of the hardware for this EO testing
      NewLocation: "(?)"
      Version:  next
    -
-     Name: ready_acq
+     Name: preflight_acq
      Version:  next
-#     Prerequisites:
-#       -
-#         Name: run the teststand pre-flight checker
-#         Description: Here you will run the TS3_ready Job Harness to verify that the teststand is ready for EO testing. After clicking Start, click on the launcher button that will appear. When the job is finished, reload this page to continue.<b>If you are DONE reading these instructions, please click the button to the right:</b>
-#         PrerequisiteType: PREPARATION
-     Description: Here you will run the TS3_ready Job Harness to verify that the teststand is ready for EO testing. After clicking Start, click on the launcher button that will appear. When the job is finished, reload this page to continue.
+     Description: Here you will run the preflight_acq Job Harness<button type="button" id="b2" title="Power-on, lamp warm up and stability (2 hrs), shutter actuates, monochromator grating working, filter wheel rotates, Keithley and archon is operational. Final check':' read out of IS-PD and response from instruments. Two wavelength, 450 and 850, and readout IS-PD current, need expected result to check to."><label style="font-size':' 4px;">detail</label></button> to verify that the teststand auxiliary equipment is ready. After clicking Start, click on the launcher button that will appear. When the job is finished, reload this page to continue.
      UserVersionString: v0
      MaxIteration: 5
      TravelerActions:
        - HarnessedJob
    -
-     Name:  Set up EPA at TS3.
-     Description: 6.7 - Visually inspect the O-ring; replace if necessary.
+     Name:  Visually inspect the O-ring
+     Description: Visually inspect the O-ring; replace if necessary.<button type="button" id="b2" title="The O-ring is not degraded (brittle, broken, etc.) and it should be properly seated."><label style="font-size':' 4px;">detail</label></button>
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.6-<br>INSTRUCTIONS
-         Description: <ul><li>5.1 - Set up and verify the TS3 workstation EPA.</li><li>5.2 - Attach the TS3 equipment to the ESD network/monitor.</li><li>5.3 - Transport required tooling to TS3 Workstation.</li><li>6. - Prepare TS3-Cryostat for sensor insertion.</li><li>6.1 - Ensure vacuum valve is closed.</li><li>6.2 - Turn on nitrogen injection and open the valve.</li><li>6.3 - Remove the screws TS3-Cryostat Window.</li><li>6.4 - Place a non-linting wipe on the TS3 table.</li><li>6.5 - Remove the TS3-Cryostat Window and place on non-linting wipe.</li><li>6.6 - Place a non-linting wipe on top of the TS3-Cryostat window.</li></ul><br><b>If you are DONE reading these instructions, please click the button to the right:</b>
+         Name: INSTRUCTIONS
+         Description: <ul><li>Set up and verify the TS3 workstation EPA.</li><li>Attach the TS3 equipment to the ESD network/monitor.</li><li>Transport required tooling to TS3 Workstation.</li><li>Prepare TS3-Cryostat for sensor insertion.</li><li>Ensure vacuum valve is closed.</li><li>Turn on nitrogen injection and open the valve.</li><li>Remove the screws TS3-Cryostat Window.</li><li>6.4 - Place a non-linting wipe on the TS3 table.</li><li>Remove the TS3-Cryostat Window and place on non-linting wipe.<button type="button" id="b2" title="Do not touch the glass. The inside face must be face up."><label style="font-size':' 4px;">detail</label></button> </li><li>Place a non-linting wipe on top of the TS3-Cryostat window.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
          PrerequisiteType: PREPARATION
-#       -
-#         Name: Visually inspect the O-ring; replace if necessary.
-#         PrerequisiteType: PREPARATION
    -
-     Name:  Transport coffin to TS3 Workstation.
-     Description: 8.6 - Remove coffin cover
+     Name:  Remove coffin cover at the TS3 workstation
+     Description: Remove coffin cover
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.6-<br>INSTRUCTIONS
-         Description: <ul><li>8. - Prepare to open coffin.</li><li>8.1 - ESD wrist strap is worn.</li><li>8.2 - Sit or stand using the provided ESD-protective furniture.</li><li>8.3 - Place one finger of each hand away from each other on the ESD mat</li><li>8.4 - Un-screw outer screws of coffin cover.</li><li>8.5 - Dislodge coffin cover</li></ul><br><b>If you are DONE reading these instructions, please click the button to the right:</b>
+         Name: INSTRUCTIONS
+         Description: <ul><li>Transport coffin to TS3 workstation</li><li>Ensure facemask is on</li><li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat</li><li>Un-screw outer screws of coffin cover.</li><li>Dislodge coffin cover</li></ul><br><b>If you are DONE reading these instructions, please click the button to the right:</b>
          PrerequisiteType: PREPARATION
-#       -
-#         Name: Remove coffin cover.
-#         PrerequisiteType: PREPARATION
    -
-     Name:  Remove the loaded-jig from the coffin base after removing the grounding connectors
-     Description: plug in TS3 testing flex cables.
+     Name:  Remove the grounding connectors after removing the loaded-jig from the coffin base
+     Description: Remove grounding connectors.<button type="button" id="b2" title="For e2v (1), unscrew and unplug the micro-D connectors from the jig. For ITL (2), remove grounding plugs on backside of sensor package."><label style="font-size':' 4px;">detail</label></button>
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.8-<br>INSTRUCTIONS
-         Description: <ul><li>8. - Remove grounding connectors.</li><li>Remove the loaded-jig from the coffin base.</li></ul><b>If you are DONE reading these instructions, please click the button to the right:</b>
+         Name: INSTRUCTIONS
+         Description: <ul><li>Remove the loaded-jig from the coffin base.</li></ul><b>If you are DONE reading and executing these instructions, please click the button to the right and proceed to "Start Work":</b>
          PrerequisiteType: PREPARATION
-#   -
+   -
 #     Name:  For ITL (2)- plug in TS3 testing flex cables.
-#     Name:  plug in TS3 testing flex cables.
-#     Description: " "
-#     Version:  next
-#     Prerequisites:
+     Name:  plug in TS3 testing flex cables for ITL sensors only.
+     Description: Plug micro-D connectors to the readout cables in TS3-Cryostat. 
+     Version:  next
+     Prerequisites:
        -
          Name: SR-7.10-<br>INSTRUCTIONS
-         Description: <ul><li>10. - Secure sensor into TS3-Cryostat.</li><li>10.1 - Secure jig onto nest.</li><li>10.2 - Plug micro-D connectors to the readout cables in TS3-Cryostat.</li></ul>
+         Description: <ul><li>Secure sensor into TS3-Cryostat.</li><li>Secure jig onto nest.</li></ul>
          PrerequisiteType: PREPARATION
-#       -
-#         Name: Plug micro-D connectors to the readout cables in TS3-Cryostat.
-#         PrerequisiteType: PREPARATION
    -
      Name:  Remove protective cover.
      Version: next
 #     PrerequisiteType: PREPARATION
    -
-     Name:  Attach mask to jig.
-     Description: " "
+     Name:  Attach mask to jig and install and secure TS3-Cryostat Window.
+     Description: Install and secure TS3-Cryostat Window.
      Version:  next
      Prerequisites:
        -
          Name: SR-7.10-<br>INSTRUCTIONS
-         Description: <ul><li>10.5 - Install and secure TS3-Cryostat Window.</li></ul><b>If you are DONE reading these instructions, please click the button to the right:</b>
+         Description: <ul><li>Attach mask to jig </li></ul><b>If you are DONE reading and executing these instructions, please click the button to the right:</b>
          PrerequisiteType: PREPARATION
    -
-     Name:  Close (empty) coffin.
-     Description: " "
+     Name:  Close (empty) coffin and plug-in the two readout boards.
+     Description: Plug-in the two readout boards.
      Version:  next
      Prerequisites:
        -
          Name: SR-7.12-<br>INSTRUCTIONS
-         Description: <ul><li>11. - Turn off nitrogen injection and close the valve.</li><li>12. - Plug-in the two readout boards.</li></ul><b>If you are DONE reading these instructions, please click the button to the right:</b>
+         Description: <ul><li> Close (empty) coffin</li><li>Turn off nitrogen injection and close the valve.</li></ul><b>If you are DONE reading executing these instructions, please click the button to the right:</b>
          PrerequisiteType: PREPARATION
 #       -
 #         Name: Plug-in the two readout boards.
 #         PrerequisiteType: PREPARATION
    -
-     Name:  Move TS3-Cryostat to attach to the dark tunnel.
+     Name:  TS3-Cryostat
      Description: " "
      Version:  next
      Prerequisites:
        -
          Name: SR-7.16-<br>INSTRUCTIONS
-         Description: <ul><li>14. - Push in dark tunnel cover's handle to open the dark tunnel.</li><li>15. - Verify vacuum valve is open and the bleed valve is closed.</li><li>16. - Run the pump and cool Job Harness to pump-down and cool the TS3-Cryostat.</li></ul><b>If you are DONE reading these instructions, please click the button to the right:</b>
+         Description: <ul><li>Move TS3-Cryostat to attach to the dark tunnel.</li><li>Push in dark tunnel cover's handle to open the dark tunnel.</li><li>Verify vacuum valve is open and the bleed valve is closed.</li></ul><b>If you are DONE reading these instructions, please click the button to the right:</b>
          PrerequisiteType: PREPARATION
    -
      Name:  lower cryostat temperature to -95C
      Version: next
      Description: verify that the temperature is stable at -95C
-#     RequiredInputs:
-#         -
-#          Label: Cooldown log (filepath)
-#          InputSemantics: filepath
+   -
+     Name: ready_acq
+     Version:  next
+     Description: Here you will run the final check before launching the acquisition script sequence. This job will test the equipment and this it includes taking exposures from the CCD. After clicking Start, click on the launcher button that will appear. When the job is finished, reload this page to continue.
+     UserVersionString: v0
+     MaxIteration: 5
+     TravelerActions:
+       - HarnessedJob
    -
      Name:  run all acquisition and analysis scripts
      Version:  next
@@ -150,6 +140,11 @@ Sequence:
           UserVersionString: v0
           MaxIteration: 5
         - Name: qe_acq
+          TravelerActions: [HarnessedJob]
+          Version: next
+          UserVersionString: v0
+          MaxIteration: 5
+        - Name: persist_acq
           TravelerActions: [HarnessedJob]
           Version: next
           UserVersionString: v0
@@ -336,6 +331,12 @@ Sequence:
           TravelerActions: [HarnessedJob]
           Version: next
           UserVersionString: v0
+   - Name: warmup_acq
+     Description: You are about to start the harnessed job for ramping the bias to off, turning off the PolyCold cooling and setting the cryogenics controller to warm up the dewar to 20 C. If ready, please proceed to Start Work. Otherwise, please verify with the Sub-system Manager.
+     TravelerActions: [HarnessedJob]
+     Version: next
+     UserVersionString: v0
+     MaxIteration: 5
    -
      Name:  Has the sensor returned to room pressure and temperature
      Version: next
@@ -353,7 +354,7 @@ Sequence:
 #         Name: Verify the sensor is at room temperature.
 #         PrerequisiteType: PREPARATION
    -
-     Name:  Close the vacuum valve and turn off the vacuum.
+     Name:  Close the vacuum valve and turn off the vacuum pump.
      Description: " "
      Version:  next
      Prerequisites:
@@ -412,23 +413,27 @@ Sequence:
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.37-<br>INSTRUCTIONS
-#         Description: <ul><li>36. - Remove jig from nest.</li><li>37. - IF ITL (2)- Remove TS3 testing flex cables and re-install grounding plugs.</li></ul>
-         Description: <ul><li>36. - Remove jig from nest.</li><li>37. - Remove TS3 testing flex cables and re-install grounding plugs.</li></ul><b>If you are DONE reading these instructions, please click the button to the right:</b>
+         Name: INSTRUCTIONS
+#         Description: <ul><li>Remove jig from nest.</li><li>37. - IF ITL (2)- Remove TS3 testing flex cables and re-install grounding plugs.</li></ul>
+         Description: <ul><li>Remove jig from nest.</li><li>Remove TS3 testing flex cables and re-install grounding plugs.</li></ul><b>If you are DONE reading these instructions, please click the button to the right:</b>
          PrerequisiteType: PREPARATION
 #       -
 #         Name: Remove TS3 testing flex cables and re-install grounding plugs.
 #         PrerequisiteType: PREPARATION
    -
-     Name:  Install jig onto coffin base.
+     Name:  Install coffin cover.
      Description: " "
      Version:  next
      Prerequisites:
        -
-         Name: SR-7.39-<br>INSTRUCTIONS
-         Description: <ul><li>39. - Install coffin cover.</li></ul>
+         Name: INSTRUCTIONS
+         Description: <ul><li>Install jig onto coffin base</li></ul>
          PrerequisiteType: PREPARATION
    -
      Name:  Secure cryostat window onto the TS3-Cryostat.
-     Description: <b>THIS IS THE LAST STEP OF THE EO TESTING. THIS TRAVELER WILL BE COMPLETE AFTER YOU HAVE COMPLETED THIS STEP AND CLOSED OUT THE PARENT STEPS.    THANK YOU.</b>
+     Description: " "
+     Version:  next
+   -
+     Name:  Turn off nitrogen injection and close the valve.
+     Description: If the sensor is directed to next task, e2v continues to SR-MET-02 and ITL continues to  SR-MET-01; otherwise, prepare to store the sensor.<b>THIS IS THE LAST STEP OF THE EO TESTING. THIS TRAVELER WILL BE COMPLETE AFTER YOU HAVE COMPLETED THIS STEP AND CLOSED OUT THE PARENT STEPS.    THANK YOU.</b>
      Version: next
