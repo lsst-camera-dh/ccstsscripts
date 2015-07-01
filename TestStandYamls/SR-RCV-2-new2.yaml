@@ -14,7 +14,9 @@ Prerequisites:
      PrerequisiteType: TEST_EQUIPMENT
    -
      Name: SR-RCV-2 - Cautions
-     Description: <ul><li>Use Task 28: ESD Setup and Verification.</li><li> The working state of the ESD workstation must be verified before the coffin can be opened.</li><li> Verify the EPA and OGP are in accordance using Task 28: ESD Setup and Verification.</li><li> Place non-linting wipe on mat and all tooling on non-linting wipe.</li><li>  When working with ESD hardware, place one finger of each hand away from each other on the ESD mat, then count to 10.</li></ul>
+     Description: <ul><li>Use Task 28 - ESD Setup and Verification.</li><li> The working state of the ESD workstation must be verified before the coffin can be opened.</li><li> Verify the EPA and OGP are in accordance using Task 28 - ESD Setup and Verification.</li><li> Place non-linting wipe on mat and all tooling on non-linting wipe.</li><li>  When working with ESD hardware, place one finger of each hand away from each other on the ESD mat, then count to 10.</li></ul>
+     PrerequisiteType: TEST_EQUIPMENT
+Sequence:
    -
      Name: SR-RCV-2 - Confirm/Deny hardware has been approved for receiving
      Description: " "
@@ -47,6 +49,7 @@ Prerequisites:
         -
          Name: Instructions
          Description: <ul><li>Place hardware on cleaning bench.</li><li>Leave the anteroom.<li></li>Repeat Pre-Entrance Procedure, if necessary.</li><li>Gown and enter clean area.</li><li>Proceed to anteroom.</li><li>Remove hardware from all but the protective packaging.</li><li>Clean hardware's protective packaging. </li></ul>
+         PrerequisiteType: PREPARATION
      RequiredInputs:
        -
          Label: Any comments or fill in None.
@@ -165,6 +168,7 @@ Prerequisites:
              InputSemantics: string
            -
              Label: Are the visible serial numbers on the hardware consistant with the received documentation? 
+             InputSemantics: string
            -
              Label: Are there visual defects with the hardware?
              InputSemantics: string
@@ -202,6 +206,7 @@ Prerequisites:
              InputSemantics: string
            -
              Label: Are the visible serial numbers on the hardware consistant with the received documentation? 
+             InputSemantics: string
            -
              Label: Are there visual defects with the hardware?
              InputSemantics: string
