@@ -10,7 +10,7 @@ Description: Welcome to the HARDWARE RECEIVING traveler.<br><br>This traveler wi
 Prerequisites:
    -
      Name: SR-RCV-2 - Equipment needed for this tasks
-     Description: Required Equipment:<ul><li>Box cutter</li><li>Nonlinting wipes</li><li>Cleaning solution (50/50 Isopropyl alcohol and distilled water)</li><li>Stationary, approved for cleanroom use (pen, marker, bonded paper, tape, 3ring Punch)</li><li>Scanner</li><li>Hardcopy Folder</li><li>Web Camera</li><li>DSLR Camera (potentially required)</li><li>Clean plastic bag</li><br></ul>
+     Description: Required Equipment:<ul><li>Box cutter</li><li>Nonlinting wipes</li><li>Cleaning solution (50/50 Isopropyl alcohol and distilled water)</li><li>Stationary, approved for cleanroom use (pen, marker, bonded paper, tape, 3ring Punch)</li><li>Scanner</li><li>Hardcopy Folder</li><li>Web Camera</li><li>DSLR Camera (potentially required)</li><li>Clean plastic bag (Potentially needed)</li><br></ul>
      PrerequisiteType: TEST_EQUIPMENT
    -
      Name: SR-RCV-2 - Cautions
@@ -29,6 +29,9 @@ Sequence:
      RequiredInputs:
        -
          Label: Do you confirm that all hardware had been approved for receiving?
+         InputSemantics: boolean
+       -
+         Label: Any comments? If not, fill in None.
          InputSemantics: string
    -
      Name: SR-RCV-2 - Set current location of hardware
@@ -37,55 +40,9 @@ Sequence:
      Prerequisites:
         -
          Name: Instructions
-         Description: Please acknowledge you have done the following:<ul><li>Opened package.</li><li>Secured all documentation received with the hardware package.<button type="button" id="b2" title="Set aside any shipping documentation or vendor data received with the hardware."><label style="font-size':' 4px;">details</label></button></li><li>Removed hardware from shipping package while retaining protective packaging.</li><li>If possible, verified the qauntity in the package is consistent with the shipping documentation, verified the vendor S/N matches all ID descriptions in received documentation.</li><li>Disposed of shipping materials.</li><li>Transported hardware and documentation in anteroom following the procedures outlined in LCA-XXX, SR Assembly Cleanroom CoO- Procedure A-10.</li></ul><br><b>If there are any inconsistencies or concerns, please contact the Sub-system Manager before proceeding. Please click the DONE button to the right to confirm you have executed these instructions and then click the Start Work button to register the current location of the hardware.</b>
+         Description: Please acknowledge you have done the following:<ul><li>Opened package.</li><li>Secured all documentation received with the hardware package.<button type="button" id="b2" title="Set aside any shipping documentation or vendor data received with the hardware."><label style="font-size':' 4px;">details</label></button></li><li>Removed hardware from shipping package while retaining protective packaging.</li><li>If possible, verified the qauntity in the package is consistent with the shipping documentation, and verified the vendor S/N matches all ID descriptions in received documentation.</li><li>Disposed of shipping materials.</li><li>Transported hardware and received documentation to anteroom following the procedures outlined in LCA-XXX, SR Assembly Cleanroom CoO</li></ul><br><b>If there are any inconsistencies or concerns, please contact the Sub-system Manager before proceeding. Please click the DONE button to the right to confirm you have executed these instructions and then click the Start Work button to register the current location of the hardware.</b>
          PrerequisiteType: PREPARATION
      NewLocation: "(?)"
-   -
-     Name: SR-RCV-2 - Confirm/Deny if hardware has been cleaned
-     Description: Place hardware onto the cleaning bench. Using the following guidelines, as is confirm or deny if the hardware was cleaned before shipment to BNL:<br><ul><li>Click Confirm if the hardware was cleaned and packaged such that it will not compromise the Cleanroom.</li><li>Click Deny if the hardware may not be previously cleaned using LCAXXX, SR Assembly Cleanroom CoO Procedure A9</li><li>Click Unknown if unknown or the hardware may be compromised using LCAXXX, SR Assembly Cleanroom CoO.</li><li>Leaving the hardware in the anteroom, vacate the anteroom to proceed to the gowning room.</li><li>If necessary, repeat the Pre-Entrance Procedure found in LCA-XXX, SR Assembly Cleanroom CoO':' Procedure A-10. </li><li>Gown and enter clean area using the procedure found in LCA-XXX, SR Assembly Cleanroom CoO':' Procedure A-11.</li><li>Proceed to anteroom.</li><li>Remove hardware from all but the protective packaging.</li></ul>
-#<li>If necessary, clean hardware's protective packaging using LCA-XXX, SR Assembly Cleanroom CoO':' Procedure A-9.</li><li>Re-label the LSST S/N if it was comprimised during cleaning.</li>
-     Version: next
-     Prerequisites:
-        -
-         Name: Instructions
-         Description: <ul><li>Place hardware on cleaning bench.</li><li>Leave the anteroom.<li></li>Repeat Pre-Entrance Procedure, if necessary.</li><li>Gown and enter clean area.</li><li>Proceed to anteroom.</li><li>Remove hardware from all but the protective packaging.</li><li>Clean hardware's protective packaging. </li></ul>
-         PrerequisiteType: PREPARATION
-     RequiredInputs:
-       -
-         Label: Any comments or fill in None.
-         InputSemantics: string
-     Selection:
-#     Name: Was the hardware clean when received?
-       - 
-         Condition: PASS
-         Name: Cleaned
-         Description: <ul><li>If there is packaing, clean the protective packaging using procedure A-9.</li><li>Label the protective packaging with the LSST S/N.</li></ul>
-         Version: next
-         RequiredInputs:
-           -
-             Label: Any comments?
-             InputSemantics: string
-       -
-         Condition: FAIL
-         Name: To be cleaned
-         Description: <ul><li>Proceed to use A-9 to clean the hardware.</li><li>Place hardware in clean plastic bag and label the bag with the LSST S/N. The plastic bag is now the protective packaging.</li></ul>
-         Version: next
-         RequiredInputs:
-           -
-             Label: Any comments or fill in None.
-             InputSemantics: string
-           -
-             Label: Did you use A-9 procedure? If not, explain the cleaning procedure used.
-             InputSemantics: string
-       -
-         Condition: UNKNOWN
-         Name: Unknown or connot clean
-         Description: <ul><li>Place the hardware (with the protective packaging intact, if any) in a clean plastic bag. The plastic big is now the hardware's protective packaging. </li><li>Label the bag with the LSST S/N. </li><li>Label the bag "uncleaned".</li><li>Fill in all fields of the form below putting N/A for fields that are not applicable. </li><li>Hit complete and contact the Sub-system Manager before continuing work.</li><li>If the hardware is transported, be sure to update the location.</li></ul>
-         Version: next
-         RequiredInputs:
-           -
-             Label: Please explain why you cannot juge the cleanliness of the hardware.
-             InputSemantics: string
    -
      Name: Scan-and-Ingest-Vendor-Data
      Description: <ul><li>Review and inspect all received documentation.</li><Scan documentation into the Hardware Receipt folder on the Desktop</li><li>Upload scanned received documents by clicking on the launcher button below (which will appear after having clicked Start Work).</li><br>
@@ -100,12 +57,12 @@ Sequence:
        - HarnessedJob
    -
      Name: SR-RCV-2 - Review and determine disposition of documentation
-     Description:  Check all received documentation is consistent and fill in the form below. If there are any inconsistencies, click Stop Work, give a detailed description of the problem(s) and contact the Sub-system Manager.
+     Description:  Check all received documentation is consistent and matches any hardware labeling, then fill in the form below. If there are any inconsistencies, click Stop Work, give a detailed description of the problem(s) and contact the Sub-system Manager.
      Version: next
      RequiredInputs:
        -
-         Label: Was the received documentation consistent?
-         InputSemantics: string
+         Label: Was all received documentation and visible hardware labeling consistent?
+         InputSemantics: boolean
        -
          Label: Any comments? Fill in None, if applicable.
          InputSemantics: string
@@ -115,12 +72,61 @@ Sequence:
      Version: next
      RequiredInputs:
        -
-         Label: Comment on received documentation and any information existing from SR-RCV-01. Fill in N/A, if there is no information from SR-RCV-01. Fill in "repeat" if this is not the first instance of SR-RCV-2 for this hardware.
+         Label: Comment on received documentation and any information existing from SR-RCV-01. If there is no information from SR-RCV-01, fill in N/A. Fill in "repeat" if this is not the first instance of SR-RCV-2 for this hardware.
          InputSemantics: string
    -
      Name: SR-RCV-2 - Store hardcopies of documentation 
      Description: Place all hardcopies in the provided folder.
      Version:  next
+   -
+     Name: SR-RCV-2 - Confirm/Deny if hardware has been cleaned
+     Description: Place hardware onto the cleaning bench. Using the following guidelines, as is confirm or deny if the hardware was cleaned before shipment to BNL:<br><ul><li>Click Confirm if the hardware was cleaned and packaged such that it will not compromise the Cleanroom.</li><li>Click Deny if the hardware may not be previously cleaned or it was not received inside protective packaging protecting it from contamination, and the hardware will be cleaned using LCAXXX, SR Assembly Cleanroom CoO Procedure A9 or a similar procedure.</li><li>Click Unknown if unknown or the hardware may be compromised using LCAXXX, SR Assembly Cleanroom CoO.</li></ul>
+#<li>If necessary, clean hardware's protective packaging using LCA-XXX, SR Assembly Cleanroom CoO':' Procedure A-9.</li><li>Re-label the LSST S/N if it was comprimised during cleaning.</li>
+     Version: next
+     Prerequisites:
+        -
+         Name: Instructions
+         Description: <ul><li>Place hardware on cleaning bench.</li><li>Leaving the hardware in the anteroom, vacate the anteroom to proceed to the gowning room.</li><li>If necessary, repeat the Pre-Entrance Procedure found in LCA-XXX, SR Assembly Cleanroom CoO':' Procedure A-10. </li><li>Gown and enter clean area using the procedure found in LCA-XXX, SR Assembly Cleanroom CoO':' Procedure A-11.</li><li>Proceed to anteroom.</li><li>Remove hardware from all but the protective packaging.</li></ul>
+         PrerequisiteType: PREPARATION
+#     RequiredInputs:
+#       -
+#         Label: Any comments or fill in None.
+#         InputSemantics: string
+     Selection:
+#     Name: Was the hardware clean when received?
+       - 
+         Condition: PASS
+         Name: Cleaned
+         Description: <ul><li>Clean the protective packaging using LCA-11706, SR Assembly Cleanroom CoO - Procedure A-9.</li><li>Label the protective packaging with the LSST S/N.</li><li>If applicable or desired, place hardware and protective packaging in a clean plastic bad and label it with the LSST S/N</ul>
+         Version: next
+         RequiredInputs:
+           -
+             Label: Any comments? If not, fill in None.
+             InputSemantics: string
+       -
+         Condition: FAIL
+         Name: To be cleaned
+         Description: <ul><li>Proceed to use LCA-11706, SR Assembly Cleanroom CoO - Procedure A-9 to clean the hardware.</li><li>Place hardware in clean plastic bag and label the bag with the LSST S/N. The plastic bag is now the protective packaging.</li></ul>
+         Version: next
+         RequiredInputs:
+           -
+             Label: Any comments or fill in None.
+             InputSemantics: string
+           -
+             Label: Did you use  LCA-11706, SR Assembly Cleanroom CoO - Procedure A-9 procedure? If not, explain the cleaning procedure used.
+             InputSemantics: string
+       -
+         Condition: UNKNOWN
+         Name: Unknown or cannot clean
+         Description: <ul><li>Place the hardware (with all protective packaging intact, if any) in a clean plastic bag and label the new bag with the LSST S/N. The plastic big is now the protective packaging. </li><li>Label the bag "uncleaned".</li><li>Hit complete and contact the Sub-system Manager before continuing work.</li><li>If the hardware is transported, be sure to update the location.</li></ul>
+         Version: next
+         RequiredInputs:
+           -
+             Label: Any comments or fill in None.
+             InputSemantics: string
+           -
+             Label: Please explain why you cannot juge the cleanliness of the hardware or you cannot use the LCA-11706, SR Assembly Cleanroom Procedure A-9.
+             InputSemantics: string
    -
      Name: SR-RCV-2 - Bringing hardware to TS1 workstation
      Description: Transport hardware to the TS1 workstation and specify the new location below. Continue this traveler at the TS1 workstation.
@@ -130,7 +136,7 @@ Sequence:
      Prerequisites:
        -
          Name: Instructions
-         Description: <ul><li>Verify the hardware and its package will not compromise the cleanroom.</li></ul><br><b>After following these instructions, the hardware is ready to enter the cleanroom. Please click the DONE button to the right and proceed to Start Work.</b>
+         Description: <ul><li>Verify the hardware and its packaging will not compromise the cleanroom.</li></ul><br><b>After following these instructions, the hardware is ready to enter the cleanroom. Please click the DONE button to the right and proceed to Start Work.</b>
          PrerequisiteType: PREPARATION
    -
      Name: SR-RCV-2 - Visual Inspection
@@ -145,35 +151,35 @@ Sequence:
        - 
          Condition: NotESD
          Name: Not ESD sensitive
-         Description: <ul><li>If possible, perform the visual inspection with the protective packaging; otherwiseremove the protective packagaing.</li></ul><br><b>Please click the DONE button to the right and proceed to Start Work when you are ready to fill out the visual inspection form.</b></li></ul>
+         Description: Remove the protective packaging which protects the hardware from contamination.
          Version: next
          RequiredInputs:
            -
-             Label: Any additional comments?
-             InputSemantics: string
-           -
-             Label: Are there any other concerns you wish to note?
+             Label: Is the quantity in the package consistent with shipping documents?
              InputSemantics: string
            -
              Label: Did you remove any protective packaging?
              InputSemantics: string
            -
-             Label: Is the integrity of the protective packaging acceptable?
+             Label: Are all serial numbers on the hardware consistant with the received documentation? 
              InputSemantics: string
            -
-             Label: Are there signs of contamination/residue inside the package?
-             InputSemantics: string
-           -
-             Label: Does anything appear to be out of place, e.g. loose, missing components?
-             InputSemantics: string
-           -
-             Label: Are the visible serial numbers on the hardware consistant with the received documentation? 
+             Label: Before its removal, was the integrity of the protective packaging acceptable?
              InputSemantics: string
            -
              Label: Are there visual defects with the hardware?
              InputSemantics: string
            -
-             Label: Is the quantity in the package consistent with shipping documents?
+             Label: Does anything appear to be out of place, e.g. loose, missing components?
+             InputSemantics: string
+           -
+             Label: Are there signs of contamination/residue inside the package?
+             InputSemantics: string
+           -
+             Label: Are there any other concerns you wish to note?
+             InputSemantics: string
+           -
+             Label: Any additional comments?
              InputSemantics: string
        - 
          Condition: ESD
@@ -185,39 +191,38 @@ Sequence:
              Name: Instructions
              Description: <ul><li>Go to EPA and remove hardware to inspect</li></ul><br><b>Please click the DONE button to the right and proceed to Start Work when you are ready to fill out the visual inspection form.</b>
              PrerequisiteType: PREPARATION
+         NewLocation: "(?)"
          RequiredInputs:
            -
-             Label: Any additional comments?
-             InputSemantics: string
-           -
-             Label: Are there any other concerns you wish to note?
+             Label: Is the quantity in the package consistent with shipping documents?
              InputSemantics: string
            -
              Label: Did you remove any protective packaging?
              InputSemantics: string
            -
-             Label: Is the integrity of the protective packaging acceptable?
+             Label: Are all serial numbers on the hardware consistant with the received documentation? 
              InputSemantics: string
            -
-             Label: Are there signs of contamination/residue inside the package?
-             InputSemantics: string
-           -
-             Label: Does anything appear to be out of place, e.g. loose, missing components?
-             InputSemantics: string
-           -
-             Label: Are the visible serial numbers on the hardware consistant with the received documentation? 
+             Label: Before its removal, was the integrity of the protective packaging acceptable?
              InputSemantics: string
            -
              Label: Are there visual defects with the hardware?
              InputSemantics: string
            -
-             Label: Is the quantity in the package consistent with shipping documents?
+             Label: Does anything appear to be out of place, e.g. loose, missing components?
+             InputSemantics: string
+           -
+             Label: Are there signs of contamination/residue inside the package?
+             InputSemantics: string
+           -
+             Label: Are there any other concerns you wish to note?
+             InputSemantics: string
+           -
+             Label: Any additional comments?
              InputSemantics: string
    -
      Name: SR-RCV-2 - Record pictures of hardware
-     Description: Take pictures to capture the condition of the hardware and support the findings of the visual inspection. A minimum of one photograph must be taken. The LSST S/N <b>must</b> be visible in each photograph. If the LSST S/N is not visible, write the LSST on a piece of paper and place it in the frame before taking the photograph. If the protective packaging was removed, restore the protective packaging to ensure the hardware is safe.
-#" "
-#If the LSST S/N is not visible on the hardware or hardware's packaging, write the LSST S/N on a piece of paper and place it in the frame of each photograph. Take pictures to capture the condition of the hardware and if necessary, the protective packaging.
+     Description: Take pictures to capture the condition of the hardware and support the findings of the visual inspection. A minimum of one photograph must be taken. The LSST S/N <b>must</b> be visible in each photograph. If the LSST S/N is not visible, write the LSST on a piece of paper and place it in the frame before taking the photograph. Restore all protective packaging afterward.
      Version: next
      RequiredInputs:
        -
@@ -244,12 +249,12 @@ Sequence:
        -
          Label: 4 - Notes for Picture 4
          InputSemantics: string
-       -
-         Label: Did you replace the protective packaging?
-         InputSemantics: string
-       -
-         Label: Was it necessary to remove any protective packaging?
-         InputSemantics: string
+#       -
+#         Label: Did you replace the protective packaging?
+#         InputSemantics: string
+#       -
+#         Label: Was it necessary to remove any protective packaging?
+#         InputSemantics: string
    -
      Name: SR-RCV-2 - Review and determine disposition of received hardware and protective packaging
      Description: Based on the findings of the visual inspection:<br><ul><li>Click Complete if the hardware is acceptable for receiving after shipment. After doing so, you will be returned to the SR-RCV-2 Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if the hardware is not acceptable for receiving after shipment. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>
