@@ -30,6 +30,7 @@ def updatestat():
     global C
     global D
     global E
+    global F
 
     foundjython = false
     foundtrendp = false
@@ -62,9 +63,13 @@ def updatestat():
                 D = Tkinter.Button(top, text ="%s is running" % app, bg = "green")
 #                print "%s is already running" % app
             app = "-app archon"
+            apptxtE = "Archon subsystem"
+            def stoparchon(apptxtE):
+                os.system("pkill -f '\-\-app archon'")
+                E.configure(text = "Killing %s" % apptxtE, bg = "red")
             if app in s :
                 foundarchon = true
-                E = Tkinter.Button(top, text ="%s is running" % app, bg = "green")
+                E = Tkinter.Button(top, text ="%s is running" % app, command = lambda : stoparchon(apptxtE), bg = "green")
 #                print "%s is already running" % app
 
 #            print "-----------------------"
@@ -120,34 +125,42 @@ def updatestat():
             if not foundarchon :
 #                print "Need to start %s" % apptxtE;
                 E = Tkinter.Button(top, text ="Start %s" % apptxtE, command = lambda : startarchon(apptxtE), bg = "grey")
+            apptxtF = "CCS Gui"
+            def startgui(apptxtF):
+                subprocess.Popen(["gnome-terminal","--command=./settitle ./CCS-Console"]);
+                F.configure(text = "Started %s" % apptxtF, bg = "blue")
+
+            F = Tkinter.Button(top, text ="Start a %s" % apptxtF, command = lambda : startgui(apptxtF), bg = "grey")
 
             A.pack()
             B.pack()
             C.pack()
             D.pack()
             E.pack()
+            F.pack()
 
 if (foundjython and foundtrendp and foundtrends and foundts and foundarchon) :
     print "All required CCS apps found to be running. You are read to go!"
 
 updatestat()
 
-def cleanupdate(A,B,C,D,E):
+def cleanupdate(A,B,C,D,E,F):
     A.destroy()
     B.destroy()
     C.destroy()
     D.destroy()
     E.destroy()
+    F.destroy()
     updatestat()
 
-F = Tkinter.Button(top, text ="Update Status",command= lambda : cleanupdate(A,B,C,D,E))
+G = Tkinter.Button(top, text ="Update Status",command= lambda : cleanupdate(A,B,C,D,E,F))
 
 def callclean():
-    cleanupdate(A,B,C,D,E)
+    cleanupdate(A,B,C,D,E,F)
 #    time.sleep(2)
     top.after(10000, callclean)
 
-F.pack()
+G.pack()
 top.title('CCS Apps')
 top.after_idle(callclean)
 top.mainloop()
