@@ -43,9 +43,13 @@ def updatestat():
     for s in pstr :
         if type(s) is str :
             app = "JythonConsole"
+            apptxtA = "Archon subsystem"
+            def stopjy(apptxtA):
+                os.system("pkill -f '\-\-app JythonConsole'")
+                A.configure(text = "Killing %s" % apptxtA, bg = "red")
             if app in s :
                 foundjython = true
-                A = Tkinter.Button(top, text ="%s is running" % app, bg = "green")
+                A = Tkinter.Button(top, text ="%s is running" % app, command = lambda : stopjy(apptxtA), bg = "green")
 #                print "%s is already running" % app
             app = "TrendingIngestModule"
             if app in s :
@@ -58,9 +62,13 @@ def updatestat():
                 C = Tkinter.Button(top, text ="%s is running" % app, bg = "green")
 #                print "%s is already running" % app
             app = "-app ts"
+            apptxtD = "Teststand subsystem"
+            def stopts(apptxtD):
+                os.system("pkill -f '\-app ts'")
+                D.configure(text = "Killing %s" % apptxtD, bg = "red")
             if app in s :
                 foundts = true
-                D = Tkinter.Button(top, text ="%s is running" % app, bg = "green")
+                D = Tkinter.Button(top, text ="%s is running" % app, command = lambda : stopts(apptxtD), bg = "green")
 #                print "%s is already running" % app
             app = "-app archon"
             apptxtE = "Archon subsystem"
