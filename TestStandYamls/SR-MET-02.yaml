@@ -21,14 +21,14 @@ Sequence:
      Version:  next
      Prerequisites:
        -
-         Name:Set up EPA at TS2.
+         Name: Set up EPA at TS2.
          Description: <ul><li>Ensure MF02 is installed.</li><li>Attach the OGP to the ESD network/monitor.</li><li>Set up and verify the EPA at the TS2 Workstation.</li><li>Transport required tooling to TS2 Workstation.</li><li>Set up the OGP for measurements.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: Verify the optical flat calibration has been performed within the last 180 days.
+       -
+         Name: Verify the optical flat calibration has been performed within the last 180 days.
          PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: Verify all fixture calibrations have been performed within the last 180 days.
+       -
+         Name: Verify all fixture calibrations have been performed within the last 180 days.
          PrerequisiteType: TEST_EQUIPMENT
    -
      Name: Ensure Safe Zone is enabled.
@@ -36,7 +36,7 @@ Sequence:
      Version:  next
      Prerequisites:
        -
-         Name:Turn on OGP Master Switch
+         Name: Turn on OGP Master Switch
          Description: <ul><li>Turn on the OGP using controller I/O switch.</li><li>Open MeasureMind and follow the initialization prompts.</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
    -
@@ -49,7 +49,7 @@ Sequence:
        - HarnessedJob
      Prerequisites:
        -
-         Name:Raise Z-Axis Bridge and move the platen forward towards the Operator.
+         Name: Raise Z-Axis Bridge and move the platen forward towards the Operator.
          Description: <ul><li>Align the vee-grooves for the sensor being measured.</li><li>Using the lcatr-harness</li></ul>
          PrerequisiteType: TEST_EQUIPMENT
    -
@@ -58,7 +58,7 @@ Sequence:
      Version:  next
      Prerequisites:
        -
-         Name:Set up directory for the Pin Metrology.
+         Name: Set up directory for the Pin Metrology.
          Description: <ul><li>Download latest released versions of scripts from the GIT repository.</li>
          PrerequisiteType: TEST_EQUIPMENT
 
@@ -68,26 +68,28 @@ Sequence:
          Condition: e2v
          Name: Condition 1 - e2v
          Description: " "
+         Version: next
          Sequence:
            -
              Name: Prepare to open coffin
+             Version: next
              Description: <ul><li>Set up EPA at Laminar Flow Hood.</li><li>Turn on Laminar Flow Hood.</li><li>Check for obstructions and/or malfunctions.</li><li>Turn on Air Ionizer Bar.</li><li>Attach fixtures to EPA network/monitor.</li><li>Set up and verify the EPA.</li><li>Transport required tooling to workstation.</li><li>Transport coffin to Laminar Flow Hood.</li><li>Prepare to open coffin.</li><li>Ensure facemask is on.</li><li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat</li><li>Un-screw outer screws of coffin cover.</li><li>Dislodge coffin cover</li></ul>
            -
-             Name: Remove protective cover.
+             Name: e2v - Remove protective cover.
              Description: Remove protective cover.
              Version:  next
              Prerequisites:
                -
-                 Name:Remove sensor from jig and install into MF07 using MF05.
+                 Name: Remove sensor from jig and install into MF07 using MF05.
                  Description: <ul><li>Unscrew jig from coffin base.</li><li>Remove the screw from one alignment pin and place inside coffin.</li><li>Attach jig to MF05.</li><li>Place coffin cover on (empty) coffin.</li><li>Loosen the other alignment pin screw.</li><li>Attach the MF05-Rods to mounting studs.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
                  PrerequisiteType: TEST_EQUIPMENT
            -
-             Name: Slide MF07-Cover into place
+             Name: Slide MF07-Cover into place - 2
              Description: Slide MF07-Cover into place
              Version:  next
              Prerequisites:
                -
-                 Name:Remove other screw from alignment pin.
+                 Name: Remove other screw from alignment pin.
                  Description: <ul><li>Push sensor into MF05-Cove.</li><li>Install MF07 onto sensor/cove.</li><li>Attach side screw into MF07.</li><li>Using MF05-Rods</li><li>Place MF07-Cover on an edge and attach with one screw.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
                  PrerequisiteType: TEST_EQUIPMENT
            -
@@ -96,20 +98,21 @@ Sequence:
              Version:  next
              Prerequisites:
                -
-                 Name:Attach other 3 screws.
+                 Name: Attach other 3 screws.
                  Description: <ul><li>Add grounding connectors.</li><li>Label the MF07-cover with the LSST S/N.</li><li>Remove (empty) jig from MF05 and place in coffin. Place cover back on coffin.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
                  PrerequisiteType: TEST_EQUIPMENT
        -
          Condition: ITL
          Name: Condition 1 - ITL
+         Version: next
          Description: " "
    -
-     Name: Remove protective cover.
+     Name: ITL - Remove protective cover.
      Description: Remove protective cover.
      Version:  next
      Prerequisites:
        -
-         Name:Remove Loaded-MF07.
+         Name: Remove Loaded-MF07.
          Description: <ul><li>GENERIC SENSOR {78}-</li><li>Transport Loaded-MF07 to TS2 Workstation.</li><li>Prepare to open MF07.</li><li>Ensure facemask is on.</li><li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat</li><li>Install loaded-MF07 onto MF04.</li><li>Transfer loaded-MF04 to OGP.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
          PrerequisiteType: TEST_EQUIPMENT
    -
@@ -118,16 +121,16 @@ Sequence:
      Version:  next
      Prerequisites:
        -
-         Name:Remove three of the screws from the cover.
+         Name: Remove three of the screws from the cover.
          Description: <ul><li>Lightly loosen the final screw.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
          PrerequisiteType: TEST_EQUIPMENT
    -
-     Name: Slide MF07-Cover into place
+     Name: Slide MF07-Cover into place - 1 
      Description: Slide MF07-Cover into place
      Version:  next
      Prerequisites:
        -
-         Name:Remove the screw and the cover.
+         Name: Remove the screw and the cover.
          Description: <ul><li>Perform Pin Metrology OGP Routine.</li><li>Click Open Routine and select Pin_Metrology.RTN.</li><li>Click Run Routine then hit OK to start the routine.</li><li>Enter appropriate path and filename for data products.</li><li>Wait for the routine to finish.</li><li>If the user is approved</li><li>Raise Z-Axis Bridge and move the platen forward towards the Operator.</li><li>Add protective cover.</li><li>Place MF07-Cover on an edge and attach with one screw.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
          PrerequisiteType: TEST_EQUIPMENT
    -
@@ -140,7 +143,7 @@ Sequence:
        - HarnessedJob
      Prerequisites:
        -
-         Name:Attach other 3 screws.
+         Name: Attach other 3 screws.
          Description: <ul><li>Transfer loaded-MF04 to TS2 workstation.</li><li>Remove loaded-MF07 from MF04.</li><li>If the sensor is directed to next task</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
          PrerequisiteType: TEST_EQUIPMENT
    -
@@ -149,7 +152,7 @@ Sequence:
      Version:  next
      Prerequisites:
        -
-         Name:Turn off OGP.
+         Name: Turn off OGP.
          Description: <ul><li>Hit Start/Stop to stop the OGP.</li><li>Close out of MeasureMind Software.</li><li>Turn off OGP Master Switch.</li><li>Log into computer.</li><li>Log into the eTraveler system.</li><li>Find and select the corresponding LSST S/N.</li><li>Continue its latest SR-MET-02 traveler.</li><li>Analyze Pin Metrology results.</li><li>Download the Mathematica Pin metrology analysis script from the GIT repository.</li><li>Download the Pin Metrology data from the Data Catalog.</li><li>Open the script and change the data set.</li><li>Execute the script.</li><li>Save result files.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
          PrerequisiteType: TEST_EQUIPMENT
    -
@@ -159,9 +162,3 @@ Sequence:
    -
      Name: Review and determine the disposition of the Edge Scan.
      Description: Based on the findings of the scans:<br><ul><li>Click Complete if the hardware is acceptable for receiving after shipment. After doing so, you will be returned to the SR-MET-0x Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if the hardware is not acceptable for receiving after shipment. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>
-   -
-     Name: Upload result files with eTraveler.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: Review and determine the disposition of the Pin Metrology Study.
-         PrerequisiteType: TEST_EQUIPMENT
