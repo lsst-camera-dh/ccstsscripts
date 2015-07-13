@@ -1,0 +1,208 @@
+%YAML  1.1
+---
+# LSST Hardware Receipt - Metrology
+Name: SR-MET-1
+Version: next
+HardwareGroup: Generic-CCD
+Description: Welcome to the HARDWARE SR-MET-01 METROLOGY traveler.<br><br>This traveler will document metrology test results for hardware received at BNL. The location of this work performed is the TS2 workstation. Work performed includes:<ul><li>Flatness and absolute Height  Measurements using the OGP machine</li</ul><br><br></ul>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>
+Prerequisites:
+   -
+     Name: SR-MET-01 - Equipment needed for this tasks
+     Description: Required Equipment:<ul><li>OGP machine</li><br></ul>
+     PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: SR-MET-01 - Cautions
+     Description: <ul><li>Use Task 28 - ESD Setup and Verification.</li><li> The working state of the ESD workstation must be verified before the coffin can be opened.</li><li> Verify the EPA and OGP are in accordance using Task 28 - ESD Setup and Verification.</li><li> Place non-linting wipe on mat and all tooling on non-linting wipe.</li><li>  When working with ESD hardware, place one finger of each hand away from each other on the ESD mat, then count to 10.</li></ul>
+     PrerequisiteType: TEST_EQUIPMENT
+Sequence:
+   -
+     Name: Set the location of the hardware for this SR-MET-01 metrology testing
+     NewLocation: "(?)"
+     Version:  next
+   -
+     Name: Verify the OGP has been calibrated within the last 366 days.
+     Description: Verify the OGP has been calibrated within the last 366 days.
+     Version:  next
+     Prerequisites:
+       -
+         Name:Set up EPA at TS2.
+         Description: <ul><li>Attach the OGP to the ESD network/monitor.</li><li>Ensure MF02 is installed.</li><li>Set up and verify the EPA at the TS2 Workstation.</li><li>Transport required tooling to TS2 Workstation.</li><li>Set up the OGP for measurements.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+         PrerequisiteType: TEST_EQUIPMENT
+       -
+         Name: Verify the optical flat calibration has been performed within the last 180 days.
+         PrerequisiteType: TEST_EQUIPMENT
+       -
+         Name: Verify all fixture calibrations have been performed within the last 180 days.
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Ensure Safe Zone is enabled.
+     Description: Ensure Safe Zone is enabled.
+     Version:  next
+     Prerequisites:
+       -
+         Name:Turn on OGP Master Switch.
+         Description: <ul><li>Turn on the OGP using controller I/O switch.</li><li>Open MeasureMind and follow the initialization prompts.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Make-OGP-Directories
+     Description: Using the lcatr-harness, create the directories required for the Absolute Height Measurement. 
+     Version:  next
+     UserVersionString: v0
+     MaxIteration: 5
+     TravelerActions:
+       - HarnessedJob
+     Prerequisites:
+       -
+         Name:Raise Z-Axis Bridge and move the platen forward towards the Operator.
+         Description: <ul><li>Align the vee-grooves for the sensor being measured.</li><li>Using the lcatr-harness</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Remove coffin cover. 
+     Description: Remove coffin cover. 
+     Version:  next
+     Prerequisites:
+       -
+         Name:Set up directory for the Absolute Height Metrology.
+         Description: <ul><li>Download latest released versions of scripts from the GIT repository.</li>
+     Selection:
+       - 
+         Condition: e2v
+         Name: Condition 1 - e2v
+         Description: " "
+         Sequence:
+           -
+             Name: 1 - Instructions for e2v sensor
+             Description: Remove coffin cover.
+             Prerequisites:
+                -
+                  Name: Prepare to open coffin
+                  Description: <ul><li>Transport coffin to TS2 Workstation EPA.</li><li>Prepare to open coffin.</li><li>Ensure facemask is on.</li><li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat</li><li>Un-screw outer screws of coffin cover.</li><li>Dislodge coffin cover</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+                  PrerequisiteType: TEST_EQUIPMENT
+                  Version:  next
+           -
+              Name:Install jig onto MF01.
+              Description: <ul><li>Unscrew jig from coffin base.</li><li>Place jig onto MF01.</li><li>Secure sensor onto MF01.</li>       - 
+           -
+             Name: Remove protective cover.
+             Description: Remove protective cover.
+             Version:  next
+       -
+         Condition: ITL
+         Name: Condition 1 - ITL
+         Description: " "
+         Sequence:
+           -
+             Name: 1 - Instructions for ITL sensor
+             Description: Remove coffin cover.
+             Prerequisites:
+                -
+                  Name: Prepare to open coffin
+                  Description: <ul><li>Set up EPA at Laminar Flow Hood.</li><li>Turn on laminar flow hood.</li><li>Check for obstructions and/or malfunctions.</li><li>Turn on Air Ionizer Bar.</li><li>Attach fixtures to EPA network/monitor.</li><li>Set up and verify the EPA at the Laminar Flow Hood.</li><li>Transport required tooling to Laminar Flow Hood.</li><li>Transport coffin to Laminar Flow Hood.</li><li>Prepare to open coffin.</li><li>Ensure facemask is on.</li><li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat</li><li>Un-screw outer screws of coffin cover.</li><li>Dislodge coffin cover</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+                  PrerequisiteType: TEST_EQUIPMENT
+           -
+             Name: Remove protective cover.
+             Description: Remove protective cover.
+             Version:  next
+             Prerequisites:
+                -
+                  Name:Remove sensor from jig and install into MF07.
+                  Description: <ul><li>Remove sensor from jig and install into MF07.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+                  PrerequisiteType: TEST_EQUIPMENT
+           -
+             Name: Remove a gauge block from the storage box and register which gauge block is used with eTraveler.
+             Description: Remove a gauge block from the storage box and register which gauge block is used with eTraveler.
+             Version:  next
+             Prerequisites:
+                -
+                  Name:Attach MF07 frames onto sensor.
+                  Description: <ul><li>Attach side screws into MF07.</li><li>Place MF07-Cover on an edge and attach with one screw.</li><li>Slide MF07-Cover into place</li><li>Attach other 3 screws.</li><li>Unscrew jig from coffin base.</li><li>Remove the screws from the alignment pins.</li><li>Remove Loaded-MF07 from jig.</li><li>Place jig in coffin. Place cover back on coffin.</li><li>Label the MF07-cover with the LSST S/N.</li><li>Transport MF07 to TS2 Workstation.</li><li>Prepare to open MF07.</li><li>Ensure facemask is on.</li><li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat</li><li>Place Loaded-MF07 onto MF01.</li><li>Secure Loaded-MF07 onto MF01.</li><li>GENERIC SENSOR {78}-</li><li>Set up MF01 on OGP.</li><li>Transfer loaded-MF01 to OGP.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+                  PrerequisiteType: TEST_EQUIPMENT
+           -
+             Name: Remove a gauge block from the storage block and register which gauge block is used with eTraveler.
+             Description: Remove a gauge block from the storage block and register which gauge block is used with eTraveler.
+             Version:  next
+          -
+             Name: Slide the cover off
+             Description: Slide the cover off, exposing the sensor
+             Version:  next
+             Prerequisites:
+                -
+                  Name: loosen cover
+                  Description: <ul><li>Place gauge block onto the bottom slot of MF01.</li><li>Remove protective cover.</li><li>Remove three of the screws from the cover.</li><li>Lightly loosen the final screw.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+                  PrerequisiteType: TEST_EQUIPMENT
+          -
+             Name: Remove the screw and the cover.
+             Description: Remove the screw and the cover.
+             Version: next
+   -
+     Name: Perform Absolute Height OGP Routine.
+     Description: <ul><li>Click Open Routine and select Abs_Height.RTN.</li><li>Click Run Routine then hit OK to start the routine.</li><li>When prompted</li><li>Wait for the routine to finish.</li></ul>
+     Selection:
+       - 
+         Condition: e2v
+         Name: Condition 2 - e2v
+         Description: " "
+         Sequence:
+           -
+             Name: Add protective cover.
+             Description: Add protective cover.
+             Version:  next
+             Prerequisites:
+               -
+                 Name:Remove the screw and the cover.
+                 Description: <ul><li>If the user is approved</li><li>Raise Z-Axis Bridge and move the stage to the front.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+                 PrerequisiteType: TEST_EQUIPMENT
+           -
+             Name: Install coffin cover.
+             Description: Install coffin cover.
+             Version:  next
+             Prerequisites:
+               -
+                 Name:Remove the gauge block in the top slot and return it to its original location in the storage box.
+                 Description: <ul><li>Remove the gauge block in the bottom slot and return it to its original location in the storage box.</li><li>Transfer loaded-MF01 to TS2 workstation.</li><li>Remove jig from MF01.</li><li>Remove thumbscrews which were securing the sensor to MF01.</li><li>Remove jig from MF01.</li><li>Secure jig back onto coffin base.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+                 PrerequisiteType: TEST_EQUIPMENT
+       - 
+         Condition: ITL
+         Name: Condition 2 - ITL
+         Description: " "
+         Sequence:
+           -
+             Name: Slide MF07-Cover into place
+             Description: Slide MF07-Cover into place
+             Version:  next
+             Prerequisites:
+               -
+                 Name: Add protective cover
+                 Description: <ul><li>Add protective cover.</li><li>Place MF07-Cover on an edge and attach with one screw.</li></ul>
+                 PrerequisiteType: TEST_EQUIPMENT
+           -
+             Name: Remove Loaded-MF07 from MF01.
+             Description: <ul><li>Attach other 3 screws.</li><li>Remove the gauge block in the top slot and return it to its original location in the storage box.</li><li>Remove the gauge block in the bottom slot and return it to its original location in the storage box.</li><li>Transfer loaded-MF01 to TS2 workstation.</li><li>Remove thumbscrews which were securing the sensor to MF01.</li><li>Remove Loaded-MF07 from MF01.</li>
+             Version:  next
+   -
+     Name: OGP_Absolute_Height_Upload
+     Version:  next
+     Description: " "
+     UserVersionString: v0
+     MaxIteration: 5
+     TravelerActions:
+       - HarnessedJob
+   -
+     Name: Fill in the form summarizing the absolute height metrology measurement.
+     Description: Fill in the form summarizing the absolute height metrology measurement.
+     Version:  next
+     Prerequisites:
+       -
+         Name:Turn off OGP.
+         Description: <ul><li>Hit Start/Stop to stop the OGP.</li><li>Close out of MeasureMind Software.</li><li>Turn off OGP Master Switch.</li><li>Log into computer.</li><li>Log into the eTraveler system.</li><li>Find and select the corresponding LSST S/N.</li><li>Continue its latest SR-MET-01 traveler.</li><li>Analyze Absolute Height Metrology results.</li><li>Download the Mathematica absolute height metrology analysis script from the GIT repository.</li><li>Download the absolute height metrology data from the Data Catalog.</li><li>Open the script and change the data set.</li><li>Execute the script.</li><li>Save result files.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+         PrerequisiteType: TEST_EQUIPMENT
+       -
+         Name: Fill in the form summarizing the absolute height metrology measurement.
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Upload result files with eTraveler.
+     Description: Enter the results using the form on this page.
+     Version: next
+   -
+     Name: Review and determine the disposition of the Edge Scan.
+     Description: Based on the findings of the scans:<br><ul><li>Click Complete if the hardware is acceptable for receiving after shipment. After doing so, you will be returned to the SR-MET-0x Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if the hardware is not acceptable for receiving after shipment. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>

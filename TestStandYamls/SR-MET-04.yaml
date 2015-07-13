@@ -1,0 +1,118 @@
+%YAML  1.1
+---
+# LSST Hardware Receipt - Metrology
+Name: SR-MET-4
+Version: next
+HardwareGroup: Generic-CCD
+Description: Welcome to the HARDWARE SR-MET-04 METROLOGY traveler.<br><br>This traveler will document metrology test results for hardware received at BNL. The location of this work performed is the TS2 workstation. Work performed includes:<ul><li>Flatness and absolute Height  Measurements using the OGP machine</li</ul><br><br></ul>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>
+Prerequisites:
+   -
+     Name: SR-MET-04 - Equipment needed for this tasks
+     Description: Required Equipment:<ul><li>OGP machine</li><br></ul>
+     PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: SR-MET-04 - Cautions
+     Description: <ul><li>Use Task 28 - ESD Setup and Verification.</li><li> The working state of the ESD workstation must be verified before the coffin can be opened.</li><li> Verify the EPA and OGP are in accordance using Task 28 - ESD Setup and Verification.</li><li> Place non-linting wipe on mat and all tooling on non-linting wipe.</li><li>  When working with ESD hardware, place one finger of each hand away from each other on the ESD mat, then count to 10.</li></ul>
+     PrerequisiteType: TEST_EQUIPMENT
+Sequence:
+   -
+     Name: Verify the OGP has been calibrated within the last 366 days.
+     Description: Verify the OGP has been calibrated within the last 366 days.
+     Version:  next
+     Prerequisites:
+       -
+         Name:Set up EPA at TS2.
+         Description: <ul><li>Ensure MF02 is installed.</li><li>Attach the OGP to the ESD network/monitor.</li><li>Set up and verify the TS2 workstation EPA.</li><li>Transport required tooling to TS2 Workstation.</li><li>Set up the OGP for measurements.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Verify the optical flat calibration has been performed within the last 180 days.
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Verify all fixture calibrations have been performed within the last 180 days.
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Make-OGP-Directories
+     Description: Using the lcatr-harness, create the required directories. 
+     Version:  next
+     UserVersionString: v0
+     MaxIteration: 5
+     TravelerActions:
+       - HarnessedJob
+     Prerequisites:
+       -
+         Name:Turn on OGP Master Switch.
+         Description: <ul><li>Turn on the OGP using I/O switch on the controller.</li><li>Open MeasureMind and follow the initialization prompts.</li><li>Ensure Safe Zone is enabled.</li><li>Raise Z-Axis Bridge and move the platen forward towards the Operator.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Remove coffin cover.
+     Description: Remove coffin cover.
+     Version:  next
+     Prerequisites:
+       -
+         Name:Set up directory for the Edge Scan.
+         Description: <ul><li>Set up directory for the Flatness Metrology.</li><li>Download latest released versions of scripts from the GIT repository.</li><li>Transport coffin to TS2 Workstation EPA.</li><li>Prepare to open coffin.</li><li>Ensure facemask is on.</li><li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Perform ESD discharge procedure</li><li>Un-screw outer screws of coffin cover.</li><li>Cautiously dislodge coffin cover</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Remove protective cover.
+     Description: Remove protective cover.
+     Version:  next
+     Prerequisites:
+       -
+         Name:Transfer sensor - on coffin base - to OGP.
+         Description: <ul><li>Transfer sensor - on coffin base - to OGP.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Install protective cover.
+     Description: Install protective cover.
+     Version:  next
+     Prerequisites:
+       -
+         Name:Perform Edge Scan OGP Routine.
+         Description: <ul><li>Click Open Routine and select Edge_Scan.RTN within the appropriate directory. </li><li>Click Run Routine then hit OK to start the routine.</li><li>When prompted</li><li>Wait for the routine to finish.</li><li>Click OK then New Routine to clear the current OGP Routine.</li><li>Perform Flatness OGP Routine.</li><li>Click Open Routine and select Flatness.RTN within the appropriate directory.</li><li>Click Run Routine then hit OK to start the routine.</li><li>Enter appropriate path and filename for data products.</li><li>Wait for the routine to finish.</li><li>If the user is approved</li><li>Raise Z-Axis Bridge and move the stage to the front.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Install coffin cover.
+     Description: Install coffin cover.
+     Version:  next
+     Prerequisites:
+       -
+         Name:Transfer to TS2 workstation.
+         Description: <ul><li>Transfer to TS2 workstation.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: OGP_Edge_Scan_Upload
+     Version:  next
+     Description: " "
+     UserVersionString: v0
+     MaxIteration: 5
+     TravelerActions:
+       - HarnessedJob
+   -
+     Name: The Edge Scan data products are moved to the appropriate location.
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Clear the default folder containing the Edge Scan data products.
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Data products from all measurements are ingested into the eTraveler database.
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Review and determine disposition of the Edge Scan.
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Fill in the form summarizing the flatness metrology measurement.
+     Description: Fill in the form summarizing the flatness metrology measurement.
+     Version:  next
+     Prerequisites:
+       -
+         Name:Turn off OGP.
+         Description: <ul><li>Hit Start/Stop to stop the OGP.</li><li>Close out of MeasureMind Software.</li><li>Turn off OGP Master Switch.</li><li>Log into computer.</li><li>Log into the eTraveler system.</li><li>Find and select the corresponding LSST S/N.</li><li>Continue its latest SR-MET-04 traveler.</li><li>Analyze Flatness Metrology results.</li><li>Download the Mathematica flatness metrology analysis script from the GIT repository.</li><li>Download the flatness metrology data from the Data Catalog.</li><li>Open the script and change the data set.</li><li>Execute the script.</li><li>Save result files.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+         PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: Upload result files with eTraveler.
+     Description: Enter the results using the form on this page.
+     Version: next
+   -
+     Name: Review and determine the disposition of the Edge Scan.
+     Description: Based on the findings of the scans:<br><ul><li>Click Complete if the hardware is acceptable for receiving after shipment. After doing so, you will be returned to the SR-MET-0x Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if the hardware is not acceptable for receiving after shipment. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>
+
