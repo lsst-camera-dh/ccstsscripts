@@ -46,9 +46,9 @@ Sequence:
      Description: Use the scanner to scan each document . Place in the appropriate folders.
      Prerequisites:
         -
-	 Name: Instructions
-	 Description: Please acknowledge you have done the following:<ul><li>Transported all received documentation to the Anteroom.</li><li>Label each page of all received documentation with LSST S/N in the top right corner.</li></ul><br><b>After following the instructions, please click the DONE button to the right and proceed to Start Work.</b>
-	 PrerequisiteType: PREPARATION
+         Name: Instructions
+         Description: Please acknowledge you have done the following:<ul><li>Transported all received documentation to the Anteroom.</li><li>Label each page of all received documentation with LSST S/N in the top right corner.</li></ul><br><b>After following the instructions, please click the DONE button to the right and proceed to Start Work.</b>
+         PrerequisiteType: PREPARATION
    -
      Name: Scan-and-Ingest-Vendor-Data
      Description: <ul><li>Review and inspect all received documentation.</li><Scan documentation into the Hardware Receipt folder on the Desktop</li><li>Upload scanned received documents by clicking on the launcher button below (which will appear after having clicked Start Work).</li><br>
@@ -78,11 +78,11 @@ Sequence:
      Version: next
      RequiredInputs:
        -
-         Label: Comment on received documentation and any information existing from SR-RCV-01. Fill in "consistent," if the information was found consistent. If there is no information from SR-RCV-01, fill in N/A. Fill in "repeat" if this is not the first instance of SR-RCV-2 for this hardware.
+         Label: Fill in "consistent," if the information was found consistent; otherwise, comment on the differences. If there is no information from SR-RCV-01, fill in N/A. Fill in "repeat" if this is not the first instance of SR-RCV-2 for this hardware.
          InputSemantics: string
        -
-	 Label: Any comments? If not, fill in None.
-	 InputSemantics: string
+         Label: Any comments? If not, fill in None.
+         InputSemantics: string
    -
      Name: SR-RCV-2 - Store hardcopies of documentation 
      Description: Place all hardcopies in the provided folder.
@@ -109,8 +109,8 @@ Sequence:
          Description: <ul><li>Clean the protective packaging using LCA-11706, SR Assembly Cleanroom CoO - Procedure A-9.</li><li>Label the protective packaging with the LSST S/N.</li><li>If applicable or desired, place hardware and protective packaging in a clean plastic bag and label it with the LSST S/N.</ul>
          Version: next
          RequiredInputs:
-	   -
-	     Label: If possible, describe the cleaning process used before shipment. Fill in unknown if unknown.
+           -
+             Label: If possible, describe the cleaning process used before shipment. Fill in unknown if unknown.
              InputSemantics: string
            -
              Label: Any comments? If not, fill in None.
@@ -144,7 +144,6 @@ Sequence:
      Description: Transport hardware to the TS1 workstation and specify the new location below. Continue this traveler at the TS1 workstation.
      NewLocation: "(?)"
      Version:  next
-#     UserVersionString: v0
      Prerequisites:
        -
          Name: Instructions
@@ -179,7 +178,6 @@ Sequence:
            -
              Label: Any additional comments?
              InputSemantics: string
-       - 
      Selection:
        - 
          Condition: NotESD
