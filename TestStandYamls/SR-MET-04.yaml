@@ -96,7 +96,7 @@ Sequence:
      Prerequisites:
        -
          Name: Prapre to install
-         Description: Raise Z-Axis Bridge and move the Platen forward towards the operator. <br /><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+         Description: Raise Z-Axis Bridge and move the Platen forward towards the operator. <br /><br /><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
          PrerequisiteType: PREPARATION
    -
      Name: SR-MET-4 Install coffin cover
