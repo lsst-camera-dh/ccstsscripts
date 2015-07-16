@@ -74,7 +74,7 @@ Sequence:
    -
      Name: SR-MET-4 Perform Edge Scan
      Version: next
-     Description: '<ul><li>Click Open Routine and select Edge_Scan.RTN within the appropriate directory. <button type="button" id="b3" title="The directory is C:\Production Data\LSST S/N\Edges\Data."><label style="font-size'':''4px:">detail</label></button></li><li>Click Run Routine then hit OK to start the routine.</li><li>When prompted, enter the appropriate path and file name for data products.</li><li>Wait for the routine to finish and click OK</li></ul>'
+     Description: '<ul><li>Click Open Routine and select Edge_Scan.RTN within the appropriate directory. <button type="button" id="b3" title="The directory is C:\Production Data\LSST S/N\Edges\Date."><label style="font-size'':''4px:">detail</label></button></li><li>Click Run Routine then hit OK to start the routine.</li><li>When prompted, enter the appropriate path and file name for data products.</li><li>Wait for the routine to finish and click OK</li></ul>'
      Prerequisites:
        -
          Name: Clear OGP routine.
@@ -83,7 +83,7 @@ Sequence:
    -
      Name: SR-MET-4 Perform Flatness Measurment
      Version: next
-     Description: '<ul><li>Click Open Routine and select Flatness.RTN within the appropriate directory. <button type="button" id="b3" title="The directory is C:\Production Data\LSST S/N\Flatness\Data."><label style="font-size'':''4px:">detail</label></button></li><li>Click Run Routine then hit OK to start the routine.</li><li>Enter the appropriate path and file name for data products.</li><li>Wait for the routine to finish and click OK</li></ul>'
+     Description: '<ul><li>Click Open Routine and select Flatness.RTN within the appropriate directory. <button type="button" id="b3" title="The directory is C:\Production Data\LSST S/N\Flatness\Date."><label style="font-size'':''4px:">detail</label></button></li><li>Click Run Routine then hit OK to start the routine.</li><li>Enter the appropriate path and file name for data products.</li><li>Wait for the routine to finish and click OK</li></ul>'
      Prerequisites:
        -
          PrerequisiteType: PREPARATION
@@ -140,7 +140,7 @@ Sequence:
          Label: Flatness Analysis File 2
          InputSemantics: filepath
    -
-     Name: Flatness Statistics Form
+     Name: SR-MET-4 Flatness Statistics Form
      Version: next
      Description: Fill in the form summarizing the flatness metrology results 
      RequiredInputs:
