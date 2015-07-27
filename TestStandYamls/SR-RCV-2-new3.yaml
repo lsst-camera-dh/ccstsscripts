@@ -75,7 +75,7 @@ Sequence:
          InputSemantics: string
    -
      Name: SR-RCV-2 - Compare information in documentation with information from SR-RCV-01
-     Description:  If this is the first instance of the hardware going through SR-RCV-2, search for information from SR-RCV-01 under <a href=http://srs.slac.stanford.edu/DataCatalog/folder.jsp?folder=13448248>vendor data</a>; Hit Start Work and fill in the form accordingly. If there are any inconsistencies, click Stop Work, give a detailed description of the problem(s) and contact the Sub-system Manager.
+     Description:  If this is the first instance of the hardware going through SR-RCV-2, search for information from SR-RCV-01 under <a href=http://srs.slac.stanford.edu/DataCatalog/folder.jsp?folder=13359078>vendor data</a>; Hit Start Work and fill in the form accordingly. If there are any inconsistencies, click Stop Work, give a detailed description of the problem(s) and contact the Sub-system Manager.
      Version: next
      RequiredInputs:
        -
