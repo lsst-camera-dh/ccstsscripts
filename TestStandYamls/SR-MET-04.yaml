@@ -4,11 +4,11 @@
 Name: SR-MET-4
 Version: next
 HardwareGroup: Generic-CCD
-Description: 'Welcome to the EDGE SCAN AND FLATNESS METROLOGY traveler.<br><br>This traveler will document images of the sensor''s ednge and record flatness information of a sensor at BNL. This work is performed at TS2. Work performed includes:<ul><li>Edge Scan using the OGP machine</li><li>Flatness Measurements using the OGP machine</li</ul><br><br></ul>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>'
+Description: 'Welcome to the EDGE SCAN AND FLATNESS METROLOGY traveler.<br><br>This traveler will document images of the sensor''s edge and record flatness information of a sensor at BNL. This work is performed at TS2. Work performed includes:<ul><li>Edge Scan using the OGP machine</li><li>Flatness Measurements using the OGP machine</li</ul><br><br></ul>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>'
 Prerequisites:
    -
      Name: Cautions
-     Description: 'This work includes: <ul><li>ESD Hazard</li><li>Contamination Hazard</li><li>Physical Damage Hazard</li></ul>'
+     Description: 'This work includes: <ul><li>ESD Hazard</li><li>Contamination Hazard</li><li>Physical Damage Hazard</li></ul><br><b>Read the Header information before clicking Start Work.</b>'
      PrerequisiteType: PREPARATION
    -
      Name: Equipment needed for these tasks
@@ -16,7 +16,7 @@ Prerequisites:
      PrerequisiteType: PREPARATION
 Sequence:
    - Name: SR-MET-4 Set up EPA
-     Description: Follow these steps:<ul><li>Attach the OGP to the ESD network/monitor.</li><li>Set up and verify the TS2 workstation EPA.</li><li>Transport required tooling to TS2 Workstation.</li></ul>
+     Description: Follow these steps:<ul><li>Attach the OGP to the ESD network/monitor.</li><li>Set up and verify the TS2 workstation EPA.</li><li>Transport required tooling to TS2 workstation.</li></ul>
      Version: next
      Prerequisites:
        -
@@ -25,13 +25,13 @@ Sequence:
          PrerequisiteType: PREPARATION
    -
      Name: SR-MET-4 Setup OGP for Measurement
-     Description: 'Follow these steps:<ul><li>Turn on OGP Master Switch.</li><li>Turn on the OGP controller.</li><li>Open MeasureMind and follow the initialization prompts.</li><li>Ensure Safe Zone is enabled.<button type="button" id="b1" title="Go to System, Config, Safe Zones."><label style="font-size'':''4px:">detail</label></button></li><li>Raise Z-Axis bridge and move the platen forward towards the Operator.</li></ul>'
+     Description: 'Follow these steps:<ul><li>Turn on the OGP Master Switch.</li><li>Turn on the OGP controller.</li><li>Open the MeasureMind software and follow the initialization prompts.</li><li>Ensure Safe Zone is enabled.<button type="button" id="b1" title="Go to System, Config, Safe Zones."><label style="font-size'':''4px:">detail</label></button></li><li>Raise the Z-Axis bridge and move the platen forward towards the Operator.</li></ul>'
      Version:  next
      Prerequisites:
        -
          PrerequisiteType: PREPARATION
          Name: OGP Calibration
-         Description:  <b>Verify the OGP has been calibrated within the last 366 days.</b>
+         Description:  Verify the OGP has been calibrated within the last 366 days.
        -
          Name: Optical Flat Calibration
          Description: Verify the optical flat calibration has been performed within the last 180 days.
@@ -55,52 +55,52 @@ Sequence:
        - HarnessedJob
    -
      Name: SR-MET-4 Remove coffin cover
-     Description:  'Un-screw outer screws of coffin cover. Cautiously dislodge coffin cover, if necessary <button type="button" id="b2" title="Insert a flathead scredriver into the slot in the coffin to jar cover."><label style="font-size'':''4px:">detail</label></button>. Remove coffin cover.'
+     Description:  'Un-screw the outer screws of the coffin cover. Cautiously dislodge coffin cover, if necessary <button type="button" id="b2" title="Insert a flathead screwdriver into the slot in the coffin to jar cover."><label style="font-size'':''4px:">detail</label></button>. Remove the coffin cover.'
      Version:  next
      Prerequisites:
        -
          Name: Prepare to open coffin
-         Description: <ul><li>Ensure facemask is on.</li><li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Perform ESD discharge procedure</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+         Description: <ul><li>Ensure facemask is on.</li><li>Ensure that ESD wrist strap is worn.</li><li>Sit or stand using the ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat, then count to ten.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
          PrerequisiteType: PREPARATION
    -
      Name: SR-MET-4 Remove protective cover
      Version:  next
-     Description: Remove protective cover.  Ensure the coffin base is still in position.
+     Description: Remove the protective cover.  Ensure the coffin base is still in position.
      Prerequisites:
        -
          Name: Instructions
-         Description: '<p>While on coffin base, transfer the sensor to the OGP. Place coffin base on top of vee-grooves, butted against the MF02 attachment.</p><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>'
+         Description: '<p>While attached to the coffin base, transfer the sensor to the OGP. Place the coffin base on top of the vee-grooves butted against the MF02 attachment.</p><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>'
          PrerequisiteType: PREPARATION
    -
      Name: SR-MET-4 Perform Edge Scan
      Version: next
-     Description: '<ul><li>Click Open Routine and select Edge_Scan.RTN within the appropriate directory. <button type="button" id="b3" title="The directory is C:\Production Data\LSST S/N\Edges\Date."><label style="font-size'':''4px:">detail</label></button></li><li>Click Run Routine then hit OK to start the routine.</li><li>When prompted, enter the appropriate path and file name for data products.</li><li>Wait for the routine to finish and click OK</li></ul>'
+     Description: '<ul><li>Click Open Routine and select Edge_Scan.RTN within the appropriate directory. <button type="button" id="b3" title="The directory is C:\\Production Data\\LSST S/N\\Edges\\Date."><label style="font-size'':''4px:">detail</label></button></li><li>Click Run Routine then hit OK to start the routine.</li><li>When prompted, enter the appropriate path and file name for data products.</li><li>Wait for the routine to finish and click OK.</li></ul>'
      Prerequisites:
        -
          Name: Clear OGP routine.
-         Description: Click New Routine to clear the current OGP routine.<br /><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+         Description: Click New Routine to clear the current OGP routine.<br><br /><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
          PrerequisiteType: PREPARATION
    -
      Name: SR-MET-4 Perform Flatness Measurment
      Version: next
-     Description: '<ul><li>Click Open Routine and select Flatness.RTN within the appropriate directory. <button type="button" id="b3" title="The directory is C:\Production Data\LSST S/N\Flatness\Date."><label style="font-size'':''4px:">detail</label></button></li><li>Click Run Routine then hit OK to start the routine.</li><li>Enter the appropriate path and file name for data products.</li><li>Wait for the routine to finish and click OK</li></ul>'
+     Description: '<ul><li>Click Open Routine and select Flatness.RTN within the appropriate directory. <button type="button" id="b3" title="The directory is C:\\Production Data\\LSST S/N\\Flatness\\Date."><label style="font-size'':''4px:">detail</label></button></li><li>Click Run Routine then hit OK to start the routine.</li><li>When prompted, enter the appropriate path and file name for data products.</li><li>Wait for the routine to finish and click OK.</li></ul>'
      Prerequisites:
        -
          PrerequisiteType: PREPARATION
          Name: Clear OGP routine.
-         Description: Click New Routine to clear the current OGP routine.<br /><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+         Description: Click New Routine to clear the current OGP routine.<br><br /><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
    -
      Name: SR-MET-4 Install protective cover
-     Description: Install protective cover.
+     Description: Install the protective cover.
      Version:  next
      Prerequisites:
        -
          Name: Prapre to install
-         Description: Raise Z-Axis Bridge and move the Platen forward towards the operator. <br /><br /><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+         Description: Raise the Z-Axis Bridge and move the platen forward towards the Operator. <br><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
          PrerequisiteType: PREPARATION
    -
      Name: SR-MET-4 Install coffin cover
-     Description: Install coffin cover.
+     Description: Install the coffin cover.
      Version:  next
      Prerequisites:
        -
@@ -108,16 +108,16 @@ Sequence:
          Description: <ul><li>Transfer the sensor on the coffin base to the  TS2 workstation.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
          PrerequisiteType: TEST_EQUIPMENT
    -
-     Name: OGP_Flatness_Scan_Upload
+     Name: OGP_Edge_Flatness_Scan_Upload
      Version:  next
-     Description: "Using the lcatr-harness will do the following:<ul><li>Move the Edge Scan Data Products to the appropriate location.</li><li>Clear the default destination directory for the Edge Scan</li><li>Upload the Edge Scan and Flatness Data Products to the eTraveler database.</li></ul> "
+     Description: "Using the lcatr-harness will do the following:<ul><li>Move the Edge Scan Data Products to the appropriate location.</li><li>Clear the default destination directory for the Edge Scan</li><li>Upload the Edge Scan and Flatness Data Products</li></ul> "
      UserVersionString: v0
      MaxIteration: 5
      TravelerActions:
        - HarnessedJob
    -
      Name: SR-MET-4 Turn off OGP
-     Description: <ul><li>Hit Start/Stop to stop the OGP.</li><li>Close out of MeasureMind Software.</li><li>Turn off OGP controller</li><li>Turn off OGP Master Switch.</li></ul>
+     Description: If the OGP will not be in immediate use, turn off the OGP:<br><ul><li>Hit Start/Stop to stop the OGP.</li><li>Close out of MeasureMind Software.</li><li>Turn off OGP controller</li><li>Turn off OGP Master Switch.</li></ul>
      Version: next
    -
      Name: SR-MET-4 Review and determine disposition of the Edge Scan
@@ -126,11 +126,11 @@ Sequence:
 
    -
      Name: SR-MET-4 Analyze flatness data
-     Description: 'Analyze the flatness data with the following procedure: <ul><li>Download the Mathematica flatness metrology analysis script from the GIT repository.</li><li>Download the flatness metrology data from the Data Catalog.</li><li>Open the script and change the data set.</li><li>Execute the script.</li><li>Save result files.</li></ul>'
+     Description: 'Analyze the flatness data with the following procedure: <ul><li>Download the approved Mathematica flatness metrology analysis script from the GIT repository.</li><li>Download the flatness metrology data from the Data Catalog.</li><li>Open the script and change the data set.</li><li>Execute the script.</li><li>Save all result files.</li></ul>'
      Version:  next
    -
      Name: SR-MET-4  Upload flatness analysis files
-     Description: Upload the flatess analysis results.  [May change to harnessed job step]
+     Description: Upload the flatness analysis results.
      Version: next
      RequiredInputs: 
        -
@@ -142,12 +142,12 @@ Sequence:
    -
      Name: SR-MET-4 Flatness Statistics Form
      Version: next
-     Description: Fill in the form summarizing the flatness metrology results 
+     Description: Fill in the form summarizing the flatness metrology results.
      RequiredInputs:
         - 
           Label:  Looks ok?
           InputSemantics: boolean
    -
      Name: Review and determine the disposition of the Flatness Measurement
-     Description: 'Based on the findings of the scans:<br><ul><li>Click Complete if the OGP scan results are acceptable. After doing so, you will be returned to the SR-MET-04 Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if the sensor''s flatness is not acceptable. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>'
+     Description: 'Based on the findings of the flatness scans:<br><ul><li>Click Complete if the flatness of the sensor is acceptable. After doing so, you will be returned to the SR-MET-04 Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if the flatness of the sensor is not acceptable. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>'
      Version: next
