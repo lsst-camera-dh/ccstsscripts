@@ -220,4 +220,5 @@ Sequence:
           InputSemantics: boolean
    -
      Name: SR-MET-2 Review and determine the disposition of the lateral position measurment
+     Version: next
      Description: 'Based on the findings of the lateral position scans:<br><ul><li>Click Complete if the sensor''s lateral positioning is acceptable. After doing so, you will be returned to the SR-MET-02 Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if the sensor''s lateral positionsing is not acceptable. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>'
