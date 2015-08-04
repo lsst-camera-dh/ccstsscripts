@@ -20,8 +20,8 @@ Prerequisites:
 <li>Gauge blocks (Vendor dependent)</li>
 <li>MF01 (A or B, vendor dependent)</li>
 <li>MF07B (Potentially required, hardware specific)</li>
-</ul>'
-<p><b>Read the Header information before clicking Start Work</b></p>
+</ul>
+<p><b>Read the Header information before clicking Start Work</b></p>'
      PrerequisiteType: PREPARATION
 Sequence:
    - Name: SR-MET-1 Set up EPA
@@ -94,8 +94,8 @@ Sequence:
              Version: next
              Description: 'Wring a gauge block on the top (towards the 
                           back wall) and bottom (towards the operator) slots
-                          MF01. <button type="button" id="b3" 
-                          title="Wring the gauge blcok on by sliding it
+                          of MF01. <button type="button" id="b3" 
+                          title="Wring the gauge block on by sliding it
                           from the edge of MF01 into the holder.">
                           <label style="font-size'':''4px:">detail</label>
                           </button>'
@@ -182,9 +182,9 @@ Sequence:
            -
              Name: SR-MET-1 Prepare MF01 - ITL
              Version: next
-             Description: 'Wring a gauge block on the top (towards the back wall) and bottom (towards the operator) slots
+             Description: 'Wring a gauge block on the top (towards the back wall) and bottom (towards the operator) slots of
                           MF01. <button type="button" id="b7" 
-                          title="Wring the gauge blcok on by sliding it
+                          title="Wring the gsauge block on by sliding it
                           from the edge of MF01 into the holder.">
                           <label style="font-size'':''4px:">detail</label>
                           </button>'
