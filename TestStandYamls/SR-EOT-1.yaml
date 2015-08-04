@@ -2,152 +2,169 @@
 ---
 # LSST Sensor EO Testing
 Name: SR-EOT-1
-Description: 'Welcome to the SINGLE SENSOR ELECTRO-OPTICAL TEST traveler.<br><br>This traveler will record the electro-optical performance of a single sensor at BNL. The location of the work to be performed is at one of the TS3 workstations. Work performed includes:<ul>
-<li>Preparing and verifying the readiness of the TS3 workstation</li><li>Installing and removing the sensor from the TS3-Cryostat</li><li>Launching and monitoring the EO test acquisition and analyses</li>
-</ul><br><br>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>'
+Description: 'Welcome to the SINGLE SENSOR ELECTRO-OPTICAL TEST traveler.<br><br>This traveler will record the electro-optical performance of a single sensor at BNL. The work is performed at a previously selected TS3 workstation. Ensure the chosen instance is known before starting.<br> Work performed includes:<ul><li>Preparing and verifying the readiness of the TS3 workstation</li><li>Installing and removing the sensor from the TS3-Cryostat</li><li>Launching and monitoring the EO test acquisition and analyses</li></ul><br><br>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>'
 HardwareGroup: Generic-CCD
 MaxIteration: '1'
 Version: next
 Prerequisites:
 - {Name: SR-EOT-1 - Equipment needed for this tasks, Description: 'Required Equipment:<ul><li>Safety shoes</li>
   <li>Vacuum foil</li><li>Nonlinting wipes</li><li>3/16 inch allen key</li>
-  <li>4 mm or 2.5 mm allen key (vendor dependent)</li><li>Flathead screwdriver</li>
-  <li>Mask (vendor dependent)</li><li>O-ring (potentially required)</li>
-  <li>TS3 Flex Cables (potentially required, vendor dependent)</li>
-  <li>Grounding PCBs (potentially required, vendor dependent)</li>
+  <li>4 mm or 2.5 mm allen key (hardware specific)</li><li>Flathead screwdriver</li>
+  <li>Mask (hardware specific)</li><li>O-ring (potentially required)</li>
+  <li>TS3 testing Flex Cables (potentially required, hardware specific)</li>
+  <li>Grounding PCBs (potentially required, hardware specific)</li>
    </ul><br /><b>Read the Header information before clicking Start Work</b>', 
     Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
-- {Name: SR-EOT-1 - Cautions, Description: 'This work involves <ul><li>ESD Hazard</li>
+- {Name: SR-EOT-1 - Cautions, Description: 'This work includes: <ul><li>ESD Hazard</li>
     <li>Contamination Hazard</li><li>UV Hazard</li><li>Heavy Object Movement Hazard</li>
     <li>Cryogen Hazard</li><li>Radiation Hazard</li><li>Physical Damage Hazard</li></ul>',
   Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
 Sequence:
 - RequiredInputs:
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Which instance of TS3 was selected for testing? Fill in TS3-1 or TS3-2.'}
+  - {Description: '', Units: '', InputSemantics: boolean, Label: 'Do you confirm that
+      the sensor has been approved for EO testing? If not, contact the Sub-system Manager.'}
   - {Description: '', Units: '', InputSemantics: string, Label: 'Any comments? If
       not, fill in None.'}
-  - {Description: '', Units: '', InputSemantics: boolean, Label: 'Do you confirm that
-      the sensor has been approved for EO testing?'}
   Name: SR-EOT-1 - Confirm/Deny hardware has been approved for EO testing
   Description: ' '
   MaxIteration: '1'
-  Prerequisites:
-  - {Name: Instructions, Description: 'If the hardware is approved for EO testing,
-      hit the DONE button and Start Work. If the hardware has not been approved for
-      EO testing, do not continue and contact the Sub-system Manager.', Quantity: '1',
-    PrerequisiteType: PREPARATION}
+#  Prerequisites:
+#  - {Name: Instructions, Description: 'If the hardware is approved for EO testing,
+#      hit the DONE button and Start Work. If the hardware has not been approved for
+#      EO testing, do not continue and contact the Sub-system Manager.', Quantity: '1',
+#    PrerequisiteType: PREPARATION}
   Version: next
-- Name: Set location of sensor for EO testing
-  Description: "Transport the coffin to one of the TS3 setups. Specify the sensor's new location below"
-  NewLocation: (?)
-  MaxIteration: '1'
-  TravelerActions: [SetHardwareStatus]
-  Version: next
+- {Name: Set up EPA at TS3, Description: Follow these steps to set up and verify ESD protection measures at the selected TS3 station.<ul><li>Attach the TS3 equipment to the ESD network/monitor.</li><li>Set up and verify the TS3 workstation EPA.</li><li>Transport required tooling to the TS3 Workstation and place them on a non-linting wipe.</li></ul>,
+  MaxIteration: '1', Version: next}
 - Name: Setup_EO_Scripts
-  Description: The execution of this harnessed job will install the pre-specified tagged release of the scripts. Please the click Start Work button and then the Launcher button to launch this job.
+  Description: The execution of this harnessed job will install all approved testing scripts. Please the click Start Work and then the Launcher button to launch this job.<br>
   MaxIteration: '5'
   TravelerActions: [HarnessedJob]
   Version: next
   UserVersionString: v0
-- {Name: Set up EPA at TS3, Description: <ul><li>Attach the TS3 equipment to the ESD network/monitor.</li><li>Set up and verify the TS3 workstation EPA.</li><li>Transport required tooling to TS3 Workstation and place them on a non-linting wipe.</li></ul>,
-  MaxIteration: '1', Version: next}
+  Prerequisites:
+    -
+      PrerequisiteType: PREPARATION
+      Name: System noise and crosstalk
+      Description:  Verify that the system noise and crosstalk calibration has been done in the last six months.
+    -
+      Name: Illumination uniformity and calibration
+      Description: Verify the illumination uniformity calibration has been done in the last six months or if any changes to the optical setup have occurred such as replacing the lamp bulb.
+      PrerequisiteType: PREPARATION
+    -
+      Name: Photodiode Calibration
+      Description: 'Verify that the IS photodiode has been calibrated within the last six months.<br><br><b>If all calibrations are current, click Start Work.  Otherwise contact the Subsystem Manager.</b>'
+      PrerequisiteType: PREPARATION
+- Name: Set location of sensor for EO testing
+  Description: "Transport the coffin to the selected TS3 station. Specify the new location below."
+  NewLocation: (?)
+  MaxIteration: '1'
+  TravelerActions: [SetHardwareStatus]
+  Version: next
+#    <li>Place a non-linting wipe on the TS3 table.</li>
+#    <li>Place a non-linting wipe on top of the TS3-Cryostat window.</li>
+#    <li>Remove the TS3-Cryostat Window and place on non-linting wipe.<button type="button" id="b2" title="Do not touch the glass. The inside face must be face up."><label style="font-size'':''4px;">detail</label></button> </li>
 - Name: Prepare TS3-Cryostat for sensor insertion 
-  Description: '<ul><li>De-attach the TS3-cryostat from the dark tunnel.</li>
-   <li>conver the dark tunnel with cavuum foil.</li>
+  Description: '<ul><li>Detach the TS3-cryostat from the dark tunnel.</li>
+   <li>cover the dark tunnel with vacuum foil.</li>
     <li>Turn the TS3-cryostat to face the ESD mat.</li>
-    <li>Remove the screws TS3-Cryostat Window.</li>
-    <li>Place a non-linting wipe on the TS3 table.</li>
-    <li>Remove the TS3-Cryostat Window and place on non-linting wipe.<button type="button" id="b2" title="Do not touch the glass. The inside face must be face up."><label style="font-size'':''4px;">detail</label></button> </li>
-    <li>Place a non-linting wipe on top of the TS3-Cryostat window.</li>
+    <li>Remove the screws for the TS3-Cryostat Window (but do not remove it).</li>
+    <li>Remove the screws for the TS3-Cryostat window to open it.<button type="button" id="b2" title="Do not touch the glass. The inside face must be face up."><label style="font-size'':''4px;">detail</label></button> </li>
     <li>Visually inspect the O-ring and replace if necessary. <button type="button" id="b2" title="The O-ring is not degraded (brittle, broken, etc.) and it should be properly seated."><label style="font-size'':''4px;">detail</label></button>
     </ul>'
   MaxIteration: '1' 
   Version: next
   Prerequisites:
   - Name: INSTRUCTIONS
-    Description: Ensure the vacuum valve and the nitrogen injection valve are close.
+    Description: Ensure the vacuum valve and the nitrogen injection valve are closed.
     PrerequisiteType: PREPARATION
   RequiredInputs:
     - Label: Was the O-ring replaced?
       InputSemantics: boolean
 - Name: preflight_acq
-  Description: 'Here you will run the preflight_acq Job Harness to verify that the test stand auxiliary equipment is ready. 
-<button type="button" id="b2" title="Power-on, lamp warm up and stability (2 hrs), shutter actuates, monochromator grating working, filter wheel rotates, Keithley and archon is operational. Final check'':'' read out of IS-PD and response from instruments. Two wavelength, 450 and 850, and readout IS-PD current, need expected result to check to.">
-<label style="font-size'':'' 4px;">detail</label></button> 
-After clicking Start, click on the launcher button that will appear. When the job is finished, reload this page to continue.'
+  Description: The execution of the preflight_acq Job Harness will verify all auxiliary test stand equipment is ready and begin running the CCS widget and GUI. A message box will appear at the end indicating whether the results are OK. Issues can be rectified at this point and the step can be retried up to three times.<button type="button" id="b2" title="Power-on, lamp warm up and stability (2 hrs), shutter actuates, monochromator grating working, filter wheel rotates, Keithley and archon is operational. Final check'':'' read out of IS-PD and response from instruments. Two wavelength, 450 and 823, and readout IS-PD current."><label style="font-size'':'' 4px;">detail</label></button> After clicking Start, click on the launcher button that will appear.<br>
   MaxIteration: '5'
   TravelerActions: [HarnessedJob]
   Version: next
   UserVersionString: v0
 - Name: Prepare to open coffin at the TS3 workstation
-  Description: Un-screw outer screws of coffin cover.  Dislodge coffin cover, if necessary. Remove coffin cover.
+  Description: Un-screw outer screws of coffin cover.  Dislodge coffin cover, if necessary<button type="button" id="b2" title="Insert a flathead screwdriver into the slot in the coffin to jar cover."><label style="font-size'':''4px;">detail</label></button>. Remove coffin cover.
   MaxIteration: '1'
   Prerequisites:
-  - {Name: INSTRUCTIONS, Description: '<ul><li>Transport coffin to TS3 workstation</li><li>Ensure
-      facemask is on</li><li>ESD wrist strap is worn.</li><li>Sit or stand using the
+  - {Name: INSTRUCTIONS, Description: '<ul><li>Transport the coffin to the selected TS3 workstation</li><li>Ensure
+      facemask is on.</li><li>ESD wrist strap is worn.</li><li>Sit or stand using the
       provided ESD-protective furniture.</li><li>Place one finger of each hand away
-      from each other on the ESD mat</li></ul><br><b>If you are DONE reading these instructions,
-      please click the button to the right:</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+      from each other on the ESD mat, then count to ten.</li></ul><br><b>After following the instructions, please click the DONE button to the right and proceed to Start Work.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
   Version: next
   Selection:
-  - Name: Condition 1 - e2v
+  - Name: 1 - Instructions for e2v sensor
     Condition: e2v
-    Description: ' '
+#    Description: ' '
     MaxIteration: '1'
     Version: next
-    Sequence:
-    - Name: 1 - Instructions for e2v sensor 
-      Description: '<ul><li>Unscrew jig from coffin base.</li>
+#    Sequence:
+#    -
+#      Name: 1 - Instructions for e2v sensor 
+    Description: <ul><li>Unscrew the jig from the coffin base.</li>
               <li>Slightly loosen the micro-D connectors connected to the jig.</li>
-              <li>Place jig onto registration pin such that the vendor S/N faces upwards.</li>
-              <li>Secure the jig with the same scrrews which attach the jig to the coffin base.</li></ul>'
-      MaxIteration: '1' 
-      Version: next
+              <li>Place the jig onto the registration pins such that the vendor S/N faces upwards.</li>
+              <li>Secure the jig with the same screws which attach the jig to the coffin base.</li></ul>
+#      MaxIteration: '1' 
+#      Version: next
 
-  - Name: Condition 1 - ITL
+  - Name: 1 - Instruction for ITL sensor
     Condition: ITL
-    Description: ' '
+#    Description: ' '
     MaxIteration: '1'
     Version: next
-    Sequence:
-    - Name: 1 - Instructions for ITL sensor 
-      Description: <ul><li>Unscrew jig from coffin base.</li><li>Remove grounding plugs on backside of sensor package.</li><li>Plug in TS3 testing flex cables.</li><li>Plug in the grounding PCBs.</li><li>Place the jig onto the registration pins such that the double-leg faces the clocking board.</li><li>Secure the jig with the same screws which attach the jig to the coffin base.</li></ul>
-      MaxIteration: '1' 
-      Version: next
+#    Sequence:
+#    - 
+#      Name: 1 - Instructions for ITL sensor 
+    Description: <ul><li>Unscrew the jig from the coffin base.</li><li>Remove the grounding plugs on backside of sensor package.</li><li>Plug in the TS3 testing flex cables.</li><li>Plug in the grounding PCBs onto the ends of the TS3 testing flex cables.</li><li>Place the jig onto the registration pins such that the double-leg faces the clocking board.</li><li>Secure the jig with the same screws which attach the jig to the coffin base.</li></ul>
+#      MaxIteration: '1' 
+#      Version: next
 - Name: Install sensor into TS3-Cryostat
-  Description: Remove the grounding connections, then plug in and tighten the micro-D connectors to the readout cables in the TS3-cryostatus.
+  Description: Remove the grounding connections from the flex cables, then plug in and tighten the micro-D connectors to the TS3-cryostat connectors.
   MaxIteration: '1'
   Version: next
-- Name: Remove protective cover
-  Description: Remove the protective cover to install the mask onto the jig.
-  MaxIteration: '1' 
-  Version: next
-- Name: Attach mask to jig and install and secure TS3-Cryostat Window 
-  Description: Install and secure TS3-Cryostat Window, using the criss-cross method to tighten the screws. Attach the TS3-cryostat to the dark tunnel.
+#- Name: Remove protective cover
+#  Description: Remove the protective cover to install the mask onto the jig.
+#  MaxIteration: '1' 
+#  Version: next
+- Name: Secure TS3-Cryostat Window 
+  Description: Secure the TS3-Cryostat Window using the criss-cross method to tighten the screws. Remove the vacuum foil covering the dark tunnel and attach the TS3-cryostat.
   MaxIteration: '1'
   Version: next
   Prerequisites:
-  - Name: INSTRUCTIONS 
-    Description: '<ul><li>Close (empty) coffin.</li><li>Remove vacuum foil covering dark tunnel.</li></ul><b>If
+  - Name: Remove the protective cover
+    Description: '<ul><li>Remove the protective cover.</li></ul>' 
+    Quantity: '1' 
+    PrerequisiteType: PREPARATION
+  - Name: Install the mask
+    Description: '<ul><li>Install the mask onto the jig and place the TS3-cryostat window onto the TS3-cryostat.</li></ul>' 
+    Quantity: '1' 
+    PrerequisiteType: PREPARATION
+  - Name: Place equipment in coffin
+    Description: '<ul><li>Place all jig equipment in the coffin. Secure the coffin cover.</li></ul><b>If
       you are DONE reading and executing these instructions, please click the button to the right to Start Work.</b>' 
     Quantity: '1' 
     PrerequisiteType: PREPARATION
-
 - Name: Purge the TS3-Cryostat
-  Description: 'Using the following Procedure, inject clean, dry Nitrogen into the TS3-Cryostat. This procedure may be repeated, if desired. Click Complete to continue or click Retry Step to repeat. <ul><li>Open the Nitorgen injection valve to inject nitrogen into the TS3-Cryostat.</li><li>Wiat for the pressure to reach atmosphere.</li><li>Close the Nitrogen injection valve.</li></ul>'
-
-  MaxIteration: '1'
+  Description: 'Using the following procedure, inject clean, dry Nitrogen into the TS3-Cryostat.<br><br>If desired, this procedure may be repeated up to three times by clicking Retry Step.<br><br><b>If the equipment is not functioning as expected, click Stop Work, give a detailed description of the problem(s) and contact the Sub-system Manager.</b><br><br><ul><li>Open the Nitrogen injection valve to inject Nitrogen into the TS3-Cryostat.</li><li>Wait for the pressure to reach 760 Torr.</li><li>Close the Nitrogen injection valve.</li></ul>'
+  MaxIteration: '3'
   Version: next
   Prerequisites:
-  - Name: INSTRUCTIONS
+  - Name: Pre-Purge Pump
     Description: '<ul><li>Open the vacuum valve.</li><li>Turn
-      on the vacuum.</li><li>Wait for the pressure to reach P < 5*10^(-2) Torr.</li><li>Close
-      the vacuum valve and turn off the vacuum.</li></ul><b>If
+      on the vacuum pump.</li><li>Wait for the pressure to reach P < 5*10^(-2) Torr.</li><li>Close
+      the vacuum valve and turn off the vacuum pump.</li></ul><b>If
       you are DONE reading executing these instructions, please click the button to
-      the right and Start Work</b>'
+      the right and Start Work.</b>'
     Quantity: '1' 
     PrerequisiteType: PREPARATION
 - Name: Turn on vacuum pump
-  Description: Turn vacuum pump on and proceed to next step, once the vacuum pump is working as expected.
+  Description: Turn on the vacuum pump. Proceed to next step once the vacuum pump is working as expected.
   MaxIteration: '1'
   Version: next
   Prerequisites:
@@ -155,21 +172,28 @@ After clicking Start, click on the launcher button that will appear. When the jo
     PrerequisiteType: PREPARATION
     Description: Open the vacuum valve.
 - Name: ready_acq
-  Description: Use the launcher button which will appear after clicking "Start Work" to start the final readiness check. Once the pressure has dropped below 10^(-5) Torr, the CCS software should automatically turn on the refrigeration system and then proceed with a full TS3 acquisition test.
+  Description: Use the launcher button (which will appear after clicking "Start Work") to start the final readiness check. Once the pressure has dropped below 10^(-5) Torr, the CCS software will automatically begin cooling. When the temperature has stabilized at -95C, it will proceed with the TS3 acquisition test. when ready, this script will proceed to take two Fe55 images and two FLAT images. <b> Images from a segment from these will be displayed on the monitor and based on those images, fill in the form below.<br><br><b>If you cannot answer yes to all questions, contact the Sub-system manager and proceed only if you have been authorized to continue.</b><br> 
   MaxIteration: '5'
   TravelerActions: [HarnessedJob]
   Version: next
   UserVersionString: v0
-
+  Prerequisites:
+  - Name: INSTRUCTIONS
+    PrerequisiteType: PREPARATION
+    Description: <ul><li>To Start the CCS GUI if it is not already running, use the GUI button on the CCS apps widget.</li><li>To start DS9 if it is not already running, use the icon on the desktop.</li></ul>
+  RequiredInputs:
+    - {Description: '', Units: '', InputSemantics: string, Label: 'Do all auxilliary devices shown on the CCS GUI have labels with green backgrounds and the overall acquisition state indicated at the top left of the GUI is READY?'}
+    - {Description: '', Units: '', InputSemantics: string, Label: 'Are there clear indications of X-ray hits (small clusters of pixels) in the Fe55 image?'}
+    - {Description: '', Units: '', InputSemantics: string, Label: 'Does the FLAT image have dark bias bands around it?'}
 - Name: run all acquisition and analysis scripts
-  Description: 'Using the Detailed Instructions, begin the full TS3 E/O Test. This portion of the traveler is automated. If a test fails, the TS3-Cryostat will stay under pressure and the sensor will stay at operating temperature.<br />Detailed Instructions<br /><br />'
+  Description: 'Begin the automated execution of all acquisition and analysis scripting by clicking the launcher button below. If a test fails, the TS3-Cryostat will stay under pressure and the sensor will remain at operating temperature. An acquisition step may be retried, BUT you must return to this step to get the lcatr-iterator command or to press on the lcatr-iterator button to repeat that step and continue with the remainder of the sequence.<br>'
   MaxIteration: '1'
   Version: next
   Prerequisites:
   - Name: INSTRUCTIONS 
-    Description: 'You are about to start the automated execution of all acquisition and analysis scripts<br><ul><li>Verify that the CCS applications are running by looking at the CCS-Apps widget.</li>
+    Description: 'Before starting the automated execution of all acquisition and analysis scripts:<br><ul><li>Verify that the CCS applications are running by looking at the CCS-Apps widget.</li>
    <li>If any app is not shown as running (green) or if the widget itself is not present, please refer to the detailed instructions below.</li></ul>
-<b>If you are DONE reading these instructions, please click the button to the right:<br/>Then click on the LAUNCHER BUTTON
+<b>If you are DONE reading and executing these instructions, please click the Done button to the right:<br/>Then click on the LAUNCHER BUTTON
       below.</b>' 
     Quantity: '1'
     PrerequisiteType: PREPARATION
@@ -406,68 +430,78 @@ After clicking Start, click on the launcher button that will appear. When the jo
     Version: next
     UserVersionString: v0
 - Name: warmup_acq
-  Description: You are about to start the harnessed job for ramping the bias to OFF, turning off the refrigeration system and setting the temperature controller to warm up the TS3-Cryostat to 20 C. Other various testing equipment will be be switched OFF. 
+  Description: You are about to start the harnessed job for ramping the bias to OFF, turning off the refrigeration system and setting the temperature controller to warm up the TS3-Cryostat to 20 C.
+#Other various testing equipment will be switched OFF. 
   MaxIteration: '5'
   TravelerActions: [HarnessedJob]
   Version: next
   UserVersionString: v0
 - Name: Turn_off_pump
   Version: next
-  Description: Turn off the vacuum pump, then wait for the pressure to steady (typically P > 10^(-5) Torr). After, notify a technician the sensor is ready t be fremoved from the TS3-Cryostat
+  Description: Turn off the vacuum pump and wait for the pressure to steady (typically P ~ 10^(-5) Torr). After, notify a technician the sensor is ready to be removed from the TS3-Cryostat
   Prerequisites:
     - Name: INSTRUCTIONS
       PrerequisiteType: PREPARATION
-      Description: Ensure the sensor is at room temeperature.
+      Description: Ensure the sensor temperature is above 20C.
 - Name: Prepare TS3-Cryostat for sensor removal
-  Description: 'Remove the TS3-Cryostat Window and place on non-linting wipe. <button type="button" id="b2" title="Do not touch the glass. The inside face must be face up."><label style="font-size'':''4px;">detail</label></button> Place a non-lining wipe on top of the TS3-Cryostat Window.'
+  Description: 'Remove the TS3-Cryostat Window and place on non-linting wipe. <button type="button" id="b2" title="Do not touch the glass. The inside face must be face up."><label style="font-size'':''4px;">detail</label></button> Place a non-linting wipe on top of the TS3-Cryostat Window.'
   MaxIteration: '1'
   Version: next
   Prerequisites:
-  - {Name: Set up EPA at TS3, Description: <ul><li>Attach the TS3 equipment to the ESD network/monitor.</li><li>Set up and verify the TS3 workstation EPA.</li><li>Transport required tooling to TS3 Workstation.</li><li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat</li></ul>,
+  - {Name: Set up EPA at TS3, Description: <ul><li>Set up and verify the TS3 workstation EPA.</li><li>Transport required tooling to TS3 Workstation.</li><li>Transfer the sensor coffin to the selected TS3 station.</li><li>Remove the coffin cover.</li></ul>,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Perform ESD discharge, Description: '<ul><li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat, then count to ten.</li></ul>',
     Quantity: '1', PrerequisiteType: PREPARATION}
   - {Name: Prepare the Cryostat, Description: '<ul><li>Close the vacuum valve.</li><li>Open
       the Nitrogen injection valve to fill the TS3-Cryostat with clean, dry Nitrogen.</li><li>Wait
-      for the pressure to reach atmosphere.</li><li>Close the Nitrogen injection valve.</li><li>Move
-      TS3-Cryostat after detaching from the dark tunnel.</li><li>Cover dark tunnel
+      for the pressure to reach 760 Torr.</li><li>Close the Nitrogen injection valve.</li><li>Detach the
+      TS3-Cryostat from the dark tunnel.</li><li>Turn the TS3-cryostat to face the ESD mat</li><li>Cover the dark tunnel
       with vacuum foil.</li><li>Place a non-linting wipe on the TS3 table.</li></ul>',
     Quantity: '1', PrerequisiteType: PREPARATION}
-  - Name: Check readiness 
-    Description: 'Ensure the sensor is at room temperature, the vacuum is OFF, and the pressure has steadied' 
+  - Name: Check readiness
+    Description: Ensure the sensor temperature is above 20C, the vacuum is OFF, and the pressure has steadied.<br><br><b>If you are done reading and executing these instructions, please clock the DONE buttons to proceed to Start Work.</b>
     PrerequisiteType: PREPARATION
 - Name: Install protective cover
-  Description: Remove the mask from the jig and install protective cover.
+  Description: Remove the mask from the jig and install the protective cover.
   MaxIteration: '1'
   Version: next
 - Name: Install coffin cover
-  Description: Install coffin cover
+  Description: Select the specific hardware type to store the sensor.
   MaxIteration: '1'
   Version: next
   Selection:
-  - Name: Condition 2 - e2v
+  - Name: 2 - Instructions for e2v sensor
     Condition: e2v
-    Description: ' '
+#    Description: ' '
     MaxIteration: '1'
-    Sequence:
-    - Name: 2 - Instructions for e2v sensor 
-      Description: <ul><li>Unplug flex cables from the readout out cable in TS3-Cryostat.</li><li>Plug micro-D connectors into grounding connectors on jig.</li><li>Remove jig from TS3-Cryostat nest.</li><li>Install jig onto coffin base and secure the coffin cover on the base.</li></ul>
-      MaxIteration: '1' 
-      Version: next
+#    Sequence:
+#    - 
+#      Name: 2 - Instructions for e2v sensor 
+    Description: <ul><li>Unplug the flex cables from the TS3-cryostat connectors.</li><li>Plug the micro-D connectors into the grounding connectors on the jig. Slightly engage the screws.</li><li>Remove the jig from the TS3-Cryostat nest.</li><li>Install the jig onto the coffin base. Install the coffin cover.</li><li>Tighten the micro-D connector screws.</li></ul>
+#      MaxIteration: '1' 
+#      Version: next
     Version: next
-  - Name: Condition 2 - ITL
+  - Name: 2 - Instructions for ITL sensor
     Condition: ITL
-    Description: ' '
+#    Description: ' '
     MaxIteration: '1'
     Version: next
-    Sequence:
-    - Name: 2 - Instructions for ITL sensor
-      Description: <ul><li>Unplug flex cables from the readout out cable in TS3-Cryostat.</li><li>Re-install grounding PCBs.</li><li>Remove jig from TS3-Cryostat nest.</li><li>Remove TS3 testing flex cables.</li><li>Re-install grounding plugs.</li><li>Install jig onto coffin base and secure the coffin cover on the base.</li></ul>
-      MaxIteration: '1'
-      Version: next
+#    Sequence:
+#    - 
+#      Name: 2 - Instructions for ITL sensor
+    Description: <ul><li>Unplug the flex cables from the TS3-cryostat readout connectors.</li><li>Re-install the grounding PCBs.</li><li>Remove the jig from the TS3-Cryostat nest.</li><li>Remove the TS3 testing flex cables from the sensor.</li><li>Re-install the grounding plugs.</li><li>Install the jig onto the coffin base. Install the coffin cover.</li></ul>
+#      MaxIteration: '1'
+#      Version: next
 - Name: Securing cryostat window onto the TS3-Cryostat and attaching cryostat to tunnel
-  Description: <ul><li>Secure cryostat window onto the TS3-Cryostat.</li><li>Remove vacuum foil covering dark tunnel.</li><li>Attach TS3-Cryostat to dark tunnel.</li></ul>
+  Description: <ul><li>Secure the TS3-cryostat window onto the TS3-Cryostat.</li><li>Remove the vacuum foil covering the dark tunnel.</li><li>Attach the TS3-Cryostat to the dark tunnel.</li></ul>
   MaxIteration: '1' 
   Version: next
+- Name: Store Sensor
+  Description: 'Transfer the sensor to the long term storage cabinet. Specify the location below.'
+  NewLocation: (?)
+  MaxIteration: '1'
+  Version: next
 - Name: Review and determine disposition of E/O data and analysis results 
-  Description: 'Based on the findins of the E/O data and analysis: <ul><li>Click Complete if the sensor is acceptable. After doing so you will be returned to the SR-EOT-01 Header and are required to hit Complete once again to finalize the Traveler.</li> <li>Click Stop Work if the sensor is not acceptable. Give a detailed desription of the problem(s) and contact the Subsystem Manager</li></ul>'
+  Description: 'Based on the findings of the electro-optical data and analysis results: <ul><li>Click Complete if the electro-optical properties of the sensor are acceptable. After doing so you will be returned to the SR-EOT-01 Header and are required to hit Complete once again to finalize the Traveler.<br></li><li>Click Stop Work if the electro-optical properties of the sensor are not acceptable. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>'
   MaxIteration: '1'
   Version: next
