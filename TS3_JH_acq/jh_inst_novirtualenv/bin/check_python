@@ -1,0 +1,14 @@
+# Check that ambient python is compatible (2.7 something)
+maj="$( python -c 'import sys; print sys.version_info.major' )"
+if [ $maj != "3" ] ; then
+   echo Incompatible major version $maj for ambient python
+   exit
+fi
+
+echo Moving on to test minor version
+
+min="$( python -c 'import sys; print sys.version_info.minor' )"
+if [ $min != "7" ] ; then
+   echo Incompatible minor version $min for ambient python
+   exit
+fi

@@ -1,0 +1,39 @@
+# This file must be used with "<path-to-file>/jh_setup" *from bash*
+# you cannot run it directly
+
+# Check that ambient python is compatible (2.7 something)
+maj="$( python -c 'import sys; print sys.version_info.major' )"
+if [ $maj != "2" ] ; then
+   echo Incompatible major version $maj for ambient python
+   exit
+fi
+
+min="$( python -c 'import sys; print sys.version_info.minor' )"
+if [ $min != "7" ] ; then
+   echo Incompatible minor version $min for ambient python
+   exit
+fi
+
+# Harness code expects sensibly defined VIRTUAL_ENV environment variable 
+export VIRTUAL_ENV=/home/ts3prod/prod/lcatr/TS3_JH_acq/jh_inst_novirtualenv
+
+# Get  directory containing this file
+BINPATH="$( cd "$(dirname "${BASH_SOURCE[0]}")" && pwd )"
+##echo $BINPATH
+
+# Initialize Modules
+source ${BINPATH}/../Modules/3.2.10/init/bash
+
+# Add  to front of PATH
+if [ -n "$PATH" ] ; then
+  export PATH=${BINPATH}:${PATH}
+else
+  export PATH=${BINPATH}
+fi
+
+# Add ../python to front of PYTHONPATH
+if [ -n "$PYTHONPATH" ] ; then
+  export PYTHONPATH=${BINPATH}/../python:${PYTHONPATH}
+else
+  export PYTHONPATH=${BINPATH}/../python
+fi

@@ -1,0 +1,1182 @@
+Downloading/unpacking scipy
+  Running setup.py egg_info for package scipy
+    
+    no previously-included directories found matching 'scipy/special/tests/data/boost'
+    no previously-included directories found matching 'scipy/special/tests/data/gsl'
+    no previously-included directories found matching 'doc/build'
+    no previously-included directories found matching 'doc/source/generated'
+    no previously-included directories found matching '*/__pycache__'
+    warning: no previously-included files matching '*~' found anywhere in distribution
+    warning: no previously-included files matching '*.bak' found anywhere in distribution
+    warning: no previously-included files matching '*.swp' found anywhere in distribution
+    warning: no previously-included files matching '*.pyo' found anywhere in distribution
+Installing collected packages: scipy
+  Running setup.py install for scipy
+    lapack_opt_info:
+    openblas_lapack_info:
+      libraries openblas not found in ['/home/ts3prod/prod/lcatr/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
+      NOT AVAILABLE
+    
+    lapack_mkl_info:
+    mkl_info:
+      libraries mkl,vml,guide not found in ['/home/ts3prod/prod/lcatr/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
+      NOT AVAILABLE
+    
+      NOT AVAILABLE
+    
+    atlas_threads_info:
+    Setting PTATLAS=ATLAS
+      libraries ptf77blas,ptcblas,atlas not found in /home/ts3prod/prod/lcatr/lib
+      libraries lapack_atlas not found in /home/ts3prod/prod/lcatr/lib
+      libraries ptf77blas,ptcblas,atlas not found in /usr/local/lib64
+      libraries lapack_atlas not found in /usr/local/lib64
+      libraries ptf77blas,ptcblas,atlas not found in /usr/local/lib
+      libraries lapack_atlas not found in /usr/local/lib
+      libraries ptf77blas,ptcblas,atlas not found in /usr/lib64/atlas
+      libraries lapack_atlas not found in /usr/lib64/atlas
+      libraries ptf77blas,ptcblas,atlas not found in /usr/lib64/sse2
+      libraries lapack_atlas not found in /usr/lib64/sse2
+      libraries ptf77blas,ptcblas,atlas not found in /usr/lib64
+      libraries lapack_atlas not found in /usr/lib64
+      libraries ptf77blas,ptcblas,atlas not found in /usr/lib
+      libraries lapack_atlas not found in /usr/lib
+    numpy.distutils.system_info.atlas_threads_info
+      NOT AVAILABLE
+    
+    atlas_info:
+      libraries f77blas,cblas,atlas not found in /home/ts3prod/prod/lcatr/lib
+      libraries lapack_atlas not found in /home/ts3prod/prod/lcatr/lib
+      libraries f77blas,cblas,atlas not found in /usr/local/lib64
+      libraries lapack_atlas not found in /usr/local/lib64
+      libraries f77blas,cblas,atlas not found in /usr/local/lib
+      libraries lapack_atlas not found in /usr/local/lib
+      libraries f77blas,cblas,atlas not found in /usr/lib64/atlas
+      libraries lapack_atlas not found in /usr/lib64/atlas
+      libraries f77blas,cblas,atlas not found in /usr/lib64/sse2
+      libraries lapack_atlas not found in /usr/lib64/sse2
+      libraries f77blas,cblas,atlas not found in /usr/lib64
+      libraries lapack_atlas not found in /usr/lib64
+      libraries f77blas,cblas,atlas not found in /usr/lib
+      libraries lapack_atlas not found in /usr/lib
+    numpy.distutils.system_info.atlas_info
+      NOT AVAILABLE
+    
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/distutils/system_info.py:1432: UserWarning:
+        Atlas (http://math-atlas.sourceforge.net/) libraries not found.
+        Directories to search for the libraries can be specified in the
+        numpy/distutils/site.cfg file (section [atlas]) or by setting
+        the ATLAS environment variable.
+      warnings.warn(AtlasNotFoundError.__doc__)
+    lapack_info:
+      FOUND:
+        libraries = ['lapack']
+        library_dirs = ['/usr/lib64']
+        language = f77
+    
+    blas_info:
+      FOUND:
+        libraries = ['blas']
+        library_dirs = ['/usr/lib64']
+        language = f77
+    
+      FOUND:
+        libraries = ['lapack', 'blas']
+        library_dirs = ['/usr/lib64']
+        define_macros = [('NO_ATLAS_INFO', 1)]
+        language = f77
+    
+    Running from scipy source directory.
+    Splitting linalg.interpolative Fortran source files
+    blas_opt_info:
+    blas_mkl_info:
+      libraries mkl,vml,guide not found in ['/home/ts3prod/prod/lcatr/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
+      NOT AVAILABLE
+    
+    openblas_info:
+      libraries openblas not found in ['/home/ts3prod/prod/lcatr/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
+      NOT AVAILABLE
+    
+    atlas_blas_threads_info:
+    Setting PTATLAS=ATLAS
+      libraries ptf77blas,ptcblas,atlas not found in ['/home/ts3prod/prod/lcatr/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64/atlas', '/usr/lib64/sse2', '/usr/lib64', '/usr/lib']
+      NOT AVAILABLE
+    
+    atlas_blas_info:
+      libraries f77blas,cblas,atlas not found in ['/home/ts3prod/prod/lcatr/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64/atlas', '/usr/lib64/sse2', '/usr/lib64', '/usr/lib']
+      NOT AVAILABLE
+    
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/distutils/system_info.py:1526: UserWarning:
+        Atlas (http://math-atlas.sourceforge.net/) libraries not found.
+        Directories to search for the libraries can be specified in the
+        numpy/distutils/site.cfg file (section [atlas]) or by setting
+        the ATLAS environment variable.
+      warnings.warn(AtlasNotFoundError.__doc__)
+      FOUND:
+        libraries = ['blas']
+        library_dirs = ['/usr/lib64']
+        define_macros = [('NO_ATLAS_INFO', 1)]
+        language = f77
+    
+    non-existing path in 'scipy/spatial': '/usr/local/include/python2.7'
+    non-existing path in 'scipy/special': '/usr/local/include/python2.7'
+    non-existing path in 'scipy/special': '/usr/local/include/python2.7'
+    non-existing path in 'scipy/special': '/usr/local/include/python2.7'
+    unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+    unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+    build_src
+    building py_modules sources
+    building library "dfftpack" sources
+    building library "fftpack" sources
+    building library "mach" sources
+    building library "quadpack" sources
+    building library "odepack" sources
+    building library "dop" sources
+    building library "fitpack" sources
+    building library "odrpack" sources
+    building library "minpack" sources
+    building library "rootfind" sources
+    building library "superlu_src" sources
+    building library "arpack_scipy" sources
+    building library "sc_c_misc" sources
+    building library "sc_cephes" sources
+    building library "sc_mach" sources
+    building library "sc_amos" sources
+    building library "sc_cdf" sources
+    building library "sc_specfun" sources
+    building library "statlib" sources
+    building extension "scipy.cluster._vq" sources
+    building extension "scipy.cluster._hierarchy" sources
+    building extension "scipy.fftpack._fftpack" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.fftpack.convolve" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.integrate._quadpack" sources
+    building extension "scipy.integrate._odepack" sources
+    building extension "scipy.integrate.vode" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.integrate.lsoda" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.integrate._dop" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.integrate._test_multivariate" sources
+    building extension "scipy.interpolate.interpnd" sources
+    building extension "scipy.interpolate._ppoly" sources
+    building extension "scipy.interpolate._fitpack" sources
+    building extension "scipy.interpolate.dfitpack" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+      adding 'build/src.linux-x86_64-2.7/scipy/interpolate/src/dfitpack-f2pywrappers.f' to sources.
+    building extension "scipy.interpolate._interpolate" sources
+    building extension "scipy.io.matlab.streams" sources
+    building extension "scipy.io.matlab.mio_utils" sources
+    building extension "scipy.io.matlab.mio5_utils" sources
+    building extension "scipy.lib.blas.fblas" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+      adding 'build/src.linux-x86_64-2.7/build/src.linux-x86_64-2.7/scipy/lib/blas/fblas-f2pywrappers.f' to sources.
+    building extension "scipy.lib.blas.cblas" sources
+      adding 'build/src.linux-x86_64-2.7/scipy/lib/blas/cblas.pyf' to sources.
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.lib.lapack.flapack" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.lib.lapack.clapack" sources
+      adding 'build/src.linux-x86_64-2.7/scipy/lib/lapack/clapack.pyf' to sources.
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.lib.lapack.calc_lwork" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.linalg._fblas" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+      adding 'build/src.linux-x86_64-2.7/build/src.linux-x86_64-2.7/scipy/linalg/_fblas-f2pywrappers.f' to sources.
+    building extension "scipy.linalg._flapack" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+      adding 'build/src.linux-x86_64-2.7/build/src.linux-x86_64-2.7/scipy/linalg/_flapack-f2pywrappers.f' to sources.
+    building extension "scipy.linalg._flinalg" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.linalg._interpolative" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.linalg._calc_lwork" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.odr.__odrpack" sources
+    building extension "scipy.optimize._minpack" sources
+    building extension "scipy.optimize._zeros" sources
+    building extension "scipy.optimize._lbfgsb" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.optimize.moduleTNC" sources
+    building extension "scipy.optimize._cobyla" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.optimize.minpack2" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.optimize._slsqp" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.optimize._nnls" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.signal.sigtools" sources
+    building extension "scipy.signal._spectral" sources
+    building extension "scipy.signal._max_len_seq" sources
+    building extension "scipy.signal.spline" sources
+    building extension "scipy.sparse.linalg.isolve._iterative" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.sparse.linalg.dsolve._superlu" sources
+    building extension "scipy.sparse.linalg.eigen.arpack._arpack" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+      adding 'build/src.linux-x86_64-2.7/build/src.linux-x86_64-2.7/scipy/sparse/linalg/eigen/arpack/_arpack-f2pywrappers.f' to sources.
+    building extension "scipy.sparse.csgraph._shortest_path" sources
+    building extension "scipy.sparse.csgraph._traversal" sources
+    building extension "scipy.sparse.csgraph._min_spanning_tree" sources
+    building extension "scipy.sparse.csgraph._reordering" sources
+    building extension "scipy.sparse.csgraph._tools" sources
+    building extension "scipy.sparse._csparsetools" sources
+    building extension "scipy.sparse._sparsetools" sources
+    [generate_sparsetools] 'scipy/sparse/sparsetools/bsr_impl.h' already up-to-date
+    [generate_sparsetools] 'scipy/sparse/sparsetools/csr_impl.h' already up-to-date
+    [generate_sparsetools] 'scipy/sparse/sparsetools/csc_impl.h' already up-to-date
+    [generate_sparsetools] 'scipy/sparse/sparsetools/other_impl.h' already up-to-date
+    [generate_sparsetools] 'scipy/sparse/sparsetools/sparsetools_impl.h' already up-to-date
+    building extension "scipy.spatial.qhull" sources
+    building extension "scipy.spatial.ckdtree" sources
+    building extension "scipy.spatial._distance_wrap" sources
+    building extension "scipy.special.specfun" sources
+    f2py options: ['--no-wrap-functions']
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.special._ufuncs" sources
+    building extension "scipy.special._ufuncs_cxx" sources
+    building extension "scipy.special._ellip_harm_2" sources
+    building extension "scipy.stats.statlib" sources
+    f2py options: ['--no-wrap-functions']
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.stats.vonmises_cython" sources
+    building extension "scipy.stats._rank" sources
+    building extension "scipy.stats.futil" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+    building extension "scipy.stats.mvn" sources
+    f2py options: []
+      adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+      adding 'build/src.linux-x86_64-2.7' to include_dirs.
+      adding 'build/src.linux-x86_64-2.7/scipy/stats/mvn-f2pywrappers.f' to sources.
+    building extension "scipy.ndimage._nd_image" sources
+    building extension "scipy.ndimage._ni_label" sources
+    building data_files sources
+    build_src: building npy-pkg config files
+    customize UnixCCompiler
+    customize UnixCCompiler using build_clib
+    customize Gnu95FCompiler
+    Found executable /usr/bin/gfortran
+    customize Gnu95FCompiler
+    customize Gnu95FCompiler using build_clib
+    building 'sc_c_misc' library
+    compiling C sources
+    C compiler: gcc -pthread -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC
+    
+    compile options: '-I/home/ts3prod/prod/lcatr/build/scipy/scipy/special -I/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include -I/usr/local/include/python2.7 -I/home/ts3prod/prod/lcatr/build/scipy/scipy/special/c_misc -I/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include -c'
+    gcc: scipy/special/c_misc/gammasgn.c
+    gcc: scipy/special/c_misc/besselpoly.c
+    gcc: scipy/special/c_misc/struve.c
+    scipy/special/c_misc/struve.c:82:20: error: Python.h: No such file or directory
+    In file included from /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:15,
+                     from /home/ts3prod/prod/lcatr/build/scipy/scipy/special/amos_wrappers.h:13,
+                     from scipy/special/c_misc/struve.c:87:
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:164: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘npy_intp’
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:165: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘npy_uintp’
+    In file included from /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:15,
+                     from /home/ts3prod/prod/lcatr/build/scipy/scipy/special/amos_wrappers.h:13,
+                     from scipy/special/c_misc/struve.c:87:
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:301:2: error: #error Must use Python with unicode enabled.
+    In file included from /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:15,
+                     from /home/ts3prod/prod/lcatr/build/scipy/scipy/special/amos_wrappers.h:13,
+                     from scipy/special/c_misc/struve.c:87:
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:949: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘npy_half’
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:950: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘npy_float16’
+    In file included from /home/ts3prod/prod/lcatr/build/scipy/scipy/special/amos_wrappers.h:13,
+                     from scipy/special/c_misc/struve.c:87:
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h: In function ‘__npy_inff’:
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:26: error: expected specifier-qualifier-list before ‘npy_uint32’
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:26: warning: excess elements in union initializer
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:26: warning: (near initialization for ‘__bint’)
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:27: error: ‘const union <anonymous>’ has no member named ‘__f’
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h: In function ‘__npy_nanf’:
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:32: error: expected specifier-qualifier-list before ‘npy_uint32’
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:32: warning: excess elements in union initializer
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:32: warning: (near initialization for ‘__bint’)
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:33: error: ‘const union <anonymous>’ has no member named ‘__f’
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h: In function ‘__npy_pzerof’:
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:38: error: expected specifier-qualifier-list before ‘npy_uint32’
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:38: warning: excess elements in union initializer
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:38: warning: (near initialization for ‘__bint’)
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:39: error: ‘const union <anonymous>’ has no member named ‘__f’
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h: In function ‘__npy_nzerof’:
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:44: error: expected specifier-qualifier-list before ‘npy_uint32’
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:44: warning: excess elements in union initializer
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:44: warning: (near initialization for ‘__bint’)
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:45: error: ‘const union <anonymous>’ has no member named ‘__f’
+    scipy/special/c_misc/struve.c:82:20: error: Python.h: No such file or directory
+    In file included from /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:15,
+                     from /home/ts3prod/prod/lcatr/build/scipy/scipy/special/amos_wrappers.h:13,
+                     from scipy/special/c_misc/struve.c:87:
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:164: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘npy_intp’
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:165: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘npy_uintp’
+    In file included from /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:15,
+                     from /home/ts3prod/prod/lcatr/build/scipy/scipy/special/amos_wrappers.h:13,
+                     from scipy/special/c_misc/struve.c:87:
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:301:2: error: #error Must use Python with unicode enabled.
+    In file included from /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:15,
+                     from /home/ts3prod/prod/lcatr/build/scipy/scipy/special/amos_wrappers.h:13,
+                     from scipy/special/c_misc/struve.c:87:
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:949: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘npy_half’
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:950: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘npy_float16’
+    In file included from /home/ts3prod/prod/lcatr/build/scipy/scipy/special/amos_wrappers.h:13,
+                     from scipy/special/c_misc/struve.c:87:
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h: In function ‘__npy_inff’:
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:26: error: expected specifier-qualifier-list before ‘npy_uint32’
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:26: warning: excess elements in union initializer
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:26: warning: (near initialization for ‘__bint’)
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:27: error: ‘const union <anonymous>’ has no member named ‘__f’
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h: In function ‘__npy_nanf’:
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:32: error: expected specifier-qualifier-list before ‘npy_uint32’
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:32: warning: excess elements in union initializer
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:32: warning: (near initialization for ‘__bint’)
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:33: error: ‘const union <anonymous>’ has no member named ‘__f’
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h: In function ‘__npy_pzerof’:
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:38: error: expected specifier-qualifier-list before ‘npy_uint32’
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:38: warning: excess elements in union initializer
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:38: warning: (near initialization for ‘__bint’)
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:39: error: ‘const union <anonymous>’ has no member named ‘__f’
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h: In function ‘__npy_nzerof’:
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:44: error: expected specifier-qualifier-list before ‘npy_uint32’
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:44: warning: excess elements in union initializer
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:44: warning: (near initialization for ‘__bint’)
+    /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:45: error: ‘const union <anonymous>’ has no member named ‘__f’
+    error: Command "gcc -pthread -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/home/ts3prod/prod/lcatr/build/scipy/scipy/special -I/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include -I/usr/local/include/python2.7 -I/home/ts3prod/prod/lcatr/build/scipy/scipy/special/c_misc -I/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include -c scipy/special/c_misc/struve.c -o build/temp.linux-x86_64-2.7/scipy/special/c_misc/struve.o" failed with exit status 1
+    Complete output from command /home/ts3prod/prod/lcatr/bin/python -c "import setuptools;__file__='/home/ts3prod/prod/lcatr/build/scipy/setup.py';exec(compile(open(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record /tmp/pip-vOEJpt-record/install-record.txt --single-version-externally-managed --install-headers /home/ts3prod/prod/lcatr/include/site/python2.7:
+    lapack_opt_info:
+
+openblas_lapack_info:
+
+  libraries openblas not found in ['/home/ts3prod/prod/lcatr/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
+
+  NOT AVAILABLE
+
+
+
+lapack_mkl_info:
+
+mkl_info:
+
+  libraries mkl,vml,guide not found in ['/home/ts3prod/prod/lcatr/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
+
+  NOT AVAILABLE
+
+
+
+  NOT AVAILABLE
+
+
+
+atlas_threads_info:
+
+Setting PTATLAS=ATLAS
+
+  libraries ptf77blas,ptcblas,atlas not found in /home/ts3prod/prod/lcatr/lib
+
+  libraries lapack_atlas not found in /home/ts3prod/prod/lcatr/lib
+
+  libraries ptf77blas,ptcblas,atlas not found in /usr/local/lib64
+
+  libraries lapack_atlas not found in /usr/local/lib64
+
+  libraries ptf77blas,ptcblas,atlas not found in /usr/local/lib
+
+  libraries lapack_atlas not found in /usr/local/lib
+
+  libraries ptf77blas,ptcblas,atlas not found in /usr/lib64/atlas
+
+  libraries lapack_atlas not found in /usr/lib64/atlas
+
+  libraries ptf77blas,ptcblas,atlas not found in /usr/lib64/sse2
+
+  libraries lapack_atlas not found in /usr/lib64/sse2
+
+  libraries ptf77blas,ptcblas,atlas not found in /usr/lib64
+
+  libraries lapack_atlas not found in /usr/lib64
+
+  libraries ptf77blas,ptcblas,atlas not found in /usr/lib
+
+  libraries lapack_atlas not found in /usr/lib
+
+numpy.distutils.system_info.atlas_threads_info
+
+  NOT AVAILABLE
+
+
+
+atlas_info:
+
+  libraries f77blas,cblas,atlas not found in /home/ts3prod/prod/lcatr/lib
+
+  libraries lapack_atlas not found in /home/ts3prod/prod/lcatr/lib
+
+  libraries f77blas,cblas,atlas not found in /usr/local/lib64
+
+  libraries lapack_atlas not found in /usr/local/lib64
+
+  libraries f77blas,cblas,atlas not found in /usr/local/lib
+
+  libraries lapack_atlas not found in /usr/local/lib
+
+  libraries f77blas,cblas,atlas not found in /usr/lib64/atlas
+
+  libraries lapack_atlas not found in /usr/lib64/atlas
+
+  libraries f77blas,cblas,atlas not found in /usr/lib64/sse2
+
+  libraries lapack_atlas not found in /usr/lib64/sse2
+
+  libraries f77blas,cblas,atlas not found in /usr/lib64
+
+  libraries lapack_atlas not found in /usr/lib64
+
+  libraries f77blas,cblas,atlas not found in /usr/lib
+
+  libraries lapack_atlas not found in /usr/lib
+
+numpy.distutils.system_info.atlas_info
+
+  NOT AVAILABLE
+
+
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/distutils/system_info.py:1432: UserWarning:
+
+    Atlas (http://math-atlas.sourceforge.net/) libraries not found.
+
+    Directories to search for the libraries can be specified in the
+
+    numpy/distutils/site.cfg file (section [atlas]) or by setting
+
+    the ATLAS environment variable.
+
+  warnings.warn(AtlasNotFoundError.__doc__)
+
+lapack_info:
+
+  FOUND:
+
+    libraries = ['lapack']
+
+    library_dirs = ['/usr/lib64']
+
+    language = f77
+
+
+
+blas_info:
+
+  FOUND:
+
+    libraries = ['blas']
+
+    library_dirs = ['/usr/lib64']
+
+    language = f77
+
+
+
+  FOUND:
+
+    libraries = ['lapack', 'blas']
+
+    library_dirs = ['/usr/lib64']
+
+    define_macros = [('NO_ATLAS_INFO', 1)]
+
+    language = f77
+
+
+
+Running from scipy source directory.
+
+Splitting linalg.interpolative Fortran source files
+
+blas_opt_info:
+
+blas_mkl_info:
+
+  libraries mkl,vml,guide not found in ['/home/ts3prod/prod/lcatr/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
+
+  NOT AVAILABLE
+
+
+
+openblas_info:
+
+  libraries openblas not found in ['/home/ts3prod/prod/lcatr/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64', '/usr/lib']
+
+  NOT AVAILABLE
+
+
+
+atlas_blas_threads_info:
+
+Setting PTATLAS=ATLAS
+
+  libraries ptf77blas,ptcblas,atlas not found in ['/home/ts3prod/prod/lcatr/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64/atlas', '/usr/lib64/sse2', '/usr/lib64', '/usr/lib']
+
+  NOT AVAILABLE
+
+
+
+atlas_blas_info:
+
+  libraries f77blas,cblas,atlas not found in ['/home/ts3prod/prod/lcatr/lib', '/usr/local/lib64', '/usr/local/lib', '/usr/lib64/atlas', '/usr/lib64/sse2', '/usr/lib64', '/usr/lib']
+
+  NOT AVAILABLE
+
+
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/distutils/system_info.py:1526: UserWarning:
+
+    Atlas (http://math-atlas.sourceforge.net/) libraries not found.
+
+    Directories to search for the libraries can be specified in the
+
+    numpy/distutils/site.cfg file (section [atlas]) or by setting
+
+    the ATLAS environment variable.
+
+  warnings.warn(AtlasNotFoundError.__doc__)
+
+  FOUND:
+
+    libraries = ['blas']
+
+    library_dirs = ['/usr/lib64']
+
+    define_macros = [('NO_ATLAS_INFO', 1)]
+
+    language = f77
+
+
+
+non-existing path in 'scipy/spatial': '/usr/local/include/python2.7'
+
+non-existing path in 'scipy/special': '/usr/local/include/python2.7'
+
+non-existing path in 'scipy/special': '/usr/local/include/python2.7'
+
+non-existing path in 'scipy/special': '/usr/local/include/python2.7'
+
+running install
+
+running build
+
+running config_cc
+
+unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+
+running config_fc
+
+unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+
+running build_src
+
+build_src
+
+building py_modules sources
+
+building library "dfftpack" sources
+
+building library "fftpack" sources
+
+building library "mach" sources
+
+building library "quadpack" sources
+
+building library "odepack" sources
+
+building library "dop" sources
+
+building library "fitpack" sources
+
+building library "odrpack" sources
+
+building library "minpack" sources
+
+building library "rootfind" sources
+
+building library "superlu_src" sources
+
+building library "arpack_scipy" sources
+
+building library "sc_c_misc" sources
+
+building library "sc_cephes" sources
+
+building library "sc_mach" sources
+
+building library "sc_amos" sources
+
+building library "sc_cdf" sources
+
+building library "sc_specfun" sources
+
+building library "statlib" sources
+
+building extension "scipy.cluster._vq" sources
+
+building extension "scipy.cluster._hierarchy" sources
+
+building extension "scipy.fftpack._fftpack" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.fftpack.convolve" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.integrate._quadpack" sources
+
+building extension "scipy.integrate._odepack" sources
+
+building extension "scipy.integrate.vode" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.integrate.lsoda" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.integrate._dop" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.integrate._test_multivariate" sources
+
+building extension "scipy.interpolate.interpnd" sources
+
+building extension "scipy.interpolate._ppoly" sources
+
+building extension "scipy.interpolate._fitpack" sources
+
+building extension "scipy.interpolate.dfitpack" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+  adding 'build/src.linux-x86_64-2.7/scipy/interpolate/src/dfitpack-f2pywrappers.f' to sources.
+
+building extension "scipy.interpolate._interpolate" sources
+
+building extension "scipy.io.matlab.streams" sources
+
+building extension "scipy.io.matlab.mio_utils" sources
+
+building extension "scipy.io.matlab.mio5_utils" sources
+
+building extension "scipy.lib.blas.fblas" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+  adding 'build/src.linux-x86_64-2.7/build/src.linux-x86_64-2.7/scipy/lib/blas/fblas-f2pywrappers.f' to sources.
+
+building extension "scipy.lib.blas.cblas" sources
+
+  adding 'build/src.linux-x86_64-2.7/scipy/lib/blas/cblas.pyf' to sources.
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.lib.lapack.flapack" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.lib.lapack.clapack" sources
+
+  adding 'build/src.linux-x86_64-2.7/scipy/lib/lapack/clapack.pyf' to sources.
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.lib.lapack.calc_lwork" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.linalg._fblas" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+  adding 'build/src.linux-x86_64-2.7/build/src.linux-x86_64-2.7/scipy/linalg/_fblas-f2pywrappers.f' to sources.
+
+building extension "scipy.linalg._flapack" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+  adding 'build/src.linux-x86_64-2.7/build/src.linux-x86_64-2.7/scipy/linalg/_flapack-f2pywrappers.f' to sources.
+
+building extension "scipy.linalg._flinalg" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.linalg._interpolative" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.linalg._calc_lwork" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.odr.__odrpack" sources
+
+building extension "scipy.optimize._minpack" sources
+
+building extension "scipy.optimize._zeros" sources
+
+building extension "scipy.optimize._lbfgsb" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.optimize.moduleTNC" sources
+
+building extension "scipy.optimize._cobyla" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.optimize.minpack2" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.optimize._slsqp" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.optimize._nnls" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.signal.sigtools" sources
+
+building extension "scipy.signal._spectral" sources
+
+building extension "scipy.signal._max_len_seq" sources
+
+building extension "scipy.signal.spline" sources
+
+building extension "scipy.sparse.linalg.isolve._iterative" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.sparse.linalg.dsolve._superlu" sources
+
+building extension "scipy.sparse.linalg.eigen.arpack._arpack" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+  adding 'build/src.linux-x86_64-2.7/build/src.linux-x86_64-2.7/scipy/sparse/linalg/eigen/arpack/_arpack-f2pywrappers.f' to sources.
+
+building extension "scipy.sparse.csgraph._shortest_path" sources
+
+building extension "scipy.sparse.csgraph._traversal" sources
+
+building extension "scipy.sparse.csgraph._min_spanning_tree" sources
+
+building extension "scipy.sparse.csgraph._reordering" sources
+
+building extension "scipy.sparse.csgraph._tools" sources
+
+building extension "scipy.sparse._csparsetools" sources
+
+building extension "scipy.sparse._sparsetools" sources
+
+[generate_sparsetools] 'scipy/sparse/sparsetools/bsr_impl.h' already up-to-date
+
+[generate_sparsetools] 'scipy/sparse/sparsetools/csr_impl.h' already up-to-date
+
+[generate_sparsetools] 'scipy/sparse/sparsetools/csc_impl.h' already up-to-date
+
+[generate_sparsetools] 'scipy/sparse/sparsetools/other_impl.h' already up-to-date
+
+[generate_sparsetools] 'scipy/sparse/sparsetools/sparsetools_impl.h' already up-to-date
+
+building extension "scipy.spatial.qhull" sources
+
+building extension "scipy.spatial.ckdtree" sources
+
+building extension "scipy.spatial._distance_wrap" sources
+
+building extension "scipy.special.specfun" sources
+
+f2py options: ['--no-wrap-functions']
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.special._ufuncs" sources
+
+building extension "scipy.special._ufuncs_cxx" sources
+
+building extension "scipy.special._ellip_harm_2" sources
+
+building extension "scipy.stats.statlib" sources
+
+f2py options: ['--no-wrap-functions']
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.stats.vonmises_cython" sources
+
+building extension "scipy.stats._rank" sources
+
+building extension "scipy.stats.futil" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+building extension "scipy.stats.mvn" sources
+
+f2py options: []
+
+  adding 'build/src.linux-x86_64-2.7/fortranobject.c' to sources.
+
+  adding 'build/src.linux-x86_64-2.7' to include_dirs.
+
+  adding 'build/src.linux-x86_64-2.7/scipy/stats/mvn-f2pywrappers.f' to sources.
+
+building extension "scipy.ndimage._nd_image" sources
+
+building extension "scipy.ndimage._ni_label" sources
+
+building data_files sources
+
+build_src: building npy-pkg config files
+
+running build_py
+
+copying scipy/version.py -> build/lib.linux-x86_64-2.7/scipy
+
+copying build/src.linux-x86_64-2.7/scipy/__config__.py -> build/lib.linux-x86_64-2.7/scipy
+
+running build_clib
+
+customize UnixCCompiler
+
+customize UnixCCompiler using build_clib
+
+customize Gnu95FCompiler
+
+Found executable /usr/bin/gfortran
+
+customize Gnu95FCompiler
+
+customize Gnu95FCompiler using build_clib
+
+building 'sc_c_misc' library
+
+compiling C sources
+
+C compiler: gcc -pthread -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC
+
+
+
+compile options: '-I/home/ts3prod/prod/lcatr/build/scipy/scipy/special -I/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include -I/usr/local/include/python2.7 -I/home/ts3prod/prod/lcatr/build/scipy/scipy/special/c_misc -I/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include -c'
+
+gcc: scipy/special/c_misc/gammasgn.c
+
+gcc: scipy/special/c_misc/besselpoly.c
+
+gcc: scipy/special/c_misc/struve.c
+
+scipy/special/c_misc/struve.c:82:20: error: Python.h: No such file or directory
+
+In file included from /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:15,
+
+                 from /home/ts3prod/prod/lcatr/build/scipy/scipy/special/amos_wrappers.h:13,
+
+                 from scipy/special/c_misc/struve.c:87:
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:164: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘npy_intp’
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:165: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘npy_uintp’
+
+In file included from /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:15,
+
+                 from /home/ts3prod/prod/lcatr/build/scipy/scipy/special/amos_wrappers.h:13,
+
+                 from scipy/special/c_misc/struve.c:87:
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:301:2: error: #error Must use Python with unicode enabled.
+
+In file included from /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:15,
+
+                 from /home/ts3prod/prod/lcatr/build/scipy/scipy/special/amos_wrappers.h:13,
+
+                 from scipy/special/c_misc/struve.c:87:
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:949: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘npy_half’
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:950: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘npy_float16’
+
+In file included from /home/ts3prod/prod/lcatr/build/scipy/scipy/special/amos_wrappers.h:13,
+
+                 from scipy/special/c_misc/struve.c:87:
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h: In function ‘__npy_inff’:
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:26: error: expected specifier-qualifier-list before ‘npy_uint32’
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:26: warning: excess elements in union initializer
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:26: warning: (near initialization for ‘__bint’)
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:27: error: ‘const union <anonymous>’ has no member named ‘__f’
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h: In function ‘__npy_nanf’:
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:32: error: expected specifier-qualifier-list before ‘npy_uint32’
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:32: warning: excess elements in union initializer
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:32: warning: (near initialization for ‘__bint’)
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:33: error: ‘const union <anonymous>’ has no member named ‘__f’
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h: In function ‘__npy_pzerof’:
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:38: error: expected specifier-qualifier-list before ‘npy_uint32’
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:38: warning: excess elements in union initializer
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:38: warning: (near initialization for ‘__bint’)
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:39: error: ‘const union <anonymous>’ has no member named ‘__f’
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h: In function ‘__npy_nzerof’:
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:44: error: expected specifier-qualifier-list before ‘npy_uint32’
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:44: warning: excess elements in union initializer
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:44: warning: (near initialization for ‘__bint’)
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:45: error: ‘const union <anonymous>’ has no member named ‘__f’
+
+scipy/special/c_misc/struve.c:82:20: error: Python.h: No such file or directory
+
+In file included from /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:15,
+
+                 from /home/ts3prod/prod/lcatr/build/scipy/scipy/special/amos_wrappers.h:13,
+
+                 from scipy/special/c_misc/struve.c:87:
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:164: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘npy_intp’
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:165: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘npy_uintp’
+
+In file included from /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:15,
+
+                 from /home/ts3prod/prod/lcatr/build/scipy/scipy/special/amos_wrappers.h:13,
+
+                 from scipy/special/c_misc/struve.c:87:
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:301:2: error: #error Must use Python with unicode enabled.
+
+In file included from /home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:15,
+
+                 from /home/ts3prod/prod/lcatr/build/scipy/scipy/special/amos_wrappers.h:13,
+
+                 from scipy/special/c_misc/struve.c:87:
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:949: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘npy_half’
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_common.h:950: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘npy_float16’
+
+In file included from /home/ts3prod/prod/lcatr/build/scipy/scipy/special/amos_wrappers.h:13,
+
+                 from scipy/special/c_misc/struve.c:87:
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h: In function ‘__npy_inff’:
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:26: error: expected specifier-qualifier-list before ‘npy_uint32’
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:26: warning: excess elements in union initializer
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:26: warning: (near initialization for ‘__bint’)
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:27: error: ‘const union <anonymous>’ has no member named ‘__f’
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h: In function ‘__npy_nanf’:
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:32: error: expected specifier-qualifier-list before ‘npy_uint32’
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:32: warning: excess elements in union initializer
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:32: warning: (near initialization for ‘__bint’)
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:33: error: ‘const union <anonymous>’ has no member named ‘__f’
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h: In function ‘__npy_pzerof’:
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:38: error: expected specifier-qualifier-list before ‘npy_uint32’
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:38: warning: excess elements in union initializer
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:38: warning: (near initialization for ‘__bint’)
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:39: error: ‘const union <anonymous>’ has no member named ‘__f’
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h: In function ‘__npy_nzerof’:
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:44: error: expected specifier-qualifier-list before ‘npy_uint32’
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:44: warning: excess elements in union initializer
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:44: warning: (near initialization for ‘__bint’)
+
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include/numpy/npy_math.h:45: error: ‘const union <anonymous>’ has no member named ‘__f’
+
+error: Command "gcc -pthread -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/home/ts3prod/prod/lcatr/build/scipy/scipy/special -I/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include -I/usr/local/include/python2.7 -I/home/ts3prod/prod/lcatr/build/scipy/scipy/special/c_misc -I/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/numpy/core/include -c scipy/special/c_misc/struve.c -o build/temp.linux-x86_64-2.7/scipy/special/c_misc/struve.o" failed with exit status 1
+
+----------------------------------------
+Command /home/ts3prod/prod/lcatr/bin/python -c "import setuptools;__file__='/home/ts3prod/prod/lcatr/build/scipy/setup.py';exec(compile(open(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record /tmp/pip-vOEJpt-record/install-record.txt --single-version-externally-managed --install-headers /home/ts3prod/prod/lcatr/include/site/python2.7 failed with error code 1 in /home/ts3prod/prod/lcatr/build/scipy
+Storing complete log in /home/ts3prod/.pip/pip.log

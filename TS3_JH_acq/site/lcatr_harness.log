@@ -1,0 +1,216 @@
+2015-04-24 16:46:59,126 lcatr_harness(INFO) Using eTraveler URL: "http://lsst-camera.slac.stanford.edu:80/eTraveler/Dev/Results/nextJob"
+2015-04-24 16:46:59,126 lcatr_harness(DEBUG) Query LIMS "nextJob" with json="{"operator": "ts3prod", "containerid": "1509"}", query="jsonObject=%7B%22operator%22%3A+%22ts3prod%22%2C+%22containerid%22%3A+%221509%22%7D"
+2015-04-24 16:46:59,493 lcatr_harness(DEBUG) Executing: lcatr-harness --unit-type=CCD --unit-id=aab --job=TS3_fe55 --version=v3 --lims-url=http://lsst-camera.slac.stanford.edu:80/eTraveler/Dev
+2015-04-24 16:46:59,719 lcatr_harness(DEBUG) logging to: lcatr_harness.log
+2015-04-24 16:46:59,719 lcatr_harness(DEBUG) Loaded configuration files: 
+2015-04-24 16:46:59,719 lcatr_harness(DEBUG) Traceback (most recent call last):
+2015-04-24 16:46:59,719 lcatr_harness(DEBUG)   File "/home/ts3prod/prod/lcatr/TS3_JH_acq/jh_inst_novirtualenv/bin/lcatr-harness", line 8, in <module>
+2015-04-24 16:46:59,720 lcatr_harness(DEBUG)     main.cmdline(sys.argv[1:])
+2015-04-24 16:46:59,720 lcatr_harness(DEBUG)   File "/home/ts3prod/prod/lcatr/TS3_JH_acq/jh_inst_novirtualenv/python/lcatr/harness/main.py", line 64, in cmdline
+2015-04-24 16:46:59,720 lcatr_harness(DEBUG)     job = jobmod.Job(cfg)
+2015-04-24 16:46:59,720 lcatr_harness(DEBUG)   File "/home/ts3prod/prod/lcatr/TS3_JH_acq/jh_inst_novirtualenv/python/lcatr/harness/job.py", line 61, in __init__
+2015-04-24 16:46:59,721 lcatr_harness(DEBUG)     cfg.missing(Job.required_parameters)
+2015-04-24 16:46:59,721 lcatr_harness(DEBUG) ValueError: Given incomplete configuration, missing: ['archive_root', 'archive_host', 'archive_user']
+2015-04-24 16:46:59,726 lcatr_harness(WARNING) Command: "lcatr-harness --unit-type=CCD --unit-id=aab --job=TS3_fe55 --version=v3 --lims-url=http://lsst-camera.slac.stanford.edu:80/eTraveler/Dev" failed with code 1
+2015-04-24 16:46:59,727 lcatr_harness(WARNING) Running environment:
+	AFW_DIR: /opt/lsst/installation/root/Linux64/afw/9.2
+	AFW_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/afw/9.2
+	ANACONDA_DIR: /opt/lsst/installation/root/Linux64/anaconda/2.1.0
+	ANACONDA_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/anaconda/2.1.0
+	ASTROMETRY_NET_DATA_DIR: /opt/lsst/installation/root/Linux64/astrometry_net_data/8.0.0.0+7
+	ASTROMETRY_NET_DATA_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/astrometry_net_data/8.0.0.0+7
+	ASTROMETRY_NET_DIR: /opt/lsst/installation/root/Linux64/astrometry_net/0.50.1
+	ASTROMETRY_NET_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/astrometry_net/0.50.1
+	BASE_DIR: /opt/lsst/installation/root/Linux64/base/9.1+1
+	BASE_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/base/9.1+1
+	BASH_FUNC_module(): () {  eval `/home/homer/lsst/lcatr/Modules/$MODULE_VERSION/bin/modulecmd bash $*`
+}
+	BOOST_DIR: /opt/lsst/installation/root/Linux64/boost/1.55.0.1+2
+	BOOST_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/boost/1.55.0.1+2
+	CFITSIO_DIR: /opt/lsst/installation/root/Linux64/cfitsio/3360
+	CFITSIO_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/cfitsio/3360
+	COADD_CHISQUARED_DIR: /opt/lsst/installation/root/Linux64/coadd_chisquared/9.0+9
+	COADD_CHISQUARED_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/coadd_chisquared/9.0+9
+	COADD_UTILS_DIR: /opt/lsst/installation/root/Linux64/coadd_utils/9.2
+	COADD_UTILS_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/coadd_utils/9.2
+	CVS_RSH: ssh
+	DAF_BASE_DIR: /opt/lsst/installation/root/Linux64/daf_base/9.2
+	DAF_BASE_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/daf_base/9.2
+	DAF_PERSISTENCE_DIR: /opt/lsst/installation/root/Linux64/daf_persistence/9.0+7
+	DAF_PERSISTENCE_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/daf_persistence/9.0+7
+	DISPLAY: localhost:12.0
+	DOXYGEN_DIR: /opt/lsst/installation/root/Linux64/doxygen/1.8.5
+	DOXYGEN_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/doxygen/1.8.5
+	DYLD_LIBRARY_PATH: /opt/lsst/installation/eotest-0.0.0.8/lib:/opt/lsst/installation/root/Linux64/skymap/9.2/lib:/opt/lsst/installation/root/Linux64/coadd_chisquared/9.0+9/lib:/opt/lsst/installation/root/Linux64/coadd_utils/9.2/lib:/opt/lsst/installation/root/Linux64/ip_diffim/9.2/lib:/opt/lsst/installation/root/Linux64/ip_isr/9.2/lib:/opt/lsst/installation/root/Linux64/astrometry_net/0.50.1/lib:/opt/lsst/installation/root/Linux64/meas_astrom/9.2/lib:/opt/lsst/installation/root/Linux64/meas_algorithms/9.2/lib:/opt/lsst/installation/root/Linux64/afw/9.2/lib:/opt/lsst/installation/root/Linux64/minuit2/5.28.00/lib:/opt/lsst/installation/root/Linux64/wcslib/4.14+5/lib:/opt/lsst/installation/root/Linux64/fftw/3.3.3/lib:/opt/lsst/installation/root/Linux64/pex_config/9.0+7/lib:/opt/lsst/installation/root/Linux64/pex_policy/9.2/lib:/opt/lsst/installation/root/Linux64/base/9.1+1/lib:/opt/lsst/installation/root/Linux64/daf_base/9.2/lib:/opt/lsst/installation/root/Linux64/utils/9.2/lib:/opt/lsst/installation/root/Linux64/boost/1.55.0.1+2/lib:/opt/lsst/installation/root/Linux64/pex_exceptions/9.2/lib:/opt/lsst/installation/root/Linux64/daf_persistence/9.0+7/lib:/opt/lsst/installation/root/Linux64/mysqlclient/5.1.73/lib:/opt/lsst/installation/root/Linux64/pex_logging/9.2/lib:/opt/lsst/installation/root/Linux64/cfitsio/3360/lib:/opt/lsst/installation/root/Linux64/xpa/2.1.15/lib:/opt/lsst/installation/root/Linux64/gsl/1.16/lib:/opt/lsst/installation/root/Linux64/meas_base/9.2/lib:/opt/lsst/installation/root/Linux64/meas_deblender/9.0+10/lib
+	EIGEN_DIR: /opt/lsst/installation/root/Linux64/eigen/3.2.0
+	EIGEN_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/eigen/3.2.0
+	EOTEST_DIR: /opt/lsst/installation/eotest-0.0.0.8
+	EUPS_DIR: /opt/lsst/installation/root/eups
+	EUPS_PATH: /opt/lsst/installation/root:/opt/lsst/installation/root
+	EUPS_PKGROOT: http://sw.lsstcorp.org/eupspkg
+	EUPS_SHELL: sh
+	FFTW_DIR: /opt/lsst/installation/root/Linux64/fftw/3.3.3
+	FFTW_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/fftw/3.3.3
+	GEOM_DIR: /opt/lsst/installation/root/Linux64/geom/8.0.0.1+4
+	GEOM_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/geom/8.0.0.1+4
+	GITROOT: git@git.lsstcorp.org
+	GSL_DIR: /opt/lsst/installation/root/Linux64/gsl/1.16
+	GSL_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/gsl/1.16
+	G_BROKEN_FILENAMES: 1
+	HISTCONTROL: ignoredups
+	HISTSIZE: 1000
+	HOME: /home/ts3prod
+	HOSTNAME: ts3-3.inst.bnl.gov
+	IP_DIFFIM_DIR: /opt/lsst/installation/root/Linux64/ip_diffim/9.2
+	IP_DIFFIM_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/ip_diffim/9.2
+	IP_ISR_DIR: /opt/lsst/installation/root/Linux64/ip_isr/9.2
+	IP_ISR_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/ip_isr/9.2
+	LANG: en_US.UTF-8
+	LCATR_CONTAINER_ID: 1509
+	LCATR_HOST: bnl.gov
+	LCATR_INSTALL_AREA: /home/ts3prod/prod/lcatr/TS3_JH_acq/jh_inst_novirtualenv/share
+	LCATR_LIMS_URL: http://lsst-camera.slac.stanford.edu:80/eTraveler/Dev
+	LCATR_MODULES: /home/ts3prod/prod/lcatr/TS3_JH_acq/jh_inst_novirtualenv/share/modulefiles
+	LCATR_MODULES_CMD: /home/ts3prod/prod/lcatr/TS3_JH_acq/jh_inst_novirtualenv/Modules/3.2.10/bin/modulecmd
+	LCATR_MODULES_HOME: /home/homer/lsst/lcatr/Modules/3.2.10
+	LCATR_MODULES_PATH: /home/ts3prod/prod/lcatr/TS3_JH_acq/jh_inst_novirtualenv/share:/home/homer/lsst/lcatr/Modules/versions/:/home/homer/lsst/lcatr/Modules/$MODULE_VERSION/modulefiles:/homer/homer/lsst/lcatr/Modules/modulefiles/
+	LCATR_MODULES_VERSION: 3.2.10
+	LCATR_OPERATOR: ts3prod
+	LCATR_STAGE_ROOT: /home/ts3prod/prod/lcatr/TS3_JH_acq/site
+	LCATR_STAMP: 1429908419.12
+	LD_LIBRARY_PATH: /opt/lsst/installation/eotest-0.0.0.8/lib:/opt/lsst/installation/root/Linux64/skymap/9.2/lib:/opt/lsst/installation/root/Linux64/coadd_chisquared/9.0+9/lib:/opt/lsst/installation/root/Linux64/coadd_utils/9.2/lib:/opt/lsst/installation/root/Linux64/ip_diffim/9.2/lib:/opt/lsst/installation/root/Linux64/ip_isr/9.2/lib:/opt/lsst/installation/root/Linux64/astrometry_net/0.50.1/lib:/opt/lsst/installation/root/Linux64/meas_astrom/9.2/lib:/opt/lsst/installation/root/Linux64/meas_algorithms/9.2/lib:/opt/lsst/installation/root/Linux64/afw/9.2/lib:/opt/lsst/installation/root/Linux64/minuit2/5.28.00/lib:/opt/lsst/installation/root/Linux64/wcslib/4.14+5/lib:/opt/lsst/installation/root/Linux64/fftw/3.3.3/lib:/opt/lsst/installation/root/Linux64/pex_config/9.0+7/lib:/opt/lsst/installation/root/Linux64/pex_policy/9.2/lib:/opt/lsst/installation/root/Linux64/base/9.1+1/lib:/opt/lsst/installation/root/Linux64/daf_base/9.2/lib:/opt/lsst/installation/root/Linux64/utils/9.2/lib:/opt/lsst/installation/root/Linux64/boost/1.55.0.1+2/lib:/opt/lsst/installation/root/Linux64/pex_exceptions/9.2/lib:/opt/lsst/installation/root/Linux64/daf_persistence/9.0+7/lib:/opt/lsst/installation/root/Linux64/mysqlclient/5.1.73/lib:/opt/lsst/installation/root/Linux64/pex_logging/9.2/lib:/opt/lsst/installation/root/Linux64/cfitsio/3360/lib:/opt/lsst/installation/root/Linux64/xpa/2.1.15/lib:/opt/lsst/installation/root/Linux64/gsl/1.16/lib:/opt/lsst/installation/root/Linux64/meas_base/9.2/lib:/opt/lsst/installation/root/Linux64/meas_deblender/9.0+10/lib
+	LESSOPEN: ||/usr/bin/lesspipe.sh %s
+	LOADEDMODULES: 
+	LOGNAME: ts3prod
+	LSST_DIR: /opt/lsst/installation/root/Linux64/lsst/10.0
+	LSST_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/lsst/10.0
+	LSST_DMS: git@git.lsstcorp.org:LSST/DMS
+	LSST_GIT: git@git.lsstcorp.org
+	LSST_HOME: /opt/lsst/installation/root
+	LSST_PKGS: /opt/lsst/installation/root/Linux64
+	LS_COLORS: rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:
+	MAIL: /var/spool/mail/ts3prod
+	MATPLOTLIB_DIR: /opt/lsst/installation/root/Linux64/matplotlib/0.0.1+2
+	MATPLOTLIB_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/matplotlib/0.0.1+2
+	MEAS_ALGORITHMS_DIR: /opt/lsst/installation/root/Linux64/meas_algorithms/9.2
+	MEAS_ALGORITHMS_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/meas_algorithms/9.2
+	MEAS_ASTROM_DIR: /opt/lsst/installation/root/Linux64/meas_astrom/9.2
+	MEAS_ASTROM_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/meas_astrom/9.2
+	MEAS_BASE_DIR: /opt/lsst/installation/root/Linux64/meas_base/9.2
+	MEAS_BASE_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/meas_base/9.2
+	MEAS_DEBLENDER_DIR: /opt/lsst/installation/root/Linux64/meas_deblender/9.0+10
+	MEAS_DEBLENDER_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/meas_deblender/9.0+10
+	MINUIT2_DIR: /opt/lsst/installation/root/Linux64/minuit2/5.28.00
+	MINUIT2_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/minuit2/5.28.00
+	MODULEPATH: /home/ts3prod/prod/lcatr/TS3_JH_acq/jh_inst_novirtualenv/share:/home/homer/lsst/lcatr/Modules/versions/:/home/homer/lsst/lcatr/Modules/$MODULE_VERSION/modulefiles:/homer/homer/lsst/lcatr/Modules/modulefiles/:/home/homer/lsst/lcatr/Modules/3.2.10/modulefiles:/home/ts3prod/prod/lcatr/TS3_JH_acq/jh_inst_novirtualenv/share
+	MODULESHOME: /home/homer/lsst/lcatr/Modules/3.2.10
+	MODULE_VERSION: 3.2.10
+	MODULE_VERSION_STACK: 3.2.10
+	MYSQLCLIENT_DIR: /opt/lsst/installation/root/Linux64/mysqlclient/5.1.73
+	MYSQLCLIENT_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/mysqlclient/5.1.73
+	MYSQLPYTHON_DIR: /opt/lsst/installation/root/Linux64/mysqlpython/1.2.3+11
+	MYSQLPYTHON_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/mysqlpython/1.2.3+11
+	MYSQL_INCLUDE_PATH: /opt/lsst/installation/root/Linux64/mysqlclient/5.1.73/include/mysql
+	NDARRAY_DIR: /opt/lsst/installation/root/Linux64/ndarray/8.0.0.0+12
+	NDARRAY_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/ndarray/8.0.0.0+12
+	NUMPY_DIR: /opt/lsst/installation/root/Linux64/numpy/0.0.1+2
+	NUMPY_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/numpy/0.0.1+2
+	OBS_TEST_DIR: /opt/lsst/installation/root/Linux64/obs_test/8.0.0.0+18
+	OBS_TEST_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/obs_test/8.0.0.0+18
+	OLDPWD: /home/ts3prod/prod/lcatr/TS3_JH_acq
+	PATH: /home/ts3prod/prod/lcatr/TS3_JH_acq/jh_inst_novirtualenv/bin:/opt/lsst/installation/eotest-0.0.0.8/bin:/opt/lsst/installation/root/Linux64/pipe_tasks/9.2/bin:/opt/lsst/installation/root/Linux64/astrometry_net/0.50.1/bin:/opt/lsst/installation/root/Linux64/fftw/3.3.3/bin:/opt/lsst/installation/root/Linux64/mysqlclient/5.1.73/bin:/opt/lsst/installation/root/Linux64/swig/2.0.12/bin:/opt/lsst/installation/root/Linux64/sconsUtils/9.0+2/bin:/opt/lsst/installation/root/Linux64/lsst/10.0/bin:/opt/lsst/installation/root/Linux64/doxygen/1.8.5/bin:/opt/lsst/installation/root/Linux64/scons/2.3.0+1/bin:/opt/lsst/installation/root/Linux64/anaconda/2.1.0/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/qwt-6.1.0:/usr/local/src/qt-creator-opensource-src-3.1.0/bin:/usr/local/Trolltech/Qt-4.8.6/bin:/usr/local/share/applications/saods9/ds9:/usr/local/share/applications/cfitsio/ver3360:/home/ts3prod/bin:/opt/lsst/installation/root/eups/bin:/opt/lsst/installation/root/Linux64/boost/1.55.0.1+2/bin:/opt/lsst/installation/root/Linux64/pex_policy/9.2/bin:/opt/lsst/installation/root/Linux64/pex_config/9.0+7/bin:/opt/lsst/installation/root/Linux64/xpa/2.1.15/bin:/opt/lsst/installation/root/Linux64/gsl/1.16/bin
+	PEX_CONFIG_DIR: /opt/lsst/installation/root/Linux64/pex_config/9.0+7
+	PEX_CONFIG_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/pex_config/9.0+7
+	PEX_EXCEPTIONS_DIR: /opt/lsst/installation/root/Linux64/pex_exceptions/9.2
+	PEX_EXCEPTIONS_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/pex_exceptions/9.2
+	PEX_LOGGING_DIR: /opt/lsst/installation/root/Linux64/pex_logging/9.2
+	PEX_LOGGING_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/pex_logging/9.2
+	PEX_POLICY_DIR: /opt/lsst/installation/root/Linux64/pex_policy/9.2
+	PEX_POLICY_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/pex_policy/9.2
+	PIPE_BASE_DIR: /opt/lsst/installation/root/Linux64/pipe_base/9.2
+	PIPE_BASE_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/pipe_base/9.2
+	PIPE_TASKS_DIR: /opt/lsst/installation/root/Linux64/pipe_tasks/9.2
+	PIPE_TASKS_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/pipe_tasks/9.2
+	PWD: /home/ts3prod/prod/lcatr/TS3_JH_acq/site
+	PYFITS_DIR: /opt/lsst/installation/root/Linux64/pyfits/3.2.4+1
+	PYFITS_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/pyfits/3.2.4+1
+	PYTHONPATH: /home/ts3prod/prod/lcatr/TS3_JH_acq/jh_inst_novirtualenv/bin/../python:/opt/lsst/installation/root/Linux64/mysqlpython/1.2.3+11/lib/python:/opt/lsst/installation/eotest-0.0.0.8/python:/opt/lsst/installation/root/Linux64/pipe_tasks/9.2/python:/opt/lsst/installation/root/Linux64/geom/8.0.0.1+4/python:/opt/lsst/installation/root/Linux64/skymap/9.2/python:/opt/lsst/installation/root/Linux64/coadd_chisquared/9.0+9/python:/opt/lsst/installation/root/Linux64/coadd_utils/9.2/python:/opt/lsst/installation/root/Linux64/ip_diffim/9.2/python:/opt/lsst/installation/root/Linux64/ip_isr/9.2/python:/opt/lsst/installation/root/Linux64/astrometry_net/0.50.1/lib/python:/opt/lsst/installation/root/Linux64/meas_astrom/9.2/python:/opt/lsst/installation/root/Linux64/meas_algorithms/9.2/python:/opt/lsst/installation/root/Linux64/pipe_base/9.2/python:/opt/lsst/installation/root/Linux64/afw/9.2/python:/opt/lsst/installation/root/Linux64/pex_config/9.0+7/python:/opt/lsst/installation/root/Linux64/pex_policy/9.2/python:/opt/lsst/installation/root/Linux64/sconsUtils/9.0+2/python:/opt/lsst/installation/root/Linux64/base/9.1+1/python:/opt/lsst/installation/root/eups/python:/opt/lsst/installation/root/Linux64/daf_base/9.2/python:/opt/lsst/installation/root/Linux64/utils/9.2/python:/opt/lsst/installation/root/Linux64/pex_exceptions/9.2/python:/opt/lsst/installation/root/Linux64/daf_persistence/9.0+7/python:/opt/lsst/installation/root/Linux64/pex_logging/9.2/python:/opt/lsst/installation/root/Linux64/ndarray/8.0.0.0+12/python:/opt/lsst/installation/root/Linux64/pyfits/3.2.4+1/lib/python:/opt/lsst/installation/root/Linux64/obs_test/8.0.0.0+18/python:/opt/lsst/installation/root/Linux64/meas_base/9.2/python:/opt/lsst/installation/root/Linux64/meas_deblender/9.0+10/python
+	PYTHON_DIR: /opt/lsst/installation/root/Linux64/python/0.0.2
+	PYTHON_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/python/0.0.2
+	QTDIR: /usr/lib64/qt-3.3
+	QTINC: /usr/lib64/qt-3.3/include
+	QTLIB: /usr/lib64/qt-3.3/lib
+	SCONSUTILS_DIR: /opt/lsst/installation/root/Linux64/sconsUtils/9.0+2
+	SCONSUTILS_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/sconsUtils/9.0+2
+	SCONS_DIR: /opt/lsst/installation/root/Linux64/scons/2.3.0+1
+	SCONS_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/scons/2.3.0+1
+	SELINUX_LEVEL_REQUESTED: 
+	SELINUX_ROLE_REQUESTED: 
+	SELINUX_USE_CURRENT_RANGE: 
+	SETUP_AFW: afw 9.2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_ANACONDA: anaconda 2.1.0 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_ASTROMETRY_NET: astrometry_net 0.50.1 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_ASTROMETRY_NET_DATA: astrometry_net_data 8.0.0.0+7 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_BASE: base 9.1+1 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_BOOST: boost 1.55.0.1+2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_CFITSIO: cfitsio 3360 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_COADD_CHISQUARED: coadd_chisquared 9.0+9 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_COADD_UTILS: coadd_utils 9.2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_DAF_BASE: daf_base 9.2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_DAF_PERSISTENCE: daf_persistence 9.0+7 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_DOXYGEN: doxygen 1.8.5 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_EIGEN: eigen 3.2.0 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_EOTEST: eotest 0.0.0.8 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_EUPS: eups
+	SETUP_FFTW: fftw 3.3.3 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_GEOM: geom 8.0.0.1+4 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_GSL: gsl 1.16 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_IP_DIFFIM: ip_diffim 9.2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_IP_ISR: ip_isr 9.2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_LSST: lsst 10.0 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_MATPLOTLIB: matplotlib 0.0.1+2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_MEAS_ALGORITHMS: meas_algorithms 9.2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_MEAS_ASTROM: meas_astrom 9.2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_MEAS_BASE: meas_base 9.2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_MEAS_DEBLENDER: meas_deblender 9.0+10 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_MINUIT2: minuit2 5.28.00 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_MYSQLCLIENT: mysqlclient 5.1.73 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_MYSQLPYTHON: mysqlpython 1.2.3+11 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_NDARRAY: ndarray 8.0.0.0+12 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_NUMPY: numpy 0.0.1+2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_OBS_TEST: obs_test 8.0.0.0+18 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_PEX_CONFIG: pex_config 9.0+7 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_PEX_EXCEPTIONS: pex_exceptions 9.2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_PEX_LOGGING: pex_logging 9.2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_PEX_POLICY: pex_policy 9.2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_PIPE_BASE: pipe_base 9.2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_PIPE_TASKS: pipe_tasks 9.2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_PYFITS: pyfits 3.2.4+1 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_PYTHON: python 0.0.2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_SCONS: scons 2.3.0+1 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_SCONSUTILS: sconsUtils 9.0+2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_SKYMAP: skymap 9.2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_SWIG: swig 2.0.12 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_UTILS: utils 9.2 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_WCSLIB: wcslib 4.14+5 -f Linux64 -Z /opt/lsst/installation/root
+	SETUP_XPA: xpa 2.1.15 -f Linux64 -Z /opt/lsst/installation/root
+	SHELL: /bin/bash
+	SHLVL: 1
+	SKYMAP_DIR: /opt/lsst/installation/root/Linux64/skymap/9.2
+	SKYMAP_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/skymap/9.2
+	SSH_ASKPASS: /usr/libexec/openssh/gnome-ssh-askpass
+	SSH_CLIENT: 130.199.47.167 46832 22
+	SSH_CONNECTION: 130.199.47.167 46832 130.199.47.171 22
+	SSH_TTY: /dev/pts/2
+	SWIG_DIR: /opt/lsst/installation/root/Linux64/swig/2.0.12
+	SWIG_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/swig/2.0.12
+	TERM: xterm
+	USER: ts3prod
+	UTILS_DIR: /opt/lsst/installation/root/Linux64/utils/9.2
+	UTILS_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/utils/9.2
+	VIRTUAL_ENV: /home/ts3prod/prod/lcatr/TS3_JH_acq/jh_inst_novirtualenv
+	WCSLIB_DIR: /opt/lsst/installation/root/Linux64/wcslib/4.14+5
+	WCSLIB_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/wcslib/4.14+5
+	XPA_DIR: /opt/lsst/installation/root/Linux64/xpa/2.1.15
+	XPA_DIR_EXTRA: /opt/lsst/installation/root/ups_db/Linux64/xpa/2.1.15
+	_: /home/ts3prod/prod/lcatr/TS3_JH_acq/jh_inst_novirtualenv/bin/lcatr-iterator

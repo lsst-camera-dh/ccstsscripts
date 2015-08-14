@@ -1,0 +1,1 @@
+lcatr-harness --unit-type e2v-CCD --unit-id TS3setup2Calib --job mono_calib_acq --version v0

@@ -17,7 +17,7 @@ Prerequisites:
     Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
 - {Name: SR-EOT-1 - Cautions, Description: 'This work includes: <ul><li>ESD Hazard</li>
     <li>Contamination Hazard</li><li>UV Hazard</li><li>Heavy Object Movement Hazard</li>
-    <li>Cryogen Hazard</li><li>Radiation Hazard</li><li>Physical Damage Hazard</li></ul>',
+    <li>Radiation Presence</li><li>Physical Damage Hazard</li></ul>',
   Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
 Sequence:
 - RequiredInputs:
@@ -66,11 +66,10 @@ Sequence:
 #    <li>Place a non-linting wipe on top of the TS3-Cryostat window.</li>
 #    <li>Remove the TS3-Cryostat Window and place on non-linting wipe.<button type="button" id="b2" title="Do not touch the glass. The inside face must be face up."><label style="font-size'':''4px;">detail</label></button> </li>
 - Name: Prepare TS3-Cryostat for sensor insertion 
-  Description: '<ul><li>Detach the TS3-cryostat from the dark tunnel.</li>
+  Description: '<ul><li>Pull back the TS3-cryostat from the dark tunnel.</li>
    <li>cover the dark tunnel with vacuum foil.</li>
     <li>Turn the TS3-cryostat to face the ESD mat.</li>
-    <li>Remove the screws for the TS3-Cryostat Window (but do not remove it).</li>
-    <li>Remove the screws for the TS3-Cryostat window to open it.<button type="button" id="b2" title="Do not touch the glass. The inside face must be face up."><label style="font-size'':''4px;">detail</label></button> </li>
+    <li>Open the TS3-Cryostat window<button type="button" id="b2" title="Do not touch the glass. The inside face must be face up."><label style="font-size'':''4px;">detail</label></button> </li>
     <li>Visually inspect the O-ring and replace if necessary. <button type="button" id="b2" title="The O-ring is not degraded (brittle, broken, etc.) and it should be properly seated."><label style="font-size'':''4px;">detail</label></button>
     </ul>'
   MaxIteration: '1' 
@@ -133,7 +132,8 @@ Sequence:
 #  MaxIteration: '1' 
 #  Version: next
 - Name: Secure TS3-Cryostat Window 
-  Description: Secure the TS3-Cryostat Window using the criss-cross method to tighten the screws. Remove the vacuum foil covering the dark tunnel and attach the TS3-cryostat.
+  Description: Close the TS3-Cryostat window and open the vacuum valve. Remove the vacuum foil covering the dark tunnel and push the cryostat towards the dark tunnel until the dewar feet are firmly butted at the limit of the white alignment grooves on the optical bench.
+#Secure the TS3-Cryostat Window using the criss-cross method to tighten the screws. 
   MaxIteration: '1'
   Version: next
   Prerequisites:
@@ -142,7 +142,8 @@ Sequence:
     Quantity: '1' 
     PrerequisiteType: PREPARATION
   - Name: Install the mask
-    Description: '<ul><li>Install the mask onto the jig and place the TS3-cryostat window onto the TS3-cryostat.</li></ul>' 
+    Description: '<ul><li>Install the mask onto the jig</li></ul>
+# and place the TS3-cryostat window onto the TS3-cryostat.</li></ul>' 
     Quantity: '1' 
     PrerequisiteType: PREPARATION
   - Name: Place equipment in coffin

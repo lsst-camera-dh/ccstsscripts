@@ -1,0 +1,4 @@
+export SITENAME=BNL
+export HARNESSEDJOBSDIR=/home/ts3prod/prod/harnessed-jobs/
+export PYTHONPATH=${HARNESSEDJOBSDIR}/python:${PYTHONPATH}
+export LCATR_SCHEMA_PATH=${HARNESSEDJOBSDIR}/schemas:${LCATR_SCHEMA_PATH}

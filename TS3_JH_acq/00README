@@ -1,7 +1,3 @@
-CONTRARY TO THE INSTRUCTIONS BELOW, PLEASE DO NOT RUN THE SETUP SCRIPT AS
-THEY MAY CAUSE CONFLICTS WITH THE PACKAGES YOU HAVE INSTALLED IN YOUR
-VIRTUALENV.
-------------------------------
 This is prototype code for the harnessed jobs in the electro-optical
 testing task, T03, for Test Stand 3.  This is set up to be run using
 the SLAC installation of the Job Harness code.

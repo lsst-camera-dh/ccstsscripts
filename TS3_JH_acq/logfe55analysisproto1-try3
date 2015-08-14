@@ -1,0 +1,158 @@
+logging to: lcatr_harness.log
+Loaded configuration files: ./lcatr.cfg
+Loading schema with schema path: "/home/ts3prod/prod/harnessed-jobs//schemas:/home/ts3prod/prod/lcatr/TS3_JH_acq/jh_inst_novirtualenv/share/fe55_analysis/v0"
+Step configure completed
+Step register completed
+Step stage completed
+/home/ts3prod/.python-eggs is writable by group/others and vulnerable to attack when used with get_resource_filename. Consider a more secure location (set with .set_extraction_path or the PYTHON_EGG_CACHE environment variable).
+/home/ts3prod/.python-eggs is writable by group/others and vulnerable to attack when used with get_resource_filename. Consider a more secure location (set with .set_extraction_path or the PYTHON_EGG_CACHE environment variable).
+['/home/ts3prod/jobHarness/jh_stage/e2v-CCD/proto1/fe55_acq/v0/2601/proto1_fe55_fe552_20150528193358.fits', '/home/ts3prod/jobHarness/jh_stage/e2v-CCD/proto1/fe55_acq/v0/2601/proto1_fe55_fe551_20150528193336.fits']
+Fe55Task: Input files:
+Fe55Task:   /home/ts3prod/jobHarness/jh_stage/e2v-CCD/proto1/fe55_acq/v0/2601/proto1_fe55_fe552_20150528193358.fits
+Fe55Task:   /home/ts3prod/jobHarness/jh_stage/e2v-CCD/proto1/fe55_acq/v0/2601/proto1_fe55_fe551_20150528193336.fits
+Fe55Task: processing /home/ts3prod/jobHarness/jh_stage/e2v-CCD/proto1/fe55_acq/v0/2601/proto1_fe55_fe552_20150528193358.fits
+Fe55Task:   amp 1
+Fe55Task: PsfGaussFit.process_image: threshold= 82.4980194705
+Covariance of the parameters could not be estimated
+Covariance of the parameters could not be estimated
+Fe55Task: Number of footprints fitted: 323
+Fe55Task: Failed scipy.curve_fit calls: 3
+/opt/lsst/installation/eotest-0.0.0.8/python/lsst/eotest/pyfitsTools.py:9: PendingDeprecationWarning: The new_table function will be deprecated in a future version.
+        Use :meth:`FITS_rec.from_columns` to create a new :class:`FITS_rec` data object from the input columns to pass into the constructor for :class:`BinTableHDU` or :class:`TableHDU` instead.
+  my_table = pyfits.new_table(*args, **kwds)
+Fe55Task:   amp 2
+Fe55Task: PsfGaussFit.process_image: threshold= 91.6023130152
+Covariance of the parameters could not be estimated
+Covariance of the parameters could not be estimated
+Fe55Task: Number of footprints fitted: 95
+Fe55Task:   amp 3
+Fe55Task: PsfGaussFit.process_image: threshold= 84.0432356359
+Covariance of the parameters could not be estimated
+Fe55Task: Number of footprints fitted: 218
+Fe55Task: Failed scipy.curve_fit calls: 1
+Fe55Task:   amp 4
+Fe55Task: PsfGaussFit.process_image: threshold= 80.8521575538
+Fe55Task: Number of footprints fitted: 291
+Fe55Task: Failed scipy.curve_fit calls: 1
+Fe55Task:   amp 5
+Fe55Task: PsfGaussFit.process_image: threshold= 93.5469448285
+Fe55Task: Number of footprints fitted: 319
+Fe55Task: Failed scipy.curve_fit calls: 1
+Fe55Task:   amp 6
+Fe55Task: PsfGaussFit.process_image: threshold= 93.0069228865
+Covariance of the parameters could not be estimated
+Fe55Task: Number of footprints fitted: 142
+Fe55Task:   amp 7
+Fe55Task: PsfGaussFit.process_image: threshold= 95.8629905076
+Covariance of the parameters could not be estimated
+Fe55Task: Number of footprints fitted: 247
+Fe55Task: Failed scipy.curve_fit calls: 3
+Fe55Task:   amp 8
+Fe55Task: PsfGaussFit.process_image: threshold= 92.3081146982
+Covariance of the parameters could not be estimated
+Fe55Task: Number of footprints fitted: 245
+Fe55Task: Failed scipy.curve_fit calls: 2
+Fe55Task:   amp 9
+Fe55Task: PsfGaussFit.process_image: threshold= 74.5585379696
+Fe55Task: Number of footprints fitted: 174
+Fe55Task: Failed scipy.curve_fit calls: 1
+Fe55Task:   amp 10
+Fe55Task: PsfGaussFit.process_image: threshold= 81.0107233082
+Covariance of the parameters could not be estimated
+Covariance of the parameters could not be estimated
+Fe55Task: Number of footprints fitted: 875
+Fe55Task: Failed scipy.curve_fit calls: 6
+Fe55Task:   amp 11
+Fe55Task: PsfGaussFit.process_image: threshold= 0.0
+Fe55Task: Number of footprints fitted: 0
+Fe55Task:   amp 12
+Fe55Task: PsfGaussFit.process_image: threshold= 81.9683727285
+Fe55Task: Number of footprints fitted: 466
+Fe55Task: Failed scipy.curve_fit calls: 1
+Fe55Task:   amp 13
+Fe55Task: PsfGaussFit.process_image: threshold= 70.6402882457
+Fe55Task: Number of footprints fitted: 349
+Fe55Task: Failed scipy.curve_fit calls: 3
+Fe55Task:   amp 14
+Fe55Task: PsfGaussFit.process_image: threshold= 75.7697971945
+Covariance of the parameters could not be estimated
+Fe55Task: Number of footprints fitted: 733
+Fe55Task: Failed scipy.curve_fit calls: 2
+Fe55Task:   amp 15
+Fe55Task: PsfGaussFit.process_image: threshold= 74.0100008931
+Fe55Task: Number of footprints fitted: 391
+Fe55Task:   amp 16
+Fe55Task: PsfGaussFit.process_image: threshold= 79.8043847607
+Covariance of the parameters could not be estimated
+Covariance of the parameters could not be estimated
+Fe55Task: Number of footprints fitted: 706
+Fe55Task: processing /home/ts3prod/jobHarness/jh_stage/e2v-CCD/proto1/fe55_acq/v0/2601/proto1_fe55_fe551_20150528193336.fits
+Fe55Task:   amp 1
+Fe55Task: PsfGaussFit.process_image: threshold= 84.2638867449
+Fe55Task: Number of footprints fitted: 0
+Fe55Task:   amp 2
+Fe55Task: PsfGaussFit.process_image: threshold= 92.0436475748
+Fe55Task: Number of footprints fitted: 0
+Fe55Task:   amp 3
+Fe55Task: PsfGaussFit.process_image: threshold= 85.5082222597
+Fe55Task: Number of footprints fitted: 0
+Fe55Task:   amp 4
+Fe55Task: PsfGaussFit.process_image: threshold= 78.0518785
+Fe55Task: Number of footprints fitted: 1
+Fe55Task:   amp 5
+Fe55Task: PsfGaussFit.process_image: threshold= 91.4195537088
+Fe55Task: Number of footprints fitted: 0
+Fe55Task:   amp 6
+Fe55Task: PsfGaussFit.process_image: threshold= 90.4831074375
+Fe55Task: Number of footprints fitted: 0
+Fe55Task:   amp 7
+Fe55Task: PsfGaussFit.process_image: threshold= 93.5693689696
+Covariance of the parameters could not be estimated
+Fe55Task: Number of footprints fitted: 1
+Fe55Task:   amp 8
+Fe55Task: PsfGaussFit.process_image: threshold= 90.136516447
+Fe55Task: Number of footprints fitted: 1
+Fe55Task:   amp 9
+Fe55Task: PsfGaussFit.process_image: threshold= 71.7664715105
+Fe55Task: Number of footprints fitted: 0
+Fe55Task:   amp 10
+Fe55Task: PsfGaussFit.process_image: threshold= 78.7604594951
+Fe55Task: Number of footprints fitted: 0
+Fe55Task:   amp 11
+Fe55Task: PsfGaussFit.process_image: threshold= 0.0
+Fe55Task: Number of footprints fitted: 0
+Fe55Task:   amp 12
+Fe55Task: PsfGaussFit.process_image: threshold= 79.1165527743
+Fe55Task: Number of footprints fitted: 0
+Fe55Task:   amp 13
+Fe55Task: PsfGaussFit.process_image: threshold= 67.9742907377
+Fe55Task: Number of footprints fitted: 0
+Fe55Task:   amp 14
+Fe55Task: PsfGaussFit.process_image: threshold= 73.1184427838
+Covariance of the parameters could not be estimated
+Fe55Task: Number of footprints fitted: 3
+Fe55Task:   amp 15
+Fe55Task: PsfGaussFit.process_image: threshold= 71.7426099931
+Fe55Task: Number of footprints fitted: 2
+Fe55Task:   amp 16
+Fe55Task: PsfGaussFit.process_image: threshold= 77.6035149034
+Fe55Task: Number of footprints fitted: 0
+Fe55Task: Writing psf results file to ./proto1_psf_results_nsig4.fits
+Covariance of the parameters could not be estimated
+Covariance of the parameters could not be estimated
+Covariance of the parameters could not be estimated
+Fe55Task: Too few charge clusters (0) found for amp 11
+Covariance of the parameters could not be estimated
+Covariance of the parameters could not be estimated
+Covariance of the parameters could not be estimated
+Covariance of the parameters could not be estimated
+Covariance of the parameters could not be estimated
+Fe55Task: Writing gain and psf sigma results to ./proto1_eotest_results.fits
+Optimal parameters not found: Number of calls to function has reached maxfev = 1000.
+Step produce completed
+/home/ts3prod/.python-eggs is writable by group/others and vulnerable to attack when used with get_resource_filename. Consider a more secure location (set with .set_extraction_path or the PYTHON_EGG_CACHE environment variable).
+/home/ts3prod/.python-eggs is writable by group/others and vulnerable to attack when used with get_resource_filename. Consider a more secure location (set with .set_extraction_path or the PYTHON_EGG_CACHE environment variable).
+Step validate completed
+Step archive completed
+Step ingest completed
+Step purge completed

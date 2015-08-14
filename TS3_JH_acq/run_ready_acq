@@ -1,0 +1,1 @@
+lcatr-harness --unit-type ITL-CCD --unit-id ITL-113-10 --job ready_acq --version v0

@@ -1,0 +1,1 @@
+tar --exclude \*~ --exclude archive --exclude \*.fits --exclude \*.class -vzcf jbsupd2.tgz jobs/TS3_{sflat,dark,qe,ppump}/v3 jobs/TS3_fe55/v2 jobs/TS3_flat/v10 run* lcatr*cfg

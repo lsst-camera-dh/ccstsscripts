@@ -1,0 +1,236 @@
+%YAML  1.1
+---
+# LSST Hardware Receipt - Inspection
+Name: SR-RCV-2
+Version: next
+HardwareGroup: Generic-CCD
+Description: Welcome to the HARDWARE RECEIVING traveler.<br><br>This traveler will document shipping acceptance for all hardware received at BNL. The location of this work performed is in the hallway and anteroom of the Science Raft Assembly and Test Facility Cleanroom and at the TS1 workstation. Work performed includes:<ul><li>Logging receipt of hardware and documentation, including labeling with an LSST S/N</li><li>Uploading documentation into eTraveler Database and storing hardcopies</li><li>Preparing and transporting hardware into the Science Raft Assembly and Test Facility Cleanroom</li><li>A visual inspection for describing and photographing hardware's condition upon receipt</li</ul><br><br></ul>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>
+Prerequisites:
+   -
+     Name: SR-RCV-2 - Equipment needed for this tasks
+     Description: Required Equipment:<ul><li>Box cutter</li><li>Nonlinting wipes</li><li>Cleaning solution (50/50 Isopropyl alcohol and distilled water)</li><li>Stationary, approved for cleanroom use (pen, marker, bonded paper, tape, 3ring Punch)</li><li>Scanner</li><li>Hardcopy Folder</li><li>Web Camera</li><li>DSLR Camera (potentially required)</li><li>Clean plastic bag (Potentially required)</li><li>EPA Equipment (Potentially required)</li><br></ul><br><b>Read the Header information before clicking Start Work.</b>
+     PrerequisiteType: TEST_EQUIPMENT
+   -
+     Name: SR-RCV-2 - Cautions
+     Description: <ul><li>ESD Hazard (Potential)</li><li>Contaimination Hazard (Potential)</li></ul>
+     PrerequisiteType: TEST_EQUIPMENT
+Sequence:
+   -
+     Name: SR-RCV-2 - Confirm/Deny hardware has been approved for receiving
+     Description: " "
+     Version: next
+     Prerequisites:
+        -
+         Name: Instructions
+         Description: If the hardware is approved for receiving, hit the DONE button and Start Work. If the hardware has not been approved for receiving, do not continue and contact the Sub-system Manager. 
+         PrerequisiteType: PREPARATION
+     RequiredInputs:
+       -
+         Label: Do you confirm that all hardware had been approved for receiving?
+         InputSemantics: boolean
+       -
+         Label: Any comments? If not, fill in None.
+         InputSemantics: string
+   -
+     Name: SR-RCV-2 - Set current location of hardware
+     Description: Transport the hardware to the Anteroom. Specify the new location below.
+     Version:  next
+     Prerequisites:
+        -
+         Name: Instructions
+         Description: Please acknowledge you have done the following:<ul><li>Opened package.</li><li>Secured all documentation received with the hardware package.<button type="button" id="b2" title="Set aside any shipping documentation or vendor data received with the hardware."><label style="font-size':' 4px;">details</label></button></li><li>Removed hardware from shipping package while retaining protective packaging.</li><li>If possible, verified the quantity in the package is consistent with the shipping documentation, and verified the vendor S/N matches all ID descriptions in received documentation.</li><li>Disposed of shipping materials.</li><li>Transported hardware and received documentation to anteroom following the procedures outlined in LCA-11706, SR Assembly Cleanroom CoO.</li></ul><br><b>If there are any inconsistencies or concerns, please contact the Sub-system Manager before proceeding. Please click the DONE button to the right to confirm you have executed these instructions and then click the Start Work button to register the current location of the hardware.</b>
+         PrerequisiteType: PREPARATION
+     NewLocation: "(?)"
+   -
+     Name: Label_and_scan_received_documentation
+     Description: Use the scanner to scan each document . Place in the appropriate folders.
+     Prerequisites:
+        -
+         Name: Instructions
+         Description: Please acknowledge you have done the following:<ul><li>Transported all received documentation to the Anteroom.</li><li>Label each page of all received documentation with LSST S/N in the top right corner.</li></ul><br><b>After following the instructions, please click the DONE button to the right and proceed to Start Work.</b>
+         PrerequisiteType: PREPARATION
+   -
+     Name: Scan-and-Ingest-Vendor-Data
+     Description: <ul><li>Review and inspect all received documentation.</li><Scan documentation into the Hardware Receipt folder on the Desktop</li><li>Upload scanned received documents by clicking on the launcher button below (which will appear after having clicked Start Work).</li><br>
+     Prerequisites:
+        -
+         Name: Instructions
+         Description: Please acknowledge you have done the following:<ul><li>Ensure that only the relevant received documentation is in the appropriate folder.</li></ul><br><b>After following the instructions, please click the DONE button to the right and proceed to Start Work.</b>
+         PrerequisiteType: PREPARATION
+     Version:  next
+     UserVersionString: v0
+     TravelerActions:
+       - HarnessedJob
+   -
+     Name: SR-RCV-2 - Review and determine disposition of documentation
+     Description:  Check all received documentation is consistent and matches any visible hardware labeling, then fill in the form below. If there are any inconsistencies, click Stop Work, give a detailed description of the problem(s) and contact the Sub-system Manager.
+     Version: next
+     RequiredInputs:
+       -
+         Label: Was all received documentation and visible hardware labeling consistent?
+         InputSemantics: boolean
+       -
+         Label: Any comments? Fill in None, if applicable.
+         InputSemantics: string
+   -
+     Name: SR-RCV-2 - Compare information in documentation with information from SR-RCV-01
+     Description:  If this is the first instance of the hardware going through SR-RCV-2, search for information from SR-RCV-01 under <a href=http://srs.slac.stanford.edu/DataCatalog/folder.jsp?folder=13448248>vendor data</a>; Hit Start Work and fill in the form accordingly. If there are any inconsistencies, click Stop Work, give a detailed description of the problem(s) and contact the Sub-system Manager.
+     Version: next
+     RequiredInputs:
+       -
+         Label: Fill in "consistent," if the information was found consistent; otherwise, comment on the differences. If there is no information from SR-RCV-01, fill in N/A. Fill in "repeat" if this is not the first instance of SR-RCV-2 for this hardware.
+         InputSemantics: string
+       -
+         Label: Any comments? If not, fill in None.
+         InputSemantics: string
+   -
+     Name: SR-RCV-2 - Store hardcopies of documentation 
+     Description: Place all hardcopies in the provided folder.
+     Version:  next
+   -
+     Name: SR-RCV-2 - Confirm/Deny if hardware has been cleaned
+     Description: Using the following guidelines, confirm or deny if the hardware was cleaned before shipment to BNL:<br><ul><li>Click Cleared if the hardware was cleaned and packaged such that it will not compromise the Cleanroom.</li><li>Click To be Cleared if the hardware may not be previously cleaned or it was not received inside protective packaging protecting it from contamination, and the hardware will be cleaned using LCA-11706, SR Assembly Cleanroom CoO Procedure A-9 or a similar procedure.</li><li>Click Unknown or cannot clean if unknown or the hardware may be compromised using LCA-11706, SR Assembly Cleanroom CoO Procedure A-9.</li></ul>
+#<li>If necessary, clean hardware's protective packaging using LCA-11706, SR Assembly Cleanroom CoO':' Procedure A-9.</li><li>Re-label the LSST S/N if it was comprimised during cleaning.</li>
+     Version: next
+     Prerequisites:
+        -
+         Name: Instructions
+         Description: <ul><li>Place hardware on cleaning bench.</li><li>Leaving the hardware in the anteroom, vacate the anteroom to proceed to the gowning room.</li><li>If necessary, repeat the Pre-Entrance Procedure found in LCA-11706, SR Assembly Cleanroom CoO':' Procedure A-10. </li><li>Gown and enter clean area using the procedure found in LCA-11706, SR Assembly Cleanroom CoO':' Procedure A-11.</li><li>Proceed to anteroom.</li><li>Remove hardware from all but the protective packaging.</li></ul>
+         PrerequisiteType: PREPARATION
+#     RequiredInputs:
+#       -
+#         Label: Any comments? If not, fill in None.
+#         InputSemantics: string
+     Selection:
+#     Name: Was the hardware clean when received?
+       - 
+         Condition: PASS
+         Name: Cleaned
+         Description: <ul><li>Clean the protective packaging using LCA-11706, SR Assembly Cleanroom CoO - Procedure A-9.</li><li>Label the protective packaging with the LSST S/N.</li><li>If applicable or desired, place hardware and protective packaging in a clean plastic bag and label it with the LSST S/N.</ul>
+         Version: next
+         RequiredInputs:
+           -
+             Label: If possible, describe the cleaning process used before shipment. Fill in unknown if unknown.
+             InputSemantics: string
+           -
+             Label: Any comments? If not, fill in None.
+             InputSemantics: string
+       -
+         Condition: FAIL
+         Name: To be cleaned
+         Description: <ul><li>Remove all packaging.</li><li>Proceed to use LCA-11706, SR Assembly Cleanroom CoO - Procedure A-9 to clean the hardware. If required, use an approved cleaning procedure.</li><li>Place hardware in clean plastic bag and label the bag with the LSST S/N. The plastic bag is now the protective packaging.</li></ul>
+         Version: next
+         RequiredInputs:
+           -
+             Label: Any comments, If not, fill in None.
+             InputSemantics: string
+           -
+             Label: Did you use  LCA-11706, SR Assembly Cleanroom CoO - Procedure A-9? If not, explain the cleaning procedure used.
+             InputSemantics: string
+       -
+         Condition: UNKNOWN
+         Name: Unknown or cannot clean
+         Description: <ul><li>If any protective packaging already exists, label it with the LSST S/N.</li><li>Place the hardware (with all protective packaging intact, if any) in a clean plastic bag and label the new bag with the LSST S/N. The plastic big is now the protective packaging. </li><li>Label the bag "uncleaned".</li><li>Hit complete and contact the Sub-system Manager before continuing work.</li><li>If the hardware is transported, be sure to update the location.</li></ul>
+         Version: next
+         RequiredInputs:
+           -
+             Label: Any comments, If not, fill in None.
+             InputSemantics: string
+           -
+             Label: Please explain why you cannot judge the cleanliness of the hardware or why you cannot use the LCA-11706, SR Assembly Cleanroom Procedure A-9.
+             InputSemantics: string
+   -
+     Name: SR-RCV-2 - Bringing hardware to TS1 workstation
+     Description: Transport hardware to the TS1 workstation and specify the new location below. Continue this traveler at the TS1 workstation.
+     NewLocation: "(?)"
+     Version:  next
+     Prerequisites:
+       -
+         Name: Instructions
+         Description: <ul><li>Verify the hardware and its packaging will not compromise the cleanroom.</li></ul><br><b>When the hardware is ready to enter the cleanroom, please click the DONE button to the right and proceed to Start Work.</b>
+         PrerequisiteType: PREPARATION
+   -
+     Name: SR-RCV-2 - Visual Inspection
+     Description:  The hardware will now proceed through a visual inspection. Be prepared to photograph the findings before beginning. <br><br>Select whether the hardware is ESD sensitive and follow the instructions. After the selection, fill out the visual inspection form, and photograph the findings in the next step. <br><br><b>If the hardware or protective packaging would fail the visual inspection, the option to click Stop Work is available in the final step.</b>
+     Version: next
+     RequiredInputs:
+           -
+             Label: Is the quantity in the package consistent with shipping documents?
+             InputSemantics: string
+           -
+             Label: Are all serial numbers on the hardware consistant with the received documentation? 
+             InputSemantics: string
+           -
+             Label: Before its removal, was the integrity of the protective packaging acceptable?
+             InputSemantics: string
+           -
+             Label: Are there visual defects with the hardware?
+             InputSemantics: string
+           -
+             Label: Does anything appear to be out of place, e.g. loose, missing components?
+             InputSemantics: string
+           -
+             Label: Are there signs of contamination/residue inside the package?
+             InputSemantics: string
+           -
+             Label: Are there any other concerns you wish to note?
+             InputSemantics: string
+           -
+             Label: Any additional comments?
+             InputSemantics: string
+     Selection:
+       - 
+         Condition: NotESD
+         Name: Not ESD sensitive
+         Description: Remove the protective packaging which protects the hardware from contamination.
+         Version: next
+       - 
+         Condition: ESD
+         Name: ESD sensitive
+         Description: Remove the protective packaging, but do not remove any ESD protective tooling or equipment.
+         Version: next
+         Prerequisites:
+           -
+             Name: Instructions
+             Description: <ul><li>Ensure that ESD wrist strap is worn.</li><li>Sit or stand using the ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat, then count to ten.</li></ul><br><b>Please click the DONE button to the right and proceed to Start Work when you are ready to open the protective packaging.</b>
+             PrerequisiteType: PREPARATION
+   -
+     Name: SR-RCV-2 - Record pictures of hardware
+     Description: Take pictures to capture the condition of the hardware and support the findings of the visual inspection. A minimum of one photograph must be taken. The LSST S/N <b>must</b> be visible in each photograph. If the LSST S/N is not visible, write the LSST on a piece of paper and place it in the frame before taking the photograph. Restore all protective packaging afterward.
+     Version: next
+     RequiredInputs:
+       -
+         Label: 1 - Picture 1
+         InputSemantics: filepath
+       -
+         Label: 1 - Notes for Picture 1
+         InputSemantics: string
+       -
+         Label: 2 - Picture 2
+         InputSemantics: filepath
+       -
+         Label: 2 - Notes for Picture 2
+         InputSemantics: string
+       -
+         Label: 3 - Picture 3
+         InputSemantics: filepath
+       -
+         Label: 3 - Notes for Picture 3
+         InputSemantics: string
+       -
+         Label: 4 - Picture 4
+         InputSemantics: filepath
+       -
+         Label: 4 - Notes for Picture 4
+         InputSemantics: string
+#       -
+#         Label: Did you replace the protective packaging?
+#         InputSemantics: string
+#       -
+#         Label: Was it necessary to remove any protective packaging?
+#         InputSemantics: string
+   -
+     Name: SR-RCV-2 - Review and determine disposition of received hardware and protective packaging
+     Description: Based on the findings of the visual inspection:<br><ul><li>Click Complete if the hardware is acceptable for receiving after shipment. After doing so, you will be returned to the SR-RCV-2 Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if the hardware is not acceptable for receiving after shipment. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>
+#Based on the findings of the previous steps, is this piece of hardware acceptable for further processing? If so, hit Complete, otherwise, hit Stop Work and contact the Sub-system Manager.<br><b>Thank you, after having completed this step you will be returned to the SR-RCV-2 header and you will be required to hit Complete once again.</b>
+     Version: next

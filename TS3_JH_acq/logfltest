@@ -1,0 +1,89 @@
+(lcatr)[ts3prod@TS3-1 TS3_JH_acq]$ source run_TS3_flatlogging to: lcatr_harness.log
+Loaded configuration files: ./lcatr.cfg
+Loading schema with schema path: "/home/ts3prod/prod/lcatr/share/TS3_flat/v6"
+Step configure completed
+Step register completed
+Step stage completed
+jobdir = /home/ts3prod/prod/lcatr/share/TS3_flat/v6/
+PWD = /home/ts3prod/prod/lcatr/TS3_JH_acq
+OLDPWD = /home/ts3prod/prod/lcatr/TS3_JH_acq/jobs/TS3_flat/v6
+getcwd = /home/ts3prod/jobHarness/jh_stage/CCD/123/TS3_flat/v6/102
+sitename = BNL
+host = 127.0.0.1
+Initialized connection to CCS Python interpreter on on host  127.0.0.1 : 4444
+Executing labname=BNL
+Executing libdir=/home/ts3prod/prod/lcatr/share/TS3_flat/v6/
+starting synch execution
+Attaching teststand subsystems
+Attaching archon subsystem
+doing initialization
+setting acquisition state
+wait for ts state to become ready
+checking
+Scanning config file for FLAT specifications
+Working on CCD jh_stage
+target wl = 300
+FLAT : Exposure time limited to   2.00 sec.
+starting acquisition step for lambda =   675.00 with exptime     2.00 s
+Ready to take image. time = 1426029249.105000
+after click click at 1426029250.852000
+nreads set to 320 and nplc set to 1.000000
+Ready to take image. time = 1426029270.870000
+after click click at 1426029272.730000
+done with exposure # 0
+getting photodiode readings
+Finished getting readings at 1426029353.684000
+nreads set to 320 and nplc set to 1.000000
+Ready to take image. time = 1426029355.064000
+after click click at 1426029356.802000
+done with exposure # 1
+getting photodiode readings
+Finished getting readings at 1426029437.764000
+target wl = 700
+FLAT : Exposure time limited to   2.00 sec.
+starting acquisition step for lambda =   675.00 with exptime     2.00 s
+Ready to take image. time = 1426029437.926000
+after click click at 1426029439.802000
+nreads set to 320 and nplc set to 1.000000
+Ready to take image. time = 1426029459.816000
+after click click at 1426029461.971000
+done with exposure # 0
+getting photodiode readings
+Finished getting readings at 1426029543.143000
+nreads set to 320 and nplc set to 1.000000
+Ready to take image. time = 1426029544.524000
+after click click at 1426029546.542000
+done with exposure # 1
+getting photodiode readings
+Finished getting readings at 1426029627.686000
+target wl = 1200
+FLAT : Exposure time limited to   2.00 sec.
+starting acquisition step for lambda =   675.00 with exptime     2.00 s
+Ready to take image. time = 1426029627.841000
+after click click at 1426029629.791000
+nreads set to 320 and nplc set to 1.000000
+Ready to take image. time = 1426029649.803000
+after click click at 1426029651.665000
+done with exposure # 0
+getting photodiode readings
+Finished getting readings at 1426029732.620000
+nreads set to 320 and nplc set to 1.000000
+Ready to take image. time = 1426029733.998000
+after click click at 1426029735.735000
+done with exposure # 1
+getting photodiode readings
+Finished getting readings at 1426029816.698000
+FLAT: END
+
+Step produce completed
+check that /home/ts3prod/jobHarness/jh_stage/CCD/123/TS3_flat/v6/102/jh_stage_flat_000_flat0_1426029270.fits was actually created
+check that /home/ts3prod/jobHarness/jh_stage/CCD/123/TS3_flat/v6/102/jh_stage_flat_000_flat1_1426029355.fits was actually created
+check that /home/ts3prod/jobHarness/jh_stage/CCD/123/TS3_flat/v6/102/jh_stage_flat_001_flat0_1426029459.fits was actually created
+check that /home/ts3prod/jobHarness/jh_stage/CCD/123/TS3_flat/v6/102/jh_stage_flat_001_flat1_1426029544.fits was actually created
+check that /home/ts3prod/jobHarness/jh_stage/CCD/123/TS3_flat/v6/102/jh_stage_flat_002_flat0_1426029649.fits was actually created
+check that /home/ts3prod/jobHarness/jh_stage/CCD/123/TS3_flat/v6/102/jh_stage_flat_002_flat1_1426029733.fits was actually created
+Step validate completed
+Step archive completed
+Step ingest completed
+Step purge completed
+(lcatr)[ts3prod@TS3-1 TS3_JH_acq]$ 

@@ -1,0 +1,204 @@
+logging to: lcatr_harness.log
+Loaded configuration files: ./lcatr.cfg
+Loading schema with schema path: "/home/ts3prod/prod/lcatr/share/TS3_flat/v5"
+Step configure completed
+Step register completed
+Step stage completed
+jobdir = /home/ts3prod/prod/lcatr/share/TS3_flat/v5/
+PWD = /home/ts3prod/prod/lcatr/TS3_JH_acq
+OLDPWD = /home/ts3prod/prod
+getcwd = /home/ts3prod/jobHarness/jh_stage/CCD/123/TS3_flat/v5/100
+sitename = BNL
+host = 127.0.0.1
+Initialized connection to CCS Python interpreter on on host  127.0.0.1 : 4444
+Executing labname=BNL
+Executing libdir=/home/ts3prod/prod/lcatr/share/TS3_flat/v5/
+starting synch execution
+Attaching teststand subsystems
+Attaching archon subsystem
+doing initialization
+setting acquisition state
+wait for ts state to become ready
+checking
+Scanning config file for FLAT specifications
+target wl = 300
+FLAT : Exposure time limited to   2.00 sec.
+starting acquisition step for lambda =   675.00 with exptime     2.00 s
+done with exposure # 0
+getting photodiode readings
+photo diode readings = 
+[' 7.40e-14', ' 6.55e-14', ' 4.12e-14', ' 8.73e-14', ' 7.15e-14', ' 8.12e-14', ' 7.40e-14', ' 4.12e-14', ' 6.30e-14', ' 7.88e-14', ' 5.09e-14', ' 3.27e-14', ' 1.02e-13', ' 1.04e-13', ' 6.18e-14', ' 8.73e-14', ' 3.88e-14', ' 8.25e-14', ' 2.54e-14', ' 5.58e-14', ' 6.06e-14', ' 6.91e-14', ' 3.64e-14', ' 9.82e-14', ' 4.24e-14', ' 5.33e-14', ' 5.70e-14', ' 5.82e-14', ' 3.64e-14', ' 6.06e-14', ' 8.00e-14', ' 6.91e-14', ' 3.51e-14', ' 1.09e-14', ' 9.34e-14', ' 5.46e-14', ' 7.03e-14', ' 7.64e-14', ' 9.70e-14', ' 5.09e-14', ' 5.94e-14', ' 4.24e-14', ' 5.58e-14', ' 5.33e-14', ' 7.28e-14', ' 9.70e-14', ' 9.82e-14', ' 6.43e-14', ' 4.24e-14', ' 4.85e-14', ' 6.79e-14', ' 7.28e-14', ' 6.55e-14', ' 5.82e-14', ' 2.91e-14', ' 4.36e-14', ' 5.46e-14', ' 6.79e-14', ' 2.54e-14', ' 4.73e-14', ' 3.27e-14', ' 2.06e-14', ' 7.64e-14', ' 7.40e-14', ' 5.21e-14', ' 6.06e-14', ' 6.91e-14', ' 4.73e-14', ' 4.61e-14', ' 5.70e-14', ' 2.79e-14', ' 1.70e-14', ' 5.09e-14', ' 1.57e-14', ' 8.00e-14', ' 5.46e-14', ' 4.97e-14', ' 4.73e-14', ' 3.88e-14', ' 4.97e-14', ' 6.18e-14', ' 8.37e-14', ' 9.82e-14', ' 6.67e-14', ' 3.39e-14', ' 4.36e-14', ' 6.06e-14', ' 6.30e-14', ' 7.52e-14', ' 6.06e-14', ' 3.88e-14', ' 8.00e-14', ' 5.33e-14', ' 9.82e-14', ' 6.91e-14', ' 5.82e-14', ' 8.73e-14', ' 5.94e-14', ' 9.09e-14', ' 5.09e-14', ' 7.52e-14', ' 7.88e-14', ' 5.21e-14', ' 6.55e-14', ' 4.73e-14', ' 4.97e-14', ' 4.24e-14', ' 6.79e-14', ' 7.40e-14', ' 3.88e-14', ' 4.49e-14', ' 4.12e-14', ' 5.94e-14', ' 6.30e-14', ' 4.97e-14', ' 4.12e-14', ' 7.40e-14', ' 5.94e-14', ' 7.15e-14', ' 7.52e-14', ' 4.36e-14', '-4.88e-15', ' 5.70e-14', ' 4.36e-14', ' 7.76e-14', ' 1.08e-13', ' 5.33e-14', ' 1.57e-14', ' 7.40e-14', ' 5.46e-14', ' 7.28e-14', ' 6.43e-14', ' 3.39e-14', ' 5.82e-14', ' 1.01e-13', ' 6.18e-14', ' 6.55e-14', ' 6.06e-14', ' 2.42e-14', ' 6.06e-14', ' 9.46e-14']
+done with exposure # 1
+getting photodiode readings
+photo diode readings = 
+[' 1.33e-14', ' 6.18e-14', ' 7.28e-14', ' 4.49e-14', ' 5.33e-14', ' 4.85e-14', ' 5.70e-14', ' 4.24e-14', ' 5.09e-14', ' 5.46e-14', ' 6.06e-14', ' 9.82e-14', ' 5.70e-14', ' 4.85e-14', ' 9.34e-14', ' 5.58e-14', ' 6.06e-14', ' 4.36e-14', ' 5.09e-14', ' 6.55e-14', ' 4.49e-14', ' 1.03e-13', ' 8.97e-14', ' 1.82e-14', ' 7.88e-14', ' 4.97e-14', ' 1.14e-13', ' 6.55e-14', ' 8.25e-14', ' 4.85e-14', ' 9.94e-14', ' 8.73e-14', ' 5.82e-14', ' 6.55e-14', ' 2.39e-15', ' 4.00e-14', ' 4.00e-14', ' 6.67e-14', ' 5.58e-14', ' 5.58e-14', ' 9.09e-14', ' 9.82e-14', ' 4.24e-14', ' 9.58e-14', ' 9.70e-14', ' 6.67e-14', ' 8.37e-14', ' 5.94e-14', ' 8.12e-14', ' 6.06e-14', ' 3.64e-14', ' 8.61e-14', ' 7.03e-14', ' 6.91e-14', ' 6.18e-14', ' 7.76e-14', ' 8.73e-14', ' 6.79e-14', ' 7.03e-14', ' 8.00e-14', ' 5.82e-14', ' 7.76e-14', ' 6.67e-14', ' 6.43e-14', ' 5.82e-14', ' 9.09e-14', ' 9.82e-14', ' 7.40e-14', ' 5.94e-14', ' 6.55e-14', ' 7.15e-14', ' 6.43e-14', ' 9.58e-14', ' 8.73e-14', ' 8.61e-14', ' 8.85e-14', ' 7.76e-14', ' 5.82e-14', ' 8.85e-14', ' 7.64e-14', ' 6.55e-14', ' 3.51e-14', ' 6.67e-14', ' 5.94e-14', ' 6.18e-14', ' 6.18e-14', ' 3.15e-14', ' 4.97e-14', ' 7.03e-14', ' 8.85e-14', ' 7.76e-14', ' 2.91e-14', ' 4.61e-14', ' 7.03e-14', ' 6.06e-14', ' 5.82e-14', ' 3.64e-14', ' 1.01e-13', ' 7.03e-14', ' 7.03e-14', ' 7.03e-14', ' 6.30e-14', ' 5.21e-14', ' 5.70e-14', ' 9.58e-14', ' 5.82e-14', ' 6.79e-14', ' 5.82e-14', ' 5.82e-14', ' 5.94e-14', ' 5.46e-14', ' 6.79e-14', ' 1.32e-13', ' 6.30e-14', ' 5.70e-14', ' 7.88e-14', ' 5.70e-14', ' 7.64e-14', ' 6.55e-14', ' 7.40e-14', ' 7.76e-14', ' 4.85e-14', ' 5.82e-14', ' 2.79e-14', ' 5.70e-14', ' 5.46e-14', ' 5.33e-14', ' 8.73e-14', ' 4.97e-14', ' 7.40e-14', ' 6.43e-14', ' 3.39e-14', ' 7.52e-14', ' 7.40e-14', ' 5.94e-14', ' 3.27e-14', ' 6.30e-14', ' 5.82e-14', ' 6.91e-14', ' 6.67e-14', ' 9.67e-15']
+target wl = 700
+FLAT : Exposure time limited to   2.00 sec.
+starting acquisition step for lambda =   675.00 with exptime     2.00 s
+done with exposure # 0
+getting photodiode readings
+photo diode readings = 
+[' 1.94e-14', ' 5.09e-14', ' 5.94e-14', ' 3.76e-14', ' 6.43e-14', ' 6.06e-14', ' 7.28e-14', ' 9.22e-14', ' 8.73e-14', ' 8.85e-14', ' 7.15e-14', ' 5.58e-14', ' 6.91e-14', ' 6.91e-14', ' 7.15e-14', ' 7.88e-14', ' 5.46e-14', ' 3.15e-14', ' 8.49e-14', ' 4.61e-14', ' 6.91e-14', ' 5.94e-14', ' 5.82e-14', ' 5.70e-14', ' 6.18e-14', ' 8.12e-14', ' 6.18e-14', ' 7.88e-14', ' 6.55e-14', ' 5.58e-14', ' 3.15e-14', ' 4.49e-14', ' 9.82e-14', ' 3.15e-14', ' 5.21e-14', ' 3.76e-14', ' 4.97e-14', ' 2.91e-14', ' 4.24e-14', ' 4.85e-14', ' 5.21e-14', ' 7.15e-14', ' 7.28e-14', ' 7.88e-14', ' 8.61e-14', ' 5.70e-14', ' 2.67e-14', ' 1.45e-14', ' 4.61e-14', '-3.26e-17', ' 6.79e-14', ' 7.76e-14', ' 7.03e-14', ' 8.97e-14', ' 6.79e-14', ' 5.46e-14', ' 6.55e-14', ' 6.30e-14', ' 8.00e-14', ' 6.91e-14', ' 6.67e-14', ' 7.76e-14', ' 7.40e-14', ' 8.25e-14', ' 7.03e-14', ' 7.28e-14', ' 7.40e-14', ' 4.00e-14', ' 6.55e-14', ' 1.02e-13', ' 3.51e-14', ' 6.06e-14', ' 7.15e-14', ' 5.33e-14', ' 7.03e-14', ' 5.21e-14', ' 6.55e-14', ' 8.85e-14', ' 6.67e-14', ' 9.70e-14', ' 4.85e-14', ' 6.18e-14', ' 5.94e-14', ' 2.79e-14', ' 8.12e-14', ' 3.03e-14', ' 5.58e-14', ' 4.97e-14', ' 5.82e-14', ' 6.91e-14', ' 5.94e-14', ' 7.03e-14', ' 6.43e-14', ' 1.22e-13', ' 8.85e-14', ' 7.15e-14', ' 4.49e-14', ' 4.49e-14', ' 6.79e-14', ' 6.79e-14', ' 6.91e-14', ' 6.06e-14', ' 5.58e-14', ' 2.18e-14', ' 8.25e-14', ' 9.70e-14', ' 5.94e-14', ' 5.33e-14', ' 7.40e-14', ' 5.46e-14', ' 5.09e-14', ' 4.85e-14', ' 6.30e-14', ' 7.40e-14', ' 4.00e-14', ' 5.33e-14', ' 7.88e-14', ' 7.52e-14', ' 6.91e-14', ' 1.94e-14', ' 4.97e-14', ' 5.58e-14', ' 6.43e-14', ' 4.36e-14', ' 5.70e-14', ' 3.03e-14', ' 2.54e-14', ' 8.37e-14', ' 6.67e-14', ' 5.58e-14', ' 4.24e-14', ' 8.37e-14', ' 1.04e-13', ' 7.15e-14', ' 7.40e-14', ' 5.09e-14', ' 5.82e-14', ' 6.79e-14', ' 6.18e-14', ' 9.70e-14', ' 3.15e-14']
+done with exposure # 1
+getting photodiode readings
+photo diode readings = 
+[' 4.36e-14', ' 7.28e-14', ' 4.36e-14', ' 3.64e-14', ' 9.22e-14', ' 7.76e-14', ' 8.25e-14', ' 7.28e-14', ' 7.52e-14', ' 5.70e-14', ' 6.55e-14', ' 7.76e-14', ' 7.64e-14', ' 3.51e-14', ' 6.91e-14', ' 5.82e-14', ' 5.82e-14', ' 5.70e-14', ' 4.24e-14', ' 5.58e-14', ' 4.85e-14', ' 8.12e-14', ' 6.79e-14', ' 4.12e-14', ' 6.91e-14', ' 6.67e-14', ' 4.61e-14', ' 7.40e-14', ' 2.91e-14', ' 7.15e-14', ' 5.82e-14', ' 6.91e-14', ' 8.73e-14', ' 3.27e-14', ' 8.25e-14', ' 3.03e-14', ' 6.30e-14', ' 6.67e-14', ' 7.88e-14', ' 5.94e-14', ' 3.27e-14', ' 6.18e-14', ' 5.70e-14', ' 6.67e-14', ' 3.27e-14', ' 4.61e-14', ' 6.06e-14', ' 7.52e-14', ' 4.73e-14', ' 6.06e-14', ' 4.61e-14', ' 9.22e-14', ' 7.64e-14', ' 8.12e-14', ' 8.00e-14', ' 9.82e-14', ' 8.25e-14', ' 9.22e-14', ' 7.88e-14', ' 4.73e-14', ' 6.67e-14', ' 6.67e-14', ' 4.97e-14', ' 9.70e-14', ' 2.06e-14', ' 2.91e-14', ' 5.94e-14', ' 5.09e-14', ' 7.03e-14', ' 1.12e-13', ' 7.15e-14', ' 1.09e-13', ' 6.67e-14', ' 4.49e-14', ' 7.40e-14', ' 6.79e-14', ' 6.91e-14', ' 3.15e-14', ' 5.70e-14', ' 6.43e-14', ' 2.30e-14', ' 6.79e-14', ' 5.70e-14', ' 6.67e-14', ' 5.46e-14', ' 4.61e-14', ' 4.97e-14', ' 9.82e-14', ' 7.40e-14', ' 6.06e-14', ' 3.51e-14', ' 4.49e-14', ' 2.79e-14', ' 4.97e-14', ' 5.70e-14', ' 7.88e-14', ' 6.30e-14', ' 4.97e-14', ' 8.49e-14', ' 3.27e-14', ' 5.82e-14', ' 7.15e-14', ' 4.61e-14', ' 6.06e-14', ' 3.88e-14', ' 2.42e-14', ' 6.30e-14', ' 5.58e-14', ' 7.52e-14', ' 8.37e-14', ' 7.64e-14', ' 4.49e-14', ' 8.00e-14', ' 1.57e-14', ' 5.58e-14', ' 6.91e-14', ' 1.33e-14', ' 7.15e-14', ' 7.64e-14', ' 7.52e-14', ' 4.49e-14', ' 7.15e-14', ' 1.94e-14', ' 8.37e-14', ' 6.91e-14', ' 7.40e-14', ' 6.06e-14', ' 7.28e-14', ' 7.03e-14', ' 6.55e-14', ' 4.24e-14', ' 6.55e-14', ' 8.49e-14', ' 4.24e-14', ' 5.46e-14', ' 4.00e-14', ' 8.00e-14', ' 8.00e-14', ' 5.46e-14', ' 6.67e-14', ' 7.40e-14']
+target wl = 1200
+FLAT : Exposure time limited to   2.00 sec.
+starting acquisition step for lambda =   675.00 with exptime     2.00 s
+done with exposure # 0
+getting photodiode readings
+photo diode readings = 
+[' 1.57e-14', ' 8.37e-14', ' 2.30e-14', ' 9.34e-14', ' 4.24e-14', ' 7.03e-14', ' 5.58e-14', ' 6.06e-14', ' 4.73e-14', ' 4.97e-14', ' 1.33e-14', ' 5.82e-14', ' 8.37e-14', ' 5.46e-14', ' 4.12e-14', ' 6.91e-14', ' 5.33e-14', ' 7.52e-14', ' 7.64e-14', ' 7.03e-14', ' 8.25e-14', ' 6.91e-14', ' 6.55e-14', ' 1.57e-14', ' 8.85e-14', ' 5.82e-14', ' 4.85e-14', ' 5.82e-14', ' 8.12e-14', ' 6.30e-14', ' 5.58e-14', ' 9.09e-14', ' 7.40e-14', ' 8.12e-14', ' 2.06e-14', ' 5.70e-14', ' 4.73e-14', ' 8.25e-14', ' 4.12e-14', ' 3.15e-14', ' 6.06e-14', ' 7.64e-14', ' 4.97e-14', ' 6.30e-14', ' 8.37e-14', ' 7.52e-14', ' 1.94e-14', ' 5.58e-14', ' 3.27e-14', ' 5.70e-14', ' 7.64e-14', ' 1.94e-14', ' 1.02e-13', ' 7.03e-14', ' 7.28e-14', ' 8.49e-14', ' 2.79e-14', ' 4.61e-14', ' 7.03e-14', ' 8.00e-14', ' 3.88e-14', ' 6.55e-14', ' 5.09e-14', ' 7.03e-14', ' 5.21e-14', ' 7.40e-14', ' 6.79e-14', ' 7.15e-14', ' 6.67e-14', ' 1.94e-14', ' 5.33e-14', ' 9.58e-14', ' 7.88e-14', ' 6.18e-14', ' 4.97e-14', ' 7.28e-14', ' 6.18e-14', ' 5.82e-14', ' 4.85e-14', ' 4.24e-14', ' 7.52e-14', ' 3.39e-14', ' 5.58e-14', ' 8.97e-14', ' 5.58e-14', ' 7.15e-14', ' 8.12e-14', ' 7.64e-14', ' 7.40e-14', ' 7.15e-14', ' 7.28e-14', ' 6.06e-14', ' 6.79e-14', ' 5.09e-14', ' 5.09e-14', ' 2.79e-14', ' 4.61e-14', ' 4.24e-14', ' 6.06e-14', ' 8.37e-14', ' 8.73e-14', ' 6.55e-14', ' 8.97e-14', ' 8.00e-14', ' 9.82e-14', ' 8.73e-14', ' 4.97e-14', ' 6.91e-14', ' 7.03e-14', ' 5.21e-14', ' 6.91e-14', ' 5.82e-14', ' 5.70e-14', ' 5.33e-14', ' 5.46e-14', ' 9.34e-14', ' 8.97e-14', ' 3.39e-14', ' 5.46e-14', ' 5.21e-14', ' 8.61e-14', ' 8.25e-14', ' 5.82e-14', ' 3.15e-14', ' 1.01e-13', ' 9.58e-14', ' 3.39e-14', ' 3.64e-14', ' 3.76e-14', ' 7.88e-14', ' 5.94e-14', ' 5.70e-14', ' 6.30e-14', ' 4.97e-14', ' 4.36e-14', ' 4.24e-14', ' 3.15e-14', ' 5.09e-14', ' 4.49e-14', ' 4.73e-14', ' 1.03e-13']
+done with exposure # 1
+getting photodiode readings
+photo diode readings = 
+[' 1.21e-14', ' 6.18e-14', ' 7.64e-14', ' 5.82e-14', ' 7.03e-14', ' 6.18e-14', ' 6.06e-14', ' 4.00e-14', ' 4.12e-14', ' 4.24e-14', ' 5.09e-14', ' 5.21e-14', ' 5.70e-14', ' 8.49e-14', ' 8.12e-14', ' 5.70e-14', ' 8.25e-14', ' 5.09e-14', ' 2.06e-14', ' 7.15e-14', ' 5.70e-14', ' 2.67e-14', ' 1.57e-14', ' 5.21e-14', ' 5.46e-14', ' 7.76e-14', ' 6.30e-14', ' 1.07e-13', ' 5.58e-14', ' 7.64e-14', ' 3.88e-14', ' 6.43e-14', ' 3.88e-14', ' 6.06e-14', ' 7.76e-14', ' 9.09e-14', ' 3.27e-14', ' 6.06e-14', ' 8.37e-14', ' 1.08e-13', ' 6.18e-14', ' 6.43e-14', ' 1.16e-13', ' 6.79e-14', ' 8.61e-14', ' 6.67e-14', ' 8.97e-14', ' 9.82e-14', ' 4.00e-14', ' 9.34e-14', ' 7.76e-14', ' 8.00e-14', ' 1.33e-14', ' 7.52e-14', ' 6.91e-14', ' 4.49e-14', ' 5.09e-14', ' 7.03e-14', ' 2.79e-14', ' 4.24e-14', ' 4.24e-14', ' 9.22e-14', ' 1.12e-13', ' 6.91e-14', ' 7.52e-14', ' 3.27e-14', ' 2.67e-14', ' 6.30e-14', ' 3.27e-14', ' 9.58e-14', ' 6.55e-14', ' 6.43e-14', ' 7.15e-14', ' 3.03e-14', ' 6.30e-14', ' 7.03e-14', ' 1.08e-13', ' 6.06e-14', ' 5.33e-14', ' 5.09e-14', ' 7.64e-14', ' 4.49e-14', ' 7.15e-14', ' 5.33e-14', ' 6.06e-14', ' 7.64e-14', ' 5.82e-14', ' 6.79e-14', ' 6.06e-14', ' 5.70e-14', ' 4.00e-14', ' 4.97e-14', ' 5.94e-14', ' 4.85e-14', ' 5.46e-14', ' 3.15e-14', ' 3.88e-14', ' 5.33e-14', ' 8.37e-14', ' 3.64e-14', ' 4.36e-14', ' 4.00e-14', ' 4.24e-14', ' 5.09e-14', ' 4.73e-14', ' 6.03e-15', ' 8.37e-14', ' 6.55e-14', ' 5.33e-14', ' 5.21e-14', ' 5.70e-14', ' 9.09e-14', ' 6.06e-14', ' 4.97e-14', ' 5.09e-14', ' 4.49e-14', ' 6.43e-14', ' 1.04e-13', ' 9.09e-14', ' 9.94e-14', ' 6.06e-14', ' 5.09e-14', ' 7.03e-14', ' 3.27e-14', ' 4.61e-14', ' 5.82e-14', ' 3.51e-14', ' 3.15e-14', ' 3.03e-14', ' 8.73e-14', ' 5.82e-14', ' 4.61e-14', ' 1.04e-13', ' 9.46e-14', ' 1.02e-13', ' 7.03e-14', ' 9.58e-14', ' 3.64e-14', ' 3.64e-14', ' 7.15e-14', ' 8.12e-14']
+org.lsst.ccs.bus.CommandRejectedException org.lsst.ccs.bus.NegativeAck(from ts) [org.lsst.ccs.command.CommandInvocationException: unable to parse :printFullState]
+FLAT: END
+
+Step produce completed
+/home/ts3prod/prod/lcatr/lib/python2.7/site-packages/pyfits/header.py:1108: PyfitsDeprecationWarning: The use of header.update() to add new keywords to a header is deprecated.  Instead, use either header.set() or simply `header[keyword] = value` or `header[keyword] = (value, comment)`.  header.set() is only necessary to use if you also want to use the before/after keyword arguments.
+  "keyword arguments.", PyfitsDeprecationWarning)
+AVERAGE is not there for segment 0 so we will calculate and put it there
+AVERAGE set to 999.521320 for 1114112 values
+AVERAGE is not there for segment 1 so we will calculate and put it there
+AVERAGE set to 999.521965 for 1114112 values
+AVERAGE is not there for segment 2 so we will calculate and put it there
+AVERAGE set to 999.521997 for 1114112 values
+AVERAGE is not there for segment 3 so we will calculate and put it there
+AVERAGE set to 999.522372 for 1114112 values
+AVERAGE is not there for segment 4 so we will calculate and put it there
+AVERAGE set to 999.520256 for 1114112 values
+AVERAGE is not there for segment 5 so we will calculate and put it there
+AVERAGE set to 1500.000000 for 1114112 values
+AVERAGE is not there for segment 6 so we will calculate and put it there
+AVERAGE set to 999.523000 for 1114112 values
+AVERAGE is not there for segment 7 so we will calculate and put it there
+AVERAGE set to 999.516637 for 1114112 values
+AVERAGE is not there for segment 8 so we will calculate and put it there
+AVERAGE set to 999.522672 for 1114112 values
+AVERAGE is not there for segment 9 so we will calculate and put it there
+AVERAGE set to 999.519583 for 1114112 values
+AVERAGE is not there for segment 10 so we will calculate and put it there
+AVERAGE set to 999.521375 for 1114112 values
+AVERAGE is not there for segment 11 so we will calculate and put it there
+AVERAGE set to 999.524603 for 1114112 values
+AVERAGE is not there for segment 12 so we will calculate and put it there
+AVERAGE set to 999.523394 for 1114112 values
+AVERAGE is not there for segment 13 so we will calculate and put it there
+AVERAGE set to 999.520874 for 1114112 values
+AVERAGE is not there for segment 14 so we will calculate and put it there
+AVERAGE set to 999.517582 for 1114112 values
+AVERAGE is not there for segment 15 so we will calculate and put it there
+AVERAGE set to 999.513298 for 1114112 values
+1030.80068302
+check that ArchonImage_1424450246-for-seq-0-exp-1.fits was actually created
+AVERAGE is not there for segment 0 so we will calculate and put it there
+AVERAGE set to 999.522491 for 1114112 values
+AVERAGE is not there for segment 1 so we will calculate and put it there
+AVERAGE set to 999.522585 for 1114112 values
+AVERAGE is not there for segment 2 so we will calculate and put it there
+AVERAGE set to 999.524632 for 1114112 values
+AVERAGE is not there for segment 3 so we will calculate and put it there
+AVERAGE set to 999.522520 for 1114112 values
+AVERAGE is not there for segment 4 so we will calculate and put it there
+AVERAGE set to 999.520254 for 1114112 values
+AVERAGE is not there for segment 5 so we will calculate and put it there
+AVERAGE set to 1500.000000 for 1114112 values
+AVERAGE is not there for segment 6 so we will calculate and put it there
+AVERAGE set to 999.521793 for 1114112 values
+AVERAGE is not there for segment 7 so we will calculate and put it there
+AVERAGE set to 999.517177 for 1114112 values
+AVERAGE is not there for segment 8 so we will calculate and put it there
+AVERAGE set to 999.521565 for 1114112 values
+AVERAGE is not there for segment 9 so we will calculate and put it there
+AVERAGE set to 999.520208 for 1114112 values
+AVERAGE is not there for segment 10 so we will calculate and put it there
+AVERAGE set to 999.521139 for 1114112 values
+AVERAGE is not there for segment 11 so we will calculate and put it there
+AVERAGE set to 999.521131 for 1114112 values
+AVERAGE is not there for segment 12 so we will calculate and put it there
+AVERAGE set to 999.522290 for 1114112 values
+AVERAGE is not there for segment 13 so we will calculate and put it there
+AVERAGE set to 999.520394 for 1114112 values
+AVERAGE is not there for segment 14 so we will calculate and put it there
+AVERAGE set to 999.516593 for 1114112 values
+AVERAGE is not there for segment 15 so we will calculate and put it there
+AVERAGE set to 999.513123 for 1114112 values
+1030.80049346
+AVERAGE is not there for segment 0 so we will calculate and put it there
+AVERAGE set to 999.522522 for 1114112 values
+AVERAGE is not there for segment 1 so we will calculate and put it there
+AVERAGE set to 999.520182 for 1114112 values
+AVERAGE is not there for segment 2 so we will calculate and put it there
+AVERAGE set to 999.521845 for 1114112 values
+AVERAGE is not there for segment 3 so we will calculate and put it there
+AVERAGE set to 999.524166 for 1114112 values
+AVERAGE is not there for segment 4 so we will calculate and put it there
+AVERAGE set to 999.518449 for 1114112 values
+AVERAGE is not there for segment 5 so we will calculate and put it there
+AVERAGE set to 1500.000000 for 1114112 values
+AVERAGE is not there for segment 6 so we will calculate and put it there
+AVERAGE set to 999.522362 for 1114112 values
+AVERAGE is not there for segment 7 so we will calculate and put it there
+AVERAGE set to 999.516599 for 1114112 values
+AVERAGE is not there for segment 8 so we will calculate and put it there
+AVERAGE set to 999.522708 for 1114112 values
+AVERAGE is not there for segment 9 so we will calculate and put it there
+AVERAGE set to 999.520178 for 1114112 values
+AVERAGE is not there for segment 10 so we will calculate and put it there
+AVERAGE set to 999.522300 for 1114112 values
+AVERAGE is not there for segment 11 so we will calculate and put it there
+AVERAGE set to 999.521467 for 1114112 values
+AVERAGE is not there for segment 12 so we will calculate and put it there
+AVERAGE set to 999.522064 for 1114112 values
+AVERAGE is not there for segment 13 so we will calculate and put it there
+AVERAGE set to 999.519883 for 1114112 values
+AVERAGE is not there for segment 14 so we will calculate and put it there
+AVERAGE set to 999.515524 for 1114112 values
+AVERAGE is not there for segment 15 so we will calculate and put it there
+AVERAGE set to 999.511948 for 1114112 values
+1030.8001373
+AVERAGE is not there for segment 0 so we will calculate and put it there
+AVERAGE set to 999.522634 for 1114112 values
+AVERAGE is not there for segment 1 so we will calculate and put it there
+AVERAGE set to 999.522953 for 1114112 values
+AVERAGE is not there for segment 2 so we will calculate and put it there
+AVERAGE set to 999.521434 for 1114112 values
+AVERAGE is not there for segment 3 so we will calculate and put it there
+AVERAGE set to 999.523649 for 1114112 values
+AVERAGE is not there for segment 4 so we will calculate and put it there
+AVERAGE set to 999.519602 for 1114112 values
+AVERAGE is not there for segment 5 so we will calculate and put it there
+AVERAGE set to 1500.000000 for 1114112 values
+AVERAGE is not there for segment 6 so we will calculate and put it there
+AVERAGE set to 999.521167 for 1114112 values
+AVERAGE is not there for segment 7 so we will calculate and put it there
+AVERAGE set to 999.515100 for 1114112 values
+AVERAGE is not there for segment 8 so we will calculate and put it there
+AVERAGE set to 999.522363 for 1114112 values
+AVERAGE is not there for segment 9 so we will calculate and put it there
+AVERAGE set to 999.520757 for 1114112 values
+AVERAGE is not there for segment 10 so we will calculate and put it there
+AVERAGE set to 999.521861 for 1114112 values
+AVERAGE is not there for segment 11 so we will calculate and put it there
+AVERAGE set to 999.521482 for 1114112 values
+AVERAGE is not there for segment 12 so we will calculate and put it there
+AVERAGE set to 999.522401 for 1114112 values
+AVERAGE is not there for segment 13 so we will calculate and put it there
+AVERAGE set to 999.521597 for 1114112 values
+AVERAGE is not there for segment 14 so we will calculate and put it there
+AVERAGE set to 999.514916 for 1114112 values
+AVERAGE is not there for segment 15 so we will calculate and put it there
+AVERAGE set to 999.512738 for 1114112 values
+1030.80029095
+check that ArchonImage_1424450287-for-seq-2-exp-1.fits was actually created
+DATA : Bias =  1030.80    Average signal =     0.00 DN
+DATA : Bias =  1030.80    Average signal =     0.00 DN
+DATA : Bias =  1030.80    Average signal =     0.00 DN
+DATA : Bias =  1030.80    Average signal =    -0.00 DN
+Step validate completed
+Step archive completed
+Step ingest completed
+Step purge completed
