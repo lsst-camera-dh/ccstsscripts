@@ -4,7 +4,7 @@
 Name: SR-MET-1
 Version: next
 HardwareGroup: ITL-CCD
-Description: Welcome to the SENSOR ABSOLUTE HEIGHT METROLOGY traveler.<br><br>This traveler will record the absolute height of a sensor received at BNL. This work is performed at TS2 and the laminar flow hood. <br />Work performed includes:<ul><li>Absolute Height  Measurements using the OGP machine</li><li>Sensor jig removal (hardware specific)</li></ul><br><br></ul>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>
+Description: Welcome to the SENSOR ABSOLUTE HEIGHT METROLOGY traveler.<br><br>This traveler will record the absolute height of a sensor received at BNL. This work is performed at TS2 and the laminar flow hood. <br />Work performed includes:<ul><li>Absolute Height  Measurements using the OGP machine</li><li>Sensor jig removal</li></ul><br><br></ul>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>
 Prerequisites:
    -
      Name: Cautions
@@ -14,12 +14,13 @@ Prerequisites:
      Name: Equipment needed for these tasks
      Description: 'Required Equipment:<ul>
 <li>OGP machine</li><li>Non-linting wipes</li>
-<li>MF02</li><li>4 mm or 2.5 mm allen key (Hardware specific)</li>
+<li>MF02</li><li>2.5 mm allen key</li>
 <li>Flathead screwdriver</li>
-<li>2 mm allen key (Potentially required, hardware specific)</li>
+<li>2 mm allen key</li>
 <li>Gauge blocks</li>
-<li>MF01 (A or B, vendor dependent)</li>
-<li>MF07B (Potentially required, hardware specific)</li>
+<li>MF01B</li>
+<li>MF05B</li>
+<li>MF07B</li>
 </ul>
 <p><b>Read the Header information before clicking Start Work</b></p>'
      PrerequisiteType: PREPARATION
@@ -34,7 +35,7 @@ Sequence:
          PrerequisiteType: PREPARATION
    -
      Name: SR-MET-1 Setup OGP for Measurement
-     Description: 'Follow these steps:<ul><li>Turn on the OGP Master Switch.</li><li>Turn on the OGP controller.</li><li>Open the MeasureMind Software and follow the initialization prompts.</li><li>Ensure the Safe Zone is enabled.<button type="button" id="b1" title="Go to System, Config, Safe Zones."><label style="font-size'':''4px:">detail</label></button></li><li>Raise the Z-Axis bridge and move the platen forward towards the Operator.</li><li>Align the vee-grooves for MF01.</ul>'
+     Description: 'Follow these steps:<ul><li>Turn on the OGP Master Switch.</li><li>Turn on the OGP controller.</li><li>Open the MeasureMind Software and follow the initialization prompts.</li><li>Ensure the Safe Zone is enabled.<button type="button" id="b1" title="Go to System, Config, Safe Zones."><label style="font-size'':''4px:">detail</label></button></li><li>Raise the Z-Axis bridge and move the platen forward towards the Operator.</li><li>Align the vee-grooves for MF01b.</ul>'
      Version:  next
      Prerequisites:
        -
@@ -47,7 +48,7 @@ Sequence:
          PrerequisiteType: PREPARATION
        -
          Name: Fixture Calibration
-         Description: 'Verify MF02 has been calibrated within the last 180 days.<br /><br /><b>If all calibrations are current, click Start Work.  Otherwise contact the Subsystem Manager.</b>'
+         Description: 'Verify MF01B has been calibrated within the last 180 days.<br /><br /><b>If all calibrations are current, click Start Work.  Otherwise contact the Subsystem Manager.</b>'
          PrerequisiteType: PREPARATION
    -
      Name: Make-OGP-Abs-Height-Directories
@@ -57,12 +58,6 @@ Sequence:
      MaxIteration: 5
      TravelerActions:
        - HarnessedJob
-   -
-     Name: SR-MET-1 Prepare sensor
-     Description: "Select the specific hardware type to prepare the sensor for the absolute height measureent."
-     Version:  next
-
-
    -
      Name: SR-MET-1 Transport coffin to laminar flow bench
      Version: next
@@ -75,7 +70,7 @@ Sequence:
 es before a sensor is exposed. If the bench was running before starting, assume it is ready for use."><label style="font-size'':''4px:">detail</label></button></li><li>Check for obstructions and/or malfunctions.</li></ul>'
        - Name: Set up EPA at laminar flow hood
          PrerequisiteType: PREPARATION
-         Description: '<ul><li>Attach MF05 and MF07 to the ESD network/monitor.</li><li>Setup and verify the laminar flow hood EPA.</li><li>Turn on Air Ionizer Bar.</li><li>Transport required tooling to laminar flow hood.</li></ul><br /><br /><b>If you are DONE reading these instructions and have completed the preparation, please click the Done button to the right, and proceed to Start Work.</b>'
+         Description: '<ul><li>Attach MF05B and MF07B to the ESD network/monitor.</li><li>Setup and verify the laminar flow hood EPA.</li><li>Turn on Air Ionizer Bar.</li><li>Transport required tooling to laminar flow hood.</li></ul><br /><br /><b>If you are DONE reading these instructions and have completed the preparation, please click the Done button to the right, and proceed to Start Work.</b>'
 
    -
      Name: SR-MET-1 Remove coffin cover
@@ -84,7 +79,7 @@ es before a sensor is exposed. If the bench was running before starting, assume 
      Prerequisites:
         -
           Name: SR-MET-1 Prepare to open coffin
-          Description: '<ul><li>Ensure facemask is on.</li><li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the Done button to the right, and proceed to "Start Work".</b>'
+          Description: '<ul><li>Ensure facemask is on.</li><li>ESD wrist strap is worn and plugged in.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat then count to ten.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the Done button to the right, and proceed to "Start Work".</b>'
           PrerequisiteType: PREPARATION
    -
      Name: SR-MET-1 ITL - Remove protective cover.
@@ -93,7 +88,7 @@ es before a sensor is exposed. If the bench was running before starting, assume 
      Prerequisites:
         -
           Name: Instructions
-          Description: Loosen the protective cover screws. Secure extension plate onto the coffin.<br><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button Done to the right, and proceed to "Start Work".</b>
+          Description: Loosen the protective cover screws. Secure MF05B onto the coffin.<br><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button Done to the right, and proceed to "Start Work".</b>
           PrerequisiteType: PREPARATION
    -
      Name: SR-MET-1 Remove sensor from jig
@@ -110,8 +105,8 @@ es before a sensor is exposed. If the bench was running before starting, assume 
      NewLocation: '(?)'
      Description: Transport the sensor contained in MF07 to the TS2 workstation. Specify the new location below.
    -
-     Name: SR-MET-1 Install MF07 onto MF01
-     Description: <ul><li>Place and secure MF07 onto MF01.</li></ul>
+     Name: SR-MET-1 Install MF07 onto MF01B
+     Description: <ul><li>Place and secure MF07 onto MF01B.</li></ul>
      Version:  next
      Prerequisites:
        - Name: Instructions
@@ -121,7 +116,7 @@ es before a sensor is exposed. If the bench was running before starting, assume 
                       <li>Place one finger of each hand away from each other on the ESD mat, then count to ten.</li></ul>
                       <br><b>If you are DONE reading these instructions and have completed this preparation, please click the Done button to the right, and proceed to "Start Work".</b>
    -
-     Name: SR-MET-1 Prepare MF01 - ITL
+     Name: SR-MET-1 Prepare MF01
      Version: next
      Description: 'Wring a gauge block on the top (towards the back wall) and bottom (towards the operator) slots of
                   MF01. <button type="button" id="b7" 
@@ -133,7 +128,7 @@ es before a sensor is exposed. If the bench was running before starting, assume 
        -
          Name: Instructions
          PrerequisiteType: PREPARATION
-         Description: Place the loaded-MF01 onto the appropriate 
+         Description: Place the MF01 onto the appropriate 
                       vee-grooves on MF02
      RequiredInputs:
        -
@@ -154,13 +149,13 @@ es before a sensor is exposed. If the bench was running before starting, assume 
           PrerequisiteType: PREPARATION
    -
      Name: SR-MET-1 Perform Absolute Height OGP Routine.
-     Description: 'Using the MeasureMind Software and the OGP machine:<ul><li>Reset the OGP settings by going to System, Reset.</li>><li>Click Open Routine and select Abs_Height.RTN within the appropriate directory.<button type="button" id="b8" title="The directory is C:\\Production Data\\LSST S/N\\Absolute Height\\Date."><label style="font-size'':''4px:">detail</label></button></li><li>Click Run Routine, hit OK to start the routine the follow the prompts.</li><li>When prompted, enter the appropriate path and file name for the data products.<button type="button" id="b9" title="(Placeholder)"><label style="font-size'':''4px:">detail</label></button></li><li>Wait for the routine to finish and click OK.</li></ul>'
+     Description: 'Using the MeasureMind Software and the OGP machine:<ul><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select Abs_Height.RTN within the appropriate directory.<button type="button" id="b8" title="The directory is C:\\Production Data\\LSST S/N\\Absolute Height\\Date."><label style="font-size'':''4px:">detail</label></button></li><li>Click Run Routine, hit OK to start the routine the follow the prompts.</li><li>When prompted, enter the appropriate path and file name for the data products.<button type="button" id="b9" title="(Placeholder)"><label style="font-size'':''4px:">detail</label></button></li><li>Wait for the routine to finish and click OK.</li></ul>'
      Version: next
-     Prerequisites:
-       -
-         Name: Instructions
-         PrerequisiteType: PREPARATION
-         Description: Click New Routine to clear the current routine.
+#     Prerequisites:
+#       -
+#         Name: Instructions
+#         PrerequisiteType: PREPARATION
+#         Description: Click New Routine to clear the current routine.
    - 
      Name: SR-MET-1 Slide MF07-Cover into place
      Description: Cover the sensor by sliding the MF-7-cover over the exposed surface. Attach the other three screws and hard tighten all four screws.
@@ -203,7 +198,7 @@ es before a sensor is exposed. If the bench was running before starting, assume 
      Version:  next
    -
      Name: SR-MET-1 Upload absolute height analysis files
-     Description: 'Upload the flatness analysis results. <button type="button" id="b10" title="(Placeholder)"><label style="font-size'':''4px:">detail</label></button>'
+     Description: Upload the analysis results.
      Version: next
      RequiredInputs:
        -
@@ -274,6 +269,6 @@ es before a sensor is exposed. If the bench was running before starting, assume 
          Description:  The edge does not need to be perfectly straight around the perimeter; however, there should not be any non-processing damage, such as large fractures or hanging pieces.
          InputSemantics: boolean
    -
-     Name: SR-MET-1 Review and determine the disposition of the absolute height scans
+     Name: Review and determine the disposition of the Absolute Height Measurement
+     Description: 'Based on the findings of the metrology measurements:<br><ul><li>Click Complete if the sensor meets all specifications. After doing so, you will be returned to the SR-MET-01 Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if any specifications are not met. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>'
      Version: next
-     Description: 'Based on the findings of the scans:<br><ul><li>Click Complete if the sensor''s absolute height is acceptable. After doing so, you will be returned to the SR-MET-01 Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if the sensor''s absolute height is not acceptable. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>'
