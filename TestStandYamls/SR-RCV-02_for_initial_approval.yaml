@@ -8,7 +8,7 @@ Description: Welcome to the HARDWARE RECEIVING traveler.<br><br>This traveler wi
 Prerequisites:
    -
      Name: SR-RCV-2 - Equipment needed for this tasks
-     Description: Required Equipment:<ul><li>Box cutter</li><li>Nonlinting wipes</li><li>Cleaning solution (50/50 Isopropyl alcohol and distilled water)</li><li>Stationary, approved for cleanroom use (pen, marker, bonded paper, tape, 3ring Punch)</li><li>Scanner</li><li>Hardcopy Folder</li><li>Web Camera</li><li>DSLR Camera (potentially required)</li><li>Clean plastic bag (Potentially required)</li><li>EPA Equipment (Potentially required)</li><li>Hardware specific tooling (Potentially required)<br></ul><br><b>Read the Header information before clicking Start Work.</b>
+     Description: Required Equipment:<ul><li>Box cutter</li><li>Nonlinting wipes</li><li>Cleaning solution (50/50 Isopropyl alcohol and distilled water)</li><li>Stationery, approved for cleanroom use (pen, marker, bonded paper, tape)</li><li>Scanner</li><li>Hardcopy Folder</li><li>Web Camera</li><li>DSLR Camera (potentially required)</li><li>Clean plastic bag (Potentially required)</li><li>EPA Equipment (Potentially required)</li><li>Hardware specific tooling (Potentially required)<br></ul><br><b>Read the Header information before clicking Start Work.</b>
      PrerequisiteType: TEST_EQUIPMENT
    -
      Name: SR-RCV-2 - Cautions
@@ -33,7 +33,7 @@ Sequence:
          InputSemantics: string
    -
      Name: SR-RCV-2 - Set current location of hardware
-     Description: Transport the hardware and received documentation to the Anteroom. Transported hardware and received documentation to anteroom following the procedures outlined in LCA-11706, SR Assembly Cleanroom CoO. Specify the new location below.
+     Description: Transport the hardware and received documentation to the Anteroom. Transported hardware and received documentation to anteroom following the procedures outlined in LCA-11706. Specify the new location below.
      Version:  next
      Prerequisites:
         -
@@ -43,7 +43,7 @@ Sequence:
      NewLocation: "(?)"
    -
      Name: Label and scan received documentation
-     Description: Label each page of all received documentation with LSST S/N in the top right corner. Use the scanner to scan each document using the following procedure:<button type="button" id="b2" title="The directory is /home/HardwareReceipt/Desktop/Hardware Documentation"><label style="font-size':' 4px;">details</label></button><ul><li>Ensure the scanner is on.</li><li>Click on the "Scanning" launcher icon on the Desktop.</li><li>Set the mode to "Multipage".</li><li>Name the project appropriately, for example Shipping Documents or Vendor Data.</li><li>After scanning the relevant pages, save the multipage file.</li><li>If another multipage file is necessary, repeat these steps.</li></ul> Note that the files should be placed in the appropriate directory automatically.
+     Description: Label each page of all received documentation with LSST S/N in the top right corner. Use the scanner to scan each document using the following procedure:<button type="button" id="b2" title="The directory is /home/HardwareReceipt/Desktop/Hardware Documentation"><label style="font-size':' 4px;">details</label></button><ul><li>Ensure the scanner is on.</li><li>Click on the "Scanning" launcher icon on the Desktop.</li><li>Set the mode to "Multipage".</li><li>Name the project appropriately. Include the LSST S/N. For example, ShippingDocuments_LSST_S/N.</li><li>After scanning the relevant pages, save the multipage file.</li><li>If another multipage file is necessary, repeat these steps.</li></ul> Note that the files should be placed in the appropriate directory automatically.
      Version: next
 #     Prerequisites:
 #        -
@@ -52,11 +52,11 @@ Sequence:
 #         PrerequisiteType: PREPARATION
    -
      Name: Scan-and-Ingest-Vendor-Data
-     Description: Upload scanned documents within the Hardware Documentation folder by clicking on the lcatr-launcher. Sub-directories in the Hardware Documentation folder will not be uploaded.<br>
+     Description: Upload scanned documents within the appropriate directory by clicking on the lcatr-launcher. Sub-directories in the appropriate directory will not be uploaded.<br>
      Prerequisites:
         -
          Name: Instructions
-         Description: Please ensure that only the relevant received documentation is in the appropriate folder.<br><br><b>After following the instructions, please click the DONE button to the right and proceed to Start Work.</b>
+         Description: Please ensure that only the relevant received documentation is in the appropriate folder.<button type="button" id="b2" title="/home/HardwareReceipt/Desktop/hardwareReceipt"><label style="font-size':' 4px;">directory</label></button><br><br><b>After following the instructions, please click the DONE button to the right and proceed to Start Work.</b>
          PrerequisiteType: PREPARATION
      Version:  next
      UserVersionString: v0
@@ -79,7 +79,7 @@ Sequence:
      Version: next
      RequiredInputs:
        -
-         Label: Fill in "consistent," if the information was found consistent; otherwise, comment on the differences. If there is no information from SR-RCV-01, fill in N/A. Fill in "repeat" if this is not the first instance of SR-RCV-2 for this hardware.
+         Label: Fill in "consistent," if the information was found consistent; otherwise, comment on the differences. Fill in "N/A", If there is no information from SR-RCV-01. Fill in "repeat" if this is not the first instance of SR-RCV-2 for this hardware.
          InputSemantics: string
        -
          Label: Any comments? If not, fill in None.
@@ -91,13 +91,13 @@ Sequence:
    -
      Name: SR-RCV-2 - Confirm/Deny if hardware has been cleaned
      Description: Using the following guidelines, confirm or deny if the hardware was cleaned before shipment to BNL:<br><ul><li>Click "Cleaned" if the hardware was cleaned such that it abides by Science Raft cleanliness standards.</li><li>Click "To be Cleaned" if it is uncertain the hardware meets Science Raft cleanliness standards and the hardware will be cleaned following LCA-11706, Procedure A-9 or an approved cleaning procedure.</li><li>Click "Cannot Clean" if functionality of the hardware may be comprimised following LCA-11706, Procedure A-9. You will be returned to this step after completing the instructions in the next step. At this point, click "Pause Traveler" and contact the Sub-system Manager for further instruction. This step can be retried once to resolve the situation by resuming the traveler and clicking "Retry Step".</li></ul><br><b>If the hardware is ESD sensitive and it must be cleaned, click Stop Work, give a detailed description of the preoblem(s) and contact the Sub-System Manager.</b>
-#<li>If necessary, clean hardware's protective packaging using LCA-11706, SR Assembly Cleanroom CoO':' Procedure A-9.</li><li>Re-label the LSST S/N if it was comprimised during cleaning.</li>
+#<li>If necessary, clean hardware's protective packaging using LCA-11706, Procedure A-9.</li><li>Re-label the LSST S/N if it was comprimised during cleaning.</li>
      Version: next
      MaxIteration: '2'
      Prerequisites:
         -
          Name: Instructions
-         Description: <ul><li>Place hardware on cleaning bench with the protective packaging intact.</li><li>Leaving the hardware in the anteroom, proceed through the hallway to proceed to the gowning room.</li><li>If necessary, repeat the Pre-Entrance Procedure found in LCA-11706, SR Assembly Cleanroom CoO':' Procedure A-10. </li><li>Gown and enter clean area using the procedure found in LCA-11706, SR Assembly Cleanroom CoO':' Procedure A-11.</li><li>Proceed to anteroom.</li></ul>
+         Description: <ul><li>Place hardware on cleaning bench with the protective packaging intact.</li><li>Leaving the hardware in the anteroom, proceed through the hallway to proceed to the gowning room.</li><li>If necessary, repeat the Pre-Entrance Procedure found in LCA-11706, Procedure A-10. </li><li>Gown and enter clean area using the procedure found in LCA-11706, Procedure A-11.</li><li>Proceed to anteroom.</li></ul>
          PrerequisiteType: PREPARATION
 #     RequiredInputs:
 #       -
@@ -108,7 +108,7 @@ Sequence:
        - 
          Condition: Confirm
          Name: Cleaned
-         Description: <ul><li>Clean the protective packaging using LCA-11706, SR Assembly Cleanroom CoO - Procedure A-9.</li><li>Label the protective packaging with the LSST S/N.</li><li>When appropriate, place hardware and protective packaging in a clean plastic bag and label it with the LSST S/N.</ul>
+         Description: <ul><li>Clean the protective packaging using LCA-11706, Procedure A-9.</li><li>Label the protective packaging with the LSST S/N.</li><li>When appropriate, place hardware and protective packaging in a clean plastic bag and label it with the LSST S/N.</ul>
          Version: next
          RequiredInputs:
            -
@@ -120,11 +120,11 @@ Sequence:
        -
          Condition: Deny
          Name: To be cleaned
-         Description: <ul><li>Remove all packaging.</li><li>Proceed to use LCA-11706, SR Assembly Cleanroom CoO - Procedure A-9 to clean the hardware. If a different procedure is followed, use the cleaning procedure only if it is approved by the Subsystem Manager.</li><li>Place hardware in clean plastic bag and label the bag with the LSST S/N. The plastic bag is now the protective packaging.</li></ul>
+         Description: <ul><li>Remove all packaging.</li><li>Proceed to use LCA-11706, Procedure A-9 to clean the hardware. If a different procedure is followed, use the cleaning procedure only if it is approved by the Subsystem Manager.</li><li>Place hardware in clean plastic bag and label the bag with the LSST S/N. The plastic bag is now the protective packaging.</li></ul>
          Version: next
          RequiredInputs:
            -
-             Label: Did you use  LCA-11706, SR Assembly Cleanroom CoO - Procedure A-9? If not, explain the cleaning procedure used.
+             Label: Fill in "Procedure A-9" if LCA-11706, Procedure A-9 was used to clean the hardware. If not, explain the cleaning procedure used.
              InputSemantics: string
            -
              Label: Any comments, If not, fill in None.
@@ -137,7 +137,7 @@ Sequence:
          RequiredInputs:
            -
              Label: Please describe the situation and why the hardware cannot be cleaned.
-#Please explain why you cannot judge the cleanliness of the hardware or why you cannot use the LCA-11706, SR Assembly Cleanroom Procedure A-9. 
+#Please explain why you cannot judge the cleanliness of the hardware or why you cannot use the LCA-11706, Procedure A-9. 
              InputSemantics: string
            -
              Label: Any comments, If not, fill in None.
@@ -188,7 +188,7 @@ Sequence:
                  PrerequisiteType: PREPARATION
    -
      Name: SR-RCV-2 - Visual Inspection Form
-     Description: Inspect the hardware and fill in the visual inspection form below. All the fields are open for comments in addition to (Yes/No).
+     Description: Inspect the hardware and fill in the visual inspection form below. Fill in yes or no, and additional comments if desired.
      Version: next
      RequiredInputs:
        -
@@ -217,7 +217,7 @@ Sequence:
          InputSemantics: string
    -
      Name: SR-RCV-2 - Record pictures of hardware
-     Description: Take pictures to capture the condition of the hardware and support the findings of the visual inspection by filling in the form below. The DSLR camera is available for small details that the webcam cannot capture. A minimum of one photograph must be taken. The LSST S/N <b>must</b> be visible in each photograph. If the LSST S/N is not visible, write the LSST on a piece of paper and place it in the frame before taking the photograph. The "Notes" fields in the form are to document the subject of the respective photograph. Additional details may be provided as well. If more than four photographs are necessary, this step can be retried twice.<br><br>Restore all protective packaging afterward, and if necessary, provide new protective packaging. Label any new protective packaging with the LSST S/N.<br><br><button type="button" href="http://www4.rcf.bnl.gov/~ccdtest/traveler_support_material/docs/webcam.html" id="b2" title="Click on the Webcam's program, labeled 'Webcam Capture' on the Desktop. Position the webcam to photograph the hardware wuth the LSST S/N in view. Click 'Take a Photo'. Drag the new photograph from the feed at the bottom of the program to the 'Choose File' button in the results form. Click 'Record Result' and repeat as necessary."><label style="font-size':' 4px;">Directions for WebCam</label></button><br><button type="button" id="b2" title="TBD"><label style="font-size':' 4px;">Directions for DSLR camera</label></button>
+     Description: Take pictures to capture the condition of the hardware and support the findings of the visual inspection by filling in the form below. The DSLR camera is available for small details that the webcam cannot capture. A minimum of one photograph must be taken. The LSST S/N <b>must</b> be visible in each photograph. If the LSST S/N is not visible, write the LSST on a piece of paper and place it in the frame before taking the photograph. The "Notes" fields in the form are to document the subject of the respective photograph. Additional details may be provided as well. If more than four photographs are necessary, this step can be retried twice.<br><br>Restore all protective packaging afterward, and if necessary, provide new protective packaging. Label any new protective packaging with the LSST S/N.<br><br><button type="button" id="b2" title="Click on the Webcam's program, labeled 'Webcam Capture' on the Desktop. Position the webcam to photograph the hardware wuth the LSST S/N in view. Click 'Take a Photo'. Drag the new photograph from the feed at the bottom of the program to the 'Choose File' button in the results form. Click 'Record Result' and repeat as necessary."><label style="font-size':' 4px;">Directions for WebCam</label></button><br><button type="button" id="b2" title="Use the DSLR camera to take photographs. Put the SD card in put into the anteroom computer, the DCIM folder will appear on the Desktop. Drag a photograph from the DCIM folder to the 'Choose File' button in the results form, and click 'Record Result.' Repeat as necessary."><label style="font-size':' 4px;">Directions for DSLR camera</label></button>
      Version: next
      MaxIteration: '3'
      RequiredInputs:

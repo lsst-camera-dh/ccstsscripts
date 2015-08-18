@@ -4,7 +4,7 @@
 Name: SR-MET-1
 Version: next
 HardwareGroup: Generic-CCD
-Description: Welcome to the SENSOR ABSOLUTE HEIGHT METROLOGY traveler.<br><br>This traveler will record the absolute height of a sensor received at BNL. This work is performed at TS2 and the laminar flow hood. Work performed includes:<ul><li>Absolute Height  Measurements using the OGP machine</li><Sensor jig removal (Vendor dependent)</li></ul><br><br></ul>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>
+Description: Welcome to the SENSOR ABSOLUTE HEIGHT METROLOGY traveler.<br><br>This traveler will record the absolute height of a sensor received at BNL. This work is performed at TS2 and the laminar flow hood. <br />Work performed includes:<ul><li>Absolute Height  Measurements using the OGP machine</li><li>Sensor jig removal (hardware specific)</li></ul><br><br></ul>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>
 Prerequisites:
    -
      Name: Cautions
@@ -14,17 +14,18 @@ Prerequisites:
      Name: Equipment needed for these tasks
      Description: 'Required Equipment:<ul>
 <li>OGP machine</li><li>Non-linting wipes</li>
-<li>MF02</li><li>4 mm or 2.5 mm allen key (Vendor dependent)</li>
+<li>MF02</li><li>4 mm or 2.5 mm allen key (Hardware specific)</li>
 <li>Flathead screwdriver</li>
-<li>2 mm allen key (Potentially required, vendor dependent)</li>
+<li>2 mm allen key (Potentially required, hardware specific)</li>
 <li>Gauge blocks (Vendor dependent)</li>
 <li>MF01 (A or B, vendor dependent)</li>
-<li>MF07B (Potentially required, vendor dependent)</li>
-</ul>'
+<li>MF07B (Potentially required, hardware specific)</li>
+</ul>
+<p><b>Read the Header information before clicking Start Work</b></p>'
      PrerequisiteType: PREPARATION
 Sequence:
    - Name: SR-MET-1 Set up EPA
-     Description: 'Follow these steps:<ul><li>Attach the OGP to the ESD network/monitor.</li><li>Set up and verify the TS2 workstation EPA.</li><li>Transport required tooling to TS2 Workstation.</li></ul>'
+     Description: 'Follow these steps to set up and verify ESD protective measures at the TS2 workstation and the OGP:<ul><li>Attach the OGP to the ESD network/monitor.</li><li>Set up and verify the TS2 workstation EPA.</li><li>Transport required tooling to the TS2 Workstation.</li></ul>'
      Version: next
      Prerequisites:
        -
@@ -33,13 +34,13 @@ Sequence:
          PrerequisiteType: PREPARATION
    -
      Name: SR-MET-1 Setup OGP for Measurement
-     Description: 'Follow these steps:<ul><li>Turn on OGP Master Switch.</li><li>Turn on the OGP controller.</li><li>Open MeasureMind and follow the initialization prompts.</li><li>Ensure Safe Zone is enabled.<button type="button" id="b1" title="Go to System, Config, Safe Zones."><label style="font-size'':''4px:">detail</label></button></li><li>Raise Z-Axis bridge and move the platen forward towards the Operator.</li></ul>'
+     Description: 'Follow these steps:<ul><li>Turn on the OGP Master Switch.</li><li>Turn on the OGP controller.</li><li>Open the MeasureMind Software and follow the initialization prompts.</li><li>Ensure the Safe Zone is enabled.<button type="button" id="b1" title="Go to System, Config, Safe Zones."><label style="font-size'':''4px:">detail</label></button></li><li>Raise the Z-Axis bridge and move the platen forward towards the Operator.</li><li>Align the vee-grooves for MF01.</ul>'
      Version:  next
      Prerequisites:
        -
          PrerequisiteType: PREPARATION
          Name: OGP Calibration
-         Description:  <b>Verify the OGP has been calibrated within the last 366 days.</b>
+         Description:  Verify the OGP has been calibrated within the last 366 days.
        -
          Name: Optical Flat Calibration
          Description: Verify the optical flat calibration has been performed within the last 180 days.
@@ -50,7 +51,7 @@ Sequence:
          PrerequisiteType: PREPARATION
    -
      Name: Make-OGP-Directories
-     Description: 'Using the lcatr-harness, create the required directories for the Absolute Height Measurement. The approved Routine scripts will be downloaded to the appropriate directory. <button type="button" id="b1" title="The directory is C:\Production Data\LSST S/N\Absolute Height\Date."><label style="font-size'':''4px:">detail</label></button>'
+     Description: 'Using the lcatr-harness, create the required directories for the Absolute Height Measurement. The approved Routine scripts will be downloaded to the appropriate directory. <button type="button" id="b4" title="The directory is C:\\Production Data\\LSST S/N\\Absolute Height\Date."><label style="font-size'':''4px:">detail</label></button>'
      Version:  next
      UserVersionString: v0
      MaxIteration: 5
@@ -58,42 +59,43 @@ Sequence:
        - HarnessedJob
    -
      Name: SR-MET-1 Prepare sensor
-     Description: " "
+     Description: "Select the specific hardware type to prepare the sensor for the absolute height measureent."
      Version:  next
      Selection:
        - 
          Condition: e2v
          Name: SR-MET-1 Condition 1 - e2v
          Version: next
-         Description: " "
+         Description: "Click Start Work to continue."
          Sequence:
            -
              Name: SR-MET-1 Transport coffin to TS2
              Version: next
-             Description: Transport the coffin to TS2. Specify the location below.
+             Description: Transport the coffin to the TS2 workstation. Specify the new location below.
              NewLocation: '(?)'
            -
              Name: SR-MET-1 Remove coffin cover coffin e2v
              Version: next
-             Description: '<p>Un-screw outer screws of coffin cover. Dislodge coffin cover, if necessary.<button type="button" id="b2" title="Insert a flathead scredriver into the slot in the coffin to jar cover."><label style="font-size'':''4px:">detail</label></button> Remove coffin cover.</p>'
+             Description: '<p>Unscrew the outer screws of the coffin cover. Dislodge the coffin cover, if necessary.<button type="button" id="b2" title="Insert a flathead screwdriver into the slot in the coffin to jar cover."><label style="font-size'':''4px:">detail</label></button> Remove the coffin cover.</p>'
              Prerequisites:
                -
                  Name: Prepare to open coffin
                  PrerequisiteType: PREPARATION
-                 Description: '<ul><li>Ensure facemask is on.</li><li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat</li></ul><br /><br /><b>If you are DONE reading these instructions and have completed this preparation, please click the done button to the right, and proceed to Start Work</b>' 
+                 Description: '<ul><li>Ensure facemask is on.</li><li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat, then count to 10.</li></ul><br /><br /><b>If you are DONE reading these instructions and have completed this preparation, please click the Done button to the right, and proceed to Start Work.</b>' 
            -
              Name: SR-MET-1 Install jig onto MF01.
              Version: next
-             Description: <ul><li>Unscrew jig from coffin base.</li>
-                          <li>Place jig onto MF01.</li>
-                          <li>Secure sensor onto MF01, using the
+             Description: <ul><li>Unscrew the jig from the coffin base.</li>
+                          <li>Place the jig onto MF01.</li>
+                          <li>Secure the sensor onto MF01 using the
                           spring-screw system</li></ul>
            - 
              Name: SR-MET-1 Prepare MF01 - e2v
              Version: next
-             Description: 'Wring a gauge block on the top and bottom slots
-                          MF01. <button type="button" id="b3" 
-                          title="Wring the gauge blcok on by sliding it
+             Description: 'Wring a gauge block on the top (towards the 
+                          back wall) and bottom (towards the operator) slots
+                          of MF01. <button type="button" id="b3" 
+                          title="Wring the gauge block on by sliding it
                           from the edge of MF01 into the holder.">
                           <label style="font-size'':''4px:">detail</label>
                           </button>'
@@ -101,87 +103,88 @@ Sequence:
                -
                  Name: Instructions
                  PrerequisiteType: PREPARATION
-                 Description: Place loaded-MF01 onto the appropriate 
-                              vee-grooves on the OGP
+                 Description: Place the loaded-MF01 onto the appropriate 
+                              vee-grooves on MF02.
              RequiredInputs:
                -
-                 Label: Enter the gauge block id for the bottom slot
+                 Label: Enter the gauge block ID for the bottom slot of MF01
                  InputSemantics: string
                -
-                 Label: Enter the gauge block id for the top slot
+                 Label: Enter the gauge block ID for the top slot of MF01.
                  InputSemantics: string
            -
              Name: SR-MET-1 e2v - Remove protective cover.
-             Description: Remove protective cover.
+             Description: Remove the protective cover.
              Version:  next
        -
          Condition: ITL
          Name: SR-MET-1 Condition 1 - ITL
-         Description: " "
+         Description: "Click Start Work to continue."
          Version: next
          Sequence:
            -
              Name: SR-MET-1 Transport coffin to laminar flow bench
              Version: next
-             Description: Transport the coffin to the laminar flow bench.  Specify the location below.
+             Description: Transport the coffin to the laminar flow bench.  Specify the new location below.
              NewLocation: '(?)'
              Prerequisites:
                - Name: Laminar flow check
                  PrerequisiteType: PREPARATION
-                 Description: '<ul><li>Ensure laminar flow is on</li><li>Check for obstructions and/or malfunctions</li></ul>'
+                 Description: '<ul><li>Ensure laminar flow is on.<button type="button" id="b5" title="The laminar flow bench must be running for at least
+20 minutes before a sensor is exposed. If the bench was running before starting, assume it is ready for use."><label style="font-size'':''4px:">detail</label></button></li><li>Check for obstructions and/or malfunctions.</li></ul>'
                - Name: Set up EPA at laminar flow hood
                  PrerequisiteType: PREPARATION
-                 Description: '<ul><li>Attach MF05 and MF07 to the ESD network/monitor</li><li>Setup and verify the laminar flow hood EPA</li><li>Turn on Air Ionizer Bar</li><li>Transport required tooling to laminar flow hood.</li></ul><br /><br /><b>If you are DONE reading these instructions and have completed the preparation please click the buttons to the right and proceed to Start Work.</b>'
+                 Description: '<ul><li>Attach MF05 and MF07 to the ESD network/monitor.</li><li>Setup and verify the laminar flow hood EPA.</li><li>Turn on Air Ionizer Bar.</li><li>Transport required tooling to laminar flow hood.</li></ul><br /><br /><b>If you are DONE reading these instructions and have completed the preparation, please click the Done button to the right, and proceed to Start Work.</b>'
 
            -
              Name: SR-MET-1 Remove coffin cover ITL
-             Description: 'Un-screw outer screws of coffin cover. Dislodge coffin cover, if necessary. <button type="button" id="b3" title="Insert a flathead scredriver into the slot in the coffin to jar cover."><label style="font-size'':''4px:">detail</label></button>Remove coffin cover.'
+             Description: 'Un-screw the outer screws of the the coffin cover. Dislodge the coffin cover, if necessary. <button type="button" id="b6" title="Insert a flathead scredriver into the slot in the coffin to jar cover."><label style="font-size'':''4px:">detail</label></button>Remove the coffin cover.'
              Version: next
              Prerequisites:
                 -
                   Name: SR-MET-1 Prepare to open coffin
-                  Description: '<ul><li>Ensure facemask is on.</li><li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>'
+                  Description: '<ul><li>Ensure facemask is on.</li><li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the Done button to the right, and proceed to "Start Work".</b>'
                   PrerequisiteType: PREPARATION
            -
              Name: SR-MET-1 ITL - Remove protective cover.
-             Description: Remove protective cover.
+             Description: Remove the protective cover.
              Version:  next
              Prerequisites:
                 -
                   Name: Instructions
-                  Description: Secure extension piece to coffin.<br><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+                  Description: Loosen the protective cover screws. Secure extension plate onto the coffin.<br><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button Done to the right, and proceed to "Start Work".</b>
                   PrerequisiteType: PREPARATION
            -
              Name: SR-MET-1 Remove sensor from jig
-             Description: <ul><li>Unscrew jig from coffin base.</li><li>Remove the screws from the alignment pins.</li><li>Remove Loaded-MF07 from jig.</li><li>Place jig in coffin. Place cover back on coffin.</li><li>Label the MF07-cover with the LSST S/N.</li></ul>
+             Description: <ul><li>Unscrew the jig from the coffin base.</li><li>Remove the screws from the alignment pins.</li><li>Remove the Loaded-MF07 from the jig.</li><li>Place the jig in the coffin. Place all other jig equipment in the coffin.  Secure the coffin cover.</li><li>Label the MF07-cover with the LSST S/N.</li><li>Place MF07 in an ESD bag for transporting.</li><li>Label the ESD bag with the LSST S/N.</li></ul>
              Version:  next
              Prerequisites:
                 -
                   Name: Attach MF07 frames onto sensor.
-                  Description: <ul><li>Attach MF07 frames onto sensor by sliding them into place.</li><li>Attach side screws into MF07.</li><li>Place MF07-Cover on an edge and attach with one screw.</li><li>Slide MF07-Cover into place</li><li>Attach other 3 screws.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+                  Description: '<ul><li>Carefully attach the MF07 frames onto the sensor by sliding them against the extension plate onto the sensor''s package.</li><li>Attach the side screws into MF07.</li><li>Place the MF07-Cover on an edge and attach with one screw.</li><li>Slide the MF07-Cover into place</li><li>Attach the other 3 screws.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the Done button to the right, and proceed to "Start Work".</b>'
                   PrerequisiteType: PREPARATION
            - 
              Name: SR-MET-1 Transport MF07 to TS2
              Version: next
              NewLocation: '(?)'
-             Description: Transport MF07 to TS2. Specify the new location below.
+             Description: Transport the sensor contained in MF07 to the TS2 workstation. Specify the new location below.
            -
              Name: SR-MET-1 Install MF07 onto MF01
-             Description: <ul><li>Place Loaded-MF07 onto MF01.</li><li>Secure Loaded-MF07 onto MF01.</li></ul>
+             Description: <ul><li>Place and secure MF07 onto MF01.</li></ul>
              Version:  next
              Prerequisites:
                - Name: Instructions
                  PrerequisiteType: PREPARATION
                  Description: <ul><li>Ensure facemask is on.</li><li>ESD wrist strap is worn.</li>
                               <li>Sit or stand using the provided ESD-protective furniture.</li>
-                              <li>Place one finger of each hand away from each other on the ESD mat</li></ul>
-                              <br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+                              <li>Place one finger of each hand away from each other on the ESD mat, then count to ten.</li></ul>
+                              <br><b>If you are DONE reading these instructions and have completed this preparation, please click the Done button to the right, and proceed to "Start Work".</b>
            -
              Name: SR-MET-1 Prepare MF01 - ITL
              Version: next
-             Description: 'Wring a gauge block on the top and bottom slots
-                          MF01. <button type="button" id="b3" 
-                          title="Wring the gauge blcok on by sliding it
+             Description: 'Wring a gauge block on the top (towards the back wall) and bottom (towards the operator) slots of
+                          MF01. <button type="button" id="b7" 
+                          title="Wring the gsauge block on by sliding it
                           from the edge of MF01 into the holder.">
                           <label style="font-size'':''4px:">detail</label>
                           </button>'
@@ -189,49 +192,49 @@ Sequence:
                -
                  Name: Instructions
                  PrerequisiteType: PREPARATION
-                 Description: Place loaded-MF01 onto the appropriate 
-                              vee-grooves on the OGP
+                 Description: Place the loaded-MF01 onto the appropriate 
+                              vee-grooves on MF02
              RequiredInputs:
                -
-                 Label: Enter the gauge block id for the bottom slot
+                 Label: Enter the gauge block ID for the bottom slot of MF01
                  InputSemantics: string
                -
-                 Label: Enter the gauge block id for the top slot
+                 Label: Enter the gauge block ID for the top slot of MF01
                  InputSemantics: string
 
            -
              Name: SR-MET-1 Slide the cover off
-             Description: Slide the cover off, and remove the final screws.
+             Description: Beginning removing the MF07 cover by loosening the final screw. Expose the sensor by sliding the MF07 off.  Remove the final screw and the MF07 cover.
              Version:  next
              Prerequisites:
                 -
                   Name: loosen cover
-                  Description: <ul><li>Remove three of the screws from the cover.</li><li>Lightly loosen the final screw.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+                  Description: <ul><li>On MF07, remove three of the screws from the cover.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the Done button to the right, and proceed to "Start Work".</b>
                   PrerequisiteType: PREPARATION
    -
      Name: SR-MET-1 Perform Absolute Height OGP Routine.
-     Description: 'Perform the measurement using the following procedure, then select the following sensor type to put the sensor away. <ul><li>Click Open Routine and select Abs_Height.RTN within the appropriate directory.<button type="button" id="b1" title="The directory is C:\Production Data\LSST S/N\Absolute Height\Date."><label style="font-size'':''4px:">detail</label></button></li><li>Click Run Routine then hit OK to start the routine.</li><li>When prompted, enter the appropriate path and file name for data products.</li><li>Wait for the routine to finish and click OK.</li></ul>'
+     Description: 'Perform the measurement using the following procedure, then select the following sensor type to put the sensor away. <ul><li>Click Open Routine and select Abs_Height.RTN within the appropriate directory.<button type="button" id="b8" title="The directory is C:\\Production Data\\LSST S/N\\Absolute Height\\Date."><label style="font-size'':''4px:">detail</label></button></li><li>Click Run Routine then hit OK to start the routine.</li><li>When prompted, enter the appropriate path and file name for the data products.<button type="button" id="b9" title="(Placeholder)"><label style="font-size'':''4px:">detail</label></button></li><li>Wait for the routine to finish and click OK.</li></ul>'
      Version: next
      Prerequisites:
        -
          Name: Instructions
          PrerequisiteType: PREPARATION
-         Description: Click New Routine to clear the current OGP Routine.
+         Description: Click New Routine to clear the current routine.
      Selection:
        - 
          Condition: e2v
          Name: SR-MET-1 Condition 2 - e2v
-         Description: " "
+         Description: "Click Start Work to continue."
          Version: next
          Sequence:
            -
              Name: SR-MET-1 Add protective cover
-             Description: Add protective cover.
+             Description: Add the protective cover.
              Version:  next
              Prerequisites:
                -
                  Name: Instructions
-                 Description: <ul><li>Raise Z-Axis Bridge and move the stage to the front.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+                 Description: <ul><li>Raise the Z-Axis Bridge and move the platen towards the operator.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the Done button to the right, and proceed to "Start Work".</b>
                  PrerequisiteType: PREPARATION
            -
              Name: SR-MET-1 Install coffin cover.
@@ -240,32 +243,37 @@ Sequence:
              Prerequisites:
                -
                  Name: Instructions
-                 Description: <ul><li>Return the two gauge blocks to their original location.</li><li>Transfer loaded-MF01 to TS2 workstation.</li><li>Remove jig from MF01.</li><li>Secure jig back onto coffin base.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>
+                 Description: <ul><li>Return the two gauge blocks to their original location.</li><li>Transfer MF01 to the TS2 workstation.</li><li>Remove the jig from MF01.</li><li>Secure the jig back onto the coffin base.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the Done button to the right, and proceed to "Start Work".</b>
                  PrerequisiteType: PREPARATION
        - 
          Condition: ITL
          Name: SR-MET-1 Condition 2 - ITL
-         Description: " "
+         Description: "Click Start Work to continue."
          Version: next
          Sequence:
            -
              Name: SR-MET-1 Slide MF07-Cover into place
-             Description: Slide MF07-Cover into place and attach other thress screws.
+             Description: Cover the sensor by sliding the MF-7-cover over the exposed surface. Attach the other three screws and hard tighten all four screws.
              Version:  next
              Prerequisites:
                -
                  Name: Instructions
-                 Description: <ul><li>Raise Z-bridge.</li><li>Place MF07-Cover on an edge and attach with one screw.</li></ul>
+                 Description: <ul><li>Raise the Z-axis bridge and move the platen forward towards the operator.</li><li>Place the MF07-Cover on an edge and (still exposing the sensor) attach with a screw.</li></ul>
                  PrerequisiteType: PREPARATION
            -
              Name: SR-MET-1 Remove Loaded-MF07 from MF01
-             Description: <ul><li>Transfer loaded-MF01 to TS2 workstation.</li><li>Remove thumbscrews which were securing the sensor to MF01.</li><li>Remove Loaded-MF07 from MF01.</li>
+             Description: <ul><li>Transfer MF01 to the TS2 workstation.</li><li>Remove MF07 from MF01.</li><li>Place MF07 in an ESD bag for transporting.</li><li>Label the ESD bag with the LSST S/N.</li></ul>
              Version:  next
              Prerequisites:
                -
                  Name: Instructions
                  PrerequisiteType: PREPARATION
                  Description: Return the two gauge blocks to their original location
+   -
+     Name: SR-MET-1 Transfer sensor to storage
+     Version:  next
+     Description: "Transfer the sensor to the long-term storage cabinet. Specify the new location below."
+     NewLocation: '(?)'
    -
      Name: OGP_Absolute_Height_Upload
      Version:  next
@@ -277,15 +285,15 @@ Sequence:
    -
      Name: SR-MET-1 Turn off OGP
      Version: next
-     Description: <ul><li>Hit Start/Stop to stop the OGP.</li><li>Close out of MeasureMind Software.</li><li>Turn off OGP controller</li><li>Turn off OGP Master Switch.</li></ul>
+     Description: <p>If the OGP will not be in immediate use, turn it off as follows:</p><ul><li>Hit Start/Stop to stop the OGP controller.</li><li>Close out of the MeasureMind Software.</li><li>Turn off the OGP controller</li><li>Turn off the OGP Master Switch.</li></ul>
 
    -
      Name: SR-MET-1 Analyze absolute height data
-     Description: '<p>Analyze the absolute height data using the following procedure: <ul><li>Download the Mathematica absolute height metrology analysis script from the GIT repository.</li><li>Download the absolute height metrology data from the Data Catalog.</li><li>Open the script and change the data set.</li><li>Execute the script.</li><li>Save result files.</li></ul>'
+     Description: '<p>Analyze the absolute height data using the following procedure: <ul><li>Download the approved Mathematica absolute height metrology analysis script from the GIT repository.</li><li>Download the absolute height metrology data from the Data Catalog.</li><li>Open the script and change the data set.</li><li>Execute the script.</li><li>Save the result files.</li></ul>'
      Version:  next
    -
      Name: SR-MET-1 Upload absolute height analysis files
-     Description: Upload the flatness analysis results. [May change to harnessed job step]
+     Description: 'Upload the flatness analysis results. <button type="button" id="b10" title="(Placeholder)"><label style="font-size'':''4px:">detail</label></button>'
      Version: next
      RequiredInputs:
        -
@@ -297,12 +305,12 @@ Sequence:
    -
      Name: SR-MET-1 Absolute Height Statistics Form
      Version: next
-     Description: Fill in the form summarizing the absolute height metrology results 
+     Description: Using the absolute height analysis data products, summarize the metrology results in the following form.
      RequiredInputs:
         - 
           Label:  Looks ok?
           InputSemantics: boolean
    -
-     Name: SR-MET-1 Review and determine the disposition of the scans
+     Name: SR-MET-1 Review and determine the disposition of the absolute height scans
      Version: next
      Description: 'Based on the findings of the scans:<br><ul><li>Click Complete if the sensor''s absolute height is acceptable. After doing so, you will be returned to the SR-MET-01 Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if the sensor''s absolute height is not acceptable. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>'
