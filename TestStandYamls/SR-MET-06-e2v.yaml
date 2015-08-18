@@ -73,7 +73,7 @@ Sequence:
        -
          Name: Prepare to open coffin
          PrerequisiteType: PREPARATION
-         Description: '<ul><li>Ensure facemask is on.</li><li>ESD wrist strap is worn.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat, then count to 10.</li></ul><br /><br /><b>If you are DONE reading these instructions and have completed this preparation, please click the Done button to the right, and proceed to Start Work.</b>' 
+         Description: '<ul><li>Ensure facemask is on.</li><li>ESD wrist strap is worn  and plugged in.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat, then count to 10.</li></ul><br /><br /><b>If you are DONE reading these instructions and have completed this preparation, please click the Done button to the right, and proceed to Start Work.</b>' 
    -
      Name: SR-MET-1 Install jig onto MF01.
      Version: next
