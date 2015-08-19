@@ -56,8 +56,8 @@ Sequence:
      Selection:
        - 
          Condition: e2v
-         Name: Condition 1 - e2v
-         Description: " "
+         Name: e2v
+         Description: Click Start Work to continue
          Version: next
          Sequence:
            -
@@ -86,41 +86,24 @@ Sequence:
            -
              Name: SR-MET-2 Add grounding connectors
              Version: next
-             Description:  Add grounding connectors to nano-D connectors.
-             Prerequisites:
-               - 
-                 Name: Instructions
-                 PrerequisiteType: PREPARATION
-                 Description: '<ul><li>Evenly unscrew nano-D connectors from micro-D connectors.</li><li>Unscrew the jig from the coffin base.</li><li>Remove the braces securing the nano-D connectors.</li></ul><br /><br /><b>If you are DONE reading these instructions and have completed this preparation, please click the DONE button to the right, and proceed to Start Work.</b>'
-
+             Description: <ul><li>Unscrew the jig from the coffin base.</li><li>Evenly unscrew nano-D connectors from micro-D connectors.</li><li>Remove the braces securing the nano-D connectors.</li><li>Add grounding connectors to nano-D connectors.</li></ul>
            -
              Name: SR-MET-2 e2v - Remove the protective cover.
-             Description: Remove the protective cover.
-             Version:  next
-             Prerequisites:
-               -
-                 Name: Attach jig to MF05
-                 Description: '<ul>
+             Description: '<ul>
 <li>Remove one alignment pin screw.</li>
 <li>Slightly loosen the other alignment pin screw.</li>
 <li>Place the jig onto the MF05A registration pins and secure the jig with the screws.</li>
 <li>Place the coffin cover on the (empty) coffin.</li>
 <li>Attach the MF05-Rods to the sensor''s mounting studs.</li>
-</ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the DONR button to the right, and proceed to Start Work.</b>'
-                 PrerequisiteType: PREPARATION
+<li>Remove the protective cover.</li></ul>'
+             Version:  next
            -
              Name: SR-MET-2 Slide MF07-Cover into place - 2
-             Description: 'Follow these steps to install the sensor into MF07:<ul><li>Install MF07 around the MF07-cove.</li><li>Attach side-screw into MF07.</li><li>Remove MF05-Rod stops.</li><li>Retract the loaded-MF07.</li><li>Place MF07-Cover on a lower edge and attach with a screw.</li><li>Slide the MF07-cover into place and attach with a screw on the upper edge.</li><li>Remove the sensor contained in MF07 from MF05.</li><li>Attach the other two screws.</li><li>Hand tighten all four screws.</li><li>Remove the (empty) jig from MF05 and secure it in the coffin. Place all other jig equipment in the coffin. Secure the coffin cover.</li><li>Place MF07 in an ESD bag for transporting.</li><li>Label the ESD bag with the LSST S/N.</li></ul>'
+             Description: 'Follow these steps to install the sensor into MF07:<ul><li>Remove second alignment pin screw.</li><li>Push sensor into MF05-Cove.</li><li>Secure MF05-Rods to prevent further movement.</li><li>Install MF07 around the MF07-cove.</li><li>Attach side-screw into MF07.</li><li>Remove MF05-Rod stops.</li><li>Retract the loaded-MF07.</li><li>Place MF07-Cover on a lower edge and attach with a screw.</li><li>Slide the MF07-cover into place and attach with a screw on the upper edge.</li><li>Remove the sensor contained in MF07 from MF05.</li><li>Attach the other two screws.</li><li>Hand tighten all four screws.</li><li>Remove the (empty) jig from MF05 and secure it in the coffin. Place all other jig equipment in the coffin. Secure the coffin cover.</li><li>Place MF07 in an ESD bag for transporting.</li><li>Label the ESD bag with the LSST S/N.</li></ul>'
              Version:  next
-             Prerequisites:
-               -
-                 Name: Instructions
-                 Description: '<ul><li>Remove second alignment pin screw.</li>
-<li>Push sensor into MF05-Cove.</li><li>Secure MF05-Rods to prevent further movement.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the button to the right, and proceed to "Start Work"</b>'
-                 PrerequisiteType: TEST_EQUIPMENT
        -
          Condition: ITL
-         Name: SR-MET-2 Condition 1 - ITL
+         Name: ITL
          Version: next
          Description: "Click Start Work to continue."
    - Name: SR-MET-2 Transport MF07 to TS2
@@ -129,38 +112,25 @@ Sequence:
      NewLocation: '(?)'
    -
      Name: SR-MET-2 Remove protective cover.
-     Description: 'Begin removing the MF07-cover by loosening the final screw. Expose the sensor by sliding the MF07-cover off. Remove the final screw and the MF07-cover. Ensure MF04 is still in position.'
+     Description: 'Place MF07 onto MF04 and transfer it to the appropriate place on MF02. Ensure the center fiducial holes of MF04 are aligned in the Y-direction of the OGP. On MF07, remove three of the screws from the cover. Begin removing the MF07-cover by loosening the final screw. Expose the sensor by sliding the MF07-cover off. Remove the final screw and the MF07-cover.'
      Version:  next
      Prerequisites:
        -
          Name: Prepare for exposure
-         Description: '<ul><li>Ensure facemask is on.</li><li>ESD wrist strap is worn and plugged in.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat, then count to ten.</li></ul>'
+         Description: '<ul><li>Ensure facemask is on.</li><li>ESD wrist strap is worn and plugged in.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat, then count to ten.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the DONE button to the right, and proceed to "Start Work".</b>'
          PrerequisiteType: PREPARATION
-       -
-         Name: Install onto OGP
-         PrerequisiteType: PREPARATION
-         Description: '<ul><li>Place and secure MF07 onto MF04.</li><li>Transfer the loaded-MF04 onto the appropriate place on MF02.</li></ul>'
-       -
-         Name: Prepare to open MF07
-         PrerequisiteType: PREPARATION
-         Description: '<ul><li>On MF07, remove three of the screws from the cover.</li></ul><br /><b>If you are DONE reading these instructions and have completed this preparation, please click the DONE button to the right, and proceed to "Start Work".</b>'
    -
      Name: SR-MET-2 Perform lateral position measurement
-     Description: 'Using the MeasureMind Software and the OGP machine:<ul><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select Lateral_Position.RTN within the appropriate directory.<button type="button" id="b8" title="The directory is C:\\Production Data\\LSST S/N\\Lat_Pos\\Date."><label style="font-size'':''4px:">detail</label></button><li>Click Run Routine, hit OK to start the routine the follow the prompts.</li><li>When prompted, enter the appropriate path and file name for the data products.<button type="button" id="b9" title="(Placeholder)"><label style="font-size'':''4px:">detail</label></button></li><li>Wait for the routine to finish and click OK.</li></ul>'
+     Description: 'Using the MeasureMind Software and the OGP machine:<ul><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select Lateral_Position.RTN within the appropriate directory.<button type="button" id="b8" title="The directory is C:\\Production Data\\LSST S/N\\Lat_Pos\\Date."><label style="font-size'':''4px:">detail</label></button><li>Click Run Routine, click OK until the routine starts.</li><li>Center the crosshair on the fiducial hole and press enter on the OGP controller. This will happen for each of the fiducial holes.</li><li>After the measurement finishes, enter the appropriate path and file name for the test report.<button type="button" id="b9" title="(Placeholder)"><label style="font-size'':''4px:">detail</label></button></li><li>When the routine is finished click OK.</li></ul>'
      Version:  next
-#     Prerequisites:
-#       -
-#         Name: Instructions
-#         Description: Click New Routine to clear the current routine.
-#         PrerequisiteType: PREPARATION
    -
      Name: SR-MET-2 Install protective cover
-     Description: Cover the sensor by sliding the MF07-cover over the exposed surface. Attach the other three screws and hand tighten all four screws.
+     Description: Place the MF07-Cover on an edge (still exposing the sensor) and attach with a screw. Cover the sensor by sliding the MF07-cover over the exposed surface. Attach the other three screws and hand tighten all four screws.
      Version:  next
      Prerequisites:
        -
          Name: Remove the screw and the cover.
-         Description: '<ul><li>Raise the Z-Axis Bridge and move the platen forward towards the Operator.</li><li>Place the MF07-Cover on an edge (still exposing the sensor) and attach with a screw.</li></ul><br /><b>If you are DONE reading these instructions and have completed this preparation, please click the DONE button to the right, and proceed to "Start Work".</b>'
+         Description: '<ul><li>Raise the Z-Axis Bridge and move the platen forward towards the Operator.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the DONE button to the right, and proceed to "Start Work".</b>'
          PrerequisiteType: PREPARATION
    -
      Name: SR-MET-2 Transfer MF07 to storage
@@ -192,4 +162,4 @@ Sequence:
    -
      Name: SR-MET-2 Review and determine the disposition of the lateral position measurement
      Version: next
-     Description: 'Based on the findings of the lateral position test report:<br>><ul><li>Click Complete if the sensor meets all specifications. After doing so, you will be returned to the SR-MET-06 Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if any specifications are not met. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>'
+     Description: 'Based on the findings of the lateral position test report:<br><ul><li>Click Complete if the test report shows the sensor meets all specifications. After doing so, you will be returned to the SR-MET-06 Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if the test report shows any specifications are not met. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>'
