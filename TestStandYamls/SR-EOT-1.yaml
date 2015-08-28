@@ -23,7 +23,7 @@ Sequence:
 - RequiredInputs:
   - {Description: '', Units: '', InputSemantics: boolean, Label: 'Do you confirm that
       the sensor has been approved for EO testing? If not, contact the Sub-system Manager.'}
-  - {Description: '', Units: '', InputSemantics: string, Label: 'Which instance of TS3 was selected for testing? Fill in TS3-1 or TS3-2.'}
+#  - {Description: '', Units: '', InputSemantics: string, Label: 'Which instance of TS3 was selected for testing? Fill in TS3-1 or TS3-2.'}
   - {Description: '', Units: '', InputSemantics: string, Label: 'Any comments? If
       not, fill in None.'}
   Name: SR-EOT-1 - Confirm/Deny hardware has been approved for EO testing
@@ -54,11 +54,11 @@ Sequence:
       PrerequisiteType: PREPARATION
     -
       Name: Photodiode Calibration
-      Description: 'Verify that the integrating sphere photodiode has been calibrated within the last 180 days.<br><br><b>If all calibrations are current, click Start Work.  Otherwise contact the Subsystem Manager.</b>'
+      Description: 'Verify that the integrating sphere photodiode has been calibrated within the last 180 days.'
       PrerequisiteType: PREPARATION
     -
       Name: Cryostat integrity
-      Description: 'Verify that the cryostat RGA scan has been done within the last 180 days. Verify the pump down profile of the previous run is acceptable. Verify tht the PolyCold pressure is above xxx psi.'
+      Description: 'Verify that the cryostat RGA scan has been done within the last 180 days. Verify the pump down profile of the previous run is acceptable. Verify tht the PolyCold pressure is above xxx psi.<br><br><b>If all calibrations are current, click Start Work.  Otherwise contact the Subsystem Manager.</b>'
       PrerequisiteType: PREPARATION
 - Name: preflight_acq
   Description: The execution of the preflight_acq Job Harness will verify all auxiliary test stand equipment is ready and begin running<br>the CCS widget-<br><img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/widget.png height="100" width="100"> and GUI-<img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/gui.png height="200" width="240"><br>. A message box will appear at the end indicating whether the results are OK. Issues can be rectified at this point and the step can be retried up to three times.<button type="button" id="b2" title="Power-on, lamp warm up and stability (20 min), shutter actuates, monochromator grating working, filter wheel rotates, Keithley and Archon controller are operational. Final check'':'' read out of IS-PD and response from instruments. Two wavelength, 450 and 823, and readout IS-PD current."><label style="font-size'':'' 4px;">detail</label></button> After clicking Start, click on the launcher button that will appear.<br>
@@ -99,9 +99,9 @@ Sequence:
   Description: Un-screw outer screws of coffin cover.  Dislodge coffin cover, if necessary<button type="button" id="b2" title="Insert a flathead screwdriver into the slot in the coffin to jar cover."><label style="font-size'':''4px;">detail</label></button>. Remove coffin cover.
   MaxIteration: '1'
   Prerequisites:
-  - {Name: INSTRUCTIONS, Description: '<ul><li>verify that the bias voltage provided by the Keithley supply is at 0V</li><li>turn-off the Archon controller</li><li>Ensure
-      facemask is on.</li></ul><br><b>After following the instructions, please click the DONE button to the right and proceed to Start Work.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
-  - {Name: INSTRUCTIONS, Description: '<ul><li>Ensure facemask is on.</li><li>ESD wrist strap is worn and plugged in.</li><li>Sit or stand using the
+  - {Name: Equipment, Description: '<ul><li>Verify that the bias voltage provided by the Keithley supply is at 0V</li><li>Turn-off the Archon controller</li><li>Ensure
+      facemask is on.</li></ul>', Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: ESD, Description: '<ul><li>Ensure facemask is on.</li><li>ESD wrist strap is worn and plugged in.</li><li>Sit or stand using the
       provided ESD-protective furniture.</li><li>Place one finger of each hand away
       from each other on the ESD mat, then count to ten.</li></ul><br><b>After following the instructions, please click the DONE button to the right and proceed to Start Work.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
   Version: next
@@ -154,7 +154,7 @@ you are DONE reading and executing these instructions, please click the button t
     Quantity: '1' 
     PrerequisiteType: PREPARATION
 - Name: Purge the TS3-Cryostat
-  Description: 'Use the following procedure to inject clean, dry Nitrogen into the TS3-Cryostat:<ul><li>Open the Nitrogen injection valve to inject Nitrogen into the TS3-Cryostat.</li><li>Wait for the pressure to reach 760 Torr; The pop valve should pop.</li><li>Close the Nitrogen injection valve.</li></ul><br><br>If desired, this procedure may be repeated up to three times by clicking Retry Step.<br><br><b>If the equipment is not functioning as expected, click Stop Work, give a detailed description of the problem(s) and contact the Sub-system Manager.</b>'
+  Description: 'Use the following procedure to inject clean, dry Nitrogen into the TS3-Cryostat:<ul><li>Open the Nitrogen injection valve to inject Nitrogen into the TS3-Cryostat.</li><li>Wait for the pressure to reach 760 Torr; You should hear the pop valve.</li><li>Close the Nitrogen injection valve.</li></ul><br><br>If desired, this procedure may be repeated up to three times by clicking Retry Step.<br><br><b>If the equipment is not functioning as expected, click Stop Work, give a detailed description of the problem(s) and contact the Sub-system Manager.</b>'
   MaxIteration: '3'
   Version: next
   Prerequisites:
@@ -197,10 +197,6 @@ you are DONE reading and executing these instructions, please click the button t
   TravelerActions: [HarnessedJob]
   Version: next
   UserVersionString: v0
-  Prerequisites:
-  - Name: INSTRUCTIONS
-    PrerequisiteType: PREPARATION
-    Description: <ul><li></li></ul>
 - Name: run all acquisition and analysis scripts
   Description: 'Begin the automated execution of all acquisition and analysis scripting by clicking the launcher button below. If a test fails, the TS3-Cryostat will stay under pressure and the sensor will remain at operating temperature. An acquisition step may be retried, BUT you must return to this step to get the lcatr-iterator command or to press on the lcatr-iterator button to repeat that step and continue with the remainder of the sequence.<br>'
   MaxIteration: '1'
@@ -217,7 +213,7 @@ you are DONE reading and executing these instructions, please click the button t
   TravelerActions: [Automatable]
   Sequence:
   - Name: fe55_acq
-    Description: '<b>If you have arrived at this step with the intention of running all acquisition and analysis scripts, you have accidentally clicked on the Start Work button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b>
+    Description: '<br><b>If you have arrived at this step with the intention of running all acquisition and analysis scripts, you have accidentally clicked on the Start Work button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>'
     MaxIteration: '5'
     TravelerActions: [HarnessedJob]
     Version: next
@@ -409,6 +405,15 @@ you are DONE reading and executing these instructions, please click the button t
     - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
       UserVersionString: v0}
     - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: persistence
+    Description: persistence
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: persist_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
       UserVersionString: v0}
     TravelerActions: [HarnessedJob]
     Version: next
