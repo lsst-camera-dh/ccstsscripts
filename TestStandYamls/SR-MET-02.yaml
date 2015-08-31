@@ -4,7 +4,7 @@
 Name: SR-MET-2
 Version: next
 HardwareGroup: Generic-CCD
-Description: Welcome to the SENSOR LATERAL POSITION METROLOGY traveler.<br><br>This traveler will record the sensor lateral positioning at  BNL. This work is performed at TS2 and the Laminar Flow Hood. <br>Work performed includes:<ul><li>Sensor Lateral Positioning Measurements using the OGP machine</li><li>Sensor jig removal (hardware specific)</li></ul><br><br></ul>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>
+Description: Welcome to the LATERAL POSITION METROLOGY traveler for any sensor.<br><br>This traveler will record the sensor's lateral positioning at  BNL. This work is performed at TS2 and the Laminar Flow Hood. <br>Work performed includes:<ul><li>Lateral Positioning Measurements using the OGP machine</li><li>Sensor jig removal (hardware specific)</li></ul><br><br></ul>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>
 Prerequisites:
    -
      Name: Equipment needed for this tasks
@@ -20,12 +20,12 @@ Sequence:
      Version: next
      Prerequisites:
        -
-         Name: Ensure MF02 and the MF02 attachment are installed
+         Name: Ensure MF02 and the MF02 attachment are installed.
          Description: " "
          PrerequisiteType: PREPARATION
    -
      Name: SR-MET-2 Setup OGP for Measurement
-     Description: 'Follow these steps:<ul><li>Turn on the OGP Master Switch.</li><li>Turn on the OGP controller.</li><li>Open the MeasureMind software and follow the initialization prompts.</li><li>Ensure Safe Zones 1 \& 2 are enabled.<button type="button" id="b1" title="Go to System, Config, Safe Zones."><label style="font-size'':''4px:">detail</label></button></li><li>Raise the Z-Axis bridge and move the platen forward towards the Operator.</li></ul>'
+     Description: 'Follow these steps to set up the OGP machine for the measurement:<ul><li>Turn on the OGP Master Switch.</li><li>Turn on the OGP controller.</li><li>Open the MeasureMind software and follow the initialization prompts.</li><li>Ensure Safe Zones 1 \& 2 are enabled.<button type="button" id="b1" title="Go to System, Config, Safe Zones."><label style="font-size'':''4px:">detail</label></button></li><li>Raise the Z-Axis bridge and move the platen forward towards the Operator.</li></ul>'
      Version:  next
      Prerequisites:
        -
@@ -43,7 +43,7 @@ Sequence:
 
    -
      Name: Make-OGP-Pin-Directories
-     Description: 'Using the lcatr-harness, create the required directories for the Lateral Position Measurement.  The approved Routine Scripts will be downloaded to the appropriate directory. <button type="button" id="b1" title="The directory is C:\\Production Data\\LSST S/N\\LateralPosition\\Date."><label style="font-size'':''4px:">detail</label></button>'
+     Description: 'Using the lcatr-harness, create the required directories for the lateral position measurement and download the approved OGP routine.'
      Version:  next
      UserVersionString: v0
      MaxIteration: 5
@@ -57,7 +57,7 @@ Sequence:
        - 
          Condition: e2v
          Name: e2v
-         Description: Click Start Work to continue
+         Description: Click Start Work to continue. The following procedure will install the sensor onto MF01A.
          Version: next
          Sequence:
            -
@@ -71,7 +71,7 @@ Sequence:
                  Description: '<ul><li>Ensure the laminar flow bench is on.<button type="button" id="b1" title="The laminar flow bench must be running for at least 20 minutes before a sensor is exposed. If the bench was running before starting, assume that it is ready for use."><label style="font-size'':''4px:">detail</label></button></li><li>Check for obstructions and/or malfunctions.</li></ul>'
                - Name: Set up EPA at laminar flow hood
                  PrerequisiteType: PREPARATION
-                 Description: '<ul><li>Attach MF05 and MF07 to the ESD network/monitor.</li><li>Setup and verify the laminar flow hood EPA.</li><li>Turn on Air Ionizer Bar.</li><li>Transport required tooling to laminar flow hood.</li></ul><br /><br /><b>If you are DONE reading these instructions and have completed the preparation, please click the DONE button to the right, and proceed to Start Work.</b>'
+                 Description: '<ul><li>Place MF05A and MF07A on the ESD table mat.</li><li>Setup and verify the laminar flow hood EPA.</li><li>Turn on Air Ionizer Bar.</li><li>Transport required tooling to laminar flow hood.</li></ul><br /><br /><b>If you are DONE reading these instructions and have completed the preparation, please click the DONE button to the right, and proceed to Start Work.</b>'
 
            -
              Name: SR-MET-2 Remove coffin cover coffin
@@ -81,7 +81,7 @@ Sequence:
                -
                  Name: Prepare to open coffin
                  PrerequisiteType: PREPARATION
-                 Description: '<ul><li>Ensure facemask is on.</li><li>ESD wrist strap is worn and plugged in.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat</li></ul><br /><br /><b>If you are DONE reading these instructions and have completed this preparation, please click the DONE button to the right, and proceed to Start Work.</b>' 
+                 Description: '<ul><li>Ensure facemask is on.</li><li>ESD wrist strap is worn and plugged in.</li><li>Sit or stand using the provided ESD-protective furniture.</li><li>Place one finger of each hand away from each other on the ESD mat, then count to ten.</li></ul><br /><br /><b>If you are DONE reading these instructions and have completed this preparation, please click the DONE button to the right, and proceed to Start Work.</b>' 
      
            -
              Name: SR-MET-2 Add grounding connectors
@@ -92,14 +92,14 @@ Sequence:
              Description: '<ul>
 <li>Remove one alignment pin screw.</li>
 <li>Slightly loosen the other alignment pin screw.</li>
-<li>Place the jig onto the MF05A registration pins and secure the jig with the screws.</li>
+<li>Place the jig onto the MF05 registration pins and secure the jig with the screws.</li>
 <li>Place the coffin cover on the (empty) coffin.</li>
 <li>Attach the MF05-Rods to the sensor''s mounting studs.</li>
 <li>Remove the protective cover.</li></ul>'
              Version:  next
            -
              Name: SR-MET-2 Slide MF07-Cover into place - 2
-             Description: 'Follow these steps to install the sensor into MF07:<ul><li>Remove second alignment pin screw.</li><li>Push sensor into MF05-Cove.</li><li>Secure MF05-Rods to prevent further movement.</li><li>Install MF07 around the MF07-cove.</li><li>Attach side-screw into MF07.</li><li>Remove MF05-Rod stops.</li><li>Retract the loaded-MF07.</li><li>Place MF07-Cover on a lower edge and attach with a screw.</li><li>Slide the MF07-cover into place and attach with a screw on the upper edge.</li><li>Remove the sensor contained in MF07 from MF05.</li><li>Attach the other two screws.</li><li>Hand tighten all four screws.</li><li>Remove the (empty) jig from MF05 and secure it in the coffin. Place all other jig equipment in the coffin. Secure the coffin cover.</li><li>Place MF07 in an ESD bag for transporting.</li><li>Label the ESD bag with the LSST S/N.</li></ul>'
+             Description: 'Follow these steps to install the sensor into the fames of MF07.<ul><li>Remove second alignment pin screw.</li><li>Push sensor into MF05-Cove.</li><li>Secure MF05-Rods to prevent further movement.</li><li>Install MF07 around the MF07-cove.</li><li>Attach side-screw into MF07.</li><br><br><li>Follow these steps to cover and extract MF07 from MF05.</li><li>Remove MF05-Rod stops.</li><li>Retract the loaded-MF07.</li><li>Place MF07-Cover on a lower edge and attach with a screw.</li><li>Slide the MF07-cover into place and attach with a screw on the upper edge.</li><li>Remove the sensor contained in MF07 from MF05.</li><li>Attach the other two screws.</li><li>Hand tighten all four screws.</li><li>Remove the (empty) jig from MF05 and secure it in the coffin. Place all other jig equipment in the coffin. Secure the coffin cover.</li></ul>'
              Version:  next
        -
          Condition: ITL
@@ -108,11 +108,11 @@ Sequence:
          Description: "Click Start Work to continue."
    - Name: SR-MET-2 Transport MF07 to TS2
      Version: next
-     Description: Transport the sensor (contained in MF07) to the TS2 workstation.  Specify the new location below.
+     Description: Place MF07 in an ESD bag for transporting. Label the ESD bag with the LSST S/N. Transport the sensor contained in MF07 to the TS2 workstation.  Specify the new location below.
      NewLocation: '(?)'
    -
      Name: SR-MET-2 Remove protective cover.
-     Description: 'Place MF07 onto MF04 and transfer it to the appropriate place on MF02. Ensure the center fiducial holes of MF04 are aligned in the Y-direction of the OGP. On MF07, remove three of the screws from the cover. Begin removing the MF07-cover by loosening the final screw. Expose the sensor by sliding the MF07-cover off. Remove the final screw and the MF07-cover.'
+     Description: 'Butt MF04 against the MF02 attachment, but ensure the center fiducial holes are aligned in the Y-direction of the OGP. Remove the cover of MF07 by removing three of the screws from the cover. Expose the sensor by sliding the MF07-cover off then emove the final screw and the MF07-cover.'
      Version:  next
      Prerequisites:
        -
@@ -121,7 +121,7 @@ Sequence:
          PrerequisiteType: PREPARATION
    -
      Name: SR-MET-2 Perform lateral position measurement
-     Description: 'Using the MeasureMind Software and the OGP machine:<ul><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select Lateral_Position.RTN within the appropriate directory.<button type="button" id="b8" title="The directory is C:\\Production Data\\LSST S/N\\Lat_Pos\\Date."><label style="font-size'':''4px:">detail</label></button><li>Click Run Routine, click OK until the routine starts.</li><li>Center the crosshair on the fiducial hole and press enter on the OGP controller. This will happen for each of the fiducial holes.</li><li>After the measurement finishes, enter the appropriate path and file name for the test report.<button type="button" id="b9" title="(Placeholder)"><label style="font-size'':''4px:">detail</label></button></li><li>When the routine is finished click OK.</li></ul>'
+     Description: 'Using the MeasureMind Software and the OGP machine:<ul><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select the routine within the appropriate directory.<button type="button" id="b8" title="The directory is C:\\Production Data\\LSST S/N\\Lat_Pos\\Date."><label style="font-size'':''4px:">detail</label></button><li>Click Run Routine, click OK until the routine starts.</li><li>Center the crosshair on the fiducial hole and press Enter on the OGP controller. This will happen for each of the fiducial holes.</li><li>After the measurement finishes, enter the appropriate path and file name for the test report.<button type="button" id="b9" title="(Placeholder)"><label style="font-size'':''4px:">detail</label></button></li><li>When the routine is finished click OK.</li></ul>'
      Version:  next
    -
      Name: SR-MET-2 Install protective cover
@@ -136,17 +136,18 @@ Sequence:
      Name: SR-MET-2 Transfer MF07 to storage
      Version: next
      NewLocation: '(?)'
-     Description: Transfer MF07 to the Long-term Storage Cabinet.  Specify the new location below.
-     Prerequisites:
-       -
-         Name: Instructions
-         PrerequisiteType: PREPARATION
-         Description: '<ul><li>Transfer MF04 to the TS2 workstation.</li>
-                       <li>Remove MF07 from MF04.</li></ul>'
-       -
-         Name: Prepare MF07 for storage
-         PrerequisiteType: PREPARATION
-         Description: Place MF07 in an ESD bag and label it with the LSST S/N.
+     Description: Transfer MF04 to the TS2 workstation.</li>
+                       <li>Remove MF07 from MF04. Transfer MF07 to the Long-term Storage Cabinet.  Place MF07 in an ESD bag and label it with the LSST S/N. Specify the new location below.
+#     Prerequisites:
+#       -
+#         Name: Instructions
+#         PrerequisiteType: PREPARATION
+#         Description: '<ul><li>Transfer MF04 to the TS2 workstation.</li>
+#                       <li>Remove MF07 from MF04.</li></ul>'
+#       -
+#         Name: Prepare MF07 for storage
+#         PrerequisiteType: PREPARATION
+#         Description: Place MF07 in an ESD bag and label it with the LSST S/N.
    -
      Name: OGP_Pin_Upload
      Version:  next
