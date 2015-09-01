@@ -88,7 +88,7 @@ es before a sensor is exposed. If the bench was running before starting, assume 
      Version:  next
    -
      Name: SR-MET-1 Remove sensor from jig
-     Description: Follow these steps to install the sensor into MF07B:<br><ul><li>Carefully attach the MF07 frames onto the sensor by sliding them against the extension plate onto the sensor's package.</li><li>Attach the side screws into MF07.</li><li>Place the MF07-Cover on an edge and attach with one screw.</li><li>Slide the MF07-Cover into place</li><li>Attach the other 3 screws and hand tighten all four screws.</li></ul><br><br>Follow these steps to extract MF07 from the coffin and MF05B:<br><ul><li>Unscrew the jig from the coffin base.</li><li>Remove the nuts from the mounting studs, and remove the washers.</li><li>Remove the Loaded-MF07 from the jig.</li><li>Place the jig in the coffin. Place all other jig equipment in the coffin.  Secure the coffin cover.</li><li>Label the MF07-cover with the LSST S/N.</li></ul>
+     Description: Follow these steps to install the sensor into MF07B:<br><ul><li>Carefully attach the MF07 frames onto the sensor by sliding them against the extension plate onto the sensor's package.</li><li>Attach the side screws into MF07.</li><li>Place the MF07-Cover on an edge and attach with one screw.</li><li>Slide the MF07-Cover into place</li><li>Attach the other 3 screws and hand tighten all four screws.</li></ul><br><br>Follow these steps to extract MF07 from the coffin and MF05B:<br><ul><li>Unscrew the jig from the coffin base.</li><li>Remove the nuts from the mounting studs, and remove the washers.</li><li>Remove the Loaded-MF07 from the jig.</li><li>Place the jig in the coffin. Place all other jig equipment in the coffin.  Secure the coffin cover.</li></ul>
      Version:  next
    - 
      Name: SR-MET-1 Transport MF07 to TS2
@@ -125,11 +125,11 @@ es before a sensor is exposed. If the bench was running before starting, assume 
 
    -
      Name: SR-MET-1 Slide the cover off
-     Description: Remove the cover of MF07 by emoving three of the screws from the cover. Loosen the final screw. Expose the sensor by sliding the MF07 off, then remove the final screw and MF07-cover.
+     Description: Remove the cover of MF07 by removing three of the screws from the cover. Loosen the final screw. Expose the sensor by sliding the MF07 off, then remove the final screw and MF07-cover.
      Version:  next
    -
      Name: SR-MET-1 Perform Absolute Height OGP Routine.
-     Description: 'Using the MeasureMind Software and the OGP machine:<ul><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select the routine within the appropriate directory.<button type="button" id="b8" title="The directory is C:\\Production_Data\\LSST S/N\\Absolute Height\\Date."><label style="font-size'':''4px:">directory</label></button></li><li>Click Run Routine, click OK until the routine starts.</li><li>Locate the lower-left corner of the sensor, then press the enter button on the OGP controller. Repeat for the lower-right corner of the sensor.</li><li>When prompted, enter the appropriate path and file name for the data products.<button type="button" id="b9" title="LSST S/N_AbsZ_date"><label style="font-size'':''4px:">file name</label></button></li><li>Wait for the routine to finish and click OK.</li></ul>'
+     Description: 'Using the MeasureMind Software and the OGP machine:<ul><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select the routine within the appropriate directory.<button type="button" id="b8" title="C:\\Production_Data\\LSST S/N\\AbsoluteHeight\\Date-Time"><label style="font-size'':''4px:">directory</label></button></li><li>Click Run Routine, click OK to start the routine.</li><li>Click OK to locate the lower-left corner of the sensor, then press the Enter button on the OGP controller after locating the corner. Repeat for the lower-right corner of the sensor.</li><li>When prompted, enter the appropriate path and file name for the data products.<button type="button" id="b9" title="LSST S/N_AbsZ_Date-Time.DAT"><label style="font-size'':''4px:">file name</label></button></li><li>Wait for the routine to finish and click OK.</li></ul>'
      Version: next
 #     Prerequisites:
 #       -
@@ -167,90 +167,82 @@ es before a sensor is exposed. If the bench was running before starting, assume 
      Version: next
      Description: <p>If the OGP will not be in immediate use, turn it off as follows:</p><ul><li>Hit Start/Stop to stop the OGP controller.</li><li>Close out of the MeasureMind Software.</li><li>Turn off the OGP controller</li><li>Turn off the OGP Master Switch.</li></ul>
    -
-     Name: SR-MET-6  Upload Dimensional Metrology analysis files
-     Description: Upload the Dimensional analysis results. The filename of the results data file is shown in the descriptions in the results table.
+     Name: SR-MET-1  Upload Absolute Height analysis files
+     Description: 'Analyze the absolute height data with the following procedure: <ul><li>Download the approved Mathematica absolute height metrology analysis script from the GIT repository.</li><li>Download the absolute height metrology data from the Data Catalog.</li><li>Open the script and change the data set.</li><li>Execute the script.</li><li>Upload and save the result files.</li></ul>The filename of the results data should conform to the description fields in the table below.'
      Version: next
      RequiredInputs: 
 #$ awk -F "\t" '{print "       -";print "         Label: "$2;print "         Description: "$4$5;print "         InputSemantics: filepath"}' OGPform2 | sed 's/B&W/Box and Whisker/g' | sed 's/S\/N/Signal_to_Noise/g' | sed 's/desity/density/g'
        -
-         Label: Does the sensor edge appear to be acceptable?
-         Description:  The edge does not need to be perfectly straight around the perimeter; however, there should not be any non-processing damage, such as large fractures or hanging pieces.
-         InputSemantics: boolean
-       -
-         Label: Flatness Data
-         Description: LSSTSN_DATE_FLAT_CCD_data.xslx
-         InputSemantics: filepath
-       -
          Label: Flatness Quantile Data
-         Description: LSSTSN_DATE_FLAT_CCD_quantile.xslx
+         Description: LSSTSN_DATE-TIME_FLAT_CCD_quantile.xslx
          InputSemantics: filepath
        -
          Label: Flatness Plot
-         Description: LSSTSN_DATE_FLAT_CCD_plot.tiff 
+         Description: LSSTSN_DATE-TIME_FLAT_CCD_plot.tiff 
          InputSemantics: filepath
        -
          Label: Flatness Histograms Plot
-         Description: LSSTSN_DATE_FLAT_CCD_histo.tiff
+         Description: LSSTSN_DATE-TIME_FLAT_CCD_histo.tiff
          InputSemantics: filepath
        -
          Label: Flatness Box and Whisker Plot
-         Description: LSSTSN_DATE_FLAT_CCD_bw.tiff
+         Description: LSSTSN_DATE-TIME_FLAT_CCD_bw.tiff
          InputSemantics: filepath
 #       -
 #         Label: Flatness Statistical Data
-#         Description: LSSTSN_DATE_FLAT_statistics.txt
+#         Description: LSSTSN_DATE-TIME_FLAT_statistics.txt
 #         InputSemantics: filepath
        -
          Label: Reference Residuals Plot
-         Description: LSSTSN_DATE_ABSZ_REF_plot.tiff
+         Description: LSSTSN_DATE-TIME_ABSZ_REF_plot.tiff
          InputSemantics: filepath
        -
          Label: Histograms Plot of Reference Residuals Data
-         Description: LSSTSN_DATE_AbsZ_Ref_plot.tiff
+         Description: LSSTSN_DATE-TIME_AbsZ_Ref_plot.tiff
          InputSemantics: filepath
        -
          Label: Reference Box and Whisker Plot
-         Description: LSSTSN_DATE_ABSZ_REF_bw.tiff
+         Description: LSSTSN_DATE-TIME_ABSZ_REF_bw.tiff
          InputSemantics: filepath
        -
          Label: Reference Fit with Sensor Surface Plot
-         Description: LSSTSN_DATE_ABSZ_plotwithref.tiff
+         Description: LSSTSN_DATE-TIME_ABSZ_plotwithref.tiff
          InputSemantics: filepath
        -
          Label: Absolute Height Data
-         Description: LSSTSN_DATE_ABSZ_CCD_data.xslx
+         Description: LSSTSN_DATE-TIME_ABSZ_CCD_data.xslx
          InputSemantics: filepath
        -
          Label: Absolute Height Quantile Data
-         Description: LSSTSN_DATE_ABSZ_CCD_quantile.xslx
+         Description: LSSTSN_DATE-TIME_ABSZ_CCD_quantile.xslx
          InputSemantics: filepath
        -
          Label: Absolute Height Plot
-         Description: LSSTSN_DATE_ABSZ_CCD_plot.tiff
+         Description: LSSTSN_DATE-TIME_ABSZ_CCD_plot.tiff
          InputSemantics: filepath
        -
          Label: Absolute Height Box and Whisker Plot
-         Description: LSSTSN_DATE_ABSZ_CCD_bw.tiff
+         Description: LSSTSN_DATE-TIME_ABSZ_CCD_bw.tiff
          InputSemantics: filepath
        -
          Label: Density Plot
-         Description: LSSTSN_DATE_ABSZ_CCD_density.tiff
+         Description: LSSTSN_DATE-TIME_ABSZ_CCD_density.tiff
          InputSemantics: filepath
        -
          Label: Sensor Surface with Secondary Datum Plot
-         Description: LSSTSN_DATE_ABSZ_plotwithdatum.tiff
+         Description: LSSTSN_DATE-TIME_ABSZ_plotwithdatum.tiff
          InputSemantics: filepath
        -
          Label: Sensor Surface subtracted with Secondary Datum Histograms Plot
-         Description: LSSTSN_DATE_ABSZ_histowithdatum.tiff
+         Description: LSSTSN_DATE-TIME_ABSZ_histowithdatum.tiff
          InputSemantics: filepath
 #       -
 #         Label: Statistical Data
-#         Description: LSSTSN_DATE_MET_statistics.txt
+#         Description: LSSTSN_DATE-TIME_MET_statistics.txt
 #         InputSemantics: filepath
        -
-         Label: Dimensional Metrology Statistical Data
-         Description: LSSTSN_DATE_DIMMET_StatReport.txt
+         Label: Absolute Height Statistical Data
+         Description: LSSTSN_DATE-TIME_AbsZ_StatReport.txt
          InputSemantics: filepath
 #       -
 #         Label: Does the sensor edge appear to be acceptable?

@@ -4,7 +4,7 @@
 Name: SR-MET-6
 Version: next
 HardwareGroup: e2v-CCD
-Description: Welcome to the E2V SENSOR IN-JIG DIMENSIONAL METROLOGY traveler for e2v sensors.<br><br>This traveler will document images of the sensor's edge and record the flatness and the absolute height of a sensor at BNL. This work is performed at TS2 and the laminar flow hood. <br>Work performed includes:<ul><li>Edge Scan using the OGP machine</li><li>Flatness measurements using the OGP machine</li><li>Absolute Height Measurements using the OGP machine</li></ul><br><br></ul>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>
+Description: Welcome to the SENSOR IN-JIG DIMENSIONAL METROLOGY traveler for e2v sensors.<br><br>This traveler will document images of the sensor's edge and record the flatness and the absolute height of an e2v sensor at BNL. This work is performed at TS2 and the laminar flow hood. <br>Work performed includes:<ul><li>Edge Scan using the OGP machine</li><li>Flatness measurements using the OGP machine</li><li>Absolute Height Measurements using the OGP machine</li></ul><br><br></ul>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>
 Prerequisites:
    -
      Name: Cautions
@@ -28,7 +28,7 @@ Sequence:
      Version: next
      Prerequisites:
        -
-         Name: Ensure MF02 is installed
+         Name: Ensure MF02 is installed.
          Description: " "
          PrerequisiteType: PREPARATION
    -
@@ -112,7 +112,7 @@ Sequence:
    -
      Name: SR-MET-6 Perform In-Jig Measurements
      Version: next
-     Description: 'Using the MeasureMind Software and the OGP machine:<ul><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select InJig_Measurements.RTN within the appropriate directory. <button type="button" id="b3" title="The directory is C:\\Production Data\\LSST S/N\\Edges\\Date."><label style="font-size'':''4px:">detail</label></button></li><li>Click Run Routine, click OK to start the routine.</li><li>Locate the lower-left corner of the sensor, then press the Enter button on the OGP Controller.</li><li>When prompted, enter the appropriate path and file name for the data products. <button type="button" id="b3" title="(place holder)"><label style="font-size'':''4px:">detail</label></button></li><li>Wait for the routine to finish and click OK.</li></ul>'
+     Description: 'Using the MeasureMind Software and the OGP machine:<ul><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select the routine within the appropriate directory. <button type="button" id="b3" title="C:\\Production Data\\LSST S/N\\EdgeScan\\Date-Time, C:\\Production Data\\LSST S/N\\DimensionalMetrology\\Date-Time"><label style="font-size'':''4px:">directory</label></button></li><li>Click Run Routine, click OK to start the routine.</li><li>Click OK and locate the lower-left corner of the sensor, then press the Enter button on the OGP Controller after the corner has been located.</li><li>When prompted, enter the appropriate path and file name for the data products. <button type="button" id="b3" title="LSST S/N_DimMet_Date-Time.DAT"><label style="font-size'':''4px:">filename</label></button></li><li>Wait for the routine to finish and click OK.</li></ul>'
 #     Prerequisites:
 #       -
 #         Name: Clear OGP routine.
@@ -164,7 +164,7 @@ Sequence:
    -
      Name: OGP_Dimensional_Metrology_Upload
      Version:  next
-     Description: "Using the lcatr-harness will do the following:<ul><li>Move the Edge Scan Data Products to the appropriate location.</li><li>Clear the default destination directory for the Edge Scan.</li><li>Upload all data products.</li></ul> "
+     Description: "Using the lcatr-harness will do the following:<ul><li>Move the Edge Scan Data Products to the appropriate location.</li><li>Clear the default destination directory of the sensor Edge Scan data products.</li><li>Upload all data products.</li></ul> "
      UserVersionString: v0
      MaxIteration: 5
      TravelerActions:
@@ -187,7 +187,7 @@ Sequence:
 #     Version: next
 #   -
 #     Name: SR-MET-6 Analyze Dimensional Metrology data
-#     Description: 'Analyze the data with the following procedure: <ul><li>Download the approved Mathematica In-Jig metrology analysis script from the GIT repository.</li><li>Download the In-Jig metrology data from the Data Catalog.</li><li>Open the script and change the data set.</li><li>Execute the script.</li><li>Save the result files.</li></ul>'
+#     Description: 'Analyze the data with the following procedure: <ul><li>Download the approved Mathematica In-Jig metrology analysis script from the GIT repository.</li><li>Download the In-Jig metrology data from the Data Catalog.</li><li>Open the script and change the data set.</li><li>Execute the script.</li><li>Upload and save the result files.</li></ul>The filename of the results data should conform to the description fields in the table below.'
 #     Version:  next
    -
      Name: SR-MET-6  Upload Dimensional Metrology analysis files
@@ -201,79 +201,79 @@ Sequence:
          InputSemantics: boolean
        -
          Label: Flatness Data
-         Description: LSSTSN_DATE_FLAT_CCD_data.xslx
+         Description: LSSTSN_DATE-TIME_FLAT_CCD_data.xslx
          InputSemantics: filepath
        -
          Label: Flatness Quantile Data
-         Description: LSSTSN_DATE_FLAT_CCD_quantile.xslx
+         Description: LSSTSN_DATE-TIME_FLAT_CCD_quantile.xslx
          InputSemantics: filepath
        -
          Label: Flatness Plot
-         Description: LSSTSN_DATE_FLAT_CCD_plot.tiff 
+         Description: LSSTSN_DATE-TIME_FLAT_CCD_plot.tiff 
          InputSemantics: filepath
        -
          Label: Flatness Histograms Plot
-         Description: LSSTSN_DATE_FLAT_CCD_histo.tiff
+         Description: LSSTSN_DATE-TIME_FLAT_CCD_histo.tiff
          InputSemantics: filepath
        -
          Label: Flatness Box and Whisker Plot
-         Description: LSSTSN_DATE_FLAT_CCD_bw.tiff
+         Description: LSSTSN_DATE-TIME_FLAT_CCD_bw.tiff
          InputSemantics: filepath
 #       -
 #         Label: Flatness Statistical Data
-#         Description: LSSTSN_DATE_FLAT_statistics.txt
+#         Description: LSSTSN_DATE-TIME_FLAT_statistics.txt
 #         InputSemantics: filepath
        -
          Label: Reference Residuals Plot
-         Description: LSSTSN_DATE_ABSZ_REF_plot.tiff
+         Description: LSSTSN_DATE-TIME_ABSZ_REF_plot.tiff
          InputSemantics: filepath
        -
          Label: Histograms Plot of Reference Residuals Data
-         Description: LSSTSN_DATE_AbsZ_Ref_plot.tiff
+         Description: LSSTSN_DATE-TIME_AbsZ_Ref_plot.tiff
          InputSemantics: filepath
        -
          Label: Reference Box and Whisker Plot
-         Description: LSSTSN_DATE_ABSZ_REF_bw.tiff
+         Description: LSSTSN_DATE-TIME_ABSZ_REF_bw.tiff
          InputSemantics: filepath
        -
          Label: Reference Fit with Sensor Surface Plot
-         Description: LSSTSN_DATE_ABSZ_plotwithref.tiff
+         Description: LSSTSN_DATE-TIME_ABSZ_plotwithref.tiff
          InputSemantics: filepath
        -
          Label: Absolute Height Data
-         Description: LSSTSN_DATE_ABSZ_CCD_data.xslx
+         Description: LSSTSN_DATE-TIME_ABSZ_CCD_data.xslx
          InputSemantics: filepath
        -
          Label: Absolute Height Quantile Data
-         Description: LSSTSN_DATE_ABSZ_CCD_quantile.xslx
+         Description: LSSTSN_DATE-TIME_ABSZ_CCD_quantile.xslx
          InputSemantics: filepath
        -
          Label: Absolute Height Plot
-         Description: LSSTSN_DATE_ABSZ_CCD_plot.tiff
+         Description: LSSTSN_DATE-TIME_ABSZ_CCD_plot.tiff
          InputSemantics: filepath
        -
          Label: Absolute Height Box and Whisker Plot
-         Description: LSSTSN_DATE_ABSZ_CCD_bw.tiff
+         Description: LSSTSN_DATE-TIME_ABSZ_CCD_bw.tiff
          InputSemantics: filepath
        -
          Label: Density Plot
-         Description: LSSTSN_DATE_ABSZ_CCD_density.tiff
+         Description: LSSTSN_DATE-TIME_ABSZ_CCD_density.tiff
          InputSemantics: filepath
        -
          Label: Sensor Surface with Secondary Datum Plot
-         Description: LSSTSN_DATE_ABSZ_plotwithdatum.tiff
+         Description: LSSTSN_DATE-TIME_ABSZ_plotwithdatum.tiff
          InputSemantics: filepath
        -
          Label: Sensor Surface subtracted with Secondary Datum Histograms Plot
-         Description: LSSTSN_DATE_ABSZ_histowithdatum.tiff
+         Description: LSSTSN_DATE-TIME_ABSZ_histowithdatum.tiff
          InputSemantics: filepath
 #       -
 #         Label: Statistical Data
-#         Description: LSSTSN_DATE_MET_statistics.txt
+#         Description: LSSTSN_DATE-TIME_MET_statistics.txt
 #         InputSemantics: filepath
        -
          Label: Dimensional Metrology Statistical Data
-         Description: LSSTSN_DATE_DIMMET_StatReport.txt
+         Description: LSSTSN_DATE-TIME_DIMMET_StatReport.txt
          InputSemantics: filepath
    -
      Name: Review and determine the disposition of the Flatness Measurement
