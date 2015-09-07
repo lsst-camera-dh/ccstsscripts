@@ -92,14 +92,14 @@ Sequence:
              Description: '<ul>
 <li>Remove one alignment pin screw.</li>
 <li>Slightly loosen the other alignment pin screw.</li>
-<li>Place the jig onto the MF05 registration pins and secure the jig with the same screws which secured the jig onto the coffin base. Be careful not to stress the flex cables.</li>
+<li>Place the jig onto the MF05 registration pins and secure the jig with the same screws which secured the jig onto the coffin base. Be careful not to stress the flex cables and connectors.</li>
 <li>Attach the MF05-Rods to the sensor''s mounting studs.</li>
 <li>Engage the MF05-Rod Stops on the front plate of MF05 to prevent the rods from extending.</li>
 <li>Remove the protective cover.</li></ul>'
              Version:  next
            -
              Name: SR-MET-2 Slide MF07-Cover into place - 2
-             Description: 'Follow these steps to install the sensor into the fames of MF07:<ul><li>Remove the second alignment pin screw.</li><li>Disengage the MF05-Rod Stops.</li><li>Push the sensor into the MF05-Cove. Be careful not to stress the connectors.</li><li>Have the side screw hole of MF07 facing towards the operator. Install MF07 around the MF07-Cove. Be careful of the wirebonds.</li><li>Attach the side-screw into MF07.</li></ul><br><br>Follow these steps to cover and extract MF07 from MF05:<ul><li>Retract MF07. Be careful not to stress the flex cables.</li><li>Place the MF07-Cover on the lower edge, facing the operator, and attach with a screw.</li><li>Slide the MF07-Cover into place and attach with a screw on the upper edge.</li><li>Remove the sensor contained in MF07 from MF05 by removing the MF05-Rods. Be careful not to stress the flex cables.</li><li>Attach the other two screws on MF07.</li><li>Hand tighten all four screws.</li><li>Remove the (empty) jig from MF05 and secure it onto the coffin base. Place all other jig equipment in the coffin.<br>Secure the coffin cover.</li><li>Place MF07 in an ESD bag for transporting. Label the ESD bag with the LSST S/N. </li></ul>'
+             Description: 'Follow these steps to install the sensor into the fames of MF07:<ul><li>Remove the second alignment pin screw.</li><li>Disengage the MF05-Rod Stops.</li><li>Push the sensor into the MF05-Cove. Be careful not to stress the flex cables and connectors.</li><li>Have the side screw hole of MF07 facing towards the operator. Install MF07 around the MF07-Cove. Be careful of the wirebonds.</li><li>Attach the side-screw into MF07.</li></ul><br><br>Follow these steps to cover and extract MF07 from MF05:<ul><li>Retract MF07. Be careful not to stress the flex cables and connectors.</li><li>Place the MF07-Cover on the lower edge, and attach with a screw.</li><li>Slide the MF07-Cover into place and attach with a screw on the upper edge.</li><li>Remove the sensor contained in MF07 from MF05 by removing the MF05-Rods. Be careful not to stress the flex cables and connectors.</li><li>Attach the other two screws on MF07.</li><li>Hand tighten all four screws.</li><li>Remove the (empty) jig from MF05 and secure it onto the coffin base. Place all other jig equipment in the coffin.<br>Secure the coffin cover.</li><li>Place MF07 in an ESD bag for transporting. Label the ESD bag with the LSST S/N. </li></ul>'
              Version:  next
        -
          Condition: ITL
