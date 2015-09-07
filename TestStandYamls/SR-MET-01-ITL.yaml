@@ -36,7 +36,7 @@ Sequence:
          PrerequisiteType: PREPARATION
    -
      Name: SR-MET-1 Setup OGP for Measurement
-     Description: 'Follow these steps:<ul><li>Turn on the OGP Master Switch.</li><li>Turn on the OGP controller.</li><li>Open the MeasureMind Software and follow the initialization prompts.</li><li>Ensure the Safe Zone 1 and 2 are enabled.<button type="button" id="b1" title="Go to System, Config, Safe Zones."><label style="font-size'':''4px:">detail</label></button></li><li>Raise the Z-Axis bridge and move the platen forward towards the Operator.</li><li>Align the vee-grooves for MF01B.</ul>'
+     Description: 'Follow these steps to setup the OGP machine for this measurement:<ul><li>Turn on the OGP Master Switch.</li><li>Turn on the OGP controller.</li><li>Open the MeasureMind Software and follow the initialization prompts.</li><li>Ensure the Safe Zone 1 and 2 are enabled.<button type="button" id="b1" title="Go to System, Config, Safe Zones."><label style="font-size'':''4px:">detail</label></button></li><li>Raise the Z-Axis bridge and move the platen forward towards the Operator.</li><li>Align the vee-grooves for MF01B.</ul>'
      Version:  next
      Prerequisites:
        -
@@ -88,7 +88,7 @@ es before a sensor is exposed. If the bench was running before starting, assume 
      Version:  next
    -
      Name: SR-MET-1 Remove sensor from jig
-     Description: Follow these steps to install the sensor into MF07B:<br><ul><li>Carefully attach the MF07 frames onto the sensor by sliding them against the extension plate onto the sensor's package.</li><li>Attach the side screws into MF07.</li><li>Place the MF07-Cover on an edge and attach with one screw.</li><li>Slide the MF07-Cover into place</li><li>Attach the other 3 screws and hand tighten all four screws.</li></ul><br><br>Follow these steps to extract MF07 from the coffin and MF05B:<br><ul><li>Unscrew the jig from the coffin base.</li><li>Remove the nuts from the mounting studs, and remove the washers.</li><li>Remove the Loaded-MF07 from the jig.</li><li>Place the jig in the coffin. Place all other jig equipment in the coffin.  Secure the coffin cover.</li></ul>
+     Description: 'Follow these steps to install the sensor into MF07B:<br><ul><li>Carefully attach the MF07 frames onto the sensor's package by sliding them against MF05.</li><li>Attach the side screws into MF07.</li><li>Place the MF07-Cover on an edge and attach with one screw.</li><li>Slide the MF07-Cover into place</li><li>Attach the other 3 screws and hand tighten all four screws.</li></ul><br><br>Follow these steps to extract MF07 from the coffin and MF05B:<br><ul><li>Unscrew the jig from the coffin base.</li><li>Remove the nuts from the mounting studs, and remove the washers.</li><li>Remove the sensor contained in MF07 from the jig.</li><li>Place the jig in the coffin. Place all other jig equipment in the coffin.  Secure the coffin cover.</li></ul>'
      Version:  next
    - 
      Name: SR-MET-1 Transport MF07 to TS2
@@ -168,7 +168,7 @@ es before a sensor is exposed. If the bench was running before starting, assume 
      Description: <p>If the OGP will not be in immediate use, turn it off as follows:</p><ul><li>Hit Start/Stop to stop the OGP controller.</li><li>Close out of the MeasureMind Software.</li><li>Turn off the OGP controller</li><li>Turn off the OGP Master Switch.</li></ul>
    -
      Name: SR-MET-1  Upload Absolute Height analysis files
-     Description: 'Analyze the absolute height data with the following procedure: <ul><li>Download the approved Mathematica absolute height metrology analysis script from the GIT repository.</li><li>Download the absolute height metrology data from the Data Catalog.</li><li>Open the script and change the data set.</li><li>Execute the script.</li><li>Upload and save the result files.</li></ul>The filename of the results data should conform to the description fields in the table below.'
+     Description: 'Analyze the absolute height data with the following procedure: <ul><li>Download the approved Mathematica absolute height metrology analysis script from the GIT repository.</li><li>Download the absolute height metrology data from the Data Catalog.</li><li>Open the script and change the data set.</li><li>Execute the script.</li><li>Save and upload the result files.</li></ul>The filename of the results data should conform to the description fields in the table below.'
      Version: next
      RequiredInputs: 
 #$ awk -F "\t" '{print "       -";print "         Label: "$2;print "         Description: "$4$5;print "         InputSemantics: filepath"}' OGPform2 | sed 's/B&W/Box and Whisker/g' | sed 's/S\/N/Signal_to_Noise/g' | sed 's/desity/density/g'
