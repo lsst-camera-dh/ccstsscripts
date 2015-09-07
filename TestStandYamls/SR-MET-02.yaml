@@ -8,7 +8,7 @@ Description: Welcome to the LATERAL POSITION METROLOGY traveler for any sensor.<
 Prerequisites:
    -
      Name: Equipment needed for this tasks
-     Description: 'Required Equipment:<ul><li>OGP machine</li><li>EPA Equipement</li><li>Nonlinting wipes</li><li>MF02</li><li>MF04</li><li>4 mm allen key (potentially required, hardware specific)</li><li>ESD bag and marker (potentially required, hardware specific)</li><li>Flathead screwdriver (potentially required, hardware specific)</li><li>2 mm allen key (potentially required, hardware specific)</li><li>MF05 (potentially required, hardware specific)</li><li>MF07A (potentially required, hardware specific)</li><li>Grounding connectors (potentially required, hardware specific)</li></ul>'
+     Description: 'Required Equipment:<ul><li>OGP machine</li><li>EPA Equipement</li><li>Nonlinting wipes</li><li>MF02 and MF02 attachment.</li><li>MF04</li><li>4 mm allen key (potentially required, hardware specific)</li><li>ESD bag and marker (potentially required, hardware specific)</li><li>Flathead screwdriver (potentially required, hardware specific)</li><li>2 mm allen key (potentially required, hardware specific)</li><li>MF05 (potentially required, hardware specific)</li><li>MF07A (potentially required, hardware specific)</li><li>Grounding connectors (potentially required, hardware specific)</li></ul>'
      PrerequisiteType: TEST_EQUIPMENT
    -
      Name: Cautions
@@ -16,7 +16,7 @@ Prerequisites:
      PrerequisiteType: PREPARATION
 Sequence:
    - Name: SR-MET-2 Set up EPA
-     Description: Follow these steps to set up and verify ESD Protective measures at the TS2 workstation and the OGP:<ul><li>Place MF01B onoto the ESD table mat.</li><li>Attach the OGP to the ESD network/monitor.</li><li>Set up and verify the TS2 workstation EPA.</li><li>Transport required tooling to the TS2 Workstation.</li></ul>
+     Description: Follow these steps to set up and verify ESD Protective measures at the TS2 workstation and the OGP:<ul><li>Place MF04 onto the ESD table mat.</li><li>Attach the OGP to the ESD network/monitor.</li><li>Set up and verify the TS2 workstation EPA.</li><li>Transport required tooling to the TS2 Workstation.</li></ul>
      Version: next
      Prerequisites:
        -
@@ -57,7 +57,7 @@ Sequence:
        - 
          Condition: e2v
          Name: e2v
-         Description: Click Start Work to continue. The following procedure will install the sensor onto MF01A.
+         Description: Click Start Work to continue. The following procedure will install the sensor into MF07A.
          Version: next
          Sequence:
            -
@@ -86,20 +86,20 @@ Sequence:
            -
              Name: SR-MET-2 Add grounding connectors
              Version: next
-             Description: <ul><li>Unscrew the jig from the coffin base.</li><li>Evenly unscrew nano-D connectors from micro-D connectors.</li><li>Remove the braces securing the nano-D connectors.</li><li>Add grounding connectors to nano-D connectors.</li></ul>
+             Description: <ul><li>Unscrew the jig from the coffin base.</li><li>Evenly unscrew nano-D connectors from micro-D connectors.</li><li>Hold the jig in the air with the reflective face up, so that when you unscrew the braces the screw will not fall towards the sensor.</li><li>Unscrew the braces securing the nano-D connectors.</li><li>Add grounding connectors to nano-D connectors.</li></ul>
            -
              Name: SR-MET-2 e2v - Remove the protective cover.
              Description: '<ul>
 <li>Remove one alignment pin screw.</li>
 <li>Slightly loosen the other alignment pin screw.</li>
-<li>Place the jig onto the MF05 registration pins and secure the jig with the screws.</li>
-<li>Place the coffin cover on the (empty) coffin.</li>
+<li>Place the jig onto the MF05 registration pins and secure the jig with the same screws which secured the jig onto the coffin base. Be careful not to stress the flex cables.</li>
 <li>Attach the MF05-Rods to the sensor''s mounting studs.</li>
+<li>Engage the MF05-Rod Stops on the front plate of MF05 to prevent the rods from extending.</li>
 <li>Remove the protective cover.</li></ul>'
              Version:  next
            -
              Name: SR-MET-2 Slide MF07-Cover into place - 2
-             Description: 'Follow these steps to install the sensor into the fames of MF07.<ul><li>Remove second alignment pin screw.</li><li>Push sensor into MF05-Cove.</li><li>Secure MF05-Rods to prevent further movement.</li><li>Install MF07 around the MF07-cove.</li><li>Attach side-screw into MF07.</li></ul><br><br>Follow these steps to cover and extract MF07 from MF05.<ul><li>Remove MF05-Rod stops.</li><li>Retract the loaded-MF07.</li><li>Place MF07-Cover on a lower edge and attach with a screw.</li><li>Slide the MF07-cover into place and attach with a screw on the upper edge.</li><li>Remove the sensor contained in MF07 from MF05.</li><li>Attach the other two screws.</li><li>Hand tighten all four screws.</li><li>Remove the (empty) jig from MF05 and secure it in the coffin. Place all other jig equipment in the coffin.<br>Secure the coffin cover.</li><li>Place MF07 in an ESD bag for transporting. Label the ESD bag with the LSST S/N. </li></ul>'
+             Description: 'Follow these steps to install the sensor into the fames of MF07:<ul><li>Remove the second alignment pin screw.</li><li>Disengage the MF05-Rod Stops.</li><li>Push the sensor into the MF05-Cove. Be careful not to stress the connectors.</li><li>Have the side screw hole of MF07 facing towards the operator. Install MF07 around the MF07-Cove. Be careful of the wirebonds.</li><li>Attach the side-screw into MF07.</li></ul><br><br>Follow these steps to cover and extract MF07 from MF05:<ul><li>Retract MF07. Be careful not to stress the flex cables.</li><li>Place the MF07-Cover on the lower edge, facing the operator, and attach with a screw.</li><li>Slide the MF07-Cover into place and attach with a screw on the upper edge.</li><li>Remove the sensor contained in MF07 from MF05 by removing the MF05-Rods. Be careful not to stress the flex cables.</li><li>Attach the other two screws on MF07.</li><li>Hand tighten all four screws.</li><li>Remove the (empty) jig from MF05 and secure it onto the coffin base. Place all other jig equipment in the coffin.<br>Secure the coffin cover.</li><li>Place MF07 in an ESD bag for transporting. Label the ESD bag with the LSST S/N. </li></ul>'
              Version:  next
        -
          Condition: ITL
@@ -121,7 +121,7 @@ Sequence:
          PrerequisiteType: PREPARATION
    -
      Name: SR-MET-2 Perform lateral position measurement
-     Description: 'Using the MeasureMind Software and the OGP machine:<ul><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select the routine within the appropriate directory.<button type="button" id="b8" title="C:\\Production_Data\\LSST S/N\\LateralPosition\\Date-Time"><label style="font-size'':''4px:">directory</label></button><li>Click Run Routine, click OK until the routine starts.</li><li>Click OK to center the crosshair on the fiducial hole, and press Enter on the OGP controller after the hole is located. Repeat for each of the fiducial holes.</li><li>After the measurement finishes, enter the appropriate path and file name for the test report.<button type="button" id="b9" title="LSST S/N_LatPos_Date-Time.RTF"><label style="font-size'':''4px:">detail</label></button></li><li>When the routine is finished click OK.</li></ul>'
+     Description: 'Using the MeasureMind Software and the OGP machine:<ul><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select the routine within the appropriate directory.<button type="button" id="b8" title="C:\\Production_Data\\LSST S/N\\LateralPosition\\Date-Time"><label style="font-size'':''4px:">directory</label></button><li>Click Run Routine, click OK until the routine starts.</li><li>Center the crosshair on the fiducial hole, and press Enter on the OGP controller after the hole is located. Repeat for each of the fiducial holes.</li><li>After the measurement finishes, enter the appropriate path and file name for the test report.<button type="button" id="b9" title="LSST S/N_LatPos_Date-Time.RTF"><label style="font-size'':''4px:">file name</label></button></li><li>When the routine is finished click OK.</li></ul>'
      Version:  next
    -
      Name: SR-MET-2 Install protective cover
