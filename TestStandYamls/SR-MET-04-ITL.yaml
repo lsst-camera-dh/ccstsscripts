@@ -12,7 +12,7 @@ Prerequisites:
      PrerequisiteType: PREPARATION
    -
      Name: Equipment needed for these tasks
-     Description: 'Required Equipment:<ul><li>OGP machine</li><li>EPA Equipment</li><li>Nonlinting wipes</li><li>MF02</li><li>2.5 mm allen key </li><li>Flathead screwdriver</li><li> 2 mm allen key</li></ul><br><b>Read the Header information before clicking Start Work.</b>'
+     Description: 'Required Equipment:<ul><li>OGP machine</li><li>EPA Equipment</li><li>Nonlinting wipes</li><li>MF02 and MF02 attachment.</li><li>2.5 mm allen key </li><li>Flathead screwdriver</li><li> 2 mm allen key</li></ul><br><b>Read the Header information before clicking Start Work.</b>'
      PrerequisiteType: PREPARATION
 Sequence:
    - Name: SR-MET-4 Set up EPA
