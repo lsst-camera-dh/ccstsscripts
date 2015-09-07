@@ -4,7 +4,7 @@
 Name: SR-MET-6
 Version: next
 HardwareGroup: e2v-CCD
-Description: Welcome to the SENSOR IN-JIG DIMENSIONAL METROLOGY traveler for e2v sensors.<br><br>This traveler will document images of the sensor's edge and record the flatness and the absolute height of an e2v sensor at BNL. This work is performed at TS2 and the laminar flow hood. <br>Work performed includes:<ul><li>Edge Scan using the OGP machine</li><li>Flatness measurements using the OGP machine</li><li>Absolute Height Measurements using the OGP machine</li></ul><br><br></ul>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>
+Description: Welcome to the IN-JIG DIMENSIONAL METROLOGY traveler for e2v sensors.<br><br>This traveler will document images of the sensor's edge and record the flatness and the absolute height of an e2v sensor at BNL. This work is performed at TS2 and the laminar flow hood. <br>Work performed includes:<ul><li>Edge Scan using the OGP machine</li><li>Flatness measurements using the OGP machine</li><li>Absolute Height Measurements using the OGP machine</li></ul><br><br></ul>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>
 Prerequisites:
    -
      Name: Cautions
@@ -46,7 +46,7 @@ Sequence:
          PrerequisiteType: PREPARATION
        -
          Name: Fixture Calibration
-         Description: 'Verify MF01a has been calibrated within the last 180 days.<br /><br /><b>If all calibrations are current, click Start Work.  Otherwise contact the Subsystem Manager.</b>'
+         Description: 'Verify MF01A has been calibrated within the last 180 days.<br /><br /><b>If all calibrations are current, click Start Work.  Otherwise contact the Subsystem Manager.</b>'
          PrerequisiteType: PREPARATION
    -
      Name: Setup-InJig-Metrology-Directories-and-Scripts
@@ -112,7 +112,7 @@ Sequence:
    -
      Name: SR-MET-6 Perform In-Jig Measurements
      Version: next
-     Description: 'Using the MeasureMind Software and the OGP machine:<ul><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select the routine within the appropriate directory. <button type="button" id="b3" title="C:\\Production Data\\LSST S/N\\EdgeScan\\Date-Time, C:\\Production Data\\LSST S/N\\DimensionalMetrology\\Date-Time"><label style="font-size'':''4px:">directory</label></button></li><li>Click Run Routine, click OK to start the routine.</li><li>Click OK and locate the lower-left corner of the sensor, then press the Enter button on the OGP Controller after the corner has been located.</li><li>When prompted, enter the appropriate path and file name for the data products. <button type="button" id="b3" title="LSST S/N_DimMet_Date-Time.DAT"><label style="font-size'':''4px:">filename</label></button></li><li>Wait for the routine to finish and click OK.</li></ul>'
+     Description: 'Using the MeasureMind Software and the OGP machine:<ul><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select the routine within the appropriate directory. <button type="button" id="b3" title="C:\\Production Data\\LSST S/N\\EdgeScan\\Date-Time, C:\\Production Data\\LSST S/N\\DimensionalMetrology\\Date-Time"><label style="font-size'':''4px:">directory</label></button></li><li>Click Run Routine, click OK to start the routine.</li><li>Click OK and locate the lower-left corner of the sensor, then press the Enter button on the OGP Controller after the corner has been located.</li><li>When prompted, enter the appropriate path and file name for the data products. <button type="button" id="b3" title="LSST S/N_DimMet_Date-Time.DAT"><label style="font-size'':''4px:">file name</label></button></li><li>Wait for the routine to finish and click OK.</li></ul>'
 #     Prerequisites:
 #       -
 #         Name: Clear OGP routine.
@@ -191,7 +191,7 @@ Sequence:
 #     Version:  next
    -
      Name: SR-MET-6  Upload Dimensional Metrology analysis files
-     Description: 'Analyze the data with the following procedure: <ul><li>Download the approved Mathematica In-Jig metrology analysis script from the GIT repository.</li><li>Download the In-Jig metrology data from the Data Catalog.</li><li>Open the script and change the data set.</li><li>Execute the script.</li><li>Save the result files.</li></ul><br><br>Upload the Dimensional analysis results.'
+     Description: 'Analyze the data with the following procedure: <ul><li>Download the approved Mathematica In-Jig dimensional metrology analysis script from the GIT repository.</li><li>Download the In-Jig dimensional metrology data from the Data Catalog.</li><li>Open the script and change the data set.</li><li>Execute the script.</li><li>Save and upload the result files.</li></ul><br><br>The file name of the results data should conform to the description fields in the table below.'
      Version: next
      RequiredInputs: 
 #$ awk -F "\t" '{print "       -";print "         Label: "$2;print "         Description: "$4$5;print "         InputSemantics: filepath"}' OGPform2 | sed 's/B&W/Box and Whisker/g' | sed 's/S\/N/Signal_to_Noise/g' | sed 's/desity/density/g'
@@ -277,5 +277,5 @@ Sequence:
          InputSemantics: filepath
    -
      Name: Review and determine the disposition of the Flatness Measurement
-     Description: 'Based on the findings of the In-Jig metrology measurements:<br><ul><li>Click Complete if the sensor meets all specifications. After doing so, you will be returned to the SR-MET-06 Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if any specifications are not met. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>'
+     Description: 'Based on the findings of the In-Jig dimensional metrology measurements:<br><ul><li>Click Complete if the sensor meets all specifications. After doing so, you will be returned to the SR-MET-06 Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if any specifications are not met. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>'
      Version: next
