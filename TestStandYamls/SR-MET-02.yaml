@@ -74,7 +74,7 @@ Sequence:
                  Description: '<ul><li>Place MF05A and MF07A on the ESD table mat.</li><li>Setup and verify the laminar flow hood EPA.</li><li>Turn on Air Ionizer Bar.</li><li>Transport required tooling to laminar flow hood.</li></ul><br /><br /><b>If you are DONE reading these instructions and have completed the preparation, please click the DONE button to the right, and proceed to Start Work.</b>'
 
            -
-             Name: SR-MET-2 Remove coffin cover coffin
+             Name: SR-MET-2 Remove coffin cover
              Version: next
              Description: '<p>Unscrew the outer screws of the coffin cover. Dislodge the coffin cover, if necessary.<button type="button" id="b2" title="Insert a flathead scredriver into the slot in the coffin to jar cover."><label style="font-size'':''4px:">detail</label></button> Remove the coffin cover.</p>'
              Prerequisites:
@@ -112,7 +112,7 @@ Sequence:
      NewLocation: '(?)'
    -
      Name: SR-MET-2 Remove protective cover.
-     Description: 'Butt MF04 against the MF02 attachment, but ensure the center fiducial holes are aligned in the Y-direction of the OGP. Remove the cover of MF07 by removing three of the screws from the cover. Expose the sensor by sliding the MF07-cover off then emove the final screw and the MF07-cover.'
+     Description: 'Butt MF04 against the MF02 attachment, so the center fiducial holes are aligned in the Y-direction of the OGP and the other fiducial holes are away from the operator. Remove the cover of MF07 by removing three of the screws from the cover. Expose the sensor by sliding the MF07-cover off then emove the final screw and the MF07-cover.'
      Version:  next
      Prerequisites:
        -
