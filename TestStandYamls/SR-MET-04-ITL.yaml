@@ -34,7 +34,7 @@ Sequence:
          Description:  Verify the OGP has been calibrated within the last 366 days.
        -
          Name: Optical Flat Calibration
-         Description: Verify the optical flat calibration has been performed within the last 180 days.<br><br><b>If you are DONE reading these instructions and have completed this preparation, please click the Done button to the right, and proceed to "Start Work".</b>
+         Description: Verify the optical flat calibration has been performed within the last 180 days.<br><br><b>If all calibrations are current, click Start Work. Otherwise contact the Subsystem Manager.</b>
          PrerequisiteType: PREPARATION
 #       -
 #         Name: Fixture Calibration
@@ -65,11 +65,11 @@ Sequence:
    -
      Name: SR-MET-4 Remove protective cover
      Version:  next
-     Description: Remove the protective cover.  Ensure the coffin base is still in position. While attached to the coffin base, transfer the sensor to the OGP. Butt the coffin base against the MF02 attachment with the Serial Number facing left (from the operator's point of view).
+     Description: While attached to the coffin base, transfer the sensor to the OGP. Butt the coffin base against the MF02 attachment with the Serial Number facing left (from the operator's point of view). Remove the protective cover.  Ensure the coffin base is still in position.
      Prerequisites:
        -
          Name: Instructions
-         Description: <p>Remove the two vee-grooves adjacent to MF02. </p><b>If you are DONE reading these instructions and have completed this preparation, please click the Done button to the right, and proceed to "Start Work".</b>
+         Description: <p>Remove the two vee-grooves adjacent to the MF02 attachment. </p><b>If you are DONE reading these instructions and have completed this preparation, please click the Done button to the right, and proceed to "Start Work".</b>
          PrerequisiteType: PREPARATION
    -
      Name: SR-MET-4 Perform Edge Scan and Flatness Measurement
@@ -105,7 +105,7 @@ Sequence:
      Prerequisites:
        -
          Name: Instructions
-         Description: <ul><li>Tighten the protective cover screws.</li><li>Transfer the sensor (on the coffin base) to the  TS2 workstation.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the Done button to the right, and proceed to "Start Work".</b>
+         Description: <ul><li>Transfer the sensor (on the coffin base) to the  TS2 workstation.</li><li>Tighten the protective cover screws.</li></ul><br><b>If you are DONE reading these instructions and have completed this preparation, please click the Done button to the right, and proceed to "Start Work".</b>
          PrerequisiteType: TEST_EQUIPMENT
    -
      Name: Store Sensor
@@ -135,7 +135,7 @@ Sequence:
 #     Version:  next
    -
      Name: SR-MET-4  Upload flatness analysis files
-     Description: 'Analyze the flatness data with the following procedure: <ul><li>Download the approved Mathematica flatness metrology analysis script from the GIT repository.</li><li>Download the flatness metrology data from the Data Catalog.</li><li>Open the script and change the data set.</li><li>Execute the script.</li><li>Save the result files.</li><li>Upload and save the result files.</li></ul>The filename of the results data should conform to the description fields in the table below.'
+     Description: 'Analyze the flatness data with the following procedure: <ul><li>Download the approved Mathematica flatness metrology analysis script from the GIT repository.</li><li>Download the flatness metrology data from the Data Catalog.</li><li>Open the script and change the data set.</li><li>Execute the script.</li><li>Save the result files.</li><li>Save and upload the result files.</li></ul>The filename of the results data should conform to the description fields in the table below.'
      Version: next
      RequiredInputs: 
        -
