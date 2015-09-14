@@ -2,72 +2,226 @@
 ---
 # LSST Hardware Receipt - Inspection
 Name: SR-RCV-2
-Version: next
-HardwareType: CCD
-Description: Hardware Receipt - Vendor hardware is received
+Description: Welcome to the HARDWARE RECEIVING traveler for all RTM hardware entering the Science Raft Assembly and Test Facility Cleanroom.<br><br>This traveler will document shipping acceptance for all hardware received at BNL. The work is performed in the hallway, anteroom, and the TS1 workstation.<br>Work performed includes:<ul><li>Logging receipt and documentation, including labeling with an LSST S/N</li><li>Uploading received documentation and storing hardcopies, including labeling with an LSST S/N</li><li>Preparing and transporting hardware into the Science Raft Assembly and Test Facility Cleanroom</li><li>A visual inspection for describing and photographing hardware's condition upon receipt</li><li>Verifying consistency of documentation, labels and previously received data</li></ul><br><br></ul>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>
+HardwareGroup: Generic-CCD
+MaxIteration: '1'
+Prerequisites:
+- {Name: SR-RCV-2 - Equipment needed for this tasks, Description: 'Required Equipment:<ul><li>Box
+    cutter</li><li>Nonlinting wipes</li><li>Cleaning solution (50/50 Isopropyl alcohol
+    and distilled water)</li><li>Stationery, approved for cleanroom use (pen, marker,
+    bonded paper, tape, staple remover)</li><li>Scanner</li><li>Hardcopy Folder</li><li>Web Camera</li><li>DSLR
+    Camera (potentially required)</li><li>Clean plastic bag (Potentially required)</li><li>EPA
+    Equipment (Potentially required)</li><li>Hardware specific tooling (Potentially
+    required)<br></ul><br><b>Read the Header information before clicking Start Work.</b>',
+  Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
+- {Name: SR-RCV-2 - Cautions, Description: This work includes <ul><li>ESD Hazard (Hardware specific)</li><li>Contamination Hazard (Hardware specific)</li></ul>,
+  Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
 Sequence:
-   -
-     Name: Scan-and-Ingest-Vendor-Data
-#     Description: Vendor hardware is received
-     Description: NA
-     Prerequisites:
-        -
-         Name: SR-2.4a
-         Description: <ul><li>0. - Specify the location of the hardware by going to <a href=http://lsst-camera.slac.stanford.edu/eTraveler/exp/LSST-CAMERA/displayHardware.jsp?hardwareId=40>LOCATION</a> and returning here</li><li>1.4 - Verify Vendor S/N matches ID description in documentation </li><li>1.5 - Dispose of shipping materials.</li><li>2. - Place hardware/documentation in anteroom.</li><li>3.6 - Label hardware with LSST S/N.</li><li>3.7 - Label all documentation with LSST S/N.</li></ul>
-         PrerequisiteType: TEST_EQUIPMENT
-        -
-         Name: SR-2.4b
-         Description: <ul><li>4.2 - Upload scanned documents by using the lcatr-harness command shown below (after having clicked Start).</li></ul>
-         PrerequisiteType: TEST_EQUIPMENT
-     Version:  next
-     UserVersionString: v0
-     TravelerActions:
-       - HarnessedJob
-   -
-     Name: Check_Vendor_Data
-     Description: In case of an inconsistency, please click Stop, give a detailed description of the problem and then Fail this task.
-     Version:  next
-     UserVersionString: v0
-     Prerequisites:
-       -
-         PrerequisiteType:  PROCESS_STEP
-         Name: Vendor-Data-Acceptance
-         UserVersionString: v0
-       -
-         Name: Have you checked to make sure that the vendor data and the documentation received with the hardware are consistent?
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: Store hardcopies and inspect hardware
-     Description: NA
-     Version:  next
-     Prerequisites:
-       -
-         PrerequisiteType: TEST_EQUIPMENT 
-         Name: SR-2.5
-         Description: <ul><li>5. - Store hardcopies of documentation.</li><li>5. - Perform Visual Inspection.</li></ul>
-   -
-     Name: Prepare to clean the hardware (or packaging).
-     Description: NA
-     Version:  next
-     Prerequisites:
-       -
-         Name: SR-2.7
-         Description: <ul><li>6.1 - Place hardware on cleaning bench.</li><li>6.2 - Leave the anteroom.</li><li>6.3 - Repeat Pre-Entrance Procedure</li><li>6.4 - Gown and enter clean area.</li><li>6.5 - Proceed to anteroom.</li><li>6.6 - Remove hardware from shipping package.</li><li>6.7 - Clean hardware.</li><li>6.8 - Carry hardware into clean area.</li><li>6.9 - Re-clean hardware</li></ul>
-         PrerequisiteType: TEST_EQUIPMENT
-       -
-         Name: Review and determine disposition of vendor test data (Phase 2/2) and visual inspection of hardware.
-         PrerequisiteType: TEST_EQUIPMENT
-   -
-     Name: Record picture of hardware
-     Description: NA
-     Version: next
-     Prerequisites:
-       -
-         Name: Photo
-         Description: <ul><li>Take picture of hardware</li><li>upload picture</li><li>specify path to the file</ul>
-         PrerequisiteType: TEST_EQUIPMENT
-     RequiredInputs:
-       -
-         Label: Enter photo filepath here (filepath)
-         InputSemantics: filepath
-
+- RequiredInputs:
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Any comments? If
+      not, fill in None.'}
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Who confirmed that
+      all of the hardware has been approved for receiving? Contact the Sub-system
+      Manager if the hardware has not been approved for receiving.'}
+  Name: SR-RCV-2 - Confirm/Deny hardware has been approved for receiving
+  Description: ' '
+  MaxIteration: '1'
+  Version: next
+- Name: SR-RCV-2 - Set current location of hardware
+  NewLocation: (?)
+  Description: Specify the hardware and receiving documentation has been moved to the Anteroom by selecting the location below.
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Instructions, Description: 'Please acknowledge you have done the following:<ul><li>Opened the
+      package(s).</li><li>Secured all the documentation received with the hardware package.<button
+      type="button" id="b2" title="Set aside any shipping documentation or vendor
+      data received with the hardware."><label style="font-size'':'' 4px;">details</label></button></li><li>Removed the
+      hardware from the shipping package(s) while retaining all protective packaging.</li><li>If
+      possible, verified the quantity in the package is consistent with the shipping
+      documentation, and verified the vendor S/N matches all the ID descriptions in the received
+      documentation.</li><li>Disposed of any shipping materials.</li><li>Transport the hardware and received documentation to the Anteroom following the proceedures outlined in LCA-11706.</li></ul><br><b>If there
+      are any inconsistencies or concerns, please contact the Sub-system Manager before
+      proceeding. Please click the DONE button to the right to confirm you have executed
+      these instructions and then click the Start Work button to register the current
+      location of the hardware.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [SetHardwareStatus]
+  Version: next
+- {Name: Label and scan received documentation, Description: 'Label each page of all
+    received documentation with the LSST S/N. Use the scanner
+    to scan each document using the following procedure:<ul><li>Ensure the scanner
+    is on.</li><li>Click on the "Scanning" launcher icon on the Desktop.<br><img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/hardware-receipt-scan1.png><br></li><li>Set
+    the mode to "Multipage" (Ctrl+m).</li><li>Name the project appropriately. Include the LSST
+    S/N. For example, ShippingDocuments_LSST_S/N.</li><li>Scan the pages (Ctrl+Enter).After scanning the relevant
+    pages, save the multipage file.<br><img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/hardware-receipt-scan6.png
+    height="150" width="150"> --> <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/hardware-receipt-folder-after-scan.png
+    height="150" width="200"><br>.<br></li><li>If another multipage file is necessary,
+    repeat these steps.</li></ul> Note that the files should be placed in the appropriate
+    directory automatically.<button type="button" id="b2"
+    title="/home/HardwareReceipt/Desktop/Hardware Documentation"><label
+    style="font-size'':'' 4px;">directory</label></button>', MaxIteration: '1', Version: next}
+- Name: Scan-and-Ingest-Vendor-Data
+  Description: Upload the scanned documents within the appropriate directory by clicking on the lcatr-launcher. Sub-directories will not be uploaded.<br>
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Instructions, Description: 'Please ensure that only the relevant received
+      documentation is in the appropriate folder.<button type="button" id="b2" title="/home/HardwareReceipt/Desktop/hardwareReceipt"><label
+      style="font-size'':'' 4px;">directory</label></button><br><br><b>After following
+      the instructions, please click the DONE button to the right and proceed to Start
+      Work.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [HarnessedJob]
+  Version: next
+  UserVersionString: v0
+- RequiredInputs:
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Any comments? Fill
+      in None, if applicable.'}
+  - {Description: '', Units: '', InputSemantics: boolean, Label: 'Was all the received
+      documentation and visible hardware labeling consistent?'}
+  Name: SR-RCV-2 - Review and determine disposition of documentation
+  Description: Check all the received documentation is consistent and matches any visible hardware labeling, then fill in the form below.<br><br><b>If there are any inconsistencies, click Stop Work, give a detailed description of the problem(s) and contact the Sub-system Manager.</b>
+  MaxIteration: '1'
+  Version: next
+- RequiredInputs:
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Any comments? If
+      not, fill in None.'}
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Fill in "consistent,"
+      if the information was found consistent; otherwise, comment on the differences.
+      Fill in "N/A", If there is no information from SR-RCV-01. Fill in "repeat" if
+      this is not the first instance of SR-RCV-2 for this hardware.'}
+  Name: SR-RCV-2 - Compare information in documentation with information from SR-RCV-01
+  Description: If this is the first instance of the hardware going through SR-RCV-2, search for information from SR-RCV-01 under <a href=http://srs.slac.stanford.edu/DataCatalog/folder.jsp?folder=13359078>vendor data</a>. Fill in the form accordingly. <br><br><b>If there are any inconsistencies, click Stop Work, give a detailed description of the problem(s) and contact the Sub-system Manager.</b>
+  MaxIteration: '1'
+  Version: next
+- {Name: SR-RCV-2 - Store hardcopies of documentation, Description: Place all the hardcopies in the provided folder.,
+  MaxIteration: '1', Version: next}
+- Name: SR-RCV-2 - Confirm/Deny if the hardware has been cleaned
+  Description: Using the following guidelines, confirm or deny if the hardware was cleaned before shipment to BNL:<br><ul><li>Click "Cleaned" if the hardware was cleaned such that it abides by Science Raft cleanliness standards.</li><li>Click "To be Cleaned" if it is uncertain the hardware meets Science Raft cleanliness standards and the hardware will be cleaned following LCA-11706, Procedure A-9 or an approved cleaning procedure.</li><li>Click "Cannot Clean" if the functionality of the hardware may be comprimised following LCA-11706, Procedure A-9. You will be returned to this step after completing the instructions in the next step. At this point, click "Pause Traveler" and contact the Sub-system Manager for further instruction. This step can be retried once to resolve the situation by resuming the traveler and clicking "Retry Step".</li></ul><br><b>If the hardware is ESD sensitive and it must be cleaned, click Stop Work, state the situation, and contact the Sub-System Manager.</b>
+  MaxIteration: '2'
+  Prerequisites:
+  - {Name: Instructions, Description: '<ul><li>Place hardware on cleaning bench with
+      the protective packaging intact.</li><li>Leaving the hardware in the anteroom,
+      proceed through the hallway to enter the gowning room.</li><li>If necessary,
+      repeat the Pre-Entrance Procedure found in LCA-11706, Procedure A-10. </li><li>Gown
+      and enter clean area using the procedure found in LCA-11706, Procedure A-11.</li><li>Proceed
+      to the anteroom.</li></ul>', Quantity: '1', PrerequisiteType: PREPARATION}
+  Version: next
+  Selection:
+  - RequiredInputs:
+    - {Description: '', Units: '', InputSemantics: string, Label: 'Any comments? If
+        not, fill in None.'}
+    - {Description: '', Units: '', InputSemantics: string, Label: 'If possible, describe
+        the cleaning process used before shipment; otherwise, fill in unknown.'}
+    Name: Cleaned
+    Condition: Confirm
+    Description: <ul><li>Clean the protective packaging using LCA-11706, Procedure A-9.</li><li>Label the protective packaging with the LSST S/N.</li><li>When appropriate, place the hardware and protective packaging in a clean plastic bag and label it with the LSST S/N.</ul>
+    MaxIteration: '1'
+    Version: next
+  - RequiredInputs:
+    - {Description: '', Units: '', InputSemantics: string, Label: 'Any comments, If
+        not, fill in None.'}
+    - {Description: '', Units: '', InputSemantics: string, Label: 'Fill in "Procedure
+        A-9" if LCA-11706, Procedure A-9 was used to clean the hardware. If not, explain
+        the cleaning procedure used.'}
+    Name: To be cleaned
+    Condition: Deny
+    Description: <ul><li>Remove all packaging.</li><li>Proceed to use LCA-11706, Procedure A-9 to clean the hardware. If a different procedure is followed, use the cleaning procedure only if it is approved by the Subsystem Manager.</li><li>Place hardware in clean plastic bag and label the bag with the LSST S/N. The plastic bag is now the protective packaging.</li></ul>
+    MaxIteration: '1'
+    Version: next
+  - RequiredInputs:
+    - {Description: '', Units: '', InputSemantics: string, Label: 'Any comments, If
+        not, fill in None.'}
+    - {Description: '', Units: '', InputSemantics: string, Label: Describe the situation and why the hardware cannot be cleaned.}
+    Name: Cannot Clean
+    Condition: UNKNOWN
+    Description: <ul><li>If any protective packaging already exists, label it with the LSST S/N. Do not remove the protective packaging.</li><li>Place the hardware in a clean plastic bag and label the new bag with the LSST S/N. The plastic bag is now the protective packaging. </li><li>Label the bag "uncleaned".</li><li>If the hardware is transported, go to the component page to change its location.</li><li>Hit complete after completing the results table.</li></ul>
+    MaxIteration: '1'
+    Version: next
+- Name: SR-RCV-2 - Bringing hardware to TS1 workstation
+  NewLocation: (?)
+  Description: Transport the hardware to the TS1 workstation. Specify the new location below and continue this traveler at the TS1 workstation.
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Instructions, Description: '<ul><li>Verify the hardware and its current
+      packaging will not compromise the cleanroom.</li></ul><br><b>When the hardware
+      is ready to enter the cleanroom, click the DONE button to the right and
+      proceed to Start Work.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [SetHardwareStatus]
+  Version: next
+- Name: SR-RCV-2 - Prepare for Visual Inspection
+  Description: The hardware will proceed through a visual inspection. Ensure the DSLR camera is available at the TS1 workstation before beginning.<br><br>Select whether the hardware is ESD sensitive and follow the instructions to set up for the visual inspection.<br><br><b>If the hardware or protective packaging would fail the visual inspection, the option to click Stop Work will be available in the final step of the traveler.</b>
+  MaxIteration: '1'
+  Version: next
+  Selection:
+  - Name: Not ESD sensitive
+    Condition: NotESD
+    Description: Remove the protective packaging protecting the hardware from contamination.
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: Instructions, Description: <ul><li>Ensure the facemask is on.</li></ul><br><b>Please click the DONE button to the right and proceed to Start Work when you are ready to open the protective packaging.</b>,
+      Quantity: '1', PrerequisiteType: PREPARATION}
+    Version: next
+  - Name: ESD sensitive
+    Condition: ESD
+    Description: Click "Start Work" to continue.
+    MaxIteration: '1'
+    Sequence:
+    - {Name: Setup EPA, Description: 'Follow these steps to setup and verify ESD protective
+        measures and the TS1 workstation:<ul><li>Attach and tooling to the ESD network
+        monitor.</li><li>Setup and verify the TS1 workstation EPA.</li><li>Transport
+        required hand tools (including the DSLR camera, if applicable) to the TS1 workstation.</li></ul>',
+      MaxIteration: '1', Version: next}
+    - Name: Remove ESD Packaging
+      Description: Remove the protective packaging, but do not remove any ESD protective tooling or equipment.
+      MaxIteration: '1'
+      Prerequisites:
+      - {Name: Instructions, Description: '<ul><li>Ensure the facemask is on.</li><li>Ensure
+          that ESD wrist strap is worn and plugged in.</li><li>Sit or stand using the ESD-protective
+          furniture.</li><li>Place one finger of each hand away from each other on
+          the ESD mat, then count to ten.</li></ul><br><b>Please click the DONE button
+          to the right and proceed to Start Work when you are ready to open the protective
+          packaging.</b><br>', Quantity: '1', PrerequisiteType: PREPARATION}
+      Version: next
+    Version: next
+- RequiredInputs:
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Any additional comments?
+      Fill in None, if none.'}
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Are all serial numbers
+      on the hardware consistent with the received documentation?'}
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Are there any other
+      concerns you wish to note?'}
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Are there signs of
+      contamination/residue inside the package?'}
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Are there visual
+      defects with the hardware?'}
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Before its removal,
+      was the integrity of the protective packaging acceptable?'}
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Does anything appear
+      to be out of place, e.g. loose, missing components?'}
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Is the quantity in
+      the package consistent with the shipping documentation?'}
+  Name: SR-RCV-2 - Visual Inspection Form
+  Description: Inspect the hardware and fill in the visual inspection form below. Fill in yes or no, and additional comments if desired.
+  MaxIteration: '1'
+  Version: next
+- RequiredInputs:
+  - {Description: '', Units: '', InputSemantics: string, Label: 1 - Notes for Picture 1}
+  - {Description: '', Units: '', InputSemantics: filepath, Label: 1 - Picture 1}
+  Name: SR-RCV-2 - Record pictures of hardware
+  Description: Take pictures to capture the condition of the hardware and support the findings of the visual inspection by filling in the form below. The DSLR camera is available for small details that the webcam cannot capture. A minimum of one photograph must be taken. The LSST S/N <b>must</b> be visible in each photograph. If the LSST S/N is not visible, write the LSST on a piece of paper and place it in the frame before taking the photograph. The "Notes" fields in the form are to document the subject of the respective photograph. Additional details may be provided as well. If more than four photographs are necessary, this step can be retried twice.<br><br>Restore all protective packaging afterward, and if necessary, provide new protective packaging. Label any new protective packaging with the LSST S/N.<br><br><button type="button" id="b2" title="Click on the Webcam's program, labeled 'Webcam Capture' on the Desktop. Position the webcam to photograph the hardware with the LSST S/N in view. Click 'Take a Photo'. Drag the new photograph from the feed at the bottom of the program to the 'Choose File' button in the results form. Click 'Record Result' and repeat as necessary."><label style="font-size':' 4px;">Directions for WebCam</label></button><br><button type="button" id="b2" title="Use the DSLR camera to take photographs. Put the SD card in put into the anteroom computer, the DCIM folder will appear on the Desktop. Drag a photograph from the DCIM folder to the 'Choose File' button in the results form, and click 'Record Result.' Repeat as necessary."><label style="font-size':' 4px;">Directions for DSLR camera</label></button><br><br>Webcam example- <br><img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/hardware-photos-cheese.png> --> <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/hardware-photos-cheese-1.png height="150" width="175"> --> <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/hardware-photos-cheese-2.png height="125" width="200"><br>
+  MaxIteration: '3'
+  Version: next
+  OptionalInputs:
+  - {Description: '', Units: '', InputSemantics: string, Label: 2 - Notes for Picture 2}
+  - {Description: '', Units: '', InputSemantics: filepath, Label: 2 - Picture 2}
+  - {Description: '', Units: '', InputSemantics: string, Label: 3 - Notes for Picture 3}
+  - {Description: '', Units: '', InputSemantics: filepath, Label: 3 - Picture 3}
+  - {Description: '', Units: '', InputSemantics: string, Label: 4 - Notes for Picture 4}
+  - {Description: '', Units: '', InputSemantics: filepath, Label: 4 - Picture 4}
+- {Name: SR-RCV-2 - Review and determine disposition of received hardware and protective packaging,
+  Description: 'Based on the findings of the visual inspection:<br><ul><li>Click Complete
+    if the hardware is acceptable for receiving after shipment. After doing so, you
+    will be returned to the SR-RCV-2 Header and are required to hit Complete once
+    again to finalize the traveler.<br><br></li><li>Click Stop Work if the hardware
+    is not acceptable for receiving after shipment. Give a detailed description of
+    the problem(s) and contact the Sub-system Manager.</li></ul>', MaxIteration: '1',
+  Version: next}
+Version: next
