@@ -14,11 +14,14 @@ Prerequisites:
     Plugs (potentially required, hardware specific)</li> </ul><br /><b>Read the Header
     information before clicking Start Work</b>', Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
 - {Name: SR-EOT-1 - Cautions, Description: 'This work includes: <ul><li>ESD Hazard</li>
-    <li>Contamination Hazard</li><li>UV light Hazard</li><li>Heavy Object Movement Hazard</li>
-    <li>Presence of sealed radioactive source</li><li>Physical Damage Hazard</li></ul>',
+    <li>Contamination Hazard</li><li>UV Light Hazard</li><li>Heavy Object Movement Hazard</li>
+    <li>Presence of Sealed Radioactive Source</li><li>Physical Damage Hazard</li></ul>',
   Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
-- {Name: Set up EPA at TS3, Description: Follow these steps to set up and verify ESD protection measures at the selected TS3 workstation.<ul><li>Attach the TS3 equipment to the ESD network/monitor.</li><li>Set up and verify the TS3 workstation EPA.</li><li>Transport required tooling to the TS3 Workstation and place them on a non-linting wipe.</li></ul>,
-  MaxIteration: '1', Version: next}
+Sequence:
+- Name: Set up EPA at TS3
+  Description: Follow these steps to set up and verify ESD protection measures at the selected TS3 workstation.<ul><li>Attach the TS3 equipment to the ESD network/monitor.</li><li>Set up and verify the TS3 workstation EPA.</li><li>Transport required tooling to the TS3 Workstation and place them on a non-linting wipe.</li></ul>
+  MaxIteration: '1'
+  Version: next
 - Name: Setup_EO_Scripts
   Description: The execution of this harnessed job will install all approved testing scripts.<br>
   MaxIteration: '5'
@@ -26,8 +29,8 @@ Prerequisites:
   - {Name: System noise and crosstalk, Description: Verify that the system noise and crosstalk calibration have been done in the last 180 days.,
     Quantity: '1', PrerequisiteType: PREPARATION}
   - {Name: Illumination uniformity and calibration, Description: 'Verify the illumination
-      uniformity calibration has been done in the last 180 days, or if any changes
-      to the optical setup have occurred, such as replacing the lamp bulb.', Quantity: '1',
+      uniformity calibration has been done in the last 180 days. If there were any changes
+      to the optical setup, such as replacing the lamp bulb, the illumination uniformity calibration must be updated.', Quantity: '1',
     PrerequisiteType: PREPARATION}
   - {Name: Photodiode Calibration, Description: Verify that the integrating sphere photodiode has been calibrated within the last 180 days.,
     Quantity: '1', PrerequisiteType: PREPARATION}
@@ -40,11 +43,11 @@ Prerequisites:
   Version: next
   UserVersionString: v0
 - Name: preflight_acq
-  Description: The execution of the preflight_acq Job Harness will verify all auxiliary test stand equipment is ready and begin running the <br>CCS widget-<img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/widget.png height="100" width="100">     and     GUI-<img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/gui.png height="180" width="240"><br>. A message box will appear at the end indicating whether the results are OK. Issues can be rectified at this point and the step can be retried up to three times.<button type="button" id="b2" title="The Job Harness will: power on the equipment , warm up and stabilize the lamp (5 minutes), actuate the shutter, verify the monochromator gratings are working, verify the filter wheel rotates, verify the Keithley and Archon controller are operational. As a final check, the Job Harness will read out the instruments in response to two different wavelength settings, 450 and 823, and readout the integrating sphere photodiode current."><label style="font-size'':'' 4px;">detail</label></button> After clicking Start, click on the launcher button that will appear.<br>
+  Description: The execution of the preflight_acq Job Harness will verify all auxiliary test stand equipment is ready and begin running the <br>CCS widget-<img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/widget.png height="100" width="100">     and     GUI-<img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/gui.png height="180" width="240"><br>. A message box will appear at the end indicating whether the results are sucessful. Issues can be rectified at this point and the step can be retried up to three times.<button type="button" id="b2" title="The Job Harness will: power on the equipment , warm up and stabilize the lamp (5 minutes), actuate the shutter, verify the monochromator gratings are working, verify the filter wheel rotates, verify the Keithley and Archon controller are operational. As a final check, the Job Harness will read out the instruments in response to two different wavelength settings, 450 and 823, and readout the integrating sphere photodiode current.><label style="font-size'':'' 4px;">detail</label></button> After clicking Start, click on the launcher button that will appear.<br>
   MaxIteration: '5'
   Prerequisites:
   - {Name: Equipment check, Description: 'Verify that the following equipment is on:<ul><li>the
-      Keithley source and picoammeters</li><li>CryoCon 24C device</li><li>Monochromator</li><li>Lamp</li><li>Archon
+      Keithley voltage source and picoammeters</li><li>CryoCon 24C device</li><li>Monochromator</li><li>Lamp</li><li>Archon
       controller</li></ul><b>If you are DONE reading and executing these instructions,
       please click the button to the right and Start Work.</b>''', Quantity: '1',
     PrerequisiteType: PREPARATION}
@@ -53,7 +56,7 @@ Prerequisites:
   UserVersionString: v0
 - Name: Set location of sensor for EO testing
   NewLocation: (?)
-  Description: Transport the coffin to the selected TS3 station. TS3-1 is the test station located closest to the sink. TS3-2 is located to the right of TS3-1. Specify the new location below.
+  Description: Transport the coffin to the selected TS3 workstation. TS3-1 is the test workstation located closest to the sink. TS3-2 is located to the right of TS3-1. Specify the new location below.
   MaxIteration: '1'
   TravelerActions: [SetHardwareStatus, SetHardwareStatus]
   Version: next
@@ -61,10 +64,10 @@ Prerequisites:
 - RequiredInputs:
   - {Description: '', Units: '', InputSemantics: boolean, Label: 'Was the O-ring replaced?'}
   Name: Prepare TS3-Cryostat for sensor insertion
-  Description: Follow these steps to prepare the TS3-Cryostat for sensor installation:<ul><li>Pull back the TS3-cryostat from the dark tunnel.</li> <li>cover the dark tunnel with vacuum foil.</li> <li>Turn the TS3-cryostat for easy access.</li> <li>Open the TS3-Cryostat window.<button type="button" id="b2" title="Do not touch the glass. Do not touch the inside face of the flange."><label style="font-size':'4px;">detail</label></button> </li> <li>Visually inspect the O-ring and replace if necessary. <button type="button" id="b2" title="The O-ring should not be degraded (brittle, broken, etc.) and it should be properly seated."><label style="font-size':'4px;">detail</label></button> </ul>
+  Description: Follow these steps to prepare the TS3-Cryostat for sensor installation:<ul><li>Pull back the TS3-cryostat from the dark tunnel.</li> <li>Cover the dark tunnel with vacuum foil.</li> <li>Turn the TS3-cryostat for easy access.</li> <li>Open the TS3-Cryostat window.<button type="button" id="b2" title="Do not touch the glass. Do not touch the inside face of the flange."><label style="font-size':'4px;">detail</label></button> </li> <li>Visually inspect the O-ring and replace if necessary. <button type="button" id="b2" title="The O-ring should not be degraded (brittle, broken, etc.) and it should be properly seated."><label style="font-size':'4px;">detail</label></button> </ul>
   MaxIteration: '1'
   Prerequisites:
-  - {Name: INSTRUCTIONS, Description: Ensure the vacuum valve and the nitrogen injection valve are closed.,
+  - {Name: INSTRUCTIONS, Description: Ensure the vacuum valve, the nitrogen injection valve, and the bleed valve, are closed.,
     Quantity: '1', PrerequisiteType: PREPARATION}
   Version: next
 - Name: Prepare to open coffin at the TS3 workstation
@@ -89,7 +92,7 @@ Prerequisites:
     from the flex cables, then plug in and tighten the micro-D connectors to the TS3-Cryostat readout 
     connectors.', MaxIteration: '1', Version: next}
 - Name: Secure TS3-Cryostat Window
-  Description: Close the TS3-Cryostat window and secure the flange. Remove the vacuum foil covering the dark tunnel and push the cryostat towards the dark tunnel until the dewar feet are firmly butted at the limit of the white alignment grooves on the optical bench.
+  Description: Close the TS3-Cryostat window and secure the flange. <button type="button" id="b2" title="Do not touch the glass. Do not touch the inside face of the flange."><label style="font-size':'4px;">detail</label></button> Remove the vacuum foil covering the dark tunnel and push the TS3-Cryostat towards the dark tunnel until the dewar feet are firmly butted at the limit of the white alignment grooves on the optical bench.
   MaxIteration: '1'
   Prerequisites:
   - {Name: Prepare to close the window, Description: '<ul><li>Remove the protective
@@ -99,12 +102,12 @@ Prerequisites:
       Work.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
   Version: next
 - Name: Purge the TS3-Cryostat
-  Description: Use the following procedure to inject clean, dry Nitrogen into the TS3-Cryostat:<ul><li>Open the Nitrogen injection valve, then open the bleed valve on the TS3-Cryostat.</li><li>Wait for the pop valve to release, indicating that the pressure is above atmosphere; You should hear the pop valve.</li><li>Close the Nitrogen injection valve and the bleed valve.</li></ul><br><br>If desired, this procedure may be repeated up to three times by clicking Retry Step.<br><br><b>If the equipment is not functioning as expected, click Stop Work, give a detailed description of the problem(s) and contact the Sub-system Manager.</b>
+  Description: Use the following procedure to inject clean, dry Nitrogen into the TS3-Cryostat:<ul><li>Open the Nitrogen injection valve, then open the bleed valve on the TS3-Cryostat.</li><li>Wait for the pop valve to release, indicating that the pressure is above atmosphere.</li><li>Close the Nitrogen injection valve and the bleed valve.</li></ul><br><br>If desired, this procedure may be repeated up to three times by clicking Retry Step.<br><br><b>If the equipment is not functioning as expected, click Stop Work, give a detailed description of the problem(s) and contact the Sub-system Manager.</b>
   MaxIteration: '3'
   Prerequisites:
   - {Name: Pre-Purge Pump, Description: '<ul><li>Open the vacuum valve.</li><li>Turn
       on the vacuum pump.</li><li>Wait for the pressure to reach P < 10 Torr.</li><li>Close
-      the vacuum valve and turn off the vacuum pump.</li></ul><b>If you are DONE reading
+      the vacuum valve and turn off the vacuum pump.</li></ul><b>If you are DONE reading and 
       executing these instructions, please click the button to the right and Start
       Work.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
   Version: next
@@ -136,7 +139,7 @@ Prerequisites:
   MaxIteration: '1'
   Version: next
 - Name: ts3_cool_down
-  Description: Use the launcher button (which will appear after clicking "Start Work") to start the automated cool down process. It will start the vacuum pump, then once the pressure has dropped below 10^(-5) Torr, the cooling process will begin and stabilize the sensor's temperature to 95 +- 1 C.<br>
+  Description: Use the launcher button (which will appear after clicking "Start Work") to start the automated cool down process. Once the pressure has dropped below 10^(-5) Torr the cooling process will begin and stabilize the sensor's temperature to 95 +- 1 C.<br>
   MaxIteration: '5'
   TravelerActions: [HarnessedJob]
   Version: next
@@ -422,9 +425,7 @@ Prerequisites:
   Description: Follow these steps to prepare to remove the sensor from the TS3-Cryostat:<ul><li>Detach the TS3-Cryostat from the dark tunnel.</li><li>Turn the TS3-cryostat for easy access.</li><li>Cover the dark tunnel with vacuum foil.</li><li>Open the TS3-Cryostat Window. <button type="button" id="b2" title="Do not touch the glass. Do not touch the inside face of the flange."><label style="font-size':'4px;">detail</label></button></li></ul>
   MaxIteration: '1'
   Prerequisites:
-  - {Name: Prepare the Cryostat, Description: '<ul><li>Close the vacuum valve.</li><li>Open the Nitrogen injection valve, then open the bleed valve on the TS3-Cryostat.</li><li>Fill the TS3-Cryostat with clean, dry Nitrogen. Wait for the pop valve to release, indicating that the pressure is above atmosphere.</li><li>Close the Nitrogen injection valve and the bleed valve.</li></ul><br><br><b>If
-      you are done reading and executing these instructions, please clock the DONE
-      buttons to proceed to Start Work.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Prepare the Cryostat, Description: '<ul><li>Close the vacuum valve.</li><li>Open the Nitrogen injection valve, then open the bleed valve on the TS3-Cryostat.</li><li>Fill the TS3-Cryostat with clean, dry Nitrogen. Wait for the pop valve to release, indicating that the pressure is above atmosphere.</li><li>Close the Nitrogen injection valve and the bleed valve.</li></ul><br><br><b>If you are done reading and executing these instructions, please clock the DONE buttons to proceed to Start Work.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
   Version: next
 - {Name: Install protective cover, Description: Remove the mask from the jig and install the protective cover.,
   MaxIteration: '1', Version: next}
@@ -435,10 +436,10 @@ Prerequisites:
   Selection:
   - {Name: Remove the e2v sensor, Condition: e2v, Description: <ul><li>Unplug the flex cables from the TS3-cryostat readout connectors.</li><li>Plug the micro-D connectors into the grounding connectors on the jig. Engage the screws.</li><li>Remove the jig from the TS3-Cryostat nest.</li><li>Tighten the micro-D connector screws.</li><li>Install the jig onto the coffin base. Install the coffin cover.</li></ul>,
     MaxIteration: '1', Version: next}
-  - {Name: Remove the ITL sensor, Condition: ITL, Description: <ul><li>Unplug the TS3 testing flex cables from the TS3-cryostat readout connectors.</li><li>Re-install the grounding plugs.</li><li>Remove the jig from the TS3-Cryostat.</li><li>Remove the TS3 testing flex cables from the sensor.</li><li>Re-install the grounding PCBs (supplied by the vendor).</li><li>Install the jig onto the coffin base. Install the coffin cover.</li></ul>,
+  - {Name: Remove the ITL sensor, Condition: ITL, Description: <ul><li>Unplug the TS3 testing flex cables from the TS3-cryostat readout connectors.</li><li>Re-install the grounding plugs onto the J0 and J1 connectors of the TS3 testing flex cables.</li><li>Remove the jig from the TS3-Cryostat.</li><li>Remove the TS3 testing flex cables from the sensor.</li><li>Re-install the grounding PCBs (supplied by the vendor) into the sensor.</li><li>Install the jig onto the coffin base. Install the coffin cover.</li></ul>,
     MaxIteration: '1', Version: next}
 - {Name: Securing cryostat window onto the TS3-Cryostat and attaching cryostat to tunnel,
-  Description: <ul><li>Secure the TS3-cryostat window onto the TS3-Cryostat.</li><li>Remove the vacuum foil covering the dark tunnel.</li><li>Push the cryostat towards the dark tunnel until the dewar feet are firmly butted at the limit of the white alignment grooves on the optical bench.</li></ul>,
+  Description: <ul><li>Secure the TS3-cryostat window onto the TS3-Cryostat.<button type="button" id="b2" title="Do not touch the glass. Do not touch the inside face of the flange."><label style="font-size':'4px;">detail</label></button></li><li>Remove the vacuum foil covering the dark tunnel.</li><li>Push the TS3-Cryostat towards the dark tunnel until the dewar feet are firmly butted at the limit of the white alignment grooves on the optical bench.</li></ul>,
   MaxIteration: '1', Version: next}
 - Name: Store Sensor
   NewLocation: (?)
