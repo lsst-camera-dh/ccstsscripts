@@ -1,0 +1,327 @@
+Name: SR-EOT-express
+Description: Welcome to the SINGLE SENSOR ELECTRO-OPTICAL TEST express traveler for any sensor.<br><br>This traveler will record the electro-optical performance of a single sensor at BNL. The work is performed at a previously selected TS3 workstation. Before beginning, TS3-1 or TS3-2 should have been identified for testing.<br> Work performed includes:<ul><li>Preparing and verifying the readiness of the TS3 workstation</li><li>Installing and removing the sensor from the TS3-Cryostat</li><li>Launching and monitoring the EO test acquisition and analyses</li></ul><br><br>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>
+HardwareGroup: Generic-CCD
+MaxIteration: '1'
+Sequence:
+- Name: ready_acq
+  Description: Use the launcher button (which will appear after clicking "Start Work") to start the final readiness check. This check involves taking an 55Fe image and a FLAT image. Images from a segment will be displayed on the monitor. Based on those images, respond to the questions that will be displayed at the next step.<br><br>Examples of expected images are shown below - <br> 55Fe - <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/ready-fe551-scale-sqrt-zoom-4.png height="200" width="240"> FLAT - <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/ready-flat1.png height="200" width="240"><br>
+  MaxIteration: '5'
+  Prerequisites:
+  - {Name: INSTRUCTIONS, Description: '<ul><li>Turn on the Archon controller.</li><li>Make sure the XED is on and in opto mode and that the supplimentary power supply is on.</li><li>To
+      Start the CCS GUI, if it is not already running use the GUI button on the CCS
+      apps widget.</li><li>To start DS9, if it is not already running use the icon
+      on the desktop.</li></ul>', Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [HarnessedJob]
+  Version: next
+  UserVersionString: v0
+- RequiredInputs:
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Are there indications
+      of X-ray hits (small clusters of pixels) in the 55Fe image?'}
+#  - {Description: '', Units: '', InputSemantics: string, Label: 'Do all auxilliary
+#      devices shown on the CCS GUI have labels with green backgrounds and the overall
+#      acquisition state indicated at the top left of the GUI is READY?'}
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Does the FLAT image
+      have dark bias bands around it?'}
+  - {Description: '', Units: '', InputSemantics: boolean, Label: 'Is the Keithley bias supply output enabled
+      indicator light on?'}
+  Name: readiness check form
+  Description: Based on the images produced during the previous step, fill in the form below.<br><br><b>If you cannot answer yes to all questions, or if the images contain anything conspicuous (e.g., XED Arm, intense or structured light leak, dead segment, dipole pixels), contact the Sub-system manager. Proceed only if you have been authorized to continue.</b><br>
+  MaxIteration: '1'
+  Version: next
+- Name: ts3_cool_down
+  Description: Use the launcher button (which will appear after clicking "Start Work") to start the automated cool down process. Once the pressure has dropped below 10^(-3) Torr the cooling process will begin and stabilize the sensor's temperature to -95 +- 1 C.<br>
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  UserVersionString: v0
+- Name: run all acquisition and analysis scripts
+  Description: Begin the automated execution of all acquisition and analysis scripting by clicking the launcher button below. If a test fails, the TS3-Cryostat will stay under pressure and the sensor will remain at operating temperature. An acquisition step may be retried, but you must return to this step to get the lcatr-iterator command or to press on the lcatr-iterator button to repeat that step to continue with the remainder of the automated sequence.<br>
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: INSTRUCTIONS, Description: 'Before starting the automated execution of
+      all acquisition and analysis scripts:<br><ul><li>Verify that the CCS applications
+      are running by looking at the CCS-Apps widget.</li> <li>If any app is not shown
+      as running (green) or if the widget itself is not present, please refer to the
+      detailed instructions below.</li></ul> <b>If you are DONE reading and executing
+      these instructions, please click the Done button to the right,<br/>Then click
+      on the LAUNCHER BUTTON below.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+  InstructionsURL: https://confluence.slac.stanford.edu/display/LSSTCAM/Using+CCS+for+TS3+at+BNL
+  TravelerActions: [Automatable]
+  Sequence:
+  - Name: fe55_acq
+    Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Work button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: dark_acq
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: flat_acq
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: ppump_acq
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: sflat_acq
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: qe_acq
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: persist_acq
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: qa_plots
+    Description: QA plots
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: fe55_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: flat_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: sflat_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: ppump_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: qe_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: persist_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: fe55_analysis
+    Description: 55Fe analysis for system gain and PSF size
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: fe55_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: read_noise
+    Description: CCD Read Noise
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: fe55_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: bright_defects
+    Description: Bright defects from darks
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: dark_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: dark_defects
+    Description: Dark defects from superflat data
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: sflat_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: traps
+    Description: Charge traps from pocket pumping data
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: ppump_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: dark_current
+    Description: dark current
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: dark_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: cte
+    Description: Parallel and serial charge transfer efficiencies
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: sflat_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: prnu
+    Description: Photo-response non-uniformity
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: qe_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: flat_pairs
+    Description: Non-linearity and blooming full well from flat pair data
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: flat_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: ptc
+    Description: Photon Transfer Curve
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: flat_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: qe_analysis
+    Description: Quantum Efficiency
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: qe_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: persistence
+    Description: persistence
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: persist_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: test_report
+    Description: Test report
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: read_noise, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_current, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: cte, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: prnu, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: flat_pairs, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: ptc, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: qe_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: qe_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: persistence, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  Version: next
+- Name: warmup_acq
+  Description: This Job Harness will turn off the bias voltage, the lamp, the refrigeration system and begin to bring the sensor to room temperature. The vacuum pump will remain on afterwards. Notify a technician that the sensor will soon be ready to be removed from the TS3-Cryostat.
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  UserVersionString: v0
+- {Name: Review and determine disposition of E/O data and analysis results, Description: 'Download
+    the test report from the Data Catalog. Based on the findings of the test report:
+    <ul><li>Click Complete if the sensor meets all specifications. After doing so
+    you will be returned to the SR-EOT-01 Header and are required to hit Complete
+    once again to finalize the Traveler.<br></li><li>Click Stop Work if any specifications
+    are not met. Give a detailed description of the problem(s) and contact the Sub-system
+    Manager.</li></ul>', MaxIteration: '1', Version: next}
+Version: next
