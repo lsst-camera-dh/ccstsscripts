@@ -9,12 +9,12 @@ Prerequisites:
     mm allen key (potentially required, hardware specific)</li><li>Flathead screwdriver</li>
     <li>Mask (hardware specific)</li><li>ESD Brush</li><li>O-ring (potentially required)</li>
     <li>TS3 testing Flex Cables (potentially required, hardware specific)</li> <li>Shorting
-    Plugs (potentially required, hardware specific)</li> </ul><br /><b>Read the Header
-    information before clicking Start Work</b>', Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
+    Plugs (potentially required, hardware specific)</li> </ul>', Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
 - {Name: SR-EOT-1 - Cautions, Description: 'This work includes: <ul><li>ESD Hazard</li>
     <li>Contamination Hazard</li><li>UV Light Hazard</li><li>Heavy Object Movement
     Hazard</li> <li>Presence of Sealed Radioactive Source</li><li>Physical Damage
-    Hazard</li></ul>', Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
+    Hazard</li></ul><br /><b>Read the Header
+    information before clicking Start Work</b>', Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
 Sequence:
 - {Name: Set up EPA at TS3, Description: Follow these steps to set up and verify ESD protection measures at the selected TS3 workstation.<ul><li>Attach the TS3 equipment to the ESD network/monitor.</li><li>Set up and verify the TS3 workstation EPA.</li><li>Transport required tooling to the TS3 Workstation and place them on a non-linting wipe.</li></ul>,
   MaxIteration: '1', Version: next}
@@ -112,6 +112,12 @@ Sequence:
   Version: next
 - {Name: Turn on vacuum pump, Description: Open the vacuum valve. Turn on the vacuum pump. Proceed to next step once the vacuum pump is working as expected.,
   MaxIteration: '1', Version: next}
+- Name: ts3_cool_down
+  Description: Use the launcher button (which will appear after clicking "Start Work") to start the automated cool down process. Once the pressure has dropped below 10^(-3) Torr the cooling process will begin and stabilize the sensor's temperature to -95 +- 1 C.<br>
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  UserVersionString: v0
 - Name: ready_acq
   Description: Use the launcher button (which will appear after clicking "Start Work") to start the final readiness check. This check involves taking an 55Fe image and a FLAT image. Images from a segment will be displayed on the monitor. Based on those images, respond to the questions that will be displayed at the next step.<br><br>Examples of expected images are shown below - <br> 55Fe - <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/ready-fe551-scale-sqrt-zoom-4.png height="200" width="240"> FLAT - <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/ready-flat1.png height="200" width="240"><br>
   MaxIteration: '5'
@@ -125,22 +131,20 @@ Sequence:
   Version: next
   UserVersionString: v0
 - RequiredInputs:
+  - {Description: '', Units: '', InputSemantics: string, Label: 'On the CCS teststand GUI,
+      do all all auxiliary devices have a green background to their respective titles? If not, please describe
+      the state AND verify with the technical authority that it is OK to proceed.'}
   - {Description: '', Units: '', InputSemantics: string, Label: 'Are there indications
       of X-ray hits (small clusters of pixels) in the 55Fe image?'}
   - {Description: '', Units: '', InputSemantics: string, Label: 'Does the FLAT image
       have dark bias bands around it?'}
   - {Description: '', Units: '', InputSemantics: boolean, Label: 'Is the Keithley
-      bias supply output enabled indicator light on?'}
+      bias supply output enabled indicator light on? If not, do not continue without first consulting the
+      technical authority and confirming that their was not an equipment safety reason for having the bias supply disabled.'}
   Name: readiness check form
   Description: Based on the images produced during the previous step, fill in the form below.<br><br><b>If you cannot answer yes to all questions, or if the images contain anything conspicuous (e.g., XED Arm, intense or structured light leak, dead segment, dipole pixels), contact the Sub-system manager. Proceed only if you have been authorized to continue.</b><br>
   MaxIteration: '1'
   Version: next
-- Name: ts3_cool_down
-  Description: Use the launcher button (which will appear after clicking "Start Work") to start the automated cool down process. Once the pressure has dropped below 10^(-3) Torr the cooling process will begin and stabilize the sensor's temperature to -95 +- 1 C.<br>
-  MaxIteration: '5'
-  TravelerActions: [HarnessedJob]
-  Version: next
-  UserVersionString: v0
 - Name: run all acquisition and analysis scripts
   Description: Begin the automated execution of all acquisition and analysis scripting by clicking the launcher button below. If a test fails, the TS3-Cryostat will stay under pressure and the sensor will remain at operating temperature. An acquisition step may be retried, but you must return to this step to get the lcatr-iterator command or to press on the lcatr-iterator button to repeat that step to continue with the remainder of the automated sequence.<br>
   MaxIteration: '1'
@@ -158,6 +162,15 @@ Sequence:
   - Name: fe55_acq
     Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Work button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
     MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: fe55_analysis
+    Description: 55Fe analysis for system gain and PSF size
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: fe55_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
     TravelerActions: [HarnessedJob]
     Version: next
     UserVersionString: v0
@@ -212,18 +225,9 @@ Sequence:
     TravelerActions: [HarnessedJob]
     Version: next
     UserVersionString: v0
-  - Name: fe55_analysis
-    Description: 55Fe analysis for system gain and PSF size
-    MaxIteration: '1'
-    Prerequisites:
-    - {Name: fe55_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
-      UserVersionString: v0}
-    TravelerActions: [HarnessedJob]
-    Version: next
-    UserVersionString: v0
   - Name: read_noise
     Description: CCD Read Noise
-    MaxIteration: '1'
+    MaxIteration: '3'
     Prerequisites:
     - {Name: fe55_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
       UserVersionString: v0}
@@ -234,7 +238,7 @@ Sequence:
     UserVersionString: v0
   - Name: bright_defects
     Description: Bright defects from darks
-    MaxIteration: '1'
+    MaxIteration: '3'
     Prerequisites:
     - {Name: dark_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
       UserVersionString: v0}
@@ -245,7 +249,7 @@ Sequence:
     UserVersionString: v0
   - Name: dark_defects
     Description: Dark defects from superflat data
-    MaxIteration: '1'
+    MaxIteration: '3'
     Prerequisites:
     - {Name: bright_defects, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
       UserVersionString: v0}
@@ -258,7 +262,7 @@ Sequence:
     UserVersionString: v0
   - Name: traps
     Description: Charge traps from pocket pumping data
-    MaxIteration: '1'
+    MaxIteration: '3'
     Prerequisites:
     - {Name: ppump_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
       UserVersionString: v0}
@@ -273,7 +277,7 @@ Sequence:
     UserVersionString: v0
   - Name: dark_current
     Description: dark current
-    MaxIteration: '1'
+    MaxIteration: '3'
     Prerequisites:
     - {Name: dark_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
       UserVersionString: v0}
@@ -290,7 +294,7 @@ Sequence:
     UserVersionString: v0
   - Name: cte
     Description: Parallel and serial charge transfer efficiencies
-    MaxIteration: '1'
+    MaxIteration: '3'
     Prerequisites:
     - {Name: sflat_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
       UserVersionString: v0}
@@ -307,7 +311,7 @@ Sequence:
     UserVersionString: v0
   - Name: prnu
     Description: Photo-response non-uniformity
-    MaxIteration: '1'
+    MaxIteration: '3'
     Prerequisites:
     - {Name: qe_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
       UserVersionString: v0}
@@ -324,7 +328,7 @@ Sequence:
     UserVersionString: v0
   - Name: flat_pairs
     Description: Non-linearity and blooming full well from flat pair data
-    MaxIteration: '1'
+    MaxIteration: '3'
     Prerequisites:
     - {Name: flat_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
       UserVersionString: v0}
@@ -341,7 +345,7 @@ Sequence:
     UserVersionString: v0
   - Name: ptc
     Description: Photon Transfer Curve
-    MaxIteration: '1'
+    MaxIteration: '3'
     Prerequisites:
     - {Name: flat_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
       UserVersionString: v0}
@@ -358,7 +362,7 @@ Sequence:
     UserVersionString: v0
   - Name: qe_analysis
     Description: Quantum Efficiency
-    MaxIteration: '1'
+    MaxIteration: '3'
     Prerequisites:
     - {Name: qe_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
       UserVersionString: v0}
@@ -375,7 +379,7 @@ Sequence:
     UserVersionString: v0
   - Name: persistence
     Description: persistence
-    MaxIteration: '1'
+    MaxIteration: '3'
     Prerequisites:
     - {Name: persist_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
       UserVersionString: v0}
@@ -386,7 +390,7 @@ Sequence:
     UserVersionString: v0
   - Name: test_report
     Description: Test report
-    MaxIteration: '1'
+    MaxIteration: '3'
     Prerequisites:
     - {Name: fe55_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
       UserVersionString: v0}
@@ -422,7 +426,7 @@ Sequence:
   Version: next
 - Name: warmup_acq
   Description: This Job Harness will turn off the bias voltage, the lamp, the refrigeration system and begin to bring the sensor to room temperature. The vacuum pump will remain on afterwards. Notify a technician that the sensor will soon be ready to be removed from the TS3-Cryostat.
-  MaxIteration: '5'
+  MaxIteration: '3'
   TravelerActions: [HarnessedJob]
   Version: next
   UserVersionString: v0
