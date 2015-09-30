@@ -6,7 +6,7 @@ MaxIteration: '1'
 Prerequisites:
 - {Name: SR-RCV-2 - Cautions, Description: This work includes <ul><li>ESD Hazard (Hardware specific)</li><li>Contamination Hazard (Hardware specific)</li></ul>,
   Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
-- {Name: SR-RCV-2 - Equipment needed for this tasks, Description: 'Required Equipment:<ul><li>Box
+- {Name: SR-RCV-2 - Equipment needed for this task, Description: 'Required Equipment:<ul><li>Box
     cutter</li><li>Nonlinting wipes</li><li>Cleaning solution (50/50 Isopropyl alcohol
     and distilled water)</li><li>Stationery, approved for cleanroom use (pen, marker,
     bonded paper, tape, staple remover)</li><li>Scanner</li><li>Hardcopy Folder</li><li>Web
@@ -201,18 +201,18 @@ Sequence:
       Version: next
     Version: next
 - RequiredInputs:
-  - {Description: '', Units: '', InputSemantics: string, Label: 'Before its removal,
-      was the integrity of the protective packaging acceptable?'}
-  - {Description: '', Units: '', InputSemantics: string, Label: 'Does anything appear
-      to be out of place, e.g. loose, missing components?'}
   - {Description: '', Units: '', InputSemantics: string, Label: 'Is the quantity in
       the package consistent with the shipping documentation?'}
   - {Description: '', Units: '', InputSemantics: string, Label: 'Are all serial numbers
       on the hardware consistent with the received documentation?'}
-  - {Description: '', Units: '', InputSemantics: string, Label: 'Are there signs of
-      contamination/residue inside the package?'}
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Before its removal,
+      was the integrity of the protective packaging acceptable?'}
   - {Description: '', Units: '', InputSemantics: string, Label: 'Are there visual
       defects with the hardware?'}
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Does anything appear
+      to be out of place, e.g. loose, missing components?'}
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Are there signs of
+      contamination/residue inside the package?'}
   - {Description: '', Units: '', InputSemantics: string, Label: 'Are there any other
       concerns you wish to note?'}
   - {Description: '', Units: '', InputSemantics: string, Label: 'Any additional comments?
