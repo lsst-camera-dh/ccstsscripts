@@ -11,7 +11,8 @@ Prerequisites:
 - {Name: Equipment, Description: 'The following equipment must be avaiable before
     beginning this eTraveler:<ul> <li>OGP machine</li><li>Non-linting wipes</li> <li>MF02</li><li>4
     mm allen key</li> <li>Flathead screwdriver</li> <li>2 mm allen key </li> <li>Gauge
-    blocks </li> <li>MF01B</li> <li>MF05B</li> <li>MF07B</li> </ul>', Quantity: '1', PrerequisiteType: PREPARATION}
+    blocks </li> <li>MF01B</li> <li>MF05B</li> <li>MF07B</li> </ul>', Quantity: '1',
+  PrerequisiteType: PREPARATION}
 - {Name: Notice of Acknowledgement, Description: 'Before starting, review all the
     steps within this eTraveler and ensure the required equipment is available. Contact
     your supervisor or Subsystem Manager for any concern or additional clarification.<br><b>By
@@ -54,11 +55,11 @@ Sequence:
   Prerequisites:
   - {Name: Expose Sensor to ESD and Contamination Hazard, Description: 'Follow these
       steps before opening the coffin:<br><ul><li>Exchange gloves before sensor handling.</li>
-      <li>Ensure facemask is on.</li><li>ESD
-      wrist strap is worn  and plugged in.</li><li>Sit or stand using the provided
-      ESD-protective furniture.</li></ul><br /><br /><b>If you are DONE reading these
-      instructions and have completed this preparation, please click the Done button
-      to the right, and proceed to Start Step.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+      <li>Ensure facemask is on.</li><li>ESD wrist strap is worn  and plugged in.</li><li>Sit
+      or stand using the provided ESD-protective furniture.</li></ul><br /><br /><b>If
+      you are DONE reading these instructions and have completed this preparation,
+      please click the Done button to the right, and proceed to Start Step.</b>',
+    Quantity: '1', PrerequisiteType: PREPARATION}
   TravelerActions: [SetHardwareLocation]
   Version: next
   PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
@@ -73,17 +74,17 @@ Sequence:
   - {Name: Sensor Location, Description: 'If the sensor is in Long-term Storage, transfer
       the sensor to TS2 and change the location on its Component Page.', Quantity: '1',
     PrerequisiteType: PREPARATION}
-  - {Name: Expose Sensor to ESD and Contamination Hazard, Description: '<ul><li>Ensure facemask is on.</li><li>Exchange gloves before sensor
-      handling.</li><li>ESD wrist strap is worn and plugged in.</li> <li>Sit
-      or stand using the provided ESD-protective furniture.</li> </ul> <br><b>If you
-      are DONE reading these instructions and have completed this preparation, please
-      click the Done button to the right, and proceed to "Start Work".</b>', Quantity: '1',
-    PrerequisiteType: PREPARATION}
+  - {Name: Expose Sensor to ESD and Contamination Hazard, Description: '<ul><li>Ensure
+      facemask is on.</li><li>Exchange gloves before sensor handling.</li><li>ESD
+      wrist strap is worn and plugged in.</li> <li>Sit or stand using the provided
+      ESD-protective furniture.</li> </ul> <br><b>If you are DONE reading these instructions
+      and have completed this preparation, please click the Done button to the right,
+      and proceed to "Start Work".</b>', Quantity: '1', PrerequisiteType: PREPARATION}
   Version: next
   PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
 - ShortDescription: Perform Absolute Height Metrology
   Name: SR-MET-1_Perform_Absolute_Height
-  Description: Using the MeasureMind Software and the OGP machine, complete three measurement runs using the following procedure:<ol><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select the routine within the appropriate directory.<button type="button" id="b8" title="C:/Production_DATA/LSST S/N/AbsoluteHeight/Date-Time"><label style="font-size':'4px:">directory</label></button></li><li>Click Run Routine and click OK to start the routine.</li><li>Follow the prompts in the OGP Routine.</li><li>When prompted, enter the appropriate path and file name for the data products.<button type="button" id="b9" title="LSST S/N_AbsZ_Run#_Date-Time.DAT"><label style="font-size':'4px:">file name</label></button></li><li>Wait for the routine to finish and click OK.</li><li>Click \"File\" then click \"Save As\" to record the routine used for this run using the filename with the run number appended.</li></ol>
+  Description: Using the MeasureMind Software and the OGP machine, complete three measurement runs using the following procedure:<ol><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select the routine within the appropriate directory.<button type="button" id="b8" title="C:/Production_DATA/LSST S/N/AbsoluteHeight/Date-Time"><label style="font-size':'4px:">directory</label></button></li><li>Click Run Routine and click OK to start the routine.</li><li>Follow the prompts in the OGP Routine.</li><li>When prompted, enter the appropriate path and file name for the data products.<button type="button" id="b9" title="LSST S/N_AbsZ_Run#_Date-Time.DAT"><label style="font-size':'4px:">file name</label></button></li><li>Wait for the routine to finish and click OK.</li><li>Click "File" then click "Save As" to record the routine used for this run using the filename with the run number appended.</li></ol>
   MaxIteration: '1'
   Version: next
   PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
