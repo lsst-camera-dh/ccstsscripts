@@ -1,0 +1,256 @@
+ShortDescription: SR-RCV-02 HARDWARE RECEIVING
+Name: SR-RCV-02
+Subsystem: SR
+Description: Welcome to the HARDWARE RECEIVING eTraveler for all RTM hardware entering the Science Raft Assembly and Test Facility Cleanroom at BNL.<br><br>This eTraveler will document shipping acceptance for all hardware received at BNL. The work is performed in the hallway, anteroom, and TS1.<br>Work performed includes:<ul><li>Logging receipt and documentation, including labeling with an LSST S/N</li><li>Uploading received documentation and storing hardcopies, including labeling with an LSST S/N</li><li>Preparing and transporting hardware into the Science Raft Assembly and Test Facility Cleanroom</li><li>A visual inspection for describing and photographing hardware's condition upon receipt</li><li>Verifying consistency of documentation, labels, and previously received data</li></ul>
+HardwareGroup: BNL_Logged_Receivables
+MaxIteration: '1'
+Prerequisites:
+- {Name: Hazard Cautions, Description: 'Performed operations include the following hazards to the hardware - <ul><li>ESD Hazard (Hardware specific)</li><li>Contamination Hazard (Hardware specific)</li><li>Physical Hazard (Hardware specific)</li></ul>',
+  Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
+- {Name: Equipment, Description: 'Required Equipment:<ul><li>Box
+    cutter</li><li>Nonlinting wipes</li><li>Cleaning solution (50/50 Isopropyl alcohol
+    and distilled water)</li><li>Stationery, approved for cleanroom use (pen, marker,
+    bonded paper, tape, staple remover)</li><li>Scanner</li><li>Hardcopy Folder</li><li>Web
+    Camera</li><li>DSLR Camera (potentially required)</li><li>Clean plastic bag (Potentially
+    required)</li><li>EPA Equipment (Potentially required)</li><li>Hardware specific
+    tooling (Potentially required)<br></ul><br><b>Read the Header information before
+    clicking "Start Step".</b>', Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
+Sequence:
+- RequiredInputs:
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Who confirmed that
+      all of the hardware has been approved for receiving? Contact the Subsystem
+      Manager if the hardware has not yet been approved for receiving.'}
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Any comments? If
+      not, fill in None.'}
+  ShortDescription: Confirm approval for receiving
+  Name: SR-RCV-2_approval
+  Description: ' '
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Set current location of hardware
+  Name: SR-RCV-2_set_location
+  Description: Specify the hardware and receiving documentation has been moved to the Anteroom by selecting the location below.
+  NewLocation: (?)
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Instructions, Description: 'Please acknowledge you have done the following:<ol><li>Opened
+      the package(s).</li><li>Secured all the documentation received with the hardware
+      package.<button type="button" id="b2" title="Set aside any shipping documentation
+      or vendor data received with the hardware."><label style="font-size'':'' 4px;">details</label></button></li><li>Removed
+      the hardware from the shipping package(s) while retaining all protective packaging.</li><li>If
+      possible, verified the quantity in the package is consistent with the shipping
+      documentation, and verified the vendor S/N matches all the ID descriptions in
+      the received documentation.</li><li>Disposed of any shipping materials.</li><li>Transport
+      the hardware and received documentation to the Anteroom following the proceedures
+      outlined in LCA-11706.</li></ol><br><b>If there are any inconsistencies or concerns,
+      please contact the Subsystem Manager before proceeding. Please click the DONE
+      button to the right to confirm you have executed these instructions and then
+      click the "Start Step" button to register the current location of the hardware.</b>',
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [SetHardwareStatus, SetHardwareStatus]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  NewStatus: (?)
+- ShortDescription: Label and scan documentation
+  Name: SR_RCV-2_label_scan
+  Description: Label each page of all receiveing documentation with the LSST S/N.<br><br>Use the scanner to scan each document using the following procedure:<ol><li>Ensure the scanner is on.</li><li>Click on the "Scanning" launcher icon on the Desktop.<br><img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/hardware-receipt-scan1.png><br></li><li>Set the mode to "Multipage" (Ctrl+m).</li><li>Name the project appropriately, and append the LSST S/N to the project name. Do not use embedded spaces. For example, ShippingDocuments_ITL-3800C-123. </li><li>Scan the pages (Ctrl+Enter).After scanning the relevant pages, save the multipage file.<br><img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/hardware-receipt-scan6.png height="150" width="150"> --> <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/hardware-receipt-folder-after-scan.png height="150" width="200"><br>.<br></li><li>If another multipage file is necessary, repeat these steps.</li></ol> Note that the files should be placed in the appropriate directory automatically.<button type="button" id="b2" title="/home/HardwareReceipt/Desktop/Hardware Documentation"><label style="font-size':' 4px;">directory</label></button>
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: 'Job Harness: - Ingest receiving documentation'
+  Name: Scan-and-Ingest-Vendor-Data
+  Description: Executing this Job Harness will automatically - <ul><li>Upload the scanned documents within the appropriate directory<button type="button" id="b2" title="/home/HardwareReceipt/Desktop/Hardware Documentation"><label style="font-size':' 4px;">directory</label></button>. Sub-directories will not be uploaded.</li><li>Clear the directory.</li></ul>
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Instructions, Description: 'Please ensure that only the relevant received
+      documentation is in the appropriate folder.<button type="button" id="b2" title="/home/HardwareReceipt/Desktop/hardwareReceipt"><label
+      style="font-size'':'' 4px;">directory</label></button><br><br><b>After following
+      the instructions, please click the DONE button to the right and proceed to Start
+      Work.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [HarnessedJob]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- RequiredInputs:
+  - {Description: 'Was all the received documentation and visible hardware labeling consistent?', Units: '', InputSemantics: boolean, Label: 'Consistant Labeling'}
+  - {Description: 'Any comments? Fill in None, if applicable.', Units: '', InputSemantics: string, Label: 'Comments'}
+  ShortDescription: Review and determine disposition of receiving documentation
+  Name: SR-RCV-2_review
+  Description: Check all the receiving documentation is consistent and matches any visible hardware labeling.<br><br><b>If there are any inconsistencies, click Stop Work, give a detailed description of the problem(s) and contact the Subsystem Manager.</b>
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- RequiredInputs:
+  - {Description: 'Fill in "consistent,"
+      if the information was found consistent; otherwise, comment on the differences.
+      Fill in "N/A", If there is no information from SR-RCV-01. Fill in "repeat" if
+      this is not the first instance of SR-RCV-2 for this hardware.', Units: '', InputSemantics: string, Label: 'Disposition of Receiving Documentation'}
+  - {Description: 'Any comments? If
+      not, fill in None.', Units: '', InputSemantics: string, Label: 'Comments'}
+  ShortDescription: Compare hardware and documentation with SR-RCV-01
+  Name: SR-RCV-2_compare_info
+  Description: If this is the first instance of the hardware going through SR-RCV-02, search for information from SR-RCV-01 under <a href=http://srs.slac.stanford.edu/DataCatalog/folder.jsp?folder=13359078>vendor data</a>.<br><br><b>If there are any inconsistencies, click Stop Work, give a detailed description of the problem(s) and contact the Subsystem Manager.</b>
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Store hardcopies of receiving documentation
+  Name: SR-RCV-2_store
+  Description: Place all the hardcopies in the provided folder.
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Confirm hardware has been cleaned
+  Name: SR-RCV-2_confirm_clean
+  Description: Using the following guidelines, confirm or deny if the hardware was cleaned before shipment to BNL:<br><ul><li>Click "Cleaned" if the hardware was cleaned such that it abides by Science Raft cleanliness standards.</li><li>Click "To be Cleaned" if it is uncertain the hardware meets Science Raft cleanliness standards and the hardware will be cleaned following LCA-11706, Procedure A-9 or an approved cleaning procedure.</li><li>Click "Cannot Clean" if the functionality of the hardware may be comprimised following LCA-11706, Procedure A-9. You will be returned to this step after completing the instructions in the next step. At this point, click "Pause Traveler" and contact the Subsystem Manager for further instruction. This step can be retried once to resolve the situation by resuming the traveler and clicking "Retry Step".</li></ul><br><b>If the hardware is ESD sensitive and it must be cleaned, click Stop Work, state the situation, and contact the SubSystem Manager.</b>
+  MaxIteration: '2'
+  Prerequisites:
+  - {Name: Instructions, Description: '<ol><li>If you are not fully gowned, do the following: Place hardware on cleaning bench with
+      the protective packaging intact.</li><li>Leaving the hardware in the anteroom,
+      proceed through the hallway to enter the gowning room.</li><li>If necessary,
+      repeat the Pre-Entrance Procedure found in LCA-11706, Procedure A-10. </li><li>Gown
+      and enter clean area using the procedure found in LCA-11706, Procedure A-11.</li><li>Proceed
+      to the anteroom.</li></ol>', Quantity: '1', PrerequisiteType: PREPARATION}
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  Selection:
+  - RequiredInputs:
+    - {Description: 'If possible, describe
+        the cleaning process used before shipment; otherwise, fill in unknown.', Units: '', InputSemantics: string, Label: 'Cleaning Process'}
+    - {Description: 'Any comments? If
+        not, fill in None.', Units: '', InputSemantics: string, Label: 'Comments'}
+    ShortDescription: Hardware considered cleaned
+    Name: Cleaned
+    Condition: Previously Cleaned
+    Description: <ol><li>Clean the protective packaging using LCA-11706, Procedure A-9.</li><li>Label the protective packaging with the LSST S/N.</li><li>When appropriate, place the hardware with any protective packaging into a new ESD bag and label it with the LSST S/N.</ol>
+    MaxIteration: '1'
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  - RequiredInputs:
+    - {Description: 'Fill in "Procedure
+        A-9" if LCA-11706, Procedure A-9 was used to clean the hardware. If not, explain
+        the cleaning procedure used.', Units: '', InputSemantics: string, Label: 'Cleaning Process'}
+    - {Description: 'Any comments, If
+        not, fill in None.', Units: '', InputSemantics: string, Label: 'Comments'}
+    ShortDescription: Hardware cleaned during receiving
+    Name: To_be_cleaned
+    Condition: To Be Cleaned
+    Description: <ol><li>Remove all packaging.</li><li>Proceed to use LCA-11706, Procedure A-9 to clean the hardware, or another cleaning procedure approved by the Subsystem Manager.</li><li>Place hardware in clean ESD bag and label the bag with the LSST S/N. The plastic bag is now the protective packaging.</li></ol>
+    MaxIteration: '1'
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  - RequiredInputs:
+    - {Description: 'Describe the situation and why the hardware cannot be cleaned.', Units: '', InputSemantics: string, Label: 'Cleaning Prevention'}
+    - {Description: 'Any comments, If
+        not, fill in None.', Units: '', InputSemantics: string, Label: 'Comments'}
+    ShortDescription: Cannot Clean
+    Name: Cannot_Clean
+    Condition: Cannot Clean
+    Description: <ol><li>If any protective packaging already exists, label it with the LSST S/N. Do not remove any protective packaging.</li><li>Place the hardware in a clean ESD bag and label the new bag with the LSST S/N. The plastic bag is now the protective packaging. </li><li>Label the bag "uncleaned".</li><li>If the hardware is transported, go to the component page to change its location.</li><li>Hit complete after completing the results table.</li></ol>
+    MaxIteration: '1'
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Transport hardware to TS1
+  Name: SR-RCV-2-bring_to_ts1
+  Description: Transport the hardware to TS1. Specify the new location below and continue this eTraveler at TS1.
+  NewLocation: (?)
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Hardware to Enter Cleanroom, Description: 'Verify the hardware and its current
+      packaging will not compromise the cleanroom.<br><br><b>When the hardware
+      is ready to enter the cleanroom, click the DONE button to the right and proceed
+      to click "Start Step".</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [SetHardwareStatus, SetHardwareStatus]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  NewStatus: (?)
+- ShortDescription: Prepare for Visual Inspection
+  Name: SR-RCV-2_visual_inspection_prep
+  Description: The hardware will proceed through a visual inspection. Ensure the DSLR camera is available at TS1 before beginning.<br><br>Select whether the hardware is ESD sensitive and follow the instructions to set up for the visual inspection.<br><br><b>If the hardware or protective packaging would fail the visual inspection, the option to click Stop Work will be available in the final step of the traveler.</b>
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  Selection:
+  - ShortDescription: Hardware is not ESD sensitive
+    Name: Not_ESD_sensitive
+    Condition: NotESD
+    Description: Remove the protective packaging protecting the hardware from contamination.
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: Instructions, Description: <ul><li>Ensure facemask is on.</li></ul><br><b>Please click the DONE button to the right and proceed to click "Start Step" when you are ready to open the protective packaging.</b>,
+      Quantity: '1', PrerequisiteType: PREPARATION}
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  - ShortDescription: ESD sensitive hardware
+    Name: ESD_sensitive
+    Condition: ESD
+    Description: Click "Start Step" to prepare for ESD sensative work. Afterward, hit "Complete Step".
+    MaxIteration: '1'
+    Sequence:
+    - ShortDescription: Verify EPA
+      Name: Setup_EPA
+      Description: Follow these steps to setup and verify ESD protective measures at TS1:<ul><li>Setup and verify the TS1 EPA.</li><li>Transport required hand tools (including the DSLR camera, if applicable) to TS1.</li></ul>
+      MaxIteration: '1'
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    - ShortDescription: Remove ESD Packaging
+      Name: Remove_ESD_Packaging
+      Description: Remove the protective packaging, but do not remove any ESD protective tooling or equipment (such as grounding connectors).
+      MaxIteration: '1'
+      Prerequisites:
+      - {Name: Instructions, Description: '<ul><li>Ensure facemask is on.</li><li>Ensure
+          that ESD wrist strap is worn and plugged in.</li><li>Sit or stand using
+          the ESD-protective furniture.</li></ul><br><b>Please
+          click the DONE button to the right and proceed to click "Start Step" when you are
+          ready to open the protective packaging.</b><br>', Quantity: '1', PrerequisiteType: PREPARATION}
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- RequiredInputs:
+  - {Description: 'Is the quantity in
+      the package consistent with the shipping documentation?', Units: '', InputSemantics: string, Label: 'Hardware Quantity'}
+  - {Description: 'Are all serial numbers
+      on the hardware consistent with the received documentation?', Units: '', InputSemantics: string, Label: 'Hardware Identification'}
+  - {Description: 'Before its removal,
+      was the integrity of the protective packaging acceptable?', Units: '', InputSemantics: string, Label: 'Protective Packaging'}
+  - {Description: 'Are there visual
+      defects with the hardware?', Units: '', InputSemantics: string, Label: 'Visual Defects'}
+  - {Description: 'Does anything appear
+      to be out of place, e.g. loose, missing components?', Units: '', InputSemantics: string, Label: 'Gross Issues'}
+  - {Description: 'Are there signs of
+      contamination/residue on the hardware or inside the packaging?', Units: '', InputSemantics: string, Label: 'Contamination upon Receiving'}
+  - {Description: 'Are there any other
+      concerns you wish to note?', Units: '', InputSemantics: string, Label: 'Other Concerns'}
+  - {Description: 'Any additional comments?
+      Fill in None, if none.', Units: '', InputSemantics: string, Label: 'Comments'}
+  ShortDescription: Visual inspection upon receiving
+  Name: SR-RCV-2_visual_inspection
+  Description: Inspect the hardware and its protective packaging. Fill in yes or no with any additional comments.
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- RequiredInputs:
+  - {Description: '', Units: '', InputSemantics: filepath, Label: 1 - Picture 1}
+  - {Description: '', Units: '', InputSemantics: string, Label: 1 - Notes for Picture 1}
+  ShortDescription: Record pictures from visual inspection
+  Name: SR-RCV-2_record_pics
+  Description: Upload any pictures from the Visual Inspection, and add a comment about the photograph's subject or other relevant details.<br><br>A minimum of one photograph must be taken. If more than four photographs are necessary, this step can be retried twice for a total of 12.If possible, have the LSST S/N visible the photographs.<br><br>Directions for Webcam:<ol><li>Click on the Webcam's program, labeled 'Webcam Capture' on the Desktop.<li><li>Position the webcam to photograph the hardware and click "Take a Photo".</li><li>Drag the new photograph from the feed at the bottom of the program to the 'Choose File' button in the results form. Click 'Record Result' and repeat as necessary.</li></ol><br><br>Directions for using DSLR Camera:<ol><li>Use the DSLR camera to take photographs.</li><li>Put the SD card in put into the anteroom computer, the DCIM folder will appear on the Desktop.</li><li>Drag a photograph from the DCIM folder to the 'Choose File' button in the results form. Click 'Record Result' and repeat as necessary.</li></ol><br><br>After photographs are taken, restore all protective packaging afterward, and if necessary, provide new protective packaging. Label any new protective packaging with the LSST S/N.<br><br>Webcam example- <br><img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/hardware-photos-cheese.png> --> <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/hardware-photos-cheese-1.png height="150" width="175"> --> <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/hardware-photos-cheese-2.png height="125" width="200"><br>
+  MaxIteration: '3'
+  Version: next
+  OptionalInputs:
+  - {Description: '', Units: '', InputSemantics: filepath, Label: 2 - Picture 2}
+  - {Description: '', Units: '', InputSemantics: string, Label: 2 - Notes for Picture 2}
+  - {Description: '', Units: '', InputSemantics: filepath, Label: 3 - Picture 3}
+  - {Description: '', Units: '', InputSemantics: string, Label: 3 - Notes for Picture 3}
+  - {Description: '', Units: '', InputSemantics: filepath, Label: 4 - Picture 4}
+  - {Description: '', Units: '', InputSemantics: string, Label: 4 - Notes for Picture 4}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Review and determine disposition of received hardware and protective packaging
+  Name: SR-RCV-2_review_disposition
+  Description: Based on the findings of the visual inspection:<br><ul><li>Click Complete if the hardware is acceptable for receiving after shipment. After doing so, you will be returned to the SR-RCV-2 Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if the hardware is not acceptable for receiving after shipment. Give a detailed description of the problem(s) and contact the Subsystem Manager.</li></ul>
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+Version: next
+PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]

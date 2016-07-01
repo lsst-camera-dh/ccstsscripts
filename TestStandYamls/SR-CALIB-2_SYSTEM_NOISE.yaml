@@ -1,0 +1,37 @@
+ShortDescription: TS System Noise calibration traveler
+Name: SR-CALIB-2_SYSTEM_NOISE
+Subsystem: Legacy
+Description: <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/LSST-logo.png height="100" width="250"> <br> System Noise calibration traveler
+HardwareGroup: Test_Stands
+MaxIteration: '1'
+Sequence:
+- ShortDescription: System Noise calibration job
+  Name: dark_acq
+  Description: Make sure that the XED controller, lamp controller, Archon controller, shutter controller, picoammeters and CryoCon are ON, and no sensor is connected. Use the launcher button (which will appear after clicking "Start Step") to start the acquisition process .<br><br><img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/IMAG9946.jpg height="100" width="150">
+  MaxIteration: '1'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  UserVersionString: v0
+- ShortDescription: Data Reduction
+  Name: reduction
+  Description: '
+Use the python scripts in <br>
+https://github.com/lsst-camera-dh/harnessed-jobs/tree/master/BNL_T03/system_noise_analysis/v0<br>
+to reduce the data and then commit the file to the relevant setup<br>
+https://github.com/lsst-camera-dh/config_files/tree/master/BNL/TS3-Setup1<br>
+OR<br>
+https://github.com/lsst-camera-dh/config_files/tree/master/BNL/TS3-Setup2<br>
+<br><br>
+<b>If the traveler was not used to acquire the data, below, please specify the location of the harnessed jobs files in the Data Catalog.</b>
+<br>
+<br>
+This step will be soon replaced by a harnessed job.'
+  MaxIteration: '1'
+#  TravelerActions: [HarnessedJob]
+  RequiredInputs:
+    - {Description: 'form: noise_final_TESTSTAND_DATE.txt', Units: '', InputSemantics: filepath, Label: 'System noise calibration file' }
+  OptionalInputs:
+    - {Description: 'Ex: http://srs.slac.stanford.edu/DataCatalog/folder.jsp?folder=15304168', Units: '', InputSemantics: string, Label: 'DataCatalog location of acquired data' }
+  Version: next
+  UserVersionString: v0
+Version: next

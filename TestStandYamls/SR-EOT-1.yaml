@@ -19,39 +19,40 @@ Prerequisites:
 Sequence:
 - {Name: Set up EPA at TS3, ShortDescription: Set up EPA at TS3, Description: Follow these steps to set up and verify ESD protection measures at the selected TS3 workstation.<ul><li>Attach the TS3 equipment to the ESD network/monitor.</li><li>Set up and verify the TS3 workstation EPA.</li><li>Transport required tooling to the TS3 Workstation and place them on a non-linting wipe.</li></ul>,
   MaxIteration: '1', Version: next}
-- Name: Setup_EO_Scripts
-  ShortDescription: Setup_EO_Scripts
-  Description: The execution of this harnessed job will install all approved testing scripts.<br>
-  MaxIteration: '5'
-  Prerequisites:
-  - {Name: System noise and crosstalk, Description: Verify that the system noise and crosstalk calibration have been done in the last 180 days.,
-    Quantity: '1', PrerequisiteType: PREPARATION}
-  - {Name: Illumination uniformity and calibration, Description: 'Verify the illumination
-      uniformity calibration has been done in the last 180 days. If there were any
-      changes to the optical setup, such as replacing the lamp bulb, the illumination
-      uniformity calibration must be updated.', Quantity: '1', PrerequisiteType: PREPARATION}
-  - {Name: Ratio Calibration, Description: Verify that the integrating sphere photodiode has been calibrated within the last 60 days.,
-    Quantity: '1', PrerequisiteType: PREPARATION}
-  - {Name: Monochromator Calibration, Description: Verify that the monochromator wavelength setting calibration has been done in the last 180 days.,
-    Quantity: '1', PrerequisiteType: PREPARATION}
-  - {Name: Cryostat integrity, Description: 'Verify that the cryostat RGA scan has
-      been done within the last 180 days. Verify the pump down profile of the previous
-      run was acceptable. Verify that the PolyCold pressure is above 140 psi.<button
-      type="button" id="b2" title="The pressure gauge is on the back side of the Polycold
-      unit."><label style="font-size'':'' 4px;">detail</label></button><br><br><b>If
-      all calibrations are current, click Start Work.  Otherwise contact the Subsystem
-      Manager.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
-  TravelerActions: [HarnessedJob]
-  Version: next
-  UserVersionString: v0
+#- Name: Check Calibrations
+#  ShortDescription: Check Calibrations
+#  Description: <br>
+#  MaxIteration: '5'
+#  Prerequisites:
+#  Version: next
+#  UserVersionString: v0
 - Name: preflight_acq
   ShortDescription: Equipment check
   Description: The execution of the preflight_acq Job Harness will verify all auxiliary test stand equipment is ready and begin running the <br>CCS widget-<img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/widget.png height="100" width="100">     and     GUI-<img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/gui.png height="180" width="240"><br>. A message box will appear at the end indicating whether the results are sucessful. Issues can be rectified at this point and the step can be retried up to three times.<button type="button" id="b2" title="The Job Harness will power on the equipment, warm up and stabilize the lamp (5 minutes), actuate the shutter, verify the monochromator gratings are working, verify the filter wheel rotates, verify the Keithley and Archon controller are operational. As a final check, the Job Harness will read out the instruments in response to two different wavelength settings, 450 and 823, and readout the integrating sphere photodiode current.><label style="font-size'':'' 4px;">detail</label></button> After clicking Start, click on the launcher button that will appear.<br>
   MaxIteration: '5'
   Prerequisites:
+  - {Name: System noise, Description: Verify that the system noise calibration has been done in the last 180 days.,
+    Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
+#  - {Name: Illumination uniformity and calibration, Description: 'Verify the illumination
+#      uniformity calibration has been done in the last 180 days. If there were any
+#      changes to the optical setup, such as replacing the lamp bulb, the illumination
+#      uniformity calibration must be updated.', Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
+  - {Name: Ratio Calibration, Description: Verify that the integrating sphere photodiode has been calibrated within the last 60 days.,
+    Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
+  - {Name: Monochromator Calibration, Description: Verify that the monochromator wavelength setting calibration has been done in the last 180 days.,
+    Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
+  - {Name: Cryostat integrity, Description: 'Verify that the cryostat baseline RGA scan has
+      been done within the last 180 days. Verify the pump down profile of the previous
+      run was acceptable. Verify that the PolyCold pressure is above 140 psi.<button
+      type="button" id="b2" title="The pressure gauge is on the back side of the Polycold
+      unit."><label style="font-size'':'' 4px;">detail</label></button><br><br><b>If
+      all calibrations are current, click Start Work.  Otherwise contact the Subsystem
+      Manager.</b>', Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
   - {Name: Equipment check, Description: 'Verify that the following equipment is on:<ul><li>the
       Keithley voltage source and picoammeters</li><li>CryoCon 24C device</li><li>Monochromator</li><li>Lamp</li><li>Archon
-      controller</li></ul><b>If you are DONE reading and executing these instructions,
+      controller</li></ul>''', Quantity: '1',
+    PrerequisiteType: PREPARATION}
+  - {Name: Prepare Launcher, Description: 'Click on the launcher icon to start a window that will be used for starting harnessed jobs using the launcher buttons.<br><br><b>If you are DONE reading and executing these instructions,
       please click the button to the right and Start Work.</b>''', Quantity: '1',
     PrerequisiteType: PREPARATION}
   TravelerActions: [HarnessedJob]

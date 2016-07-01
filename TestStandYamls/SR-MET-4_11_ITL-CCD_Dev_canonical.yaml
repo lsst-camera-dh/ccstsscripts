@@ -1,0 +1,210 @@
+ShortDescription: SR-MET-4
+Name: SR-MET-4
+Description: Welcome to the EDGE SCAN AND FLATNESS METROLOGY traveler for ITL sensors.<br><br>This traveler will document images of the sensor's edge and record flatness information of a sensor at BNL. This work is performed at TS2. Work performed includes:<ul><li>Edge Scan using the OGP machine</li><li>Flatness Measurements using the OGP machine</li</ul><br><br></ul>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Work" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>
+HardwareGroup: ITL-CCD
+MaxIteration: '1'
+Prerequisites:
+- {Name: Cautions, Description: 'This work includes: <ul><li>ESD Hazard</li><li>Contamination
+    Hazard</li><li>Physical Damage Hazard</li></ul>', Quantity: '1', PrerequisiteType: PREPARATION}
+- {Name: Equipment needed for these tasks, Description: 'Required Equipment:<ul><li>OGP
+    machine</li><li>EPA Equipment</li><li>Nonlinting wipes</li><li>MF02 and MF02 attachment</li><li>2.5
+    mm allen key </li><li>Flathead screwdriver</li><li> 2 mm allen key</li></ul><br><b>Read
+    the Header information before clicking Start Work.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+Sequence:
+- ShortDescription: SR-MET-4 Set up EPA
+  Name: SR-MET-4 Set up EPA
+  Description: Follow these steps to set up and verify the ESD protective measures of the TS2 workstation and the OGP:<ul><li>Attach the OGP to the ESD network/monitor.</li><li>Set up and verify the TS2 workstation EPA.</li><li>Transport required tooling to the TS2 workstation.</li></ul>
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Ensure MF02 and the MF02 attachment are installed., Description: ' ', Quantity: '1',
+    PrerequisiteType: PREPARATION}
+  Version: next
+- ShortDescription: SR-MET-4 Setup OGP for Measurement
+  Name: SR-MET-4 Setup OGP for Measurement
+  Description: Follow these steps to setup the OGP machine for this measurement:<ul><li>Turn on the OGP Master Switch.</li><li>Turn on the OGP controller.</li><li>Open the MeasureMind software and follow the initialization prompts.</li><li>Ensure Safe Zone 2 is enabled.<button type="button" id="b1" title="Go to System, Config, Safe Zones."><label style="font-size':'4px:">detail</label></button></li><li>Raise the Z-Axis bridge and move the platen forward towards the Operator.</li></ul>
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: OGP Calibration, Description: Verify the OGP has been calibrated within the last 366 days.,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Optical Flat Calibration, Description: 'Verify the optical flat calibration
+      has been performed within the last 180 days.<br><br><b>If all calibrations are
+      current, click Start Work. Otherwise contact the Subsystem Manager.</b>', Quantity: '1',
+    PrerequisiteType: PREPARATION}
+  Version: next
+- ShortDescription: Make-OGP-Edge-Flatness-Directories
+  Name: Make-OGP-Edge-Flatness-Directories
+  Description: Using the lcatr-harness, create the required directories for the edge scan and flatness measurements and download the approved OGP routine.<br>
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  UserVersionString: v0
+- ShortDescription: SR-MET-4 Transport coffin to TS2
+  Name: SR-MET-4 Transport coffin to TS2
+  Description: Transport the coffin to TS2 workstation. Specify the new location below.
+  NewLocation: (?)
+  MaxIteration: '1'
+  TravelerActions: [SetHardwareStatus, SetHardwareStatus]
+  Version: next
+  NewStatus: (?)
+- ShortDescription: SR-MET-4 Remove coffin cover
+  Name: SR-MET-4 Remove coffin cover
+  Description: Unscrew the outer screws of the coffin cover. Cautiously dislodge coffin cover, if necessary.<button type="button" id="b2" title="Insert a flathead screwdriver into the slot in the coffin to jar cover."><label style="font-size':'4px:">detail</label></button> Remove the coffin cover. Loosen the screws securing the protective cover.
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Prepare to open coffin, Description: '<ul><li>Ensure facemask is on.</li><li>Ensure
+      that ESD wrist strap is worn and plugged in.</li><li>Sit or stand using the
+      ESD-protective furniture.</li><li>Place one finger of each hand away from each
+      other on the ESD mat, then count to ten.</li></ul><br><b>If you are DONE reading
+      these instructions and have completed this preparation, please click the Done
+      button to the right, and proceed to "Start Work".</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+  Version: next
+- ShortDescription: SR-MET-4 Remove protective cover
+  Name: SR-MET-4 Remove protective cover
+  Description: While attached to the coffin base, transfer the sensor to the OGP. Butt the coffin base against the MF02 attachment with the Serial Number facing left (from the operator's point of view). Remove the protective cover.  Ensure the coffin base is still in position.
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Instructions, Description: '<p>Remove the two vee-grooves adjacent to the
+      MF02 attachment. </p><b>If you are DONE reading these instructions and have
+      completed this preparation, please click the Done button to the right, and proceed
+      to "Start Work".</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+  Version: next
+- {ShortDescription: SR-MET-4 Perform Edge Scan and Flatness Measurement, Name: SR-MET-4 Perform Edge Scan and Flatness Measurement,
+  Description: 'Using the MeasureMind Software and the OGP machine:<ul><li>Reset the
+    OGP settings by going to System, Reset.</li><li>Click Open Routine and select
+    the routine within the appropriate directory. <button type="button" id="b3" title="C:Production_DataLSST
+    S/NEdgeScanDate-Time, C:Production_DataLSST S/NFlatnessDate-Time "><label style="font-size'':''4px:">directories</label></button></li><li>Click
+    Run Routine, click OK to start the routine.</li><li>Locate the lower-left corner
+    of the sensor, then press the Enter button on the OGP controller after the corner
+    is located.</li><li>When prompted, enter the appropriate path and file name for
+    the flatness data products.<button type="button" id="b9" title="LSST S/N_Flat_Date-Time.DAT"><label
+    style="font-size'':''4px:">filename</label></button></li><li>Locate the lower-right
+    corner of the sensor, then press the Enter button on the OGP controller after
+    the corner is located.</li><li>Wait for the routine to finish and click OK.</li></ul>',
+  MaxIteration: '1', Version: next}
+- ShortDescription: SR-MET-4 Install protective cover
+  Name: SR-MET-4 Install protective cover
+  Description: Install the protective cover.
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Prepare to install, Description: '<ul><li>Raise the Z-Axis Bridge and move
+      the platen forward towards the Operator.</li><li>Ensure EPA protocols are in
+      effect.</li></ul><br><br><b>If you are DONE reading these instructions and have
+      completed this preparation, please click the Done button to the right, and proceed
+      to "Start Work".</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+  Version: next
+- ShortDescription: SR-MET-4 Install coffin cover
+  Name: SR-MET-4 Install coffin cover
+  Description: Install the coffin cover.
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Instructions, Description: '<ul><li>Transfer the sensor (on the coffin
+      base) to the  TS2 workstation.</li><li>Tighten the protective cover screws.</li></ul><br><b>If
+      you are DONE reading these instructions and have completed this preparation,
+      please click the Done button to the right, and proceed to "Start Work".</b>',
+    Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
+  Version: next
+- ShortDescription: Store Sensor
+  Name: Store Sensor
+  Description: Transfer sensor to the long-term storage cabinet. Specify the new location below.
+  NewLocation: (?)
+  MaxIteration: '1'
+  TravelerActions: [SetHardwareStatus, SetHardwareStatus]
+  Version: next
+  NewStatus: (?)
+- ShortDescription: OGP_Edge_Flatness_Scan_Upload
+  Name: OGP_Edge_Flatness_Scan_Upload
+  Description: 'Using the lcatr-harness will do the following:<ul><li>Move the Edge
+    Scan Data Products to the appropriate location.</li><li>Clear the default destination
+    directory of the Edge Scan data products.</li><li>Upload the Edge Scan and Flatness
+    Data Products.</li></ul> '
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  UserVersionString: v0
+- {ShortDescription: SR-MET-4 Turn off OGP, Name: SR-MET-4 Turn off OGP, Description: 'If
+    the OGP will not be in immediate use, turn off the OGP:<br><ul><li>Hit Start/Stop
+    to stop the OGP controller.</li><li>Close out of MeasureMind Software.</li><li>Turn
+    off the OGP controller</li><li>Turn off the OGP Master Switch.</li></ul>', MaxIteration: '1',
+  Version: next}
+- RequiredInputs:
+  - {Description: 'The edge does not need to be perfectly straight around the perimeter;
+      however, there should not be any non-processing damage, such as large fractures
+      or hanging pieces.', Units: '', InputSemantics: boolean, Label: 'Does the sensor
+      edge appear to be acceptable?'}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN1_CCD_data.xslx, Units: '', InputSemantics: filepath,
+    Label: Flatness Data run1}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN1_CCD_quantile.xslx, Units: '', InputSemantics: filepath,
+    Label: Flatness Quantile Data run1}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN1_CCD_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Flatness Plot run1}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN1_CCD_histo.tiff, Units: '', InputSemantics: filepath,
+    Label: Flatness Histogram Plot run1}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN1_CCD_bw.tiff, Units: '', InputSemantics: filepath,
+    Label: Flatness Box and Whisker Plot run1}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN1_statistics.txt, Units: '', InputSemantics: filepath,
+    Label: Flatness Statistical Data run1}
+  ShortDescription: SR-MET-4  Upload flatness analysis files for run1
+  Name: SR-MET-4  Upload flatness analysis files for run1
+  Description: 'Analyze the flatness data with the following procedure: <ul><li>Download
+    the approved Mathematica flatness metrology analysis script from the GIT repository.</li><li>Download
+    the flatness metrology data from the Data Catalog.</li><li>Open the script and
+    change the data set.</li><li>Execute the script.</li><li>Save the result files.</li><li>Save
+    and upload the result files.</li></ul>The filename of the results data should
+    conform to the description fields in the table below.'
+  MaxIteration: '1'
+  Version: next
+- RequiredInputs:
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN2_CCD_data.xslx, Units: '', InputSemantics: filepath,
+    Label: Flatness Data run2}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN2_CCD_quantile.xslx, Units: '', InputSemantics: filepath,
+    Label: Flatness Quantile Data run2}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN2_CCD_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Flatness Plot run2}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN2_CCD_histo.tiff, Units: '', InputSemantics: filepath,
+    Label: Flatness Histogram Plot run2}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN2_CCD_bw.tiff, Units: '', InputSemantics: filepath,
+    Label: Flatness Box and Whisker Plot run2}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN2_statistics.txt, Units: '', InputSemantics: filepath,
+    Label: Flatness Statistical Data run2}
+  ShortDescription: SR-MET-4  Upload flatness analysis files for run2
+  Name: SR-MET-4  Upload flatness analysis files for run2
+  Description: 'Analyze the flatness data with the following procedure: <ul><li>Download
+    the approved Mathematica flatness metrology analysis script from the GIT repository.</li><li>Download
+    the flatness metrology data from the Data Catalog.</li><li>Open the script and
+    change the data set.</li><li>Execute the script.</li><li>Save the result files.</li><li>Save
+    and upload the result files.</li></ul>The filename of the results data should
+    conform to the description fields in the table below.'
+  MaxIteration: '1'
+  Version: next
+- RequiredInputs:
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN3_CCD_data.xslx, Units: '', InputSemantics: filepath,
+    Label: Flatness Data run3}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN3_CCD_quantile.xslx, Units: '', InputSemantics: filepath,
+    Label: Flatness Quantile Data run3}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN3_CCD_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Flatness Plot run3}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN3_CCD_histo.tiff, Units: '', InputSemantics: filepath,
+    Label: Flatness Histogram Plot run3}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN3_CCD_bw.tiff, Units: '', InputSemantics: filepath,
+    Label: Flatness Box and Whisker Plot run3}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN3_statistics.txt, Units: '', InputSemantics: filepath,
+    Label: Flatness Statistical Data run3}
+  ShortDescription: SR-MET-4  Upload flatness analysis files for run3
+  Name: SR-MET-4  Upload flatness analysis files for run3
+  Description: 'Analyze the flatness data with the following procedure: <ul><li>Download
+    the approved Mathematica flatness metrology analysis script from the GIT repository.</li><li>Download
+    the flatness metrology data from the Data Catalog.</li><li>Open the script and
+    change the data set.</li><li>Execute the script.</li><li>Save the result files.</li><li>Save
+    and upload the result files.</li></ul>The filename of the results data should
+    conform to the description fields in the table below.'
+  MaxIteration: '1'
+  Version: next
+- {ShortDescription: Review and determine the disposition of the Flatness Measurement,
+  Name: Review and determine the disposition of the Flatness Measurement, Description: 'Based
+    on the findings of the Flatness metrology measurements:<br><ul><li>Click Complete
+    if the sensor meets all specifications. After doing so, you will be returned to
+    the SR-MET-04 Header and are required to hit Complete once again to finalize the
+    traveler.<br><br></li><li>Click Stop Work if any specifications are not met. Give
+    a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>',
+  MaxIteration: '1', Version: next}
+Version: next

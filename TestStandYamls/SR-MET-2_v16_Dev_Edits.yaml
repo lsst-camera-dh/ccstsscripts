@@ -1,0 +1,154 @@
+ShortDescription: SR-MET-02 LATERAL POSITION METROLOGY
+Name: SR-MET-02
+Subsystem: SR
+Description: Welcome to the LATERAL POSITION METROLOGY eTraveler for any sensor.<br><br>This eTraveler will record the sensor's lateral positioning in the Science Raft Assembly and Test Cleanroom Facility at BNL. This work is performed at TS2 and the Laminar Flow Hood. <br>Work performed includes:<ul><li>Lateral Positioning Measurements using the OGP machine</li><li>Sensor jig removal (hardware specific)</li></ul>
+HardwareGroup: Generic-CCD
+MaxIteration: '1'
+Prerequisites:
+- {Name: Equipment, Description: 'The following equipment must be available before
+    beginning this eTraveler:<ul><li>OGP
+    machine</li><li>EPA Equipement</li><li>Nonlinting wipes and Cleaning Solution</li><li>MF02
+    and MF03 baseplate.</li><li>MF04</li><li>4 mm allen key (potentially required,
+    hardware specific)</li><li>ESD bag and marker (potentially required, hardware
+    specific)</li><li>Flathead screwdriver (potentially required, hardware specific)</li><li>2
+    mm allen key (potentially required, hardware specific)</li><li>MF05A (potentially
+    required, hardware specific)</li><li>MF07A (potentially required, hardware specific)</li><li>Grounding
+    connectors (potentially required, hardware specific)</li></ul>', Quantity: '1',
+  PrerequisiteType: TEST_EQUIPMENT}
+- {Name: Hazard Cautions, Description: 'Performed operations include the following
+    hazards to the hardware: <ul><li>ESD Hazard</li><li>Contamination
+    Hazard</li><li>Physical Damage Hazard</li></ul><br><b>Read the Header information
+    before clicking Start Step.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+- {Name: Notice of Acknowledgement, Description: 'Before starting, review all the
+    steps within this eTraveler and ensure the required equipment is available. Contact
+    your supervisor or Subsystem Manager for any concern or additional clarification.<br><b>By clicking "Start Step" you
+    indicate you:</b><ul><li>are permitted to exercise this eTraveler,</li><li>previewed
+    and understand all steps beforehand,</li><li>will fulfill all prerequisites, as
+    presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure
+    due diligence is used at each step.</li>',
+  Quantity: '1', PrerequisiteType: PREPARATION}
+Sequence:
+- ShortDescription: 'Job Harness: Setup Directory Structure and Download Approved OGP Scripts'
+  Name: Make-OGP-Pin-Directories
+  Description: Executing this Job Harness will automatically:<br><ul><li>Create the appropriate directories for the Measurement on the local terminal.</li><li>Download the approved measurement scripts from the GIT Hub Repository.</li></ul>
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- ShortDescription: Prepare TS2 for Measurement
+  Name: SR-MET-2 Set up EPA
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Ensure MF02 and the MF03 baseplate are installed., Description: ' ', Quantity: '1',
+    PrerequisiteType: PREPARATION}
+  - {Name: OGP Calibration, Description: Verify the OGP has been calibrated within the last 366 days.,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Optical Flat Calibration, Description: Verify the optical flat calibration has been performed within the last 180 days.,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Fixture Calibration, Description: 'Verify the MF04 faceplate has been calibrated within
+      the last 180 days.<br /><br /><b>If all calibrations are current, click Start
+      Work.  Otherwise contact the Subsystem Manager.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  Description: Follow these steps to set up TS2:<ul><li>Ensure the OGP Platen is grounded.</li><li>Set up and verify the TS2 EPA is functioning.</li><li>Transport required tooling to the TS2 Workstation ESD Table Mat.</li><li>Place MF04 on the TS2 Workstation ESD table mat.</li></ul><br>Follow these steps to set up the OGP machine for the measurement:<ol><li>Turn on the OGP Master Switch.</li><li>Turn on the OGP controller.</li><li>Open the MeasureMind Software and follow the initialization prompts.</li><li>Ensure MF02 is installed.</li><li>Raise the Z-Axis bridge and move the platen forward towards the Operator to provide room for transporting the sensor to the OGP later in this procedure.</li></ol>
+- ShortDescription: Prepare and Transport Sensor for Measurement
+  Name: SR-MET-2_sensorPrep
+  MaxIteration: '1'
+  Description: Select the specific hardware type to prepare the sensor for the measurement.<br><br>After completing the subsequent steps, transport the sensor to the TS2 Workstation.
+  NewLocation: (<TS2>)
+  TravelerActions: [SetHardwareLocation]
+  Selection:
+  - ShortDescription: Preparation for E2V Sensor
+    Name: e2v
+    Condition: E2V Sensor
+    Description: 'The subsequent steps will:<ul><li>prepare the Laminar Flow Hood for installing jig removal</li><li>instruct sensor jig removal and installation into MF07A</li></ul><br>If the sensor was stored in Long-term Storage, transfer the sensor to TS2 and change the location on its Component Page. After completing the subsequent steps:<ul><li></li></ul>If the sensor was moved directly to TS2, complete '
+    MaxIteration: '1'
+    Sequence:
+      - ShortDescription: Prepare Laminar Flow Hood and Transport Sensor
+        Name: SR-MET-02_LamFlow_E2V
+        Description: Transport the sensor to the Laminar Flow Hood.
+        MaxIteration: '1'
+        Prerequisites:
+        - {Name: Check Laminar Flow Hood, Description: '<ul><li>Ensure the Laminar Flow Hood
+            is on.<button type="button" id="b1" title="The Laminar Flow Hood must be
+            running for at least 20 minutes before a sensor is exposed. If the bench
+            was running before starting, assume that it is ready for use."><label style="font-size'':''4px:">detail</label></button></li><li>Check
+            for obstructions and/or malfunctions.</li></ul>', Quantity: '1', PrerequisiteType: PREPARATION}
+        - {Name: Set up EPA at Laminar Flow Hood, Description: '<ul><li>Setup and verify the Laminar Flow
+            Hood EPA.</li><li>Turn on Air Ionizer Bar.</li><li>Transport required tooling
+            to Laminar Flow Hood.</li><li>Place MF05A
+            and MF07A on the Laminar Flow Hood ESD table mat.</li><li>Ensure MF05A is grounded.</li></ul><br /><br /><b>If you are DONE reading these
+            instructions and have completed the preparation, please click the DONE button
+            to the right, and proceed to Start Step.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+        TravelerActions: [SetHardwareLocation]
+        Version: next
+        PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+        NewLocation: (<Laminar Flow Hood>)
+      - ShortDescription: Install Sensor into MF07A
+        Name: SR-MET-2 Remove coffin cover
+        Description: Follow these steps to remove the jig from the coffin:<ol><li>Unscrew the outer screws of the coffin cover.</li><li>Dislodge the coffin cover, if necessary.<button type="button" id="b2" title="Insert a flathead screwdriver into the slot in the coffin to jar cover."><label style="font-size:4px:">detail</label></button></li><li>Remove the coffin cover.</li><li>Unscrew the jig from the coffin base.</li><li>Verify the LSST-CAMERA Serial Number and the Package ID match.</li></ol>Follow these instructions to prepare the sensor for installation onto MF05A:<ol><li>Evenly unscrew nano-D connectors from micro-D connectors.</li><li>Hold the jig in the air with the sensor's Silicon surface facing upwards to ensure objects do not fall towards the sensor.</li><li>Unscrew the braces securing the nano-D connectors to the jig.</li><li>Add grounding connectors to nano-D connectors.</li><li>Remove one alignment pin screw.</li><li>Slightly loosen the other alignment pin screw.<br><b>Do not loosen the final alignment pin screw such that the sensor is loose enough to hit the jig or protective cover.</b></li></ol>Follow these instructions to install MF07A onto the sensor and prepare to transport it to TS2:<ol><li>Carefully place the jig onto the MF05A registration pins, and secure the jig with the same screws which secured it to the coffin base.<br><b>Be careful not to stress the flex cables and connectors.</b></li><li>Attach the MF05A-Rods to the sensor's mounting studs.</li><li>Push and secure the MF05A-Stops onto the tooling plate closest to the sensor.</li><li>Remove the protective cover.</li><li>Remove the final alignment pin screw.</li><li>Loosen the MF05A-Stops and push the sensor into the MF05A-Cove.<br><b>Be careful not to stress the flex cables and connectors.</b></li><li>Push and secure the MF05A-Stops onto the tooling plate farthest from the sensor. A small amount of movement may be needed to install MF07A, but the MF05A-Stops must prevent the Silicon surface from leaving the MF05A-Cove.</li><li>Hold MF07A such that the side screw hole is facing the operator.</li><li>Install MF07A around the MF05A-Cove to capture the sensor package, then install the side screw.<br><b>Be careful not to damage the exposed wirebonds on the sensor package.</b></li></ol>Follow these instructions to extract the sensor contained in MF07A from MF05A:<ol><li>Loosen the MF05A-Stops and retract the sensor secured in MF07A.<br><b>Be careful not to stress the flex cables and connectors.</b></li><li>Place the MF07-Cover on the lower corner of MF07A facing the operator, and (still exposing the sensor) attach with a screw.</li><li> Cover the sensor by sliding the MF07A-Cover over the exposed surface, and attach a screw to the upper corner of MF07A facing the operator.</li><li>Remove the MF05A-Rods from the mounting studs, then remove the sensor contained in MF07A from MF05A.<br><b>Be careful not to stress the flex cables and connectors.</b></li><li>Attach the other two screws to MF07A and hand tighten all screws.</li><li>Remove the jig from MF05A.</li><li>Place the two alignment screws into the jig, then secure the jig to the coffin base. Install the protective cover and secure the coffin cover.</li><li>Place the sensor contained in MF07A in an ESD bag and label the bag with the LSST-CAMERA Serial Number.</li></ol><br>After the sensor is prepared for transporting, do one of the following:<ul><li>If the sensor is going to TS2 for immediate measurement, click "Complete Step" then follow the instructions in the parent step.</li><li>If TS2 is unavailable, the sensor is to be stored in Long-term Storage. To do so, change the location of the sensor on its Component Page, then pause the traveler at this step. When TS2 is ready to measure this sensor, resume this step, click "Complete Step" then follow the instructions in the parent step.</li></ul>
+        MaxIteration: '1'
+        Prerequisites:
+      - {Name: Expose Sensor to ESD and Contamination Hazard, Description: '<ul><li>Ensure facemask is on.</li><li>ESD
+          wrist strap is worn and plugged in.</li><li>Sit or stand using the provided
+          ESD-protective furniture.</li></ul><br /><br /><b>If you are DONE reading
+          these instructions and have completed this preparation, please click the
+          DONE button to the right, and proceed to Start Step.</b>', Quantity: '1',
+        PrerequisiteType: PREPARATION}
+        Version: next
+        PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    - ShortDescription: Verify Sensor Ready for Measurement
+      Name: ITL
+      Condition: ITL Sensor
+      Description: Verify the sensor is contained in MF07B.
+      MaxIteration: '1'
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Preapare and Perform Lateral Position Measurement
+  Prerequisites:
+  - {Name: Expose Sensor to ESD and Contamination Hazard, Description: '<ul><li>Ensure facemask is on.</li><li>ESD
+      wrist strap is worn and plugged in.</li><li>Sit or stand using the provided
+      ESD-protective furniture.</li></ul><br><b>If you are DONE reading these instructions
+      and have completed this preparation, please click the DONE button to the right,
+      and proceed to "Start Step".</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+    Name: SR-MET-2 Perform lateral position measurement
+    Description: Follow these instruction to install MF07 onto MF04 and set up for the measurement:<ol><li>Ensure the MF04-Faceplate is secured to MF04.</li><li>Wipe the MF04-Faceplate with a clean non-linting wipe.</li><li>Place the sensor onto MF04.</li><li>Butt MF04 against the MF03 baseplate, so the fixture is positioned correctly.</li><li>Remove three of the screws from the MF07-Cover.</li><li>Remove three of the screws from the MF07-Cover.</li><li>Loosen the final screw, and expose the sensor by sliding the MF07-Cover off.</li><li>Remove the final screw and MF07-Cover.</li><li>Ensure MF04 is positioned correctly.</li></ol><br>Using the MeasureMind Software and the OGP machine:<ul><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select the routine within the appropriate directory.<button type="button" id="b8" title="C:Production_DataLSST S/NLateralPositionDate-Time"><label style="font-size':'4px:">directory</label></button><li>Click Run Routine, click OK until the routine starts.</li><li>Follow the prompts in the OGP Routine.</li><li>After the measurement finishes, enter the appropriate path and file name for the test report.<button type="button" id="b9" title="LSST S/N_LatPos_Date-Time.RTF"><label style="font-size':'4px:">file name</label></button></li><li>When the routine is finished click OK.</li></ul>
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Store Sensor after Measurement
+  Name: SR-MET-2 Install protective cover
+  Description: Follow these instructions to install the protective cover:<ol><li>Place the MF07-Cover on an edge and (still exposing the sensor) and attach with a screw.</li><li>Cover the sensor by sliding the MF07-Cover over the exposed surface.</li><li>Attach the other three screws and hand tighten all four screws.</li></ol>Follow these instructions to store the sensor:<ol><li>Transfer MF04 to the TS2 workstation, then remove the sensor from MF04.</li><li>Place the sensor into an ESD bag and label it with the LSST-CAMERA Serial Number.</li><li>Transfer the sensor to Long-term Storage.</li></ol>
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Expose Sensor to ESD, Contamination, and Physical Hazard, Description: '<ul><li>Raise the Z-Axis
+      Bridge and move the platen forward towards the operator for transporting MF04 to the TS2 Workstation..</li><li>Ensure facemask
+      is on.</li><li>ESD wrist strap is worn and plugged in.</li><li>Sit or stand
+      using the provided ESD-protective furniture.</li></ul><br><b>If you are DONE
+      reading these instructions and have completed this preparation, please click
+      the DONE button to the right, and proceed to "Start Step".</b>', Quantity: '1',
+    PrerequisiteType: PREPARATION}
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  NewLocation: (<Long-term Storage>)
+  TravelerActions: [SetHardwareLocation]
+- ShortDescription: 'Job Harness: Upload Data Files'
+  Name: OGP_Pin_Upload
+  Description: Executing this Job Harness will automatically:<ul><li>upload the lateral position data products</li></ul><br>If desirable, follow these instructions to shut off the OGP:<ol><li><li>Hit Start/Stop to stop the OGP controller.</li><li>Close out of MeasureMind Software.</li><li>Turn off the OGP controller</li><li>Turn off the OGP Master Switch.</li></li></ol>
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- RequiredInputs:
+  - {Description: Enter the name of the Technical Authority who defined the disposition,
+    Units: '', InputSemantics: string, Label: Technical Authority Approval}
+  ShortDescription: Review and determine the disposition of the lateral position measurement
+  Name: SR-MET-2 Review and determine the disposition of the lateral position measurement
+  Description: A Technical Authority must determine the final disposition of the lateral position of the sensor. Download the lateral position test report from the LSST-CAMERA Data Catalog. Based on the findings of the lateral position test report:<br><ul><li>Click Complete if the test report shows the sensor meets all specifications. After doing so, you will be returned to the SR-MET-02 Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if the test report shows any specifications are not met. Give a detailed description of the problem(s) and contact the Subsystem Manager.</li></ul>
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+Version: next
+PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]

@@ -1,0 +1,130 @@
+Name: SR-REB-02
+ShortDescription: SR-REB-02 - REB Aliveness Test
+Description: Welcome to the REB aliveness traveler. The following steps will guide the operator through the REB aliveness testing which includes execution of the REB power and functionality tests, the ingest of the results and declaration of the disposition of the REB.
+HardwareGroup: REB
+MaxIteration: '1'
+Version: next
+#- Name: rebalive_location 
+#  ShortDescription: Where is the testing being performed
+NewLocation: (?)
+#  Description: From the list presented, set where the tests are being performed. Examples are SLAC, TS-REB, TS6 or UPENN.
+#  MaxIteration: '1'
+#  Version: next
+#  RequiredInputs:
+#  - {Description: '', Units: '', InputSemantics: string, Label: 'Aspic1'}
+#  - {Description: '', Units: '', InputSemantics: string, Label: 'Aspic2'}
+#  - {Description: '', Units: '', InputSemantics: string, Label: 'Aspic3'}
+
+Sequence:
+- Name: REB_Test_SUITE
+  ShortDescription: Execute REB Aliveness Tests
+  Description: Click the launcher button or copy/paste the lcatr-iterator command below into a terminal window to start the tests. Clicking Start Step will put you in a mode of running each step manually.
+  MaxIteration: '1'
+  Version: next
+  TravelerActions: [Automatable]
+#- Name: rebalive_power
+#  ShortDescription: Execute power on tests and upload results
+#  Description: '<ul>
+#</ul>'
+#  MaxIteration: '3'
+#  TravelerActions: [HarnessedJob]
+#  Version: next
+#  UserVersionString: v0
+  Sequence:
+  - Name: rebalive_power
+    ShortDescription: power check
+    Description:  '<ul>
+  <li>1. Apply digital 5V power. If power supply reaches its overcurrent limit, abort the test.</li>
+  <li>2. Measure current consumption on 5V supply at the P/S and record the value.</li>
+  </ul>'
+    MaxIteration: '3'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: rebalive_handshake
+    ShortDescription: handshake check
+    Description:  '<ul>
+  <li>3. Verify data link integrity.</li>
+  <li>4. Read 1-wire ID chip and record the value.</li>
+  <li>5. Read and record the REB firmware version.</li>
+  </ul>'
+    MaxIteration: '3'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: rebalive_current_precheck
+    ShortDescription: current precheck
+    Description:  '<ul>
+  <li>6. Read the voltage and current consumption measured by the VP5 LTC2945 current monitor on the REB, record the value and compare to the current measured at the P/S.</li>
+  <li>7. Apply the analog power supply voltages (VP15_UNREG, VN15_UNREG, VP7_UNREG, VP40_UNREG) to the REB in the correct sequence (check with Rick for sequence and voltage values). Abort the test if any supply hits it overcurrent limit. Readback voltages and current consumption at the P/S and at the REB LTC2945 sensors.</li> </ul>'
+    MaxIteration: '3'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: rebalive_current_dacsloaded
+    ShortDescription: current check after dacs loaded
+    Description:  '<ul>
+  <li>8. Verify that all currents are within the expected range </li>
+  <li>9. Record the value of the currents on each supply, both at the P/S and by the REB.</li>
+  </ul>'
+    MaxIteration: '3'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: rebalive_temperatures
+    ShortDescription: temperature check
+    Description:  '<ul>
+  <li>10. Readback the temperatures measured by each of the ADT7420 sensors on the REB.</li>
+  <li>11. Apply the CCD bias voltages and set the CCD clock rails (to E2V levels).</li>
+  <li>12. Re-check supply currents and verify they do not exceed expected values.</li>
+  <li>13. Configure the ASPICs to standard gain and RC time constant, and leave the inputs in clamped state.</li>
+  </ul>'
+    MaxIteration: '3'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: rebalive_exposure
+    ShortDescription: exposure
+    Description:  '<ul>
+  <li>14. Execute a zero-second exposure and readout sequence. Start a timer when the "close shutter" command executes.</li>
+  </ul>'
+    MaxIteration: '3'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+#- Name: display_images
+#  ShortDescription: display images from the exposures
+#  Description:  '<ul>
+#<li>15. Display the resulting bias image on the user console (three 2 x 8 image segments in correct geometry, with overscans, greyscale or color mapped). Stop the timer when the last image is displayed and record the time interval.</li>
+#<li>16. Provide user interactivity on the image display: select region of interest and display mean and standard deviation of readings; display horizontal/vertical graphs at user-selected row/columns; allow user to select scale limits.</li>
+#<li>17. Write FITS images files with header keywords to provide proper display in DS9. Also provide REB-specific metadata in FITS headers, including Board ID, Firmware version, Supply currents and voltages recorded at the REB, Board temperatures, Bias voltages and clock rail settings, ASPIC configuration, sequence definition.</li>
+#</ul>'
+#  MaxIteration: '3'
+#  TravelerActions: [HarnessedJob]
+#  Version: next
+#  UserVersionString: v0
+#  Prerequisites:
+#  - {Name: rebalive_exposure, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+#    UserVersionString: v0}
+
+#- Name: rebalive_report
+#  ShortDescription: Generate test report
+#  Description: '<ul>
+#<li>18. Generate aliveness test report including pass/fail outcome and recorded values of all the above tests.</li>
+#</ul>'
+#  MaxIteration: '3'
+#  TravelerActions: [HarnessedJob]
+#  Version: next
+#  UserVersionString: v0
+
+
+- Name: rebalive_review
+  ShortDescription: 'Determine Disposition'
+  Description: 'Based on the results produced during the previous step, determine the disposition of the REB. Please comment on the results and then after Complete Step has been clicked, the new status of this REB can be selected.'
+  MaxIteration: '1'
+  Version: next
+  TravelerActions: [SetHardwareStatus, SetHardwareStatus]
+  NewStatus: (?)
+  RequiredInputs:
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Comments'}
+

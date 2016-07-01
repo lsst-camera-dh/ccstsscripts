@@ -1,0 +1,24 @@
+ShortDescription: TS3 RGA scan traveler
+Name: SR-CALIB-3_RGA
+Subsystem: Legacy
+Description: <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/LSST-logo.png height="100" width="250"> <br> RGA scan traveler 
+HardwareGroup: Test_Stands
+MaxIteration: '1'
+Sequence:
+- ShortDescription: Perform RGA scan
+  Name: do_rga
+  Description: 'With the cryostat warm and the pressure under a micro-Torr, <ul><li>press the glowing green button on the "835 VQM", </li><li>then start the "VQM Win 7 b" VM and double click on the "835 VQM" icon,</li><li> click connect and accept the selected device, </li><li>put the VQM in STANDBY mode for 20 minutes, then switch to SCAN mode.</li><li> After two minutes, change the averaging mode to something other than CUMULATIVE and then switch back. </li><li>Wait 20 minutes and stop the scan.</li><li> Save all scan files using the "Save" button.</li><li>For each field in the form below, select the appropriate file in the form below.</li></ul><br><br><b>If the equipment is not functioning as expected, click Stop Work, give a detailed description of the problem(s) and contact the Sub-system Manager.</b>'
+  MaxIteration: '3'
+  Prerequisites:
+  - {Name: 'Confirm that the cryostat is warm and the pressure is under a micro-Torr.', Quantity: '1', PrerequisiteType: PREPARATION}
+  Version: next
+  UserVersionString: v0
+  RequiredInputs:
+    - {Description: '', Units: '', InputSemantics: filepath, Label: -histogram file }
+  OptionalInputs:
+    - {Description: '', Units: '', InputSemantics: string, Label: 'Any comments?' }
+    - {Description: '', Units: '', InputSemantics: filepath, Label: -curve file (optional)}
+    - {Description: '', Units: '', InputSemantics: filepath, Label: -curve.hdr file (optional)}
+    - {Description: '', Units: '', InputSemantics: filepath, Label: Screen shot (optional)}
+    - {Description: '', Units: '', InputSemantics: filepath, Label: '-trend file (NOT recommended)'}
+Version: next

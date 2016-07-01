@@ -1,0 +1,24 @@
+ShortDescription: batchedNonSingle
+Name: batchedNonSingle
+Subsystem: Legacy
+Description: Try out multirelationships, simplest case
+HardwareGroup: snark
+MaxIteration: '1'
+Sequence:
+- ShortDescription: relax
+  Name: relax
+  Description: nothing to do
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: assembleScrews
+  Name: assembleScrews
+  Description: Assign and install actions for single-batch relationship
+  MaxIteration: '1'
+  RelationshipTasks:
+  - {RelationshipName: boojum_screws_multiBatch, RelationshipAction: assign}
+  - {RelationshipName: boojum_screws_multiBatch, RelationshipAction: install}
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+Version: next
+PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]

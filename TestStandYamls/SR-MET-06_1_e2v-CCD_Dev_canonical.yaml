@@ -1,0 +1,415 @@
+ShortDescription: SR-MET-06 IN-JIG DIMENSIONAL METROLOGY FOR E2V SENSORS
+Name: SR-MET-06
+Subsystem: SR
+Description: Welcome to the IN-JIG DIMENSIONAL METROLOGY eTraveler for e2v sensors.<br><br>This eTraveler will document images of the sensor's edge and record the flatness and the absolute height of an e2v sensor at BNL. This work is performed at TS2 in the Science Raft Assembly and Test Cleanroom Facility at Brookhaven National Laboratory. <br>Work performed includes:<ul><li>Edge Scan using the OGP machine</li><li>Flatness measurements using the OGP machine</li><li>Absolute Height Measurements using the OGP machine</li></ul><br><br></ul>
+HardwareGroup: e2v-CCD
+MaxIteration: '1'
+Prerequisites:
+- {Name: Hazard Cautions, Description: 'Performed operations include the following
+    hazards to the hardware: <ul><li>ESD Hazard</li><li>Contamination Hazard</li><li>Physical
+    Damage Hazard</li></ul>', Quantity: '1', PrerequisiteType: PREPARATION}
+- {Name: Equipment, Description: 'The following equipment must be avaiable before
+    beginning this eTraveler:<ul> <li>OGP machine</li><li>Non-linting wipes</li> <li>MF02</li><li>4
+    mm allen key</li> <li>Flathead screwdriver</li> <li>2 mm allen key </li> <li>Gauge
+    blocks </li> <li>MF01A</li> </ul>', Quantity: '1', PrerequisiteType: PREPARATION}
+- {Name: Notice of Acknowledgement, Description: '<b>By clicking "Start Step" you
+    indicate you:</b><ul><li>are permitted to exercise this eTraveler,</li><li>previewed
+    and understand all steps beforehand,</li><li>will fulfill all prerequisites, as
+    presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure
+    due diligence is used at each step.</li><br><br>Before starting, review all the
+    steps within this eTraveler and ensure the required equipment is available. Contact
+    your supervisor or Subsystem Manager for any concern or additional clarification.',
+    Quantity: '1', PrerequisiteType: PREPARATION}
+Sequence:
+- ShortDescription: Setup TS2 for Measurement and Transport the Sensor
+  Name: SR-MET-06_Setup_OGP
+  Description: Follow these steps to set up and verify ESD protective measures at the TS2 workstation and the OGP workstation:<ul><li>Ensure the OGP Platen is grounded.</li><li>Verify the TS2 EPA is functioning.</li><li>Transport required tooling and MF01A to the TS2 Workstation ESD Table Mat.</li></ul><br> Follow these steps to set up the OGP machine for the measurement:<ul><li>Turn on the OGP Master Switch.</li><li>Turn on the OGP controller.</li><li>Open the MeasureMind Software and follow the initialization prompts.</li><li>Ensure MF02 is installed.</li><li>Raise the Z-Axis bridge and move the platen forward towards the Operator to provide room for transporting the sensor to the OGP later in this procedure.</li><li>After completing the directions above, transport the coffin to the TS2 workstation before clicking Complete Step to continue.</li></ul><br>Transport the coffin to the TS2 workstation. Specify the new location below.
+  NewLocation: (?)
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: OGP Calibration, Description: Verify the OGP has been calibrated within the last 366 days.,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Optical Flat Calibration, Description: Verify the optical flat calibration has been performed within the last 180 days.,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Fixture Calibration, Description: 'Verify MF01A has been calibrated within
+      the last 180 days.<br /><br /><b>If all calibrations are current, click Start
+      Work.  Otherwise contact the Subsystem Manager.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [SetHardwareLocation]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: 'Job Harness: Run1 Setup Directory Structure and Download Approved
+    OGP Scripts'
+  Name: Run1-Setup-InJig-Metrology-Directories-and-Scripts
+  Description: Executing this Job Harness will automatically:<br><ul><li>Create the appropriate directories for the Measurement on the local terminal.</li><li>Download the approved measurement scripts from the GIT Hub Repository.</li></ul>
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- ShortDescription: 'Install sensor onto MF01A: Transport and Prepare MF01A for the
+    Measurement.'
+  Name: SR-MET-06_Remove_coffin_cover
+  Description: Follow these steps to remove the jig from the coffin:<br><ol><li>Unscrew the outer screws of the coffin cover.</li><li>Dislodge the coffin cover, if necessary.<button type="button" id="b2" title="Insert a flathead screwdriver into the slot in the coffin to jar cover."><label style="font-size:4px:">detail</label></button></li><li>Remove the coffin cover.</li><li>Unscrew the jig from the coffin base.</li><li>Verify that the LSST S/N and the Package ID match.</li></ol><br>Follow these steps to install the jig onto MF01A:<br><ol><li>Use a clean non-linting wipe to wipe the top surface of the MF01A upstem features.</li><li>Place the jig onto MF01A and turn the assembly to access the bottom of MF01A.</li><li>Place the wavey springs into the three counterbores, then engage the thumb screws with the sensor mounting studs.</li><li>Continue to turn the thumbscrews to compress the wavey spring until the head of the thumbscrews are 1/4 inch to 1/2 inch away from the surface of MF01A.</li><b>To prevent damaging the sensor mounting studs, do not have the head of the thumbscrews contact the surface of MF01A.</b></li><li>Turn the assembly rightside-up and verify the sensor is constrained to MF01A.</li></ol><br>Follow these steps to set up MF01A onto the OGP and prepare for the measurement:<br><ol><li>Ensure the vee-grooves are installed and aligned in MF02.</li><li>PLace MF01A onto the vee-grooves and ensure it is seated properly.</li><li>Use a clean non-linting wipe to wipe the area for the gauge blocks.</li><li>Remove the gauge blocks from the storage box and wipe the critical surfaces with a clean non-linting wipe. <b>Try to not touch the critical surfaces of the gauge blocks.</b></li><li>Wring each gauge block onto MF01A and record each gauge blocks S/N in the Results Table below.<button type="button" id="b7" title="Wring the gauge block on by sliding it from the edge of MF01A into the holder."> <label style="font-size':'4px:">detail</label> </button></li><li>Remove the protective cover.</li></ol>
+  MaxIteration: '5'
+  RequiredInputs:
+  - {Description: Enter the gauge block ID for the top slot of MF01A, Units: '', InputSemantics: string, Label: Top Gauge Block}
+  - {Description: Enter the gauge block ID for the bottom slot of MF01A, Units: '', InputSemantics: string, Label: Bottom Gauge Block}
+  Prerequisites:
+  - {Name: Expose Sensor to ESD and Contamination Hazard Prepare to open coffin, Description: 'Follow
+      these steps before opening the coffin:<br><ul><li>Exchange gloves before sensor handling.</li><li>Ensure facemask is on.</li><li>ESD
+      wrist strap is worn  and plugged in.</li><li>Sit or stand using the provided
+      ESD-protective furniture.</li></ul><br /><br /><b>If you are DONE reading these
+      instructions and have completed this preparation, please click the Done button
+      to the right, and proceed to Start Step.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: SR-MET-06 Run1 Perform In-Jig Dimensional Metrology and Edge Scan Measurements
+  Name: Run1-SR-MET-06_Perform_In-Jig_Measurements
+  Description: Using the MeasureMind Software and the OGP machine perform the Edge Scan\:<br><ol><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select the Edge Scan routine within the appropriate directory. <button type="button" id="b3" title="C:Production Data\\LSST S/N\\EdgeScanDate-Time"><label style="font-size':'4px:">directory</label></button></li><li>Click Run Routine, click OK to start the routine.</li><li>Wait for the routine to finish and click OK.</li><li>Click \"File\" then click \"Save As\" to overwrite the routine in the respective folder.</li></ol><br><br>Using the MeasureMind Software and the OGP machine perform the Absolute Height and Flatness scan\:<br><ol><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select the routine within the appropriate directory. <button type="button" id="b3" title="C:Production Data\\LSST S/N\\DimensionalMetrologyDate-Time"><label style="font-size':'4px:">directory</label></button></li><li>Click Run Routine, click OK to start the routine.</li><li>Follow the command prompts as stated by the routine.</li><li>When prompted, enter the appropriate path and file name for the data products. <button type="button" id="b3" title="LSST S/N_DimMet_Date-Time.DAT"><label style="font-size':'4px:">file name</label></button></li><li>Wait for the routine to finish and click OK.</li><li>Click \"File\" then click \"Save As\" to overwrite the routine in the respective run folder.</li></ol>
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- Name: Run1-UPLOAD_AND_ANALYSIS
+  ShortDescription: Run 1 upload and preparation for Run 2
+  Description: <br>Executing this harnessed job will automatically:<br><ul><li>Run all subsequent jobs comprising the full offline sensor height metrology analysis scripts</li><li>Upload all analysis results to the LSST-CAMERA Data Catalog.</li></ul><br><b>PLEASE DO NOT CLICK THE START STEP BUTTON. Instead, when you are DONE reading, please click on the LAUNCHER BUTTON below which will then execute the displayed lcatr-iterator command.<br>
+  MaxIteration: '1'
+  InstructionsURL: https://confluence.slac.stanford.edu/display/LSSTCAM/Using+CCS+for+TS3+at+BNL
+  TravelerActions: [Automatable]
+  Sequence:
+  - ShortDescription: 'Job Harness: Run1 Upload Data Files'
+    Name: Run1-OGP_Dimensional_Metrology_Upload
+    Description: 'Executing the Job Harness will automatically:<br><ul><li>Move the
+      Edge Scan Data Products to the appropriate location.</li><li>Clear the default
+      destination directory of the sensor Edge Scan data products.</li><li>Upload
+      data products from In-jig Dimensional Metrology Measurements.</li></ul> '
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+#  - ShortDescription: 'Job Harness: Run1 Run automated absolute height analysis'
+#    Name: Run1-absolute_height
+#    Description: Run harness for executing the absolute height analysis
+#    MaxIteration: '5'
+#    Prerequisites:
+#    - {Name: OGP_Dimensional_Metrology_Upload, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+#      UserVersionString: v0}
+#    TravelerActions: [HarnessedJob]
+#    Version: next
+#    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+#    UserVersionString: v0
+#  - ShortDescription: 'Job Harness: Run1 Run automated flatness analysis'
+#    Name: Run1-flatness
+#    Description: Run harness for executing the flatness analysis
+#    MaxIteration: '5'
+#    Prerequisites:
+#    - {Name: OGP_Dimensional_Metrology_Upload, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+#      UserVersionString: v0}
+#    TravelerActions: [HarnessedJob]
+#    Version: next
+#    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+#    UserVersionString: v0
+  - ShortDescription: 'Job Harness: Run2 Setup Directory Structure and Download Approved
+      OGP Scripts'
+    Name: Run2-Setup-InJig-Metrology-Directories-and-Scripts
+    Description: Executing this Job Harness will automatically:<br><ul><li>Create the appropriate directories for the Measurement on the local terminal.</li><li>Download the approved measurement scripts from the GIT Hub Repository.</li></ul>
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: SR-MET-06 Run2 Perform In-Jig Dimensional Metrology Measurements
+  Name: Run2-SR-MET-06_Perform_In-Jig_Measurements
+  Description: Using the MeasureMind Software and the OGP machine perform the Absolute Height and Flatness scan\:<br><ol><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select the routine within the appropriate directory. <button type="button" id="b3" title="C:Production Data\\LSST S/N\\DimensionalMetrologyDate-Time"><label style="font-size':'4px:">directory</label></button></li><li>Click Run Routine, click OK to start the routine.</li><li>Follow the command prompts as stated by the routine.</li><li>When prompted, enter the appropriate path and file name for the data products. <button type="button" id="b3" title="LSST S/N_DimMet_Date-Time.DAT"><label style="font-size':'4px:">file name</label></button></li><li>Wait for the routine to finish and click OK.</li><li>Click \"File\" then click \"Save As\" to overwrite the routine in the respective run folder.</li></ol>
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- Name: Run2-UPLOAD_AND_ANALYSIS
+  ShortDescription: Run 2 upload and preparation for Run 3
+  Description: <br>Executing this harnessed job will automatically:<br><ul><li>Run all subsequent jobs comprising the full offline sensor height metrology analysis scripts</li><li>Upload all analysis results to the LSST-CAMERA Data Catalog.</li></ul><br><b>PLEASE DO NOT CLICK THE START STEP BUTTON. Instead, when you are DONE reading, please click on the LAUNCHER BUTTON below which will then execute the displayed lcatr-iterator command.<br>
+  MaxIteration: '1'
+  InstructionsURL: https://confluence.slac.stanford.edu/display/LSSTCAM/Using+CCS+for+TS3+at+BNL
+  TravelerActions: [Automatable]
+  Sequence:
+  - ShortDescription: 'Job Harness: Run2 Upload Data Files'
+    Name: Run2-OGP_Dimensional_Metrology_Upload
+    Description: 'Executing the Job Harness will automatically:<br><ul><li>Upload
+      data products from In-jig Dimensional Metrology Measurements.</li></ul> '
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+#  - ShortDescription: 'Job Harness: Run2 Run automated absolute height analysis'
+#    Name: Run2-absolute_height
+#    Description: Run harness for executing the absolute height analysis
+#    MaxIteration: '5'
+#    Prerequisites:
+#    - {Name: OGP_Dimensional_Metrology_Upload, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+#      UserVersionString: v0}
+#    TravelerActions: [HarnessedJob]
+#    Version: next
+#    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+#    UserVersionString: v0
+#  - ShortDescription: 'Job Harness: Run2 Run automated flatness analysis'
+#    Name: Run2-flatness
+#    Description: Run harness for executing the flatness analysis
+#    MaxIteration: '5'
+#    Prerequisites:
+#    - {Name: OGP_Dimensional_Metrology_Upload, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+#      UserVersionString: v0}
+#    TravelerActions: [HarnessedJob]
+#    Version: next
+#    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+#    UserVersionString: v0
+  - ShortDescription: 'Job Harness: Run3 Setup Directory Structure and Download Approved
+      OGP Scripts'
+    Name: Run3-Setup-InJig-Metrology-Directories-and-Scripts
+    Description: Executing this Job Harness will automatically:<br><ul><li>Create the appropriate directories for the Measurement on the local terminal.</li><li>Download the approved measurement scripts from the GIT Hub Repository.</li></ul>
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: SR-MET-06 Run3 Perform In-Jig Dimensional Metrology Measurements
+  Name: Run3-SR-MET-06_Perform_In-Jig_Measurements
+  Description: Using the MeasureMind Software and the OGP machine perform the Absolute Height and Flatness scan\:<br><ol><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select the routine within the appropriate directory. <button type="button" id="b3" title="C:Production Data\\LSST S/N\\DimensionalMetrologyDate-Time"><label style="font-size':'4px:">directory</label></button></li><li>Click Run Routine, click OK to start the routine.</li><li>Follow the command prompts as stated by the routine.</li><li>When prompted, enter the appropriate path and file name for the data products. <button type="button" id="b3" title="LSST S/N_DimMet_Date-Time.DAT"><label style="font-size':'4px:">file name</label></button></li><li>Wait for the routine to finish and click OK.</li><li>Click \"File\" then click \"Save As\" to overwrite the routine in the respective run folder.</li></ol>
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- Name: Run3-UPLOAD_AND_ANALYSIS
+  ShortDescription: Run 3 upload
+  Description: <br>Executing this harnessed job will automatically:<br><ul><li>Run all subsequent jobs comprising the full offline sensor height metrology analysis scripts</li><li>Upload all analysis results to the LSST-CAMERA Data Catalog.</li></ul><br><b>PLEASE DO NOT CLICK THE START STEP BUTTON. Instead, when you are DONE reading, please click on the LAUNCHER BUTTON below which will then execute the displayed lcatr-iterator command.<br>
+  MaxIteration: '1'
+  InstructionsURL: https://confluence.slac.stanford.edu/display/LSSTCAM/Using+CCS+for+TS3+at+BNL
+  TravelerActions: [Automatable]
+  Sequence:
+  - ShortDescription: 'Job Harness: Run3 Upload Data Files'
+    Name: Run3-OGP_Dimensional_Metrology_Upload
+    Description: 'Executing the Job Harness will automatically:<br><ul><li>Upload
+      data products from In-jig Dimensional Metrology Measurements.</li></ul> '
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+#  - ShortDescription: 'Job Harness: Run3 Run automated absolute height analysis'
+#    Name: Run3-absolute_height
+#    Description: Run harness for executing the absolute height analysis
+#    MaxIteration: '5'
+#    Prerequisites:
+#    - {Name: OGP_Dimensional_Metrology_Upload, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+#      UserVersionString: v0}
+#    TravelerActions: [HarnessedJob]
+#    Version: next
+#    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+#    UserVersionString: v0
+#  - ShortDescription: 'Job Harness: Run3 Run automated flatness analysis'
+#    Name: Run3-flatness
+#    Description: Run harness for executing the flatness analysis
+#    MaxIteration: '5'
+#    Prerequisites:
+#    - {Name: OGP_Dimensional_Metrology_Upload, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+#      UserVersionString: v0}
+#    TravelerActions: [HarnessedJob]
+#    Version: next
+#    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+#    UserVersionString: v0
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Store Sensor after Measurement
+  Name: SR-MET-06_Add_protective_cover
+  Description: Follow these steps before removing MF01A from the OGP:<ol><li>Install the protective cover onto the jig.</li><li>Raise the Z-Axis Bridge and move the platen towards the operator to provide room for transporting MF01A from the OGP.</li><li>Ensure EPA protocols are in place.</li></ol><br><br>Follow these steps to remove MF01A from the OGP machine:<br><ol><li>Return the two gauge blocks to their orginal location and remove the storage container from the ESD table mat and the TS2 workstation.</li><li>Transfer MF01A to the TS2 workstation.</li><li>Evenly remove the thumbscrews and wavey springs.</li></ol><br>Follow these steps to store the sensor:<br><ol><li>Remove the jig from MF01A and secure it to the coffin base.</li><li>Install the coffin cover and transfer the sensor to the long-term storage cabinet.</li></ol>
+  NewLocation: (?)
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: 'Expose Sensor to ESD, Contamination, and Physical Hazard', Description: <ul><li>Raise the Z-axis bridge and move the platen forward towards the operator for transporting MF01A to the TS2 Workstation.</li><li>Ensure facemask is on.</li><li>Ensure facemask is on.</li><li>ESD wrist strap is worn and plugged in.</li><li>Sit or stand using the provided ESD-protective furniture.</li></ul>,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [SetHardwareLocation]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Turn off OGP
+  Name: SR-MET-06_Turn_off_OGP
+  Description: If the OGP will not be in immediate use, turn off the OGP:<br><ul><li>Hit Start/Stop to stop the OGP controller.</li><li>Close out of MeasureMind Software.</li><li>Turn off the OGP controller</li><li>Turn off the OGP Master Switch.</li></ul>
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+#- ShortDescription: Upload manual analysis results choice
+#  Name: upload_manual_choice
+#  Description: Select whether manual analysis results will also be uploaded.
+#  MaxIteration: '1'
+#  Version: next
+#  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+#  Selection:
+#- ShortDescription: Upload manual analysis results
+#  Name: upload_manual
+#  Condition: upload_manual
+#  MaxIteration: '1'
+#  Sequence:
+- RequiredInputs:
+  - {Description: 'The edge does not need to be perfectly straight around the
+      perimeter; however, there should not be any non-processing damage, such
+      as large fractures or hanging pieces.', Units: '', InputSemantics: boolean,
+    Label: 'Does the sensor edge appear to be acceptable?'}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN1_CCD_data.xslx, Units: '', InputSemantics: filepath,
+    Label: Flatness Data}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN1_CCD_quantile.xslx, Units: '', InputSemantics: filepath,
+    Label: Flatness Quantile Data}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN1_CCD_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Flatness Plot}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN1_CCD_histo.tiff, Units: '', InputSemantics: filepath,
+    Label: Flatness Histograms Plot}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN1_CCD_bw.tiff, Units: '', InputSemantics: filepath,
+    Label: Flatness Box and Whisker Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_REF_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Reference Residuals Plot}
+  - {Description: LSSTSN_DATE-TIME_AbsZ_Ref_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Histograms Plot of Reference Residuals Data}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_REF_bw.tiff, Units: '', InputSemantics: filepath,
+    Label: Reference Box and Whisker Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_plotwithref.tiff, Units: '', InputSemantics: filepath,
+    Label: Reference Fit with Sensor Surface Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_CCD_data.xslx, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Data}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_CCD_quantile.xslx, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Quantile Data}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_CCD_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_CCD_bw.tiff, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Box and Whisker Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_CCD_density.tiff, Units: '', InputSemantics: filepath,
+    Label: Density Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_plotwithdatum.tiff, Units: '', InputSemantics: filepath,
+    Label: Sensor Surface with Secondary Datum Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_histowithdatum.tiff, Units: '', InputSemantics: filepath,
+    Label: Sensor Surface subtracted with Secondary Datum Histograms Plot}
+  - {Description: LSSTSN_DATE-TIME_DIMMET_StatReport.txt, Units: '', InputSemantics: filepath,
+    Label: Dimensional Metrology Statistical Data}
+  ShortDescription: Upload In-jig Dimensional Metrology File for Run 1
+  Name: SR-MET-06_Upload_Analysis_Run_1
+  Description: 'Analyze the data with the following procedure: <ol><li>Download
+    the approved Mathematica In-Jig dimensional metrology analysis script from
+    the GIT repository <a https://github.com/lsst-camera-dh/OGP-scripts/tree/master/Analysis%20codes>here</a>.
+    </li><li>Download the In-Jig dimensional metrology data from the Data Catalog.</li><li>Open
+    the script and change the data set.</li><li>Execute the script.</li><li>Save
+    and upload the result files.</li></ol><br><br>The file name of the results
+    data should conform to the description fields in the table below.<br><br>"Click "Start Step" to continue to upload the analysis data products.'
+  MaxIteration: '10'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- RequiredInputs:
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN2_CCD_data.xslx, Units: '', InputSemantics: filepath,
+    Label: Flatness Data}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN2_CCD_quantile.xslx, Units: '', InputSemantics: filepath,
+    Label: Flatness Quantile Data}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN2_CCD_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Flatness Plot}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN2_CCD_histo.tiff, Units: '', InputSemantics: filepath,
+    Label: Flatness Histograms Plot}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN2_CCD_bw.tiff, Units: '', InputSemantics: filepath,
+    Label: Flatness Box and Whisker Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_REF_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Reference Residuals Plot}
+  - {Description: LSSTSN_DATE-TIME_AbsZ_Ref_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Histograms Plot of Reference Residuals Data}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_REF_bw.tiff, Units: '', InputSemantics: filepath,
+    Label: Reference Box and Whisker Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_plotwithref.tiff, Units: '', InputSemantics: filepath,
+    Label: Reference Fit with Sensor Surface Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_CCD_data.xslx, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Data}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_CCD_quantile.xslx, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Quantile Data}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_CCD_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_CCD_bw.tiff, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Box and Whisker Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_CCD_density.tiff, Units: '', InputSemantics: filepath,
+    Label: Density Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_plotwithdatum.tiff, Units: '', InputSemantics: filepath,
+    Label: Sensor Surface with Secondary Datum Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_histowithdatum.tiff, Units: '', InputSemantics: filepath,
+    Label: Sensor Surface subtracted with Secondary Datum Histograms Plot}
+  ShortDescription: Upload In-jig Dimensional Metrology File for Run 2
+  Name: SR-MET-06_Upload_Analysis_Run_2
+  Description: 'Analyze the data with the following procedure: <ol><li>Download
+    the approved Mathematica In-Jig dimensional metrology analysis script from
+    the GIT repository <a https://github.com/lsst-camera-dh/OGP-scripts/tree/master/Analysis%20codes>here</a>.</li><li>Download
+    the In-Jig dimensional metrology data from the Data Catalog.</li><li>Open
+    the script and change the data set.</li><li>Execute the script.</li><li>Save
+    and upload the result files.</li></ol><br><br>The file name of the results
+    data should conform to the description fields in the table below.<br><br>"Click "Start Step" to continue to upload the analysis data products.'
+  MaxIteration: '10'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- RequiredInputs:
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN3_CCD_data.xslx, Units: '', InputSemantics: filepath,
+    Label: Flatness Data}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN3_CCD_quantile.xslx, Units: '', InputSemantics: filepath,
+    Label: Flatness Quantile Data}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN3_CCD_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Flatness Plot}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN3_CCD_histo.tiff, Units: '', InputSemantics: filepath,
+    Label: Flatness Histograms Plot}
+  - {Description: LSSTSN_DATE-TIME_FLAT_RUN3_CCD_bw.tiff, Units: '', InputSemantics: filepath,
+    Label: Flatness Box and Whisker Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_REF_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Reference Residuals Plot}
+  - {Description: LSSTSN_DATE-TIME_AbsZ_Ref_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Histograms Plot of Reference Residuals Data}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_REF_bw.tiff, Units: '', InputSemantics: filepath,
+    Label: Reference Box and Whisker Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_plotwithref.tiff, Units: '', InputSemantics: filepath,
+    Label: Reference Fit with Sensor Surface Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_CCD_data.xslx, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Data}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_CCD_quantile.xslx, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Quantile Data}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_CCD_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_CCD_bw.tiff, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Box and Whisker Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_CCD_density.tiff, Units: '', InputSemantics: filepath,
+    Label: Density Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_plotwithdatum.tiff, Units: '', InputSemantics: filepath,
+    Label: Sensor Surface with Secondary Datum Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_histowithdatum.tiff, Units: '', InputSemantics: filepath,
+    Label: Sensor Surface subtracted with Secondary Datum Histograms Plot}
+  ShortDescription: Upload In-jig Dimensional Metrology File for Run 3
+  Name: SR-MET-06_Upload_Analysis_Run_3
+  Description: 'Analyze the data with the following procedure: <ol><li>Download
+    the approved Mathematica In-Jig dimensional metrology analysis script from
+    the GIT repository <a https://github.com/lsst-camera-dh/OGP-scripts/tree/master/Analysis%20codes>here</a>.
+    </li><li>Download the In-Jig dimensional metrology data from the Data Catalog.</li><li>Open
+    the script and change the data set.</li><li>Execute the script.</li><li>Save
+    and upload the result files.</li></ol><br><br>The file name of the results
+    data should conform to the description fields in the table below.<br><br>"Click "Start Step" to continue to upload the analysis data products.'
+  MaxIteration: '10'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+#    Version: next
+#    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+#  - ShortDescription: Do not upload manual analysis results
+#    Name: no_upload_manual
+#    Condition: no_upload_manual
+#    MaxIteration: '1'
+#    Version: next
+#    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Review and determine the disposition of the Metrology Measurement
+  Name: Flatness_AbsZ_Measurement_disposition
+  Description: A Technical Authority must determine the final disposition of the sensor flatness and absolute height. Based on the findings of the In-Jig dimensional metrology measurements:<br><ul><li>Click Complete if the sensor meets all specifications. After doing so, you will be returned to the SR-MET-06 Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if any specifications are not met. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [supervisor, approver, admin]
+- ShortDescription: Review and determine the disposition of the Edge Scan Photographs
+  Name: Edge_Scan_Disposition
+  Description: A Technical Authority must determine the final disposition of the edge of the sensor.. Based on the findings of the Edge Scan Photographs:<br><ul><li>Click Complete if the sensor meets all specifications. After doing so, you will be returned to the SR-MET-06 Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if any specifications are not met. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [supervisor, approver, admin]
+Version: next
+PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]

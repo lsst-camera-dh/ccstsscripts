@@ -1,0 +1,29 @@
+ShortDescription: TS3 pumping cooling and warming only
+Name: SR-EOT-1_pump_cool_warm
+Subsystem: Default
+Description: <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/LSST-logo.png height="100" width="250"> <br> Special traveler for vacuum, cooling and warming control of TS3 only 
+HardwareGroup: Generic-CCD
+MaxIteration: '1'
+Sequence:
+- ShortDescription: Turn on vacuum pumps
+  Name: ts3_pump
+  Description: Open the vacuum valve. Turn on the vacuum scroll pump.<br><img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/IMAG9945.jpg height="100" width="150"><br> Verify that the pressure is decreasing. If the pressure is decreasing normally using the scroll pump ... use the launcher button (which will appear after clicking "Start Step") to start the process that will turn on the turbo pump when the  pressure has reached a safe range and perform an RGA scan when pressure has dropped in to an acceptable range for that.<br><br><img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/IMAG9946.jpg height="100" width="150">
+  MaxIteration: '1'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  UserVersionString: v0
+- ShortDescription: cool down
+  Name: ts3_cool_down
+  Description: Use the launcher button (which will appear after clicking "Start Step") to start the automated cool down process. Once the pressure has dropped below 10^(-3) Torr the cooling process will begin and stabilize the sensor's temperature to -95 +- 1 C.<br>
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  UserVersionString: v0
+- ShortDescription: TS3 warm-up
+  Name: warmup_acq
+  Description: The EO test report is now available. <br> <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/eo-report-image.png height="300" width="200">(example report)<br>This Job Harness will turn off the bias voltage, the lamp, the refrigeration system and begin to bring the sensor to room temperature. The vacuum pump will remain on afterwards. Notify a trained operator that the sensor will soon be ready to be removed from the TS3-Cryostat.
+  MaxIteration: '3'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  UserVersionString: v0
+Version: next

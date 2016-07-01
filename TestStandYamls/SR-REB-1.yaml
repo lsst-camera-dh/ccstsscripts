@@ -1,0 +1,65 @@
+Name: SR-REB-1
+ShortDescription: SR-REB-1
+Description: Welcome to the TS-REB traveler.
+HardwareGroup: REB
+MaxIteration: '1'
+Version: next
+Sequence:
+- Name: Where is the testing being performed and which aspics are associated with this REB
+  ShortDescription: set location and associate aspics
+  NewLocation: (?)
+  Description: From the list presented, set where the tests are being performed. Examples are SLAC, TS-REB, TS6 or UPENN.
+  MaxIteration: '1'
+  Version: next
+  RequiredInputs:
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Aspic1'}
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Aspic2'}
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Aspic3'}
+- {Name: Review procedure, ShortDescription: Review procedure, Description: '<ul><li>Boards are received, serial numbers noted, photographs taken of both sides, eTraveler RCV step initiated</li>
+<li>RTA is moved to TS-REB bench and connected to power supply and control computer</li>
+<li>5V power is applied and 5V current is verified to be within acceptable limits</li>
+<li>Data link integrity is verified</li>
+<li>Verify FPGA re-configuration  via link and JTAG/USB</li>
+<li>7V power rail  is brought  up and  supply current is verified to be within acceptable limits</li>
+<li>+/-15V rails brought  up and  supply current verified to be within acceptable limits</li>
+<li>+40V rail is brought up and supply current verified to be within acceptable limits.</li>
+<li>Heater power brought  up  and  preliminary test for proper  operation</li>
+<li>SPI and I2C links on each stripe of the REB are tested for integrity (write followed by read where possible)</li>
+<li>REB Current/Voltage and Temperature monitors are exercised and data logged throughout the following tests.</li>
+<li>ASPICs set to standard mode/gain/RC configuration</li>
+<li>RTA  is connected to EMU board</li>
+<li>REB DC biases are programmed to ITL levels</li>
+<li>REB multiplexer scans biases and verifies that commanded voltages are produced</li>
+<li>EMU checks that all bias signals are received at correct levels</li>
+<li>Proper functioning of the BSS cutoff switch is verified</li>
+<li>Clocks are activated to ITL levels and 550kHz pixel rate</li>
+<li>Using comparator threshold scan mode, EMU checks that clocks are received, have correct levels, sequence, and durations</li>
+<li>Steps 14  18 are repeated for e2v levels</li>
+<li>Video chain components are tested as follows:</li>
+<li>EMU issues pulse sequence: to one channel at a time, simulating full frame readout including clears and overscan rows/columns. Each digitized image frame is collected, displayed on operator terminal for verification, and screenshot recorded:</li>
+<li>Zero signal (bias) and display histograms</li>
+<li>checkerboard pattern, approx.. = full well, display image</li>
+<li>vertical gradient pattern, zero scale to 110% of full well in 2000 steps, display image</li>
+<li>single bright column at 90% full well, display image</li>
+<li>EMU issues checkerboard pattern at 80% full well to all channels simultaneously</li>
+<li>EMU issues vertical gradient pattern to all channels simultaneously</li>
+<li>EMU issues flat field pattern at 100% full well to all channels simultaneously</li>
+<li>Power and temperature profiles are verified to be within acceptable limits for all test modes.</li>
+<li>REB excites the CCD temperature sensor current loop, reads out the 4 resistor values, and verifies data returned is accurate.</li>
+<li>REB sets heater power to maximum and EMU verifies that the specified maximum makeup heat is delivered to the heater.</li>
+<li>Optionally, a temperature control loop is exercised using the EMUs surrogate heater and temperature sensing elements.</li>
+<li>REB is powered down using specified shutdown sequence
+</ul><br><br>
+Any failed test is repeated up to 3 times. If failure persists the test sequence is aborted and board is rejected.',
+   MaxIteration: '1', Version: next}
+- Name: tsreb_upload
+  ShortDescription: Execute tests and upload results
+  Description: Execute the procedure described in the previous step, and then after clicking Start, click on the launcher button that will appear. That will then cause the results to be archived and registered in the eTraveler<br>
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  UserVersionString: v0
+- {Name: Review and determine disposition of TS-REB analysis results,
+   ShortDescription: Determine Disposition, Description: ' ', MaxIteration: '1', Version: next }
+#,  TravelerActions: [SetHardwareStatus, SetHardwareStatus], NewStatus: (?)}
+

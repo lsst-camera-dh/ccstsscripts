@@ -1,0 +1,225 @@
+ShortDescription: SR-MET-01 ABSOLUTE HEIGHT METROLOGY FOR ITL SENSORS
+Name: SR-MET-01
+Subsystem: SR
+Description: Welcome to the ABSOLUTE HEIGHT METROLOGY eTraveler for ITL sensors.<br><br>This eTraveler will record the absolute height of an ITL sensor at BNL. This work is performed at TS2 and the Laminar Flow Hood. <br />Work performed includes:<ul><li>Absolute Height Measurements using the OGP machine</li><li>Sensor jig removal and MF07A installation</li></ul>
+HardwareGroup: ITL-CCD
+MaxIteration: '1'
+Prerequisites:
+- {Name: Hazard Cautions, Description: 'Performed operations include the following
+    hazards to the hardware: <ul><li>ESD Hazard</li><li>Contamination Hazard</li><li>Physical
+    Damage Hazard</li></ul>', Quantity: '1', PrerequisiteType: PREPARATION}
+- {Name: Equipment, Description: 'The following equipment must be avaiable before
+    beginning this eTraveler:<ul> <li>OGP machine</li><li>Non-linting wipes</li> <li>MF02</li><li>4
+    mm allen key</li> <li>Flathead screwdriver</li> <li>2 mm allen key </li> <li>Gauge
+    blocks </li> <li>MF01A</li> </ul>', Quantity: '1', PrerequisiteType: PREPARATION}
+- {Name: Notice of Acknowledgement, Description: 'Before starting, review all the
+    steps within this eTraveler and ensure the required equipment is available. Contact
+    your supervisor or Subsystem Manager for any concern or additional clarification.<br><b>By
+    clicking "Start Step" you indicate you:</b><ul><li>are permitted to exercise this
+    eTraveler,</li><li>previewed and understand all steps beforehand,</li><li>will
+    fulfill all prerequisites, as presented, </li><li>will follow all instructions,
+    as presented, and,</li><li>ensure due diligence is used at each step.</li>', Quantity: '1',
+  PrerequisiteType: PREPARATION}
+Sequence:
+- ShortDescription: 'Job Harness: Setup Directory Structure and Download Approved
+    OGP Scripts'
+  Name: Make-OGP-Abs-Height-Directories
+  Description: Executing this Job Harness will automatically:<br><ul><li>Create the appropriate directories for the Measurement on the local terminal.</li><li>Download the approved measurement scripts from the GIT Hub Repository.</li></ul>
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- ShortDescription: Setup Workstations and Transport Sensor
+  Name: SR-MET-1_Setup_OGP
+  Description: Follow these steps to set up TS2 and the Laminar Flow Hood:<ul><li>Ensure the Laminar Flow Hood is on.<button type="button" id="b1" title="The Laminar Flow Hood must be running for at least 20 minutes before a sensor is exposed. If the Hood was running before starting, assume that it is ready for use."><label style="font-size'':''4px:">detail</label></button></li><li>Check the Laminar Flow Hood for obstructions and/or malfunctions.</li><li>Ensure the Air Ionizer Bar at the Laminar Flow Hood is on.</li><li>Ensure the OGP Platen is grounded.</li><li>Set up and verify both, the TS2 EPA and Laminar Flow Hood EPA, are functioning.</li><li>Transport required tooling to the TS2 Workstation ESD Table Mat.</li><li>Place MF01B on the TS2 Workstation ESD table mat.</li><li>Transport required tooling to the Laminar Flow Hood ESD Table Mat.</li><li>Place MF05B and MF07B on the Laminar Flow Hood ESD table mat.</li></ul><br>Follow these steps to set up the OGP machine for the measurement:<ol><li>Turn on the OGP Master Switch.</li><li>Turn on the OGP controller.</li><li>Open the MeasureMind Software and follow the initialization prompts.</li><li>Ensure MF02 is installed.</li><li>Raise the Z-Axis bridge and move the platen forward towards the Operator to provide room for transporting the sensor to the OGP later in this procedure.</li></ol><br>Transport the coffin to the Laminar Flow Hood. Specify the new location below.
+  NewLocation: (?)
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: OGP Calibration, Description: Verify the OGP has been calibrated within the last 366 days.,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Optical Flat Calibration, Description: Verify the optical flat calibration has been performed within the last 180 days.,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Fixture Calibration, Description: 'Verify MF01B has been calibrated within
+      the last 180 days.<br /><br /><b>If all calibrations are current, click Start
+      Work.  Otherwise contact the Subsystem Manager.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [SetHardwareLocation]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Install Sensor into MF07B
+  Name: SR-MET-1_Remove_coffin_cover
+  Description: Follow these steps to remove the jig from the coffin:<br><ol><li>Unscrew the outer screws of the coffin cover.</li><li>Dislodge the coffin cover, if necessary.<button type="button" id="b2" title="Insert a flathead screwdriver into the slot in the coffin to jar cover."><label style="font-size:4px:">detail</label></button></li><li>Remove the coffin cover.</li><li>Unscrew the jig from the coffin base.</li><li>Verify the LSST-CAMERA Serial Number and the Package ID match.</li></ol><br>Follow these steps to install the sensor into MF07B:<ol><li>Loosen the protective cover screws.</li><li>Attach MF05B onto the coffin using the same screws that attach the coffin cover.</li><li>Remove the protective cover.</li><li>Carefully attach the MF07B Frames onto the sensor's package by sliding them against MF05B.</li><li>Attach the side screws into MF07B.</li><li>Place the MF07-Cover on an edge and attach with one screw.</li><li>Slide the MF07-Cover into place and attach the other 3 screws. Hand tighten all screws.</li></ol><br>Follow these steps to extract MF07B from the coffin and MF05B:<ol><li>Unscrew the jig from the coffin base.</li><li>Remove the nuts from the mounting studs, and remove the washers.</li><li>Remove the sensor contained in MF07B from the jig.</li><li>Place the jig and all other jig equipment into the coffin, then secure the coffin cover.</li></ol><br> Follow these instructions to transport the sensor contained in MF07B to TS2 for measurement:<ol><li>Place the sensor contained in MF07B in an ESD bag.</li><li>Label the bag with the LSST-CAMERA Serial Number.</li></ol><br>After the sensor is secured in MF07B prepared for transporting:<ul><li>The sensor can be transported to TS2 for measurements, or,</li><li>if TS2 is unavailable, the sensor is to be stored in Long-term Storage. Pause the traveler on the next step, and follow the instructions in the prerequisite after returning.</li></ul>Transport the sensor and specify the new location below.
+  NewLocation: (?)
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Expose Sensor to ESD and Contamination Hazard, Description: 'Follow these
+      steps before opening the coffin:<br><ul><li>Ensure facemask is on.</li><li>ESD
+      wrist strap is worn  and plugged in.</li><li>Sit or stand using the provided
+      ESD-protective furniture.</li></ul><br /><br /><b>If you are DONE reading these
+      instructions and have completed this preparation, please click the Done button
+      to the right, and proceed to Start Step.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [SetHardwareLocation]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- RequiredInputs:
+  - {Description: Top Gauge Block, Units: '', InputSemantics: string, Label: Enter the gauge block ID for the top slot of MF01B.}
+  - {Description: Bottom Gauge Block, Units: '', InputSemantics: string, Label: Enter the gauge block ID for the bottom slot of MF01B.}
+  ShortDescription: Install Sensor onto MF01B and Prepare for Measurement
+  Name: SR-MET-1_Install_MF07_onto_MF01B
+  Description: Follow these instructions to prepare the sensor for measurement:<ol><li>Use a clean non-linting wipe to wipe the top surface of MF01B.</li><li>Place the sensor into MF01B.</li><li>Place MF01B onto the appropriate vee-grooves on MF02.</li><li>Remove the gauge blocks from the storage box and wipe the critical surfaces with a clean non-linting wipe.<br><b>Try to not touch the critical surfaces of the gauge blocks.</b></li><li>Wring a gauge block on the top (towards the back wall) and bottom (towards the operator) slots of MF01B and record their location.<button type="button" id="b7" title="Wring the gauge block on by sliding it from the edge of MF01B into the holder."> <label style="font-size':'4px:">detail</label> </button></li><li>Remove three of the screws from the MF07-Cover.</li><li>Loosen the final screw, and expose the sensor by sliding the MF07-Cover off.</li><li>Remove the final screw and MF07-Cover.</li></ol>
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Sensor Location, Description: 'If the sensor is in Long-term Storage, transfer
+      the sensor to TS2 and change the location on its Component Page.', Quantity: '1',
+    PrerequisiteType: PREPARATION}
+  - {Name: Expose Sensor to ESD and Contamination Hazard, Description: '<ul><li>Ensure
+      facemask is on.</li><li>ESD wrist strap is worn and plugged in.</li> <li>Sit
+      or stand using the provided ESD-protective furniture.</li> </ul> <br><b>If you
+      are DONE reading these instructions and have completed this preparation, please
+      click the Done button to the right, and proceed to "Start Work".</b>', Quantity: '1',
+    PrerequisiteType: PREPARATION}
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Perform Absolute Height Metrology
+  Name: SR-MET-1_Perform_Absolute_Height
+  Description: Using the MeasureMind Software and the OGP machine, complete three measurement runs using the following procedure:<ol><li>Reset the OGP settings by going to System, Reset.</li><li>Click Open Routine and select the routine within the appropriate directory.<button type="button" id="b8" title="C:/Production_Data/LSST S/N/AbsoluteHeight/Date-Time"><label style="font-size':'4px:">directory</label></button></li><li>Click Run Routine and click OK to start the routine.</li><li>Follow the prompts in the OGP Routine.</li><li>When prompted, enter the appropriate path and file name for the data products.<button type="button" id="b9" title="LSST S/N_AbsZ_Run#_Date-Time.DAT"><label style="font-size':'4px:">file name</label></button></li><li>Wait for the routine to finish and click OK.</li></ol>
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Store Sensor after Measurement
+  Name: SR-MET-1_Add_protective_cover
+  Description: Follow these instructions to install the protective cover:<ol><li>Place the MF07-Cover on an edge and (still exposing the sensor) and attach with a screw.</li><li>Cover the sensor by sliding the MF07-Cover over the exposed surface.</li><li>Attach the other three screws and hand tighten all four screws.</li></ol><br>Follow these steps to store the sensor:<br><ol><li>Return the two gauge blocks to their orginal location.<br><b>Try to not touch the critical surfaces of the gauge blocks.</b></li><li>Remove the gauge block storage container from the ESD table mat.</li><li>Transfer MF01B to the TS2 workstation, then remove the sensor from MF01B.</li><li>Place the sensor into an ESD bag and label it with the LSST-CAMERA Serial Number.</li><li>Transfer the sensor to Long-term Storage.</li></ol>
+  NewLocation: (<Long-term Storage>)
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: 'Expose Sensor to ESD, Contamination, and Physical Hazard', Description: <ul><li>Raise the Z-axis bridge and move the platen forward towards the operator for transporting MF01B to the TS2 Workstation.</li><li>Ensure facemask is on.</li><li>ESD wrist strap is worn and plugged in.</li><li>Sit or stand using the provided ESD-protective furniture.</li></ul>,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [SetHardwareLocation]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: 'Job Harness: Upload Data Files'
+  Name: OGP_Absolute_Height_Scan_Upload
+  Description: Executing the Job Harness will automatically:<br><ul><li>Upload data products from Absolute Height Metrology Measurements.</li></ul><br>If desirable, follow these instructions to shut off the OGP:<ol><li><li>Hit Start/Stop to stop the OGP controller.</li><li>Close out of MeasureMind Software.</li><li>Turn off the OGP controller</li><li>Turn off the OGP Master Switch.</li></li></ol>
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- RequiredInputs:
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_REF_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Reference Residuals Plot}
+  - {Description: LSSTSN_DATE-TIME_AbsZ_Ref_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Histograms Plot of Reference Residuals Data}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_REF_bw.tiff, Units: '', InputSemantics: filepath,
+    Label: Reference Box and Whisker Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_plotwithref.tiff, Units: '', InputSemantics: filepath,
+    Label: Reference Fit with Sensor Surface Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_CCD_data.xslx, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Data}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_CCD_quantile.xslx, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Quantile Data}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_CCD_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_CCD_bw.tiff, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Box and Whisker Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_CCD_density.tiff, Units: '', InputSemantics: filepath,
+    Label: Density Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_plotwithdatum.tiff, Units: '', InputSemantics: filepath,
+    Label: Sensor Surface with Secondary Datum Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN1_histowithdatum.tiff, Units: '', InputSemantics: filepath,
+    Label: Sensor Surface subtracted with Secondary Datum Histograms Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_StatReport.txt, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Statistical Data}
+  ShortDescription: Upload Absolute Height Analysis Files for Run 1
+  Name: SR-MET-1_Upload_Analysis_Run_1
+  Description: 'Analyze the data with the following procedure: <ul><li>Download the
+    approved Mathematica Absolute Height Metrology analysis script from the GIT repository
+    <a https://github.com/lsst-camera-dh/OGP-scripts/tree/master/Analysis%20codes>here</a>.
+    </li><li>Download the Absolute Height Metrology data from the Data Catalog.</li><li>Open
+    the script and change the data set.</li><li>Execute the script.</li><li>Save and
+    upload the result files.</li></ul><br><br>The file name of the results data should
+    conform to the description fields in the table below.'
+  MaxIteration: '10'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- RequiredInputs:
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_REF_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Reference Residuals Plot}
+  - {Description: LSSTSN_DATE-TIME_AbsZ_Ref_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Histograms Plot of Reference Residuals Data}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_REF_bw.tiff, Units: '', InputSemantics: filepath,
+    Label: Reference Box and Whisker Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_plotwithref.tiff, Units: '', InputSemantics: filepath,
+    Label: Reference Fit with Sensor Surface Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_CCD_data.xslx, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Data}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_CCD_quantile.xslx, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Quantile Data}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_CCD_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_CCD_bw.tiff, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Box and Whisker Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_CCD_density.tiff, Units: '', InputSemantics: filepath,
+    Label: Density Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_plotwithdatum.tiff, Units: '', InputSemantics: filepath,
+    Label: Sensor Surface with Secondary Datum Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN2_histowithdatum.tiff, Units: '', InputSemantics: filepath,
+    Label: Sensor Surface subtracted with Secondary Datum Histograms Plot}
+  ShortDescription: Upload Absolute Height Analysis Files for Run 2
+  Name: SR-MET-1_Upload_Analysis_Run_2
+  Description: 'Analyze the data with the following procedure: <ul><li>Download the
+    approved Mathematica Absolute Height Metrology analysis script from the GIT repository
+    <a https://github.com/lsst-camera-dh/OGP-scripts/tree/master/Analysis%20codes>here</a>.</li><li>Download
+    the Absolute Height Metrology data from the Data Catalog.</li><li>Open the script
+    and change the data set.</li><li>Execute the script.</li><li>Save and upload the
+    result files.</li></ul><br><br>The file name of the results data should conform
+    to the description fields in the table below.'
+  MaxIteration: '10'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- RequiredInputs:
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_REF_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Reference Residuals Plot}
+  - {Description: LSSTSN_DATE-TIME_AbsZ_Ref_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Histograms Plot of Reference Residuals Data}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_REF_bw.tiff, Units: '', InputSemantics: filepath,
+    Label: Reference Box and Whisker Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_plotwithref.tiff, Units: '', InputSemantics: filepath,
+    Label: Reference Fit with Sensor Surface Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_CCD_data.xslx, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Data}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_CCD_quantile.xslx, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Quantile Data}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_CCD_plot.tiff, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_CCD_bw.tiff, Units: '', InputSemantics: filepath,
+    Label: Absolute Height Box and Whisker Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_CCD_density.tiff, Units: '', InputSemantics: filepath,
+    Label: Density Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_plotwithdatum.tiff, Units: '', InputSemantics: filepath,
+    Label: Sensor Surface with Secondary Datum Plot}
+  - {Description: LSSTSN_DATE-TIME_ABSZ_RUN3_histowithdatum.tiff, Units: '', InputSemantics: filepath,
+    Label: Sensor Surface subtracted with Secondary Datum Histograms Plot}
+  ShortDescription: Upload Absolute Height Analysis Files for Run 3
+  Name: SR-MET-1_Upload_Analysis_Run_3
+  Description: 'Analyze the data with the following procedure: <ul><li>Download the
+    approved Mathematica Absolute Height Metrology analysis script from the GIT repository
+    <a https://github.com/lsst-camera-dh/OGP-scripts/tree/master/Analysis%20codes>here</a>.
+    </li><li>Download the Absolute Height Metrology data from the Data Catalog.</li><li>Open
+    the script and change the data set.</li><li>Execute the script.</li><li>Save and
+    upload the result files.</li></ul><br><br>The file name of the results data should
+    conform to the description fields in the table below.'
+  MaxIteration: '10'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- RequiredInputs:
+  - {Description: Enter the name of the Technical Authority who defined the disposition,
+    Units: '', InputSemantics: string, Label: Technical Authority Approval}
+  ShortDescription: Review and determine the disposition of the Metrology Measurement
+  Name: Abs_Height_Measurement_disposition
+  Description: A Technical Authority must determine the final disposition of the sensor absolute height. Based on the findings of the Absolute Height Metrology measurements:<br><ul><li>Click Complete if the sensor meets all specifications. After doing so, you will be returned to the SR-MET-01 Header and are required to hit Complete once again to finalize the traveler.<br><br></li><li>Click Stop Work if any specifications are not met. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+Version: next
+PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
