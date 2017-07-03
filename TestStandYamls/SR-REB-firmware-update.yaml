@@ -1,0 +1,35 @@
+ShortDescription: Traveler for updating REB firmware
+Name: SR-REB-firmware-update
+Subsystem: SR
+Description: REB firmware update traveler
+HardwareGroup: LCA-11021_RTM
+MaxIteration: '1'
+Sequence:
+- ShortDescription: Check REB firmware versions before update
+  Name: REB_retrieve_versions_before
+  Description: ''
+  MaxIteration: '1'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  UserVersionString: v0
+- ShortDescription: Execute REB firmware update job
+  Name: REB_firmware_update
+  Description: ''
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  UserVersionString: v0
+- ShortDescription: power cycle the REBs
+  Name: power_cycle_REBs
+  Description: 'Power cycle the REBs to verify that the REB will come up with the new firmware.'
+  MaxIteration: '5'
+  Version: next
+  UserVersionString: v0
+- ShortDescription: Check REB firmware versions after update
+  Name: REB_retrieve_versions_after
+  Description: ''
+  MaxIteration: '3'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  UserVersionString: v0
+Version: next

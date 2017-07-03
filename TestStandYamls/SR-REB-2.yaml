@@ -1,20 +1,9 @@
 Name: SR-REB-02
 ShortDescription: SR-REB-02 - REB Aliveness Test
-Description: Welcome to the REB aliveness traveler. The following steps will guide the operator through the REB aliveness testing which includes execution of the REB power and functionality tests, the ingest of the results and declaration of the disposition of the REB.
+Description: Welcome to the REB aliveness traveler for verifying the functionality of REBs using the LSST TS8 DAQ system and CCS software. The following steps will guide the operator through the REB aliveness testing which includes execution of the REB power and functionality tests as documented in LCA-10064, the ingest of the results and declaration of the disposition of the REB.
 HardwareGroup: REB
 MaxIteration: '1'
 Version: next
-#- Name: rebalive_location 
-#  ShortDescription: Where is the testing being performed
-NewLocation: (?)
-#  Description: From the list presented, set where the tests are being performed. Examples are SLAC, TS-REB, TS6 or UPENN.
-#  MaxIteration: '1'
-#  Version: next
-#  RequiredInputs:
-#  - {Description: '', Units: '', InputSemantics: string, Label: 'Aspic1'}
-#  - {Description: '', Units: '', InputSemantics: string, Label: 'Aspic2'}
-#  - {Description: '', Units: '', InputSemantics: string, Label: 'Aspic3'}
-
 Sequence:
 - Name: REB_Test_SUITE
   ShortDescription: Execute REB Aliveness Tests
@@ -22,21 +11,14 @@ Sequence:
   MaxIteration: '1'
   Version: next
   TravelerActions: [Automatable]
-#- Name: rebalive_power
-#  ShortDescription: Execute power on tests and upload results
-#  Description: '<ul>
-#</ul>'
-#  MaxIteration: '3'
-#  TravelerActions: [HarnessedJob]
-#  Version: next
-#  UserVersionString: v0
   Sequence:
   - Name: rebalive_power
     ShortDescription: power check
     Description:  '<ul>
-  <li>1. Apply digital 5V power. If power supply reaches its overcurrent limit, abort the test.</li>
-  <li>2. Measure current consumption on 5V supply at the P/S and record the value.</li>
-  </ul>'
+  <li> Apply digital 5V power. If power supply reaches its overcurrent limit, abort the test.</li>
+  <li> Measure current consumption on 5V supply at the P/S and record the value.</li>
+   <li> Read the voltage and current consumption measured by the VP5 LTC2945 current monitor on the REB, record the value and compare to the current measured at the P/S.</li>
+   <li> Apply the analog power supply voltages (VP15_UNREG, VN15_UNREG, VP7_UNREG, VP40_UNREG) to the REB in the correct sequence (check with Rick for sequence and voltage values). Abort the test if any supply hits it overcurrent limit. Readback voltages and current consumption at the P/S and at the REB LTC2945 sensors.</li> </ul>'
     MaxIteration: '3'
     TravelerActions: [HarnessedJob]
     Version: next
@@ -52,25 +34,25 @@ Sequence:
     TravelerActions: [HarnessedJob]
     Version: next
     UserVersionString: v0
-  - Name: rebalive_current_precheck
-    ShortDescription: current precheck
-    Description:  '<ul>
-  <li>6. Read the voltage and current consumption measured by the VP5 LTC2945 current monitor on the REB, record the value and compare to the current measured at the P/S.</li>
-  <li>7. Apply the analog power supply voltages (VP15_UNREG, VN15_UNREG, VP7_UNREG, VP40_UNREG) to the REB in the correct sequence (check with Rick for sequence and voltage values). Abort the test if any supply hits it overcurrent limit. Readback voltages and current consumption at the P/S and at the REB LTC2945 sensors.</li> </ul>'
-    MaxIteration: '3'
-    TravelerActions: [HarnessedJob]
-    Version: next
-    UserVersionString: v0
-  - Name: rebalive_current_dacsloaded
-    ShortDescription: current check after dacs loaded
-    Description:  '<ul>
-  <li>8. Verify that all currents are within the expected range </li>
-  <li>9. Record the value of the currents on each supply, both at the P/S and by the REB.</li>
-  </ul>'
-    MaxIteration: '3'
-    TravelerActions: [HarnessedJob]
-    Version: next
-    UserVersionString: v0
+#  - Name: rebalive_current_precheck
+#    ShortDescription: current precheck
+#    Description:  '<ul>
+#  <li>6. Read the voltage and current consumption measured by the VP5 LTC2945 current monitor on the REB, record the value and compare to the current measured at the P/S.</li>
+#  <li>7. Apply the analog power supply voltages (VP15_UNREG, VN15_UNREG, VP7_UNREG, VP40_UNREG) to the REB in the correct sequence (check with Rick for sequence and voltage values). Abort the test if any supply hits it overcurrent limit. Readback voltages and current consumption at the P/S and at the REB LTC2945 sensors.</li> </ul>'
+#    MaxIteration: '3'
+#    TravelerActions: [HarnessedJob]
+#    Version: next
+#    UserVersionString: v0
+#  - Name: rebalive_current_dacsloaded
+#    ShortDescription: current check after dacs loaded
+#    Description:  '<ul>
+#  <li>8. Verify that all currents are within the expected range </li>
+#  <li>9. Record the value of the currents on each supply, both at the P/S and by the REB.</li>
+#  </ul>'
+#    MaxIteration: '3'
+#    TravelerActions: [HarnessedJob]
+#    Version: next
+#    UserVersionString: v0
   - Name: rebalive_temperatures
     ShortDescription: temperature check
     Description:  '<ul>

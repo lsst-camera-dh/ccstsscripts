@@ -1,0 +1,507 @@
+ShortDescription: SR-RTM-EOT-03 RTM ELECTRO-OPTICAL TEST
+Name: SR-RTM-EOT-03
+Subsystem: SR
+Description: <img src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/LSST-logo.png height=100 width=250><br>Welcome to the RTM ELECTRO-OPTICAL TEST traveler for a Raft Tower Module (RTM), or Science Raft (SR).<br><br>This traveler will record the electro-optical performance of an RTM. The activities and testing are performed at a previously selected TS8 workstation in the <a  href='https://ls.st/lca-11706' >Science Raft Assembly and Test Cleanroom Facility at Brookhaven National Laboratory</a>.<br>Work performed includes:<ul><li>Verifying the readiness of the TS8 workstation, including the TS7-Cryostat</li><li>Preparing the RTM for testing, including venting and cooling</li><li>Executing electro-optical acquisition and analyses scripts</li><li>Prepare the cryostat for removing from TS8 after testing</li></ul>
+HardwareGroup: LCA-11021_RTM
+MaxIteration: '1'
+Prerequisites:
+- {Name: Hazard Cautions, Description: 'Performed operations include the following
+    hazards:<ul><li>Physical Damage Hazard</li><li>Contamination Hazard</li><li>Heavy
+    Object Movement Hazard</li><li>Ultra-violet (UV) Light Hazard</li><li>Presence
+    of Sealed Radioactive Source</li></ul>', Quantity: '1', PrerequisiteType: PREPARATION}
+- {Name: Equipment, Description: 'The following equipment must be available before
+    beginning:<ul><li>RTM in TS7-Cryostat attached to Alum-a-Lift</li></ul>', Quantity: '1',
+  PrerequisiteType: TEST_EQUIPMENT}
+- {Name: Notice of Acknowledgement, Description: 'Before starting, review all the
+    steps within this traveler and ensure the required equipment is available. Contact
+    your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By
+    clicking <strong>Done</strong> you indicate you:</b><ul><li>are permitted to exercise
+    this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will
+    utilize training, official protocols and critical thinking throughout the procedure,</li><li>will
+    fulfill all prerequisites, as presented, </li><li>will follow all instructions,
+    as presented, and,</li><li>ensure due diligence is used at each step.</li></ul>',
+  Quantity: '1', PrerequisiteType: PREPARATION}
+Sequence:
+- ShortDescription: Transport TS7-Cryostat and Prepare Workstation
+  Name: SR-RTM-INT-01_Prepare_Insertion
+  Description: '<h3><u>Transport the TS7-Cryostat</u></h3>Follow these steps to transport
+    the cryostat and Alum-a-lift holding the TS7-Cryostat with the RTM:<ol><li>If
+    the cryostat is on the Alum-a-Lift, place the cryostat onto the CryoCart.</li><li><strong><span
+    style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: Avoid
+    touching the glass or the surface interfaces between the cover and cryostat.</strong><br>Transport
+    the cryostat to the previously selected TS8 Workstation and specify the new location
+    below. TS8-1 is located closest to the door, and TS8-2 is located closer to the
+    vinyl curtain.</li></ol><h3><u>Prepare TS8 Workstation</u></h3>Follow these steps
+    to check equipment readiness for the Preflight Check:<br><strong><span style=''color:
+    rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: The XED operation arms
+    must be visually inspected during this procedure.</strong><ol><li>Verify the following
+    connections are disconnected:<ul><li>Cryostat from the REB Power Supply</li><li>REB
+    power cabling from the REB Power Supply</li><li>5 V power supply from the LVDS
+    PCB</li><li>Fiber link from the cryostat </li></ul></li><li>Prior to connecting
+    the REB Power Supply to the 48 V power supply, turn ON the 48 V power supply to
+    verify the voltage output is 48 V.</li><li>Turn OFF the 48 V power supply, then
+    connect the REB power cabling to the REB Power Supply.</li><li>Turn ON the 48
+    V power supply to confirm the voltage output remains at 48 V.</li><li>Turn OFF
+    the 48 V power supply, then connect the REB power cabling to the cryostat.</li><li>Prior
+    to connecting the LVDS PCB to the 5 V power supply, turn ON the 5 V power supply
+    to verify the voltage output is 5 V.</li><li>Connect the LVDS PCB to the 5 V power
+    supply.</li><li>Connect the fiber link to the cryostat.</li><li>Connect the thermal
+    and XED cabling to the cryostat.</li><li>Turn ON the 48 V power supply and the
+    5 V power supply.</li><li>Using CCS or the XED controller, verify the XED arms
+    actuate and retract properly.</li></ol><h3><u>Prepare TS8 Workstation</u></h3>Follow
+    these steps to check equipment readiness for the Preflight Check:<ul><li>Keithley
+    Photodiode (PD) Picoammeter</li><li>CryoCon 24C Temperature Controller</li><li>Monochromator</li><li>Lamp
+    Controller and Lamp (250 W)</li><li>Shutter Controller, in Normal Open (N.O.)
+    and Remote Mode<br><img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/IMAG9954.jpg
+    height="100" width="150"></li><li>Shutter Controller</li><li>Server Room connection.</li></ul>'
+  NewLocation: (?)
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Ratio Calibration, Description: Verify that the integrating sphere photodiode has been calibrated within the last 120 days.,
+    Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
+  - {Name: Monochromator Calibration, Description: Verify that the monochromator wavelength setting calibration has been done in the last 180 days.,
+    Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
+  - {Name: Cryostat Integrity, Description: 'Follow these steps to verify the cryostat
+      integrity:<ol><li><strong><span style=''color: rgb(0,0,255);''>Note<span style=''color:
+      rgb(0,0,0);''>: The pressure gauge is on the back side of each Polycold unit.</strong><br>Verify
+      that the PolyCold pressures are above 140 psi.</li><li>Verify the last pump
+      down profile of the previous run was acceptable.</li><li>Ensure the vacuum valve
+      and bleed valve are CLOSED.</li></ol>', Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
+  TravelerActions: [SetHardwareLocation]
+  Version: next
+  OptionalInputs:
+  - {Description: Enter any additional comments., Units: '', InputSemantics: text,
+    Label: Optional Comment}
+  - {Description: Upload a photograph., Units: '', InputSemantics: filepath, Label: Optional Photograph 1}
+  - {Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Description: Upload a video., Units: '', InputSemantics: filepath, Label: Optional Video 1}
+  - {Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: '', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: 'Job Harness: Prepare Workstation with Preflight Equipment Check'
+  Name: preflight_acq
+  Description: '<h3><u>Execute the Preflight Equipment Check</u></h3>Execute the Job
+    Harness. Executing this Job Harness will automatically:<ul><li>Kill and restart
+    currently running CCS subsystems to ensure that those running are consistent with
+    the current tags.</li><li>Verify the following auxiliary equipment functionality:<ul><li>actuate
+    shutter</li><li>filter wheel rotates</li><li>PD and picoammeter are operational</li></ul></li><li>Create
+    the appropriate directories on the TS8 computer, then download the approved scripts
+    from the GIT Hub repository.</li><li>Read out the instruments in response to two
+    different wavelength settings, 450 and 823.</li><li>Verify RTM connection, monitoring
+    and control.</li><li>Turn off the lamp after completion.</li><li>Display an image
+    from the RTM. Define acceptance criteria. Here is an example acceptable image:<br>Insert
+    Picture</li><li>Plot the measured photodiode light curve. It should show a distinctly
+    different level during the exposure period. Here is an example acceptable image:<br><img
+    src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/pdvals.png height="100" width="150"></li></ul>Depending
+    on the results of the Preflight Equipment Check:<ul><li>If the acceptance criteria
+    is met, continue this traveler to perform electro-optical tests.</li><li>If the
+    acceptance criteria is not met, contact the Technical Authority and Subsystem
+    Manager.</li></ul><strong><span style=''color: rgb(0,0,255);''>Note<span style=''color:
+    rgb(0,0,0);''>: This step can be retried 5 times.</strong>'
+  MaxIteration: '5'
+  Prerequisites:
+  - {Name: Integrate Cryostat with Dark Box, Description: Follow these steps to integrate the cyrostat with the Dark Box <ol><li>Push the cryostat towards the Dark Box until seated.</li><li>Secure the cryostat by the latching mechanism or securing the CryoCart wheels.</li></ol>,
+    Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
+  TravelerActions: [HarnessedJob]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- ShortDescription: Pump TS7-2 Cryostat
+  Name: ts8_pump
+  Description: '<h3><u>Prepare and Pump TS7-Cryostat</u></h3>Follow these steps to
+    prepare the cryostat for vacuum and being pumping:<ol><li>Verify the desiccant
+    media is BLUE.</li><li>Attach the Nitrogen Backfill line to the cryostat.</li><li>Pump
+    and purge the cryostat three times.</li><li>After the pump and purge, CLOSE the
+    bleed valve and disconnect the Nitrogen Backfill line.</li><li>Turn ON the rough
+    pump, then open the vacuum valve.</li><li>Execute the Job Harness to start the
+    automated pump down process with the turbo pump.</li></ol>If the equipment is
+    not functioning as expected, click Stop Work, give a detailed description of the
+    problem(s) and contact the Sub-system Manager.<br><strong><span style=''color:
+    rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: This step can be retired
+    5 times.</strong>'
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- ShortDescription: Cool TS7-2 Cryostat
+  Name: ts8_cool_down
+  Description: '<h3><u>Cool the Cryostat</u></h3>Execute the Job Harness to start
+    the automated cool down process by turning on the PolyColds once a safe pressure
+    is reached (has dropped below 10^(-3) Torr). The RTM will be cooled to -100 +-
+    1 degC.If the equipment is not functioning as expected, click Stop Work, give
+    a detailed description of the problem(s) and contact the Sub-system Manager.<br><strong><span
+    style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: This step
+    can be retired 5 times.</strong>'
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- ShortDescription: TS8 readiness check
+  Name: ready_acq
+  Description: 'Use the launcher button (which will appear after clicking "Start Step")
+    to start the final readiness check. This check involves taking an 55Fe image and
+    a FLAT image. Images from a segment will be displayed on the monitor. Based on
+    those images, respond to the questions that will be displayed at the next step.<br><br>Examples
+    of expected images are shown below - <br> 55Fe - <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/fe55-ready-image2.png
+    height="200" width="240"> FLAT - <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/raft-ready-flat1.jpg
+    height="200" width="240"><br><strong><span style=''color: rgb(0,0,255);''>Note<span
+    style=''color: rgb(0,0,0);''>: This step can be retired 5 times.</strong>'
+  MaxIteration: '5'
+  Prerequisites:
+  - {Name: INSTRUCTIONS, Description: '<ul><li>Make sure the XED is on and in opto
+      mode and that the supplimentary power supply is on.</li><li>To Start the CCS
+      GUI, if it is not already running use the GUI button on the CCS apps widget.</li><li>To
+      start DS9, if it is not already running use the icon on the desktop to start
+      it.<br><br> Check that the target voltage and temperatures are correct for the
+      given RAFT by going to the configuration sub-panel.<br> <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/ts_config_gui.png
+      height="100" width="100">. If the values are not correct, contact the technical
+      authority before proceeding. <br></li></ul>', Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [HarnessedJob]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- RequiredInputs:
+  - {Description: '<img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/good-green-gui.png
+      height="100" width="100">', Units: '', InputSemantics: string, Label: 'Is the
+      HVBias PS channel ON and the HVBias enabled, the VQM off or its automatic On/Off
+      control verified, and is the REB thermal control of the RSA active and set to
+      -100C? '}
+  - {Description: 'good Fe55 image example - <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/fe55-ready-image2.png
+      height="100" width="120">', Units: '', InputSemantics: string, Label: 'Are there
+      indications of X-ray hits (small clusters of pixels - NOT just single pixels)
+      in the Fe55 image?'}
+  - {Description: 'good FLAT image example - <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/ready-flat1.png
+      height="100" width="120">', Units: '', InputSemantics: string, Label: 'Does
+      the FLAT image have dark bias bands around it and if one zooms out to the full
+      9 CCD mosaic, does one see that all 144 segments are functioning?'}
+  ShortDescription: readiness check form
+  Name: ts8_ready_form
+  Description: 'Based on the images produced during the previous step, fill in the
+    form below.<br><br><strong>If you cannot answer yes to all questions, or if the
+    images contain anything conspicuous (e.g., intense or structured light leak, dead
+    segment, dipole pixels), contact the Sub-system manager. Proceed only if you have
+    been authorized to continue.</strong><br><strong><span style=''color: rgb(0,0,255);''>Note<span
+    style=''color: rgb(0,0,0);''>: This step can be retried 3 times.</strong>'
+  MaxIteration: '3'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: 'Job Harness: Run Full RTM Acquisition and Analysis Scripts'
+  Name: run_ts8_scripts
+  Description: Begin the automated execution of all acquisition and analysis scripting by clicking the launcher button below. If a test fails, the TS7-Cryostat will stay under pressure and the RAFT will remain at operating temperature. An acquisition step may be retried, but you must return to this step to get the lcatr-iterator command or to press on the lcatr-iterator button to repeat that step to continue with the remainder of the automated sequence.
+  MaxIteration: '3'
+  Prerequisites:
+  - {Name: INSTRUCTIONS, Description: 'Before starting the automated execution of
+      all acquisition and analysis scripts:<br><ul><li>Verify that the CCS applications
+      are running by looking at the CCS-Apps widget.</li> <li>If any app is not shown
+      as running (green) or if the widget itself is not present, please refer to the
+      detailed instructions below.</li></ul> <b>If you are DONE reading and executing
+      these instructions, please click the Done button to the right,<br/>Then click
+      on the LAUNCHER BUTTON below.</b>', Quantity: '1', PrerequisiteType: PREPARATION}
+  InstructionsURL: https://confluence.slac.stanford.edu/display/LSSTCAM/Using+CCS+for+TS8+at+BNL
+  TravelerActions: [Automatable]
+  Sequence:
+  - ShortDescription: 55Fe Acquisition
+    Name: fe55_raft_acq
+    Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: 55Fe Analysis
+    Name: fe55_raft_analysis
+    Description: 55Fe analysis for system gain and PSF size
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: fe55_raft_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: Dark Acquisition
+    Name: dark_raft_acq
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: Flat Pair Acquisition
+    Name: flat_pair_raft_acq
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: Pocket Pumping Acquisition
+    Name: ppump_raft_acq
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: Super-Flat Acquisition
+    Name: sflat_raft_acq
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: QE Acquisition
+    Name: qe_raft_acq
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: qa_plots_raft
+    Name: qa_plots_raft
+    Description: Quality assurance plots
+    MaxIteration: '5'
+    Prerequisites:
+    - {Name: fe55_raft_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_raft_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: flat_pair_raft_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: ppump_raft_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: sflat_raft_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: qe_raft_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: CCD Read Noise Analysis
+    Name: read_noise_raft
+    Description: CCD Read Noise
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: fe55_raft_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: Bright Defects Analysis
+    Name: bright_defects_raft
+    Description: Bright defects from darks
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: dark_raft_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: Dark Defects Analysis
+    Name: dark_defects_raft
+    Description: Dark defects from superflat data
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: bright_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: sflat_raft_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: Traps Finding
+    Name: traps_raft
+    Description: Charge traps from pocket pumping data
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: ppump_raft_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: Dark Current
+    Name: dark_current_raft
+    Description: dark current
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: dark_raft_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: Charge Transfer Efficiencies
+    Name: cte_raft
+    Description: Parallel and serial charge transfer efficiencies
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: sflat_raft_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: Photo-response Analysis
+    Name: prnu_raft
+    Description: Photo-response non-uniformity
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: qe_raft_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: Flat Pairs Analysis
+    Name: flat_pairs_raft_analysis
+    Description: Non-linearity and blooming full well from flat pair data
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: flat_pair_raft_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: Photon Transfer Curve
+    Name: ptc_raft
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: flat_pair_raft_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: Quantum Efficiency
+    Name: qe_raft_analysis
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: qe_raft_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: collect_raft_results
+    Name: collect_raft_results
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: read_noise_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_current_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: cte_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: flat_pairs_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: ptc_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: qe_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: qe_raft_acq, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Warm TS7-2 Cryostat
+  Name: warmup_acq
+  Description: <h3><u>Warm the TS7-Cryostat and RTM</u></h3>After the approval to warm the RTM, Execute this Job Harness to turn off the RTM and PolyColds to bring the RTM to room temperature. The vacuum pump will remain on afterwards. Notify a trained operator that the RTM will soon be ready to be removed from the TS7-Cryostat.
+  MaxIteration: '3'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- RequiredInputs:
+  - {Description: Enter the name of the Technical Authority who defined the disposition,
+    Units: '', InputSemantics: string, Label: Technical Authority Approval}
+  ShortDescription: Determine Disposition
+  Name: judge_rtm
+  Description: 'A Technical Authority must determine the final disposition of the
+    electro-optical properties of the RTM. Download the test report from the Data
+    Catalog. Based on the findings of the test report: <ul><li>Click Complete if the
+    RTM meets all specifications. After doing so you will be returned to the SR-RTM-EOT-03
+    Header and are required to hit Complete once again to finalize the Traveler.<br></li><li>Click
+    Stop Work if any specifications are not met. Give a detailed description of the
+    problem(s) and contact the Sub-system Manager.</li></ul>'
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+Version: next
+PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]

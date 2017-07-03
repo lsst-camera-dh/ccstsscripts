@@ -1,6 +1,6 @@
 ShortDescription: SR-MET-02 LATERAL POSITION METROLOGY
 Name: SR-MET-02
-Subsystem: Legacy
+Subsystem: SR
 Description: Welcome to the LATERAL POSITION METROLOGY traveler for any sensor.<br><br>This traveler will record the sensor's lateral positioning at  BNL. This work is performed at TS2 and the Laminar Flow Hood. <br>Work performed includes:<ul><li>Lateral Positioning Measurements using the OGP machine</li><li>Sensor jig removal (hardware specific)</li></ul><br><br></ul>Before starting, review all steps within the traveler and ensure the required equipment is available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><b>By clicking "Start Step" you indicate you:</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will fulfill all prerequisites, as presented, </li><li>will follow all instructions, as presented, and,</li><li>ensure due diligence is used at each step.</li>
 HardwareGroup: Generic-CCD
 MaxIteration: '1'

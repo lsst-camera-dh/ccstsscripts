@@ -1,16 +1,13 @@
 ShortDescription: SR-SHP-01 HARDWARE SHIPPING
-Name: SR-SHP-02
+Name: SR-SHP-01
 Subsystem: SR
 Description: Welcome to the HARDWARE SHIPPING eTraveler for all RTM hardware being shipped.<br><br>This eTraveler will document shipping acceptance for all hardware shipped. <br>Work performed includes:<ul><li>Logging receipt and documentation, including labeling with an LSST S/N</li><li>Uploading received documentation and storing hardcopies, including labeling with an LSST S/N</li><li>Preparing and transporting hardware to shipping location.</li><li>A visual inspection for describing and photographing hardware's condition at time of shipping</li><li>Verifying consistency of documentation, labels, and previously received data.</li></ul>
-HardwareGroup: Logged_Shipment
+HardwareGroup: Logged_Shipments
 MaxIteration: '1'
 Prerequisites:
 - {Name: Hazard Cautions, Description: Performed operations include the following hazards to the hardware - <ul><li>ESD Hazard (Hardware specific)</li><li>Contamination Hazard (Hardware specific)</li><li>Physical Hazard (Hardware specific)</li></ul>,
   Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
-- {Name: Equipment, Description: 'Required Equipment:<ul><li>Box cutter</li><li>Nonlinting
-    wipes</li><li>Cleaning solution (50/50 Isopropyl alcohol and distilled water)</li><li>Stationery,
-    approved for cleanroom use (pen, marker, bonded paper, tape, staple remover)</li><li>Scanner</li><li>Hardcopy
-    Folder</li><li>Web Camera</li><li>DSLR Camera (potentially required)</li><li>Clean
+- {Name: Equipment, Description: 'Required Equipment:<ul><li>Box cutter</li><li>Shipping slip</li><li>Packing materials</li><li>Scanner</li><li>Web Camera</li><li>DSLR Camera (potentially required)</li><li>Clean
     plastic bag (Potentially required)</li><li>EPA Equipment (Potentially required)</li><li>Hardware
     specific tooling (Potentially required)<br></ul><br><b>Read the Header information
     before clicking "Start Step".</b>', Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
@@ -22,13 +19,13 @@ Sequence:
   - {Description: '', Units: '', InputSemantics: string, Label: 'Any comments? If
       not, fill in None.'}
   ShortDescription: Confirm approval for shipping
-  Name: SR-SHP-02_approval
+  Name: SR-SHP-01_approval
   Description: ' '
   MaxIteration: '1'
   Version: next
   PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
 - ShortDescription: Set current location of hardware
-  Name: SR-SHP-02_set_location
+  Name: SR-SHP-01_set_location
   Description: Specify the hardware and shipping documentation has been moved to the Anteroom by selecting the location below.
   NewLocation: (?)
   MaxIteration: '1'
@@ -48,10 +45,10 @@ Sequence:
   Version: next
   PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
 - ShortDescription: Enter shipping details
-  Name: SR-SHP-02_shipping details
+  Name: SR-SHP-01_shipping_details
   Description: Answer the questions on the shipping details in the form on this page.
   MaxIteration: '5'
-- RequiredInputs:
+  RequiredInputs:
   - {Description: '', Units: '', InputSemantics: string, Label: 'Who confirmed that
       all of the hardware has been approved for shipping? Contact the Subsystem Manager
       if the hardware has not yet been approved for shipping.'}
@@ -71,57 +68,17 @@ Sequence:
   - {Description: '', Units: '', InputSemantics: filepath, Label: 'Scanned shipping documentation 2'}
   - {Description: '', Units: '', InputSemantics: filepath, Label: 'Scanned shipping documentation 3'}
   Version: next
-- ShortDescription: Prepare for Visual Inspection
-  Name: SR-SHP-02_visual_inspection_prep
-  Description: The hardware will proceed through a visual inspection. Ensure the DSLR camera is available at TS1 before beginning.<br><br>Select whether the hardware is ESD sensitive and follow the instructions to set up for the visual inspection.<br><br><b>If the hardware or protective packaging would fail the visual inspection, the option to click Stop Work will be available in the final step of the traveler.</b>
-  MaxIteration: '1'
-  Version: next
-  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
-  Selection:
-  - ShortDescription: Hardware is not ESD sensitive
-    Name: Not_ESD_sensitive
-    Condition: NotESD
-    Description: Remove the protective packaging protecting the hardware from contamination.
-    MaxIteration: '1'
-    Prerequisites:
-    - {Name: Instructions, Description: <ul><li>Ensure facemask is on.</li></ul><br><b>Please click the DONE button to the right and proceed to click "Start Step" when you are ready to open the protective packaging.</b>,
-      Quantity: '1', PrerequisiteType: PREPARATION}
-    Version: next
-    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
-  - ShortDescription: ESD sensitive hardware
-    Name: ESD_sensitive
-    Condition: ESD
-    Description: Click "Start Step" to prepare for ESD sensitive work. Afterward, hit "Complete Step".
-    MaxIteration: '1'
-    Sequence:
-    - ShortDescription: Verify EPA
-      Name: Setup_EPA
-      Description: Follow these steps to setup and verify ESD protective measures at TS1:<ul><li>Setup and verify the TS1 EPA.</li><li>Transport required hand tools (including the DSLR camera, if applicable) to TS1.</li></ul>
-      MaxIteration: '1'
-      Version: next
-      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
-    - ShortDescription: Remove ESD Packaging
-      Name: Remove_ESD_Packaging
-      Description: Remove the protective packaging, but do not remove any ESD protective tooling or equipment (such as grounding connectors).
-      MaxIteration: '1'
-      Prerequisites:
-      - {Name: Instructions, Description: <ul><li>Ensure facemask is on.</li><li>Ensure that ESD wrist strap is worn and plugged in.</li><li>Sit or stand using the ESD-protective furniture.</li></ul><br><b>Please click the DONE button to the right and proceed to click "Start Step" when you are ready to open the protective packaging.</b><br>,
-        Quantity: '1', PrerequisiteType: PREPARATION}
-      Version: next
-      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
-    Version: next
-    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
 - RequiredInputs:
   - {Description: 'Is the quantity in the package consistent with the shipping documentation?',
     Units: '', InputSemantics: string, Label: Hardware Quantity}
-  - {Description: 'Are all serial numbers on the hardware consistent with the received
+  - {Description: 'Are all serial numbers on the hardware consistent with the shipping
       documentation?', Units: '', InputSemantics: string, Label: Hardware Identification}
   - {Description: 'Any other concerns you wish to note?', Units: '', InputSemantics: string,
     Label: Other Concerns}
   - {Description: 'Any additional comments? Fill in None, if none.', Units: '', InputSemantics: string,
     Label: Comments}
   ShortDescription: Visual inspection upon shipping
-  Name: SR-SHP-02_visual_inspection
+  Name: SR-SHP-01_visual_inspection
   Description: Inspect the hardware and its protective packaging. Fill in yes or no with any additional comments.
   MaxIteration: '1'
   Version: next
@@ -130,7 +87,7 @@ Sequence:
   - {Description: '', Units: '', InputSemantics: filepath, Label: 1 - Picture 1}
   - {Description: '', Units: '', InputSemantics: string, Label: 1 - Notes for Picture 1}
   ShortDescription: Record pictures from visual inspection
-  Name: SR-SHP-02_record_pics
+  Name: SR-SHP-01_record_pics
   Description: Upload any pictures from the Visual Inspection, and add a comment about the photograph's subject or other relevant details.<br><br>A minimum of one photograph must be taken. If more than four photographs are necessary, this step can be retried twice for a total of 12.If possible, have the LSST S/N visible the photographs.
   MaxIteration: '3'
   Version: next
@@ -142,8 +99,8 @@ Sequence:
   - {Description: '', Units: '', InputSemantics: filepath, Label: 4 - Picture 4}
   - {Description: '', Units: '', InputSemantics: string, Label: 4 - Notes for Picture 4}
   PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
-  ShortDescription: Record pictures from visual inspection
--  Name: SR-SHP-02_status
+- Name: SR-SHP-01_status
+  ShortDescription: Shipping Status
   Description: Use the status setting to indicate that the item has been shipped.
   TravelerActions: [SetHardwareStatus, SetHardwareStatus]
   NewStatus: (?)

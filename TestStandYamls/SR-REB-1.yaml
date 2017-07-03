@@ -1,21 +1,21 @@
-Name: SR-REB-1
-ShortDescription: SR-REB-1
-Description: Welcome to the TS-REB traveler.
+Name: SR-REB-01
+ShortDescription: SR-REB-01 - TS-REB traveler
+Description: SR-REB-01 - TS-REB traveler
 HardwareGroup: REB
 MaxIteration: '1'
 Version: next
 Sequence:
-- Name: Where is the testing being performed and which aspics are associated with this REB
-  ShortDescription: set location and associate aspics
-  NewLocation: (?)
-  Description: From the list presented, set where the tests are being performed. Examples are SLAC, TS-REB, TS6 or UPENN.
-  MaxIteration: '1'
-  Version: next
-  RequiredInputs:
-  - {Description: '', Units: '', InputSemantics: string, Label: 'Aspic1'}
-  - {Description: '', Units: '', InputSemantics: string, Label: 'Aspic2'}
-  - {Description: '', Units: '', InputSemantics: string, Label: 'Aspic3'}
-- {Name: Review procedure, ShortDescription: Review procedure, Description: '<ul><li>Boards are received, serial numbers noted, photographs taken of both sides, eTraveler RCV step initiated</li>
+#- Name: Where is the testing being performed and which aspics are associated with this REB
+#  ShortDescription: set location and associate aspics
+#  NewLocation: (?)
+#  Description: From the list presented, set where the tests are being performed. Examples are SLAC, TS-REB, TS6 or UPENN.
+#  MaxIteration: '1'
+#  Version: next
+#  RequiredInputs:
+#  - {Description: '', Units: '', InputSemantics: string, Label: 'Aspic1'}
+#  - {Description: '', Units: '', InputSemantics: string, Label: 'Aspic2'}
+#  - {Description: '', Units: '', InputSemantics: string, Label: 'Aspic3'}
+- {Name: Review_Procedure, ShortDescription: Review procedure, Description: '<ul><li>Boards are received, serial numbers noted, photographs taken of both sides, eTraveler RCV step initiated</li>
 <li>RTA is moved to TS-REB bench and connected to power supply and control computer</li>
 <li>5V power is applied and 5V current is verified to be within acceptable limits</li>
 <li>Data link integrity is verified</li>
@@ -52,14 +52,21 @@ Sequence:
 </ul><br><br>
 Any failed test is repeated up to 3 times. If failure persists the test sequence is aborted and board is rejected.',
    MaxIteration: '1', Version: next}
-- Name: tsreb_upload
-  ShortDescription: Execute tests and upload results
-  Description: Execute the procedure described in the previous step, and then after clicking Start, click on the launcher button that will appear. That will then cause the results to be archived and registered in the eTraveler<br>
+- Name: tsreb_exec
+  ShortDescription: Execute tests
+  Description: Execute the ts reb test
   MaxIteration: '5'
   TravelerActions: [HarnessedJob]
   Version: next
   UserVersionString: v0
-- {Name: Review and determine disposition of TS-REB analysis results,
+- Name: tsreb_upload
+  ShortDescription: Upload results
+  Description: Upload the results of the test.
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  UserVersionString: v0
+- {Name: Determine_Disposition,
    ShortDescription: Determine Disposition, Description: ' ', MaxIteration: '1', Version: next }
 #,  TravelerActions: [SetHardwareStatus, SetHardwareStatus], NewStatus: (?)}
 

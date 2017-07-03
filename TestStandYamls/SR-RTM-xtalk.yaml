@@ -1,0 +1,25 @@
+ShortDescription: SR-RTM-xtalk test xtalk determination
+Name: SR-RTM-xtalk
+Subsystem: SR
+Description: This traveler is for acquiring the data needed for the RTM xtalk analysis'
+HardwareGroup: LCA-11021_RTM
+MaxIteration: '1'
+Sequence:
+
+- ShortDescription: 'Run RTM xtalk test step'
+  Name: RSA_xtalk_test_steps
+  Description: ''
+  MaxIteration: '5'
+  TravelerActions: [Automatable]
+  Sequence:
+
+  - ShortDescription: RTM xtalk test
+    Name: RTM_xtalk
+    Description: 'take 100 spot images'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  
+  
+Version: next

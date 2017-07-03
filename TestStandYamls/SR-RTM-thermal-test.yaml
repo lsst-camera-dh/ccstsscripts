@@ -1,0 +1,139 @@
+ShortDescription: SR-RTM-thermal-test RTM thermal data acquisition traveler
+Name: SR-RTM-thermal-test
+Subsystem: SR
+Description: This traveler is for acquiring the data needed for the validation of the thermal performance of RTMs. The system will be command to different heating and operating states and the thermal response is monitored.
+HardwareGroup: LCA-11021_RTM
+MaxIteration: '1'
+Sequence:
+
+- ShortDescription: 'Run RTM Thermal Test Steps'
+  Name: rtm_thermal_tests
+  Description: Execute the heater and readout controls to accomplish the thermal characteristics measurements - top sequence
+  MaxIteration: '5'
+  InstructionsURL: https://confluence.slac.stanford.edu/display/LSSTCAM/Using+CCS+for+TS8+at+BNL
+  TravelerActions: [Automatable]
+  Sequence:
+
+  - ShortDescription: Start from lowest temperature point
+    Name: RTM_thermal_low_t_minimum_power__10
+    Description: 'With REBs off, drop system to lowest temperature in minimum-power state.'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - ShortDescription: REB monitoring on
+    Name: RTM_thermal_REB_monitoring__11
+    Description: 'Turn REBs on to minimum power state needed to measure CCD and RSA RTD temperatures.'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - ShortDescription: Turn on RSA heater to 0 percent
+    Name: REB_thermal_min_pwr_htr_0__20
+    Description: 'Turn on RSA heater to 0 percent while leaving OD off, and other power-dissipation sources on RSA. Again flag that in database. Need to let temperatures equilibrate for each change in RSA heater power.'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - ShortDescription: stable state with RSA heater at 0 percent
+    Name: REB_thermal_min_pwr_htr_0_stable__21
+    Description: 'Click start when stable state has been reached.'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  
+  - ShortDescription: Turn on RSA heater to 50 percent
+    Name: REB_thermal_min_pwr_htr_50__30
+    Description: 'Turn on RSA heater to 50 percent while leaving OD off, and other power-dissipation sources on RSA. Again flag that in database. Need to let temperatures equilibrate for each change in RSA heater power.'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - ShortDescription: stable state with RSA heater at 50 percent
+    Name: REB_thermal_min_pwr_htr_50_stable__31
+    Description: 'Click start when stable state has been reached.'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  
+  - ShortDescription: Turn on RSA heater to 100 percent
+    Name: REB_thermal_min_pwr_htr_100__40
+    Description: 'Turn on RSA heater to 100 percent while leaving OD off, and other power-dissipation sources on RSA. Again flag that in database. Need to let temperatures equilibrate for each change in RSA heater power.'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - ShortDescription: stable state with RSA heater at 100 percent
+    Name: REB_thermal_min_pwr_htr_100_stable__41
+    Description: 'Click start when stable state has been reached.'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  
+  - ShortDescription: RSA to 0 percent for readout test
+    Name: REB_thermal_prereadout_htr_0__50
+    Description: 'set RSA heaters off and wait for equilibrium'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+  
+  - ShortDescription: power on REBs
+    Name: rebalive_power
+    Description: 'power on REBs'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+  
+  - ShortDescription: stable non-acquisition powered state
+    Name: REB_thermal_powered__51
+    Description: 'REBs powered stable state'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+  
+  - ShortDescription: readout test with RSA at 0 percent
+    Name: REB_thermal_readout_htr_0__52
+    Description: 'With RSA heater off, switch on the CCD bias voltages and do a sequence of readouts separated by 15 seconds. This gives us the operating circumstances RSA power dissipation, with no heater power.'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+  
+  - ShortDescription: RSA to 50 percent for readout test
+    Name: REB_thermal_prereadout_htr_50__60
+    Description: 'set RSA heaters to 50 percent and wait for equilibrium'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+  
+  - ShortDescription: readout test with RSA at 50 percent
+    Name: REB_thermal_readout_htr_50__61
+    Description: 'With RSA heaters at 50 percent do a sequence of readouts separated by 15 seconds. This gives us the operating circumstances RSA power dissipation, with no heater power.'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+  
+  
+  - ShortDescription: RSA to 100 percent for readout test
+    Name: REB_thermal_prereadout_htr_100__70
+    Description: 'set RSA heaters to 100 percent and wait for equilibrium'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+  - ShortDescription: readout test with RSA at 100 percent
+    Name: REB_thermal_readout_htr_100__71
+    Description: 'With RSA heaters at 100 percent do a sequence of readouts separated by 15 seconds. This gives us the operating circumstances RSA power dissipation, with no heater power.'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+Version: next

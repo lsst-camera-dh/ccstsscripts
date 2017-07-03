@@ -1,0 +1,417 @@
+ShortDescription: SR-RTM-INT-01 RTM INSTALLATION AND REMOVAL CYCLE WITH TS7-CRYOSTAT
+Name: SR-RTM-INT-01
+Subsystem: SR
+Description: <img src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/LSST-logo.png height=100 width=250><br>Welcome to the TS7-CRYOSTAT INSTALLATION AND REMOVAL traveler for a Raft Tower Module (RTM), or Science Raft (SR), with a TS7-Cryostat.<br><br>This traveler will record and verify the installation and removal of the RTM in the <a href=https://ls.st/lca-11706>Science Raft Assembly and Test Cleanroom Facility at Brookhaven National Laboratory</a>. The work is performed at TS6.<br>Work performed includes:<ul><li>Preparing the cryostat and RTM Assembly Fixture</li><li>Installing and removing the RTM from the TS7-Cryostat</li><li>Connectivity verification after cryostat installation or removal</li></ul>
+HardwareGroup: LCA-11021_RTM
+MaxIteration: '1'
+Prerequisites:
+- {Name: Hazard Cautions, Description: 'Performed operations include the following
+    hazards:<ul><li>Physical Damage Hazard</li><li>Electro-static Discharge (ESD)
+    Hazard</li><li>Contamination Hazard</li><li>Heavy Object Movement Hazard</li><li>Presence
+    of Sealed Radioactive Source</li></ul>', Quantity: '1', PrerequisiteType: PREPARATION}
+- {Name: Equipment, Description: 'The following equipment must be approved by the
+    appropriate Technical Authority and available before beginning:<ul><li>TS7-Cryostat,
+    including:<ul><li>blah</li></ul></li><li>RTM Installation Fixture, including:<ul><li>blah</li></ul></li><li>Alum-a-Lift</li><li>Checklist,
+    mention and/or link? Replicate?</li></ul>', Quantity: '1', PrerequisiteType: TEST_EQUIPMENT}
+- {Name: Notice of Acknowledgement, Description: 'Before starting, review all the
+    steps within this traveler. Contact your supervisor, Technical Authority or Subsystem
+    Manager for any concern or additional clarification.<br><br><strong>By clicking
+    <strong>Done</strong> you indicate you:</strong><ul><li>are permitted to exercise
+    this traveler,</li><li>previewed and understand all steps beforehand,</li><li>will
+    utilize training, official protocols and critical thinking throughout the procedure,</li><li>will
+    fulfill all prerequisites, as presented, </li><li>will follow all instructions,
+    as presented, and,</li><li>ensure due diligence is used at each step.</li></ul>',
+  Quantity: '1', PrerequisiteType: PREPARATION}
+Sequence:
+- ShortDescription: Prepare Workstation for Installation
+  Name: SR-RTM-INT-01_Prepare_Insertion
+  Description: '<h3><u>Prepare the RTM Insertion Fixture</u></h3>Follow these steps
+    to prepare the RTM Insertion Fixture for installation:<ol><li>Verify the following
+    components will not inhibit use, cause hazardous conditions (contamination, ESD
+    or physical instability) or damage the hardware:<ul><li>Insertion Rods</li><li>Frame</li><li>Rod
+    Plate</li><li>Hand Wheel</li></ul></li><li>Set the Rod Plate to the correct orientation.</li><li>Rotate
+    the hand wheel until the Rod Plate is at its highest point.</li></ol><h3><u>Prepare
+    the TS7-Cryostat</u></h3>Follow these steps to prepare the cryostat for installation:<ol><li>Place
+    new non-linting wipes for protecting the cryostat cover from contamination.</li><li>Ensure
+    the following connections are disconnected:<ul><li>Cryostat from the REB Power
+    Supply</li><li>5 V power supply from the LVDS PCB</li><li>Cryostat from the thermal
+    and XED cabling</li><li>Fiber link from the cryostat</li></ul></li><li>Ensure
+    the vacuum valve and bleed valve are CLOSED.</li><li><strong><span style=''color:
+    rgb(255,150,0);''>Caution<span style=''color: rgb(0,0,0);''>: Open vacuum connections
+    must be covered with new vacuum foil.</strong><br>Ensure the Nitrogen Backfill
+    line is removed.</li><li>If necessary, remove the vacuum hose connection from
+    the turbo pump.</li><li>Secure the cryostat onto the Alum-a-Lift.</li><li>Place
+    the Alum-a-Lift in the desired location, then set the cryostat at the desired
+    working height and angle.</li><li>Lock the Alum-a-Lift wheels.</li><li><strong><span
+    style=''color: rgb(255,150,0);''>Caution<span style=''color: rgb(0,0,0);''>: Avoid
+    touching the glass or the surface interfaces between the cover and cryostat.</strong><br>Remove
+    the cryostat front cover and place the outer face down onto a non-linting wipe.</li><li>Cover
+    the window of the inner face with another new non-linting wipe to protect it from
+    contamination.</li><li><strong><span style=''color: rgb(0,0,255);''>Note<span
+    style=''color: rgb(0,0,0);''>: The O-ring should not be degraded (brittle, broken,
+    etc.) and should properly seat.</strong><br>Visually inspect the O-ring and replace
+    it if necessary.</li><li><strong><span style=''color: rgb(255,150,0);''>Caution<span
+    style=''color: rgb(0,0,0);''>: Avoid touching the the surface interfaces between
+    the cover and cryostat.</strong>Remove the cryostat back cover and place the outer
+    face down onto a non-linting wipe.</li><li>Cover the inner face with another new
+    non-linting wipe to protect it from contamination.</li><li><strong><span style=''color:
+    rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: The O-ring should not
+    be degraded (brittle, broken, etc.) and should properly seat.</strong><br>Visually
+    inspect the O-ring and replace it if necessary.</li><li>Place the Alum-a-Lift
+    under the Rod Plate, then set the cryostat at the desired working height to allow
+    room underneath with the front cover facing downwards.</li><li>Lock the Alum-a-Lift
+    wheels.</li></ol><h3><u>Prepare RTM for Installation</u></h3>Follow these steps
+    to prepare the RTM for cryostat installation:<ol><li>Transport the RTM to TS6.</li><li>Verify
+    the LSST-CAMERA Serial Number and the RTM ID match.</li><li>Ensure the RTM is
+    installed into the temporary equipment required for installation.</li></ol><strong><span
+    style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: Clicking
+    <strong>Complete Step</strong> will change the location of the RTM in the eTraveler
+    Database to TS6.</strong>'
+  NewLocation: TS6
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Expose Hardware to ESD and Contamination Hazard, Description: 'Follow these
+      steps prior to removing the hardware from its protective packaging:<ol><li>Set
+      up and verify the ESD Protective Area (EPA) is functioning and all fixtures
+      are grounded, then transport all required tools to the workstation.</li><li>Ensure
+      facemask is on.</li><li>Exchange gloves before handling the hardware.</li><li>ESD
+      wrist strap is worn and plugged in.</li></ol>', Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [SetHardwareLocation]
+  Version: next
+  OptionalInputs:
+  - {Description: Enter any additional comments., Units: '', InputSemantics: text,
+    Label: Optional Comment}
+  - {Description: Upload a photograph., Units: '', InputSemantics: filepath, Label: Optional Photograph 1}
+  - {Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Description: Upload a video., Units: '', InputSemantics: filepath, Label: Optional Video 1}
+  - {Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: '', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Insert RTM and Prepare for Connectivity Test
+  Name: SR-RTM-INT-01_Insert_RTM
+  Description: '<h3><u>Insert the RTM into the TS7-Cryostat</u></h3>Follow these steps
+    to insert and secure the RTM into the cryostat:<ol><li>Locate the RTM in place
+    on the scissor lift.</li><li>Place the scissor lift and RTM in the desired location,
+    then set the scissor lift to the lowest height.</li><li>Lock the scissor lift
+    wheels.</li><li>Place the Alum-a-Lift in the desired location, then set the cryostat
+    at the desired working height and angle.</li><li>Lock the the Alum-a-Lift wheels.</li><li>Verify
+    alignment.</li><li>Lower attachment rods with the hand wheel and lift the RTM
+    with the scissor lift to insert the insertions rods into the RTM REC.</li><li>Detach
+    the RTM from the scissor lift, then lower the scissor lift to suspend the RTM
+    by the insertion rods.</li><li></li><li><strong><span style=''color: rgb(255,150,0);''>Caution<span
+    style=''color: rgb(0,0,0);''>: When raising the RTM, do not exert excessive force
+    onto the RTM as it contacts the TS7-Cryostat attachment scheme.</strong><br>Lift
+    RTM into place using a combination of the raising the RTM with the insertion rods
+    and hand wheel and lowering the cryostat with the Alum-a-Lift.</li><li>Attach
+    the 12 screws in the coldplat into the RTM REC.</li><li>Verify RTM is secure.</li><li>Attach
+    the REB Thermal Straps to the cryoplate.</li><li>Remove the insertion rods from
+    the RTM REC.</li><li>Lower the cryostat with the Alum-a-Lift and raise the Rod
+    Plate with the hand wheel to allow room to remove the Alum-a-Lift. If necessary,
+    the insertion rods may be removed.</li></ol><h3><u>Prepare for Connectivity Test</u></h3>Follow
+    these steps:<ol><li>Place the Alum-a-Lift in the desired location, then set the
+    cryostat at the desired working height and angle.</li><li>Lock the Alum-a-Lift
+    wheels.</li><li>Electrical connections.</li><li>Verify the cryostat RTDs are being
+    read by the CryoCon.</li><li>Verify the cryostat heaters resistances is XX-YY
+    Ohm.</li></ol>'
+  MaxIteration: '1'
+  Version: next
+  OptionalInputs:
+  - {Description: Enter any additional comments., Units: '', InputSemantics: text,
+    Label: Optional Comment}
+  - {Description: Upload a photograph., Units: '', InputSemantics: filepath, Label: Optional Photograph 1}
+  - {Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Description: Upload a video., Units: '', InputSemantics: filepath, Label: Optional Video 1}
+  - {Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: '', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: 'Job Harness: Perform Connectivity Check with TS7-Cryostat'
+  Name: Connectivity_Job_Name_Before
+  Description: '<h3><u>Prepare for the Connectivity Check</u></h3>Follow theses step
+    to set up for the Connectivity Check after installation:<ol><li>Verify the following
+    connections are disconnected:<ul><li>Cryostat from the REB Power Supply</li><li>REB
+    power cabling from the REB Power Supply</li><li>5 V power supply from the LVDS
+    PCB</li><li>Fiber link from the cryostat </li></ul></li><li>Prior to connecting
+    the REB Power Supply to the 48 V power supply, turn ON the 48 V power supply to
+    verify the voltage output is 48 V.</li><li>Turn OFF the 48 V power supply, then
+    connect the REB power cabling to the REB Power Supply.</li><li>Turn ON the 48
+    V power supply to confirm the voltage output remains at 48 V.</li><li>Turn OFF
+    the 48 V power supply, then connect the REB power cabling to the cryostat.</li><li>Prior
+    to connecting the LVDS PCB to the 5 V power supply, turn ON the 5 V power supply
+    to verify the voltage output is 5 V and the current output is XX A.</li><li>Connect
+    the LVDS PCB to the 5 V power supply.</li><li>Connect the fiber link to the cryostat.</li><li>Connect
+    the thermal and XED cabling to the cryostat.</li><li>Turn ON the 48 V power supply
+    and the 5 V power supply.</li></ol><h3><u>Execute the Connectivity Check</u></h3>Execute
+    the Job Harness. Executing this Job Harness will automatically:<ul><li>Create
+    the appropriate directories on the TS6 Computer, then download the approved scripts
+    from the GIT Hub repository.</li><li>Turn ON and OFF the RTM.</li><li>Verify electrical
+    continuity.</li><li>Verify functionality of RTDs, heaters of the RTM and cryostat.</li><li>Verify
+    functionality of the XEDs.</li><li>Verify the integrity of the RTM performance
+    using acquisition and analysis scripts for bias, 55Fe, and flat images.</li><li>Persist
+    data and results to the eTraveler Database and archive the data products and analysis
+    products to the LSST-CAMERA Data Catalog.</li><li>Provide a test report with PASS/FAIL
+    criteria.</li></ul>Depending on the results of the Connectivity Check:<ul><li>If
+    the acceptance criteria is met, continue this traveler to install the RTM into
+    the cryostat.</li><li>If the acceptance criteria is not met, contact the Technical
+    Authority and Subsystem Manager.</li></ul><strong><span style=''color: rgb(0,0,255);''>Note<span
+    style=''color: rgb(0,0,0);''>: This step may be retried 5 times.</strong>'
+  MaxIteration: '5'
+  Version: next
+  OptionalInputs:
+  - {Description: Enter any additional comments., Units: '', InputSemantics: text,
+    Label: Optional Comment}
+  - {Description: Upload a photograph., Units: '', InputSemantics: filepath, Label: Optional Photograph 1}
+  - {Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Description: Upload a video., Units: '', InputSemantics: filepath, Label: Optional Video 1}
+  - {Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: '', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Prepare Cryostat for Vacuum and Transport for Next Activity
+  Name: SR-RTM-INT-01_Prepare_Vacuum_and_Transport
+  Description: '<h3><u>Prepare Cryostat for Vacuum and Transport</u></h3>Follow these
+    steps to prepare the cryostat for vacuum:<ol><li>Turn OFF the 48 V and 5 V power
+    supplies.</li><li>Disconnect the following connections:<ul><li>Cryostat from the
+    REB Power Supply</li><li>REB power cabling from the REB Power Supply</li><li>5
+    V power supply from the LVDS PCB</li><li>Cryostat from the thermal and XED cabling</li><li>Fiber
+    link from the cryostat</li></ul></li><li>Place the Alum-a-Lift in the desire location,
+    then set the cryostat at the desired working height with the back cover facing
+    upwards.</li><li><strong><span style=''color: rgb(255,150,0);''>Caution<span style=''color:
+    rgb(0,0,0);''>: Avoid touching the surface interfaces between the cover and cryostat.</strong><br>Secure
+    the back cover onto the cryostat.</li><li>Rotate the cryostat with the Alum-a-Lift
+    to have the front cover facing upwards.</li><li>Remove the 4 screws from the MF08-Cover,
+    then remove the MF08-Cover to expose the sensors.</li><li><strong><span style=''color:
+    rgb(255,150,0);''>Caution<span style=''color: rgb(0,0,0);''>: Avoid touching the
+    glass or the surface interfaces between the cover and cryostat.</strong><br>Place
+    the front cover onto the cryostat.</li><li>Secure the front cover.</li><li>If
+    removed, reconnect the vacuum hose between the turbo pump and roughing pump.</li></ol><h3><u>Transport
+    for Next Activity</u></h3>Follow these steps to transport the RTM in the cryostat:<ol><li>Ensure
+    there is an unobstructed path to the next location.</li><li>Unlock the Alum-a-Lift
+    wheels.</li><li>Transport the cryostat to the next location and ensure the new
+    location is recorded in the eTraveler Database.</li></ol><strong><span style=''color:
+    rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: A different traveler
+    will be used for the next activity. The traveler should include:<ul><li>changing
+    the location of the hardware in the eTraveler Database,</li><li>removing the cryostat
+    from the Alum-a-Lift, and,</li><li>relevant vacuum and cooling.</li></ul></strong>'
+  MaxIteration: '1'
+  Version: next
+  OptionalInputs:
+  - {Description: Enter any additional comments., Units: '', InputSemantics: text,
+    Label: Optional Comment}
+  - {Description: Upload a photograph., Units: '', InputSemantics: filepath, Label: Optional Photograph 1}
+  - {Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Description: Upload a video., Units: '', InputSemantics: filepath, Label: Optional Video 1}
+  - {Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: '', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Transport Cryostat for RTM Removal
+  Name: SR-RTM-INT-01_Transport_for_Removal
+  Description: '<h3><u>Transport the TS7-Cryostat to TS6</u></h3>Follow these steps
+    to transport the cryostat to TS6:<ol><li>Prepare the Nitrogen Backfill line for
+    turning off the turbo pump.</li><li><strong><span style=''color: rgb(255,0,0);''>Warning<span
+    style=''color: rgb(0,0,0);''>: Do not move the cryostat while the turbo pump is
+    spinning.</strong><br>CLOSE the vacuum valve.</li><li>Turn OFF the turbo pump
+    and roughing pump.</li><li>OPEN the injection valve.</li><li>Using the Nitrogen
+    Backfill line, OPEN the turbo pump vent valve to wind down the turbo pump.</li><li>After
+    it is fully spun down, CLOSE the turbo pump vent valve.</li><li>Attach the Nitrogen
+    Backfill line to the bleed valve.</li><li>Ensure the injection valve is OPEN,
+    then OPEN the bleed valve.</li><li>Wait for the cryostat to reach at least 760
+    Torr, then CLOSE the bleed valve.</li><li><strong><span style=''color: rgb(255,150,0);''>Caution<span
+    style=''color: rgb(0,0,0);''>: Open vacuum connections must be covered with new
+    vacuum foil.</strong><br>CLOSE the injection valve, then remove the Nitrogen Backfill
+    line from the cryostat.</li><li>Disconnect the following connections:<ul><li>Cryostat
+    from the REB Power Supply</li><li>REB power cabling from the REB Power Supply</li><li>5
+    V power supply from the LVDS PCB</li><li>Cryostat from the thermal and XED cabling</li><li>Fiber
+    link from the cryostat</li></ul></li><li>Ensure there is an unobstructed path
+    to TS6.</li><li>Transport the cryostat to TS6.</li></ol><strong><span style=''color:
+    rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: Clicking <strong>Complete
+    Step</strong> will change the location of the RTM in the eTraveler Database to
+    TS6.</strong>'
+  NewLocation: TS6
+  MaxIteration: '5'
+  Prerequisites:
+  - {Name: Pause Traveler for Later Use, Description: '<strong><span style=''color:
+      rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: The remainder of this
+      traveler is used for removing the RTM from the cryostat.</strong><br>Follow
+      these steps when arriving at this step:<ol><li>Click <strong>Pause Traveler</strong>
+      prior to starting this step.</li><li>When returning to this traveler to remove
+      the RTM, click <strong>Resume Traveler</strong>, then click <strong>Done</strong>
+      to continue this traveler.</li></ol>', Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Cryostat Ready for Removal, Description: '<strong><span style=''color:
+      rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: The previous activity
+      should:<ul><li>Place the cryostat in an electrically safe state,</li><li>leave
+      the turbo pump running, and,</li><li>have all cryostat equipment warmed to room
+      temperature.</ul></strong>Verify the following before beginning this step:<ul><li>Ensure
+      all hardware in the cryostat is above 15 degC.</li><li>All RTM electronics are
+      OFF</li><li>The 48 V power supply and 5 V power supply are OFF.</li></ul>',
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [SetHardwareLocation]
+  Version: next
+  OptionalInputs:
+  - {Description: Enter any additional comments., Units: '', InputSemantics: text,
+    Label: Optional Comment}
+  - {Description: Upload a photograph., Units: '', InputSemantics: filepath, Label: Optional Photograph 1}
+  - {Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Description: Upload a video., Units: '', InputSemantics: filepath, Label: Optional Video 1}
+  - {Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: '', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Prepare Workstation for Removal
+  Name: SR-INT-01_Prepare_Removal
+  Description: '<h3><u>Prepare the RTM Insertion Fixture</u></h3>Follow these steps
+    to prepare the RTM Insertion Fixture for installation:<ol><li>Verify the following
+    components will not inhibit use, cause hazardous conditions (contamination, ESD
+    or physical instability) or damage the hardware:<ul><li>Insertion Rods</li><li>Frame</li><li>Rod
+    Plate</li><li>Hand Wheel</li></ul></li><li>Set the Rod Plate to the correct orientation.</li><li>Rotate
+    the hand wheel until the Rod Plate is at its highest point.</li><li>Place the
+    scissor lift in the desired location, then set the scissor lift to the lowest
+    height.</li><li>Lock the scissor lift wheels.</li></ol><h3><u>Prepare the TS7-Cryostat
+    and RTM</u></h3>Follow these steps to prepare the cryostat for removal:<ol><li>Position
+    the cryostat to attach it to the Alum-a-Lift.</li><li><strong><span style=''color:
+    rgb(0,0,255);''><u>Note</u><span style=''color: rgb(0,0,0);''>: Open vacuum connections
+    must be covered with new vacuum foil.</strong><br>If necessary, remove the vacuum
+    hose connection from the turbo pump.</li><li>Secure the cryostat onto the Alum-a-Lift.</li><li>Place
+    the Alum-a-Lift in the desired location, then set the cryostat at the desired
+    working height with the front cover facing upwards.</li><li>Lock the the Alum-a-Lift
+    wheels.</li><li>Place new non-linting wipes for protecting the cryostat cover
+    from contamination.</li><li><strong><span style=''color: rgb(255,150,0);''>Caution<span
+    style=''color: rgb(0,0,0);''>: Avoid touching the glass or the surface interfaces
+    between the cover and cryostat.</strong><br>Remove the cryostat front cover and
+    place the outer face down onto a non-linting wipe. Cover the window of the inner
+    face with another new non-linting wipe to protect it from contamination.</li><li>Place
+    the MF08-Cover onto MF08 to cover the sensors, then secure the MF08-Cover with
+    the 4 screws.</li><li>Rotate the cryostat with the Alum-a-Lift to have the back
+    cover facing upwards.</li><li><strong><span style=''color: rgb(255,150,0);''>Caution<span
+    style=''color: rgb(0,0,0);''>: Avoid touching the the surface interfaces between
+    the cover and cryostat.</strong>Remove the cryostat back cover and place the outer
+    face down onto a non-linting wipe.</li><li>Cover the inner face with another new
+    non-linting wipe to protect it from contamination.</li><li>Remove electrical connections.</li></ol>'
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Expose Hardware to ESD and Contamination Hazard, Description: 'Follow these
+      steps prior to removing the cryostat covers:<ol><li>Set up and verify the ESD
+      Protective Area (EPA) is functioning and all fixtures are grounded, then transport
+      all required tools to the workstation.</li><li>Ensure facemask is on.</li><li>Exchange
+      gloves before handling the hardware.</li><li>ESD wrist strap is worn and plugged
+      in.</li></ol>', Quantity: '1', PrerequisiteType: PREPARATION}
+  Version: next
+  OptionalInputs:
+  - {Description: Enter any additional comments., Units: '', InputSemantics: text,
+    Label: Optional Comment}
+  - {Description: Upload a photograph., Units: '', InputSemantics: filepath, Label: Optional Photograph 1}
+  - {Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Description: Upload a video., Units: '', InputSemantics: filepath, Label: Optional Video 1}
+  - {Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: '', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Remove RTM
+  Name: SR-RTM-INT-01_Removal
+  Description: '<h3><u>Remove RTM</u></h3>Follow these steps to remove the RTM from
+    the cryostat:<ol><li>Place the Alum-a-Lift in the desired location, then set the
+    cryostat at the desired working height with the front cover facing downwards.</li><li>Lock
+    the Alum-a-Lift wheels.</li><li>Verify alignment.</li><li>Remove the REB Thermal
+    Strap connection to the cryoplate.</li><li>Lower attachment rods with the hand
+    wheel and lift the RTM with the Alum-a-Lift to insert the insertions rods into
+    the RTM REC.</li><li>Remove the 12 screws securing the RTM REC to the coldplate</li><li>Lower
+    the RTM from the cryostat using a combination of lowering the RTM with the insertion
+    rods and raising the cryostat with the Alum-a-Lift.</li><li><strong><span style=''color:
+    rgb(255,150,0);''>Caution<span style=''color: rgb(0,0,0);''>: When lowering the
+    RTM, do not exert excessive force onto the RTM as it contacts the scissor lift.</strong><br>Lower
+    the RTM to the scissor lift, then secure it.</li><li>Remove the insertion rods
+    from the RTM REC, then raise the Rod Plate away from the RTM. If necessary, the
+    insertion rods may be removed.</li><li>Remove the cryostat on the Alum-a-Lift.</li><h3><u>Store
+    Cryostat and RTM Insertion Fixture</u></h3>Follow these steps to store the cryostat
+    and RTM Insertion Fixture after use:<ol><li>Place the Alum-a-Lift in the desired
+    location, then set the cryostat at the desired working height with the front cover
+    facing upwards.</li><li>Lock the Alum-a-Lift wheels.</li><li><strong><span style=''color:
+    rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: The O-ring should not
+    be degraded (brittle, broken, etc.) and should properly seat.</strong><br>Visually
+    inspect the O-ring and replace it if necessary.</li><li><strong><span style=''color:
+    rgb(255,150,0);''>Caution<span style=''color: rgb(0,0,0);''>: Avoid touching the
+    glass or the surface interfaces between the cover and cryostat.</strong><br>Place
+    and secure the front cover onto the cryostat.</li><li>Rotate the cryostat with
+    the Alum-a-Lift to have the back cover facing upwards.</li><li><strong><span style=''color:
+    rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: The O-ring should not
+    be degraded (brittle, broken, etc.) and should properly seat.</strong><br>Visually
+    inspect the O-ring and replace it if necessary.</li><li><strong><span style=''color:
+    rgb(255,150,0);''>Caution<span style=''color: rgb(0,0,0);''>: Avoid touching the
+    surface interfaces between the cover and cryostat.</strong><br>Place and secure
+    the back cover onto the cryostat.</li><li>Place the cryostat onto the CryoCart,
+    then remove the cryostat from the Alum-a-Lift.</li><li>Reconnect the vacuum hose
+    between the turbo pump and roughing pump.</li><li>Store the cryostat and Alum-a-Lift.</li></ol>'
+  MaxIteration: '1'
+  Version: next
+  OptionalInputs:
+  - {Description: Enter any additional comments., Units: '', InputSemantics: text,
+    Label: Optional Comment}
+  - {Description: Upload a photograph., Units: '', InputSemantics: filepath, Label: Optional Photograph 1}
+  - {Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Description: Upload a video., Units: '', InputSemantics: filepath, Label: Optional Video 1}
+  - {Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: '', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: 'Job Harness: Perform Connectivity Check with RTM'
+  Name: Connectivity_Job_Name_After
+  Description: '<h3><u>Prepare for Connectivity Check</u></h3>Follow these step to
+    set up for the Connectivity Check after removal:<ol><li>Ensure the following connections
+    are disconnected:<ul><li>RTM from the REB Power Supply</li><li>REB power cabling
+    from the REB Power Supply</li><li>5 V power supply from the LVDS PCB</li><li>Fiber
+    link from the RTM</li></ul></li><li>Prior to connecting the REB Power Supply to
+    the 48 V power supply, turn ON the 48 V power supply to verify the voltage output
+    is 48 V.</li><li>Turn OFF the 48 V power supply, then connect the REB power cabling
+    to the REB Power Supply.</li><li>Turn ON the 48 V power supply to confirm the
+    voltage output remains at 48 V.</li><li>Turn OFF the 48 V power supply, then connect
+    the REB power cabling to the RTM.</li><li>Prior to connecting the LVDS PCB to
+    the 5 V power supply, turn ON the 5 V power supply to verify the voltage output
+    is 5 V and the current output is XX A.</li><li>Connect the LVDS PCB to the 5 V
+    power supply.</li><li>Connect the fiber link to the RTM.</li><li>Turn ON the 48
+    V power supply and the 5 V power supply.</li></ol><h3><u>Execute the Connectivity
+    Check</u></h3>Execute the Job Harness. Executing this Job Harness will automatically:<ul><li>Create
+    the appropriate directories on the TS6 Computer, then download the approved scripts
+    from the GIT Hub repository.</li><li>Turn ON and OFF the RTM.</li><li>Verify electrical
+    continuity.</li><li>Verify functionality of RTDs, heaters of the RTM.</li><li>Verify
+    the integrity of the RTM performance using acquisition and analysis scripts for
+    bias and flat images.</li><li>Persist data and results to the eTraveler Database
+    and archive the data products and analysis products to the LSST-CAMERA Data Catalog.</li><li>Provide
+    a test report with PASS/FAIL criteria.</li></ul></ul>Depending on the results
+    of the Connectivity Check:<ul><li>If the acceptance criteria is met, continue
+    this traveler to install the RTM into the cryostat.</li><li>If the acceptance
+    criteria is not met, contact the Technical Authority and Subsystem Manager.</li></ul><strong><span
+    style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: This step
+    may be retried 5 times.</strong>'
+  MaxIteration: '5'
+  Version: next
+  OptionalInputs:
+  - {Description: Enter any additional comments., Units: '', InputSemantics: text,
+    Label: Optional Comment}
+  - {Description: Upload a photograph., Units: '', InputSemantics: filepath, Label: Optional Photograph 1}
+  - {Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Description: Upload a video., Units: '', InputSemantics: filepath, Label: Optional Video 1}
+  - {Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: '', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Store RTM
+  Name: SR-RTM-INT-01_Store_RTM
+  Description: <h3><u>Store the RTM</u></h3>Follow these steps to store the RTM:<ol><li>Turn OFF the 48 V and 5 V power supplies.</li><li>Disconnect the following connections:<ul><li>RTM from the REB Power Supply</li><li>REB power cabling from the REB Power Supply</li><li>5 V power supply from the LVDS PCB</li><li>Fiber link from the RTM</li></ul></li><li>Place and secure the cover over the RTM.</li><li>Transport the RTM to the storage location. Specify the new location below.</li><li>After clicking <strong>Complete Step</strong> on this step, you will be returned to the SR-RTM-INT-01 Header and are required to click <strong>Complete Step</strong> once again to finalize the traveler.</li></ol>
+  NewLocation: (?)
+  MaxIteration: '1'
+  TravelerActions: [SetHardwareLocation]
+  Version: next
+  OptionalInputs:
+  - {Description: Enter any additional comments., Units: '', InputSemantics: text,
+    Label: Optional Comment}
+  - {Description: Upload a photograph., Units: '', InputSemantics: filepath, Label: Optional Photograph 1}
+  - {Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Description: Upload a video., Units: '', InputSemantics: filepath, Label: Optional Video 1}
+  - {Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: '', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+Version: next
+PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]

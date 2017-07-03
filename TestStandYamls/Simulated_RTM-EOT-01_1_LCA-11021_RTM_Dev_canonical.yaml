@@ -1,0 +1,285 @@
+ShortDescription: Simulated_RTM-EOT-01 Simulated TS8 RTM EO testing
+Name: Simulated_RTM-EOT-01
+Subsystem: SR
+Description: Simulated TS8 RTM testing
+HardwareGroup: LCA-11021_RTM
+MaxIteration: '1'
+Prerequisites:
+- {Name: Notice of Acknowledgement, Description: '<b>By clicking "Done" you indicate
+    you</b><ul><li>are permitted to exercise this traveler,</li><li>previewed and
+    understand all steps beforehand,</li><li>will fulfill all prerequisites as presented,
+    </li><li>will follow all instructions as presented, and</li><li>ensure due diligence
+    is used at each step.</li></ul><br><br>Before starting, review all steps within
+    this traveler.  Contact your supervisor or subsystem manager with any concerns
+    or for additional clarification.', Quantity: '1', PrerequisiteType: PREPARATION}
+Sequence:
+- ShortDescription: run all acquisition and analysis scripts
+  Name: run_ts8_simulated_scripts
+  Description: This harnessed job will automatically:<ul><li>run all of the harnessed jobs that compose the full set of offline electro-optical analyses</li><li>create a test report
+  MaxIteration: '25'
+  Prerequisites:
+  - {Name: Instructions, Description: 'To begin the automated execution of the full
+      offline E/O analysis scripts, click the "Done" button, then click the lcatr-launcher
+      button instead of "Start Step".', Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [Automatable]
+  Sequence:
+  - ShortDescription: fe55_raft_acq_sim
+    Name: fe55_raft_acq_sim
+    Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: dark_raft_acq_sim
+    Name: dark_raft_acq_sim
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: flat_pair_raft_acq_sim
+    Name: flat_pair_raft_acq_sim
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: ppump_raft_acq_sim
+    Name: ppump_raft_acq_sim
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: sflat_raft_acq_sim
+    Name: sflat_raft_acq_sim
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: qe_raft_acq_sim
+    Name: qe_raft_acq_sim
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: qa_plots_raft
+    Name: qa_plots_raft
+    Description: Quality assurance plots
+    MaxIteration: '5'
+    Prerequisites:
+    - {Name: fe55_raft_acq_sim, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_raft_acq_sim, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: flat_pair_raft_acq_sim, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: ppump_raft_acq_sim, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: sflat_raft_acq_sim, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: qe_raft_acq_sim, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: fe55_raft_analysis
+    Name: fe55_raft_analysis
+    Description: 55Fe analysis for system gain and PSF size
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: fe55_raft_acq_sim, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: read_noise_raft
+    Name: read_noise_raft
+    Description: CCD Read Noise
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: fe55_raft_acq_sim, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: bright_defects_raft
+    Name: bright_defects_raft
+    Description: Bright defects from darks
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: dark_raft_acq_sim, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: dark_defects_raft
+    Name: dark_defects_raft
+    Description: Dark defects from superflat data
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: bright_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: sflat_raft_acq_sim, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: traps_raft
+    Name: traps_raft
+    Description: Charge traps from pocket pumping data
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: ppump_raft_acq_sim, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: dark_current_raft
+    Name: dark_current_raft
+    Description: dark current
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: dark_raft_acq_sim, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: cte_raft
+    Name: cte_raft
+    Description: Parallel and serial charge transfer efficiencies
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: sflat_raft_acq_sim, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: flat_pairs_raft_analysis
+    Name: flat_pairs_raft_analysis
+    Description: Non-linearity and blooming full well from flat pair data
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: flat_pair_raft_acq_sim, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: ptc_raft
+    Name: ptc_raft
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: flat_pair_raft_acq_sim, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: qe_raft_analysis
+    Name: qe_raft_analysis
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: qe_raft_acq_sim, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: collect_raft_results
+    Name: collect_raft_results
+    MaxIteration: '3'
+    Prerequisites:
+    - {Name: fe55_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: read_noise_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: bright_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_defects_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: traps_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: dark_current_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: cte_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: flat_pairs_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: ptc_raft, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: qe_raft_analysis, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: qe_raft_acq_sim, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+Version: next
+PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]

@@ -1,0 +1,939 @@
+ShortDescription: SR-RTM-GAIN-STABILITY
+Name: SR-RTM-GAIN-STABILITY
+Subsystem: SR
+Description: <img src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/LSST-logo.png height=100 width=250><br>Welcome to the RTM ELECTRO-OPTICAL TEST GAIN STABILITY traveler for a Raft Tower Module (RTM), or Science Raft (SR).<br><br>This traveler will record the electro-optical performance of an RTM. The activities and testing are performed at a previously selected TS8 workstation in the <a  href='https://ls.st/lca-11706' >Science Raft Assembly and Test Cleanroom Facility at Brookhaven National Laboratory</a>.<br>Work performed includes:<ul><li>Verifying the readiness of the TS8 workstation, including the TS7-Cryostat</li><li>Preparing the RTM for testing, including venting and cooling</li><li>Executing electro-optical acquisition and analyses scripts</li><li>Prepare the cryostat for removing from TS8 after testing</li></ul>
+HardwareGroup: LCA-11021_RTM
+MaxIteration: '1'
+Sequence:
+
+
+
+
+- ShortDescription: 'Run Gain Stability Sets'
+  Name: gain_stability_sets
+  Description: Gain Stability Sets - top sequence
+  MaxIteration: '5'
+  InstructionsURL: https://confluence.slac.stanford.edu/display/LSSTCAM/Using+CCS+for+TS8+at+BNL
+  TravelerActions: [Automatable]
+  Sequence:
+
+    OD/RD grid, Version A protocol: 
+    26/14, 26/13.5, 26/13, 26/12.5, 26/12
+    25.5/14, 25.5/13.5, 25.5/13, 25.5/12.5, 25.5/12
+    25/14, 25/13.5, 25/13, 25/12.5, 25/12
+    24.5/14, 24.5/13.5, 24.5/13, 24.5/12.5, 24.5/12
+    24/14, 24/13.5, 24/13, 24/12.5, 24/12
+
+  - ShortDescription: 'Job Harness: Set OD 26V'
+    Name: run_ts8_scripts_26
+    Description: Set _26 - fe55_raft_acq + fe55_raft_analysis
+    MaxIteration: '3'
+    InstructionsURL: https://confluence.slac.stanford.edu/display/LSSTCAM/Using+CCS+for+TS8+at+BNL
+    TravelerActions: [Automatable]
+    Sequence:
+    - ShortDescription: 55Fe Acquisition_1_1
+      Name: fe55_raft_acq_1_1
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_1_1
+      Name: fe55_raft_analysis_1_1
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_1_1, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_1_2
+      Name: fe55_raft_acq_1_2
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_1_2
+      Name: fe55_raft_analysis_1_2
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_1_2, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_1_3
+      Name: fe55_raft_acq_1_3
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_1_3
+      Name: fe55_raft_analysis_1_3
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_1_3, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_1_4
+      Name: fe55_raft_acq_1_4
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_1_4
+      Name: fe55_raft_analysis_1_4
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_1_4, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_1_5
+      Name: fe55_raft_acq_1_5
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_1_5
+      Name: fe55_raft_analysis_1_5
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_1_5, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_1_6
+      Name: fe55_raft_acq_1_6
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_1_6
+      Name: fe55_raft_analysis_1_6
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_1_6, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_1_7
+      Name: fe55_raft_acq_1_7
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_1_7
+      Name: fe55_raft_analysis_1_7
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_1_7, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_1_8
+      Name: fe55_raft_acq_1_8
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_1_8
+      Name: fe55_raft_analysis_1_8
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_1_8, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_1_9
+      Name: fe55_raft_acq_1_9
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_1_9
+      Name: fe55_raft_analysis_1_9
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_1_9, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_1_10
+      Name: fe55_raft_acq_1_10
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_1_10
+      Name: fe55_raft_analysis_1_10
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_1_10, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: pressure_check_1_
+      Name: pressure_check_1_
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+
+
+
+  - ShortDescription: 'Job Harness: Set 2'
+    Name: run_ts8_scripts_2
+    Description: Set _2 - fe55_raft_acq + fe55_raft_analysis
+    MaxIteration: '3'
+    InstructionsURL: https://confluence.slac.stanford.edu/display/LSSTCAM/Using+CCS+for+TS8+at+BNL
+    TravelerActions: [Automatable]
+    Sequence:
+    - ShortDescription: 55Fe Acquisition_2_1
+      Name: fe55_raft_acq_2_1
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_2_1
+      Name: fe55_raft_analysis_2_1
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_2_1, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_2_2
+      Name: fe55_raft_acq_2_2
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_2_2
+      Name: fe55_raft_analysis_2_2
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_2_2, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_2_3
+      Name: fe55_raft_acq_2_3
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_2_3
+      Name: fe55_raft_analysis_2_3
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_2_3, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_2_4
+      Name: fe55_raft_acq_2_4
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_2_4
+      Name: fe55_raft_analysis_2_4
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_2_4, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_2_5
+      Name: fe55_raft_acq_2_5
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_2_5
+      Name: fe55_raft_analysis_2_5
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_2_5, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_2_6
+      Name: fe55_raft_acq_2_6
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_2_6
+      Name: fe55_raft_analysis_2_6
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_2_6, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_2_7
+      Name: fe55_raft_acq_2_7
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_2_7
+      Name: fe55_raft_analysis_2_7
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_2_7, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_2_8
+      Name: fe55_raft_acq_2_8
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_2_8
+      Name: fe55_raft_analysis_2_8
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_2_8, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_2_9
+      Name: fe55_raft_acq_2_9
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_2_9
+      Name: fe55_raft_analysis_2_9
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_2_9, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_2_10
+      Name: fe55_raft_acq_2_10
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_2_10
+      Name: fe55_raft_analysis_2_10
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_2_10, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: pressure_check_2_
+      Name: pressure_check_2_
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+
+
+
+
+  - ShortDescription: 'Job Harness: Set 3'
+    Name: run_ts8_scripts_3
+    Description: Set _3 - fe55_raft_acq + fe55_raft_analysis
+    MaxIteration: '3'
+    InstructionsURL: https://confluence.slac.stanford.edu/display/LSSTCAM/Using+CCS+for+TS8+at+BNL
+    TravelerActions: [Automatable]
+    Sequence:
+    - ShortDescription: 55Fe Acquisition_3_1
+      Name: fe55_raft_acq_3_1
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_3_1
+      Name: fe55_raft_analysis_3_1
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_3_1, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_3_2
+      Name: fe55_raft_acq_3_2
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_3_2
+      Name: fe55_raft_analysis_3_2
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_3_2, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_3_3
+      Name: fe55_raft_acq_3_3
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_3_3
+      Name: fe55_raft_analysis_3_3
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_3_3, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_3_4
+      Name: fe55_raft_acq_3_4
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_3_4
+      Name: fe55_raft_analysis_3_4
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_3_4, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_3_5
+      Name: fe55_raft_acq_3_5
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_3_5
+      Name: fe55_raft_analysis_3_5
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_3_5, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_3_6
+      Name: fe55_raft_acq_3_6
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_3_6
+      Name: fe55_raft_analysis_3_6
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_3_6, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_3_7
+      Name: fe55_raft_acq_3_7
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_3_7
+      Name: fe55_raft_analysis_3_7
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_3_7, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_3_8
+      Name: fe55_raft_acq_3_8
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_3_8
+      Name: fe55_raft_analysis_3_8
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_3_8, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_3_9
+      Name: fe55_raft_acq_3_9
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_3_9
+      Name: fe55_raft_analysis_3_9
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_3_9, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_3_10
+      Name: fe55_raft_acq_3_10
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_3_10
+      Name: fe55_raft_analysis_3_10
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_3_10, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: pressure_check_3_
+      Name: pressure_check_3_
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+
+
+
+
+  - ShortDescription: 'Job Harness: Set 4'
+    Name: run_ts8_scripts_4
+    Description: Set _4 - fe55_raft_acq + fe55_raft_analysis
+    MaxIteration: '3'
+    InstructionsURL: https://confluence.slac.stanford.edu/display/LSSTCAM/Using+CCS+for+TS8+at+BNL
+    TravelerActions: [Automatable]
+    Sequence:
+    - ShortDescription: 55Fe Acquisition_4_1
+      Name: fe55_raft_acq_4_1
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_4_1
+      Name: fe55_raft_analysis_4_1
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_4_1, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_4_2
+      Name: fe55_raft_acq_4_2
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_4_2
+      Name: fe55_raft_analysis_4_2
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_4_2, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_4_3
+      Name: fe55_raft_acq_4_3
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_4_3
+      Name: fe55_raft_analysis_4_3
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_4_3, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_4_4
+      Name: fe55_raft_acq_4_4
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_4_4
+      Name: fe55_raft_analysis_4_4
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_4_4, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_4_5
+      Name: fe55_raft_acq_4_5
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_4_5
+      Name: fe55_raft_analysis_4_5
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_4_5, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_4_6
+      Name: fe55_raft_acq_4_6
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_4_6
+      Name: fe55_raft_analysis_4_6
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_4_6, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_4_7
+      Name: fe55_raft_acq_4_7
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_4_7
+      Name: fe55_raft_analysis_4_7
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_4_7, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_4_8
+      Name: fe55_raft_acq_4_8
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_4_8
+      Name: fe55_raft_analysis_4_8
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_4_8, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_4_9
+      Name: fe55_raft_acq_4_9
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_4_9
+      Name: fe55_raft_analysis_4_9
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_4_9, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: 55Fe Acquisition_4_10
+      Name: fe55_raft_acq_4_10
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+    - ShortDescription: 55Fe Analysis_4_10
+      Name: fe55_raft_analysis_4_10
+      Description: 55Fe analysis for system gain and PSF size
+      MaxIteration: '5'
+      Prerequisites:
+      - {Name: fe55_raft_acq_4_10, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+        UserVersionString: v0}
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+    - ShortDescription: pressure_check_4_
+      Name: pressure_check_4_
+      Description: <br><b>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</b><br>
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+
+
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+
+
+
+
+
+
+
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+
+- ShortDescription: Warm TS7-2 Cryostat
+  Name: warmup_acq
+  Description: <h3><u>Warm the TS7-Cryostat and RTM</u></h3>After the approval to warm the RTM, Execute this Job Harness to turn off the RTM and PolyColds to bring the RTM to room temperature. The vacuum pump will remain on afterwards. Notify a trained operator that the RTM will soon be ready to be removed from the TS7-Cryostat.
+  MaxIteration: '3'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- RequiredInputs:
+  - {Description: Enter the name of the Technical Authority who defined the disposition,
+    Units: '', InputSemantics: string, Label: Technical Authority Approval}
+  ShortDescription: Determine Disposition
+  Name: judge_rtm
+  Description: 'A Technical Authority must determine the final disposition of the
+    electro-optical properties of the RTM. Download the test report from the Data
+    Catalog. Based on the findings of the test report: <ul><li>Click Complete if the
+    RTM meets all specifications. After doing so you will be returned to the SR-RTM-EOT-03
+    Header and are required to hit Complete once again to finalize the Traveler.<br></li><li>Click
+    Stop Work if any specifications are not met. Give a detailed description of the
+    problem(s) and contact the Sub-system Manager.</li></ul>'
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+Version: next
+PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]

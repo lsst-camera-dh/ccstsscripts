@@ -1,0 +1,88 @@
+ShortDescription: SR-TS5-01 METROLOGY TRAVELER FOR RSA IN TS7-1 SCANNING AT TS5
+Name: SR-TS5-01
+Subsystem: SR
+Description: Welcome to the METROLOGY TRAVELER FOR RSA IN TS7-1 SCANNING AT TS5.<br><br>This eTraveler will recordflatness and the absolute height of an RTM at BNL. This work is performed at TS5 in the Science Raft Assembly and Test Cleanroom Facility at Brookhaven National Laboratory. <br>Work performed includes:<ul><li>Flatness measurements using the TS5 setup</li><li>Absolute Height Measurements using the TS5 setup</li></ul><br><br></ul>
+HardwareGroup: LCA-Raft_1
+MaxIteration: '1'
+Sequence:
+#RTM_acq
+#baseplate_acq
+#ccd00_acq
+#ccd01_acq
+#ccd02_acq
+#ccd10_acq
+#ccd11_acq
+#ccd12_acq
+#ccd20_acq
+#ccd21_acq
+#ccd22_acq
+#Cold_Measurement/
+#Cooling_Measurement-1/
+#Cooling_Measurement-2/
+#Keyence_Calibration/
+#Pump_and_Room_Temp_Measurement/
+#Room_Temp_Measurement_After_Thermal_Cycle/
+
+- ShortDescription: SR-TS5-01 Start Suite of Automated Scans
+  Name: start_scans 
+  Description: Click on the launcher button to start the scans.
+  MaxIteration: '1'
+  TravelerActions: [Automatable]
+  Sequence:
+  - ShortDescription: 'run Keyence_Calibration scan'
+    Name: Keyence_Calibration
+    Description: Execute the TS5 metrology scan for the Keyence_Calibration
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: 'run Pump_and_Room_Temp_Measurement scan'
+    Name: Pump_and_Room_Temp_Measurement
+    Description: Execute the TS5 metrology scan for Pump_and_Room_Temp_Measurement
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: 'run Cooling_Measurement-1 scan'
+    Name: Cooling_Measurement-1
+    Description: Execute the TS5 metrology scan for Cooling_Measurement-1
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: 'run Cooling_Measurement-2 scan'
+    Name: Cooling_Measurement-2
+    Description: Execute the TS5 metrology scan for Cooling_Measurement-2
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: 'run Cold_Measurement scan'
+    Name: Cold_Measurement
+    Description: Execute the TS5 metrology scan for Cold_Measurement
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+#
+  - ShortDescription: 'run Room_Temp_Measurement_After_Thermal_Cycle scan'
+    Name: Room_Temp_Measurement_After_Thermal_Cycle
+    Description: Execute the TS5 metrology scan for Room_Temp_Measurement_After_Thermal_Cycle
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+- ShortDescription: Review and determine the disposition of the Metrology Measurement
+  Name: Flatness_AbsZ_Measurement_disposition
+  Description: A Technical Authority must determine the final disposition of the sensor flatness and absolute height. Based on the findings of the In-Jig dimensional metrology measurements:<br><ul><li>Click Complete if the sensor meets all specifications.<br><br></li><li>Click Stop Work if any specifications are not met. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [supervisor, approver, admin]
+Version: next
+PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]

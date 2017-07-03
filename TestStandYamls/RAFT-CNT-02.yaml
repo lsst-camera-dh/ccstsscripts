@@ -1,0 +1,146 @@
+Name: RAFT-CNT-02
+ShortDescription: RAFT-CNT-02 - RAFT Continuity Test
+Description: Welcome to the RAFT continuity traveler for verifying the functionality of the REBs and their connection to any sensors that may be connected. The LSST TS8 DAQ system and CCS software is used for this purpose. The following steps will guide the operator through the RAFT continuity testing which includes execution of the RAFT power and functionality tests as documented in LCA-10064, the ingest of the results and declaration of the disposition of the RAFT. Be aware that if the REBs are already on, they will be first brought down to an unpowered state before starting to turn on voltages. It is the responsibility of the operator to have set the correct target voltages depending on the sensor type. No HV bias will be applied. If other test results are desired to be recorded for this hardware, use RAFT-CNT-01 after having completed this traveler.
+HardwareGroup: LCA-Raft_1
+MaxIteration: '1'
+Version: next
+Sequence:
+- Name: RAFT_Test_SUITE
+  ShortDescription: Execute RAFT Conectivity Tests
+  Description: Click the launcher button or copy/paste the lcatr-iterator command below into a terminal window to start the tests. Clicking Start Step will put you in a mode of running each step manually.
+  MaxIteration: '1'
+  Version: next
+  TravelerActions: [Automatable]
+  Sequence:
+  - Name: connectivity0
+    ShortDescription: REB0 safe powering PS + front biases + clocks 
+    Description:  '<ul>
+  <li> Apply digital 5V power. If power supply reaches its overcurrent limit, abort the test.</li>
+  <li> Measure current consumption on 5V supply at the P/S and record the value.</li>
+   <li> Read the voltage and current consumption measured by the VP5 LTC2945 current monitor on the RAFT, record the value and compare to the current measured at the P/S.</li>
+   <li> Apply the analog power supply voltages (VP15_UNREG, VN15_UNREG, VP7_UNREG, VP40_UNREG) to the RAFT in the correct sequence (check with Rick for sequence and voltage values). Abort the test if any supply hits it overcurrent limit. Readback voltages and current consumption at the P/S and at the RAFT LTC2945 sensors.</li> </ul>'
+    MaxIteration: '3'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: connectivity1
+    ShortDescription: REB1 safe powering PS + front biases + clocks 
+    Description:  '<ul>
+  <li> Apply digital 5V power. If power supply reaches its overcurrent limit, abort the test.</li>
+  <li> Measure current consumption on 5V supply at the P/S and record the value.</li>
+   <li> Read the voltage and current consumption measured by the VP5 LTC2945 current monitor on the RAFT, record the value and compare to the current measured at the P/S.</li>
+   <li> Apply the analog power supply voltages (VP15_UNREG, VN15_UNREG, VP7_UNREG, VP40_UNREG) to the RAFT in the correct sequence (check with Rick for sequence and voltage values). Abort the test if any supply hits it overcurrent limit. Readback voltages and current consumption at the P/S and at the RAFT LTC2945 sensors.</li> </ul>'
+    MaxIteration: '3'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: connectivity2
+    ShortDescription: REB2 safe powering PS + front biases + clocks 
+    Description:  '<ul>
+  <li> Apply digital 5V power. If power supply reaches its overcurrent limit, abort the test.</li>
+  <li> Measure current consumption on 5V supply at the P/S and record the value.</li>
+   <li> Read the voltage and current consumption measured by the VP5 LTC2945 current monitor on the RAFT, record the value and compare to the current measured at the P/S.</li>
+   <li> Apply the analog power supply voltages (VP15_UNREG, VN15_UNREG, VP7_UNREG, VP40_UNREG) to the RAFT in the correct sequence (check with Rick for sequence and voltage values). Abort the test if any supply hits it overcurrent limit. Readback voltages and current consumption at the P/S and at the RAFT LTC2945 sensors.</li> </ul>'
+    MaxIteration: '3'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+#  - Name: rebalive_handshake
+#    ShortDescription: handshake check
+#    Description:  '<ul>
+#  <li>3. Verify data link integrity.</li>
+#  <li>4. Read 1-wire ID chip and record the value.</li>
+#  <li>5. Read and record the RAFT firmware version.</li>
+#  </ul>'
+#    MaxIteration: '3'
+#    TravelerActions: [HarnessedJob]
+#    Version: next
+#    UserVersionString: v0
+#  - Name: rebalive_current_precheck
+#    ShortDescription: current precheck
+#    Description:  '<ul>
+#  <li>6. Read the voltage and current consumption measured by the VP5 LTC2945 current monitor on the RAFT, record the value and compare to the current measured at the P/S.</li>
+#  <li>7. Apply the analog power supply voltages (VP15_UNREG, VN15_UNREG, VP7_UNREG, VP40_UNREG) to the RAFT in the correct sequence (check with Rick for sequence and voltage values). Abort the test if any supply hits it overcurrent limit. Readback voltages and current consumption at the P/S and at the RAFT LTC2945 sensors.</li> </ul>'
+#    MaxIteration: '3'
+#    TravelerActions: [HarnessedJob]
+#    Version: next
+#    UserVersionString: v0
+#  - Name: rebalive_current_dacsloaded
+#    ShortDescription: current check after dacs loaded
+#    Description:  '<ul>
+#  <li>8. Verify that all currents are within the expected range </li>
+#  <li>9. Record the value of the currents on each supply, both at the P/S and by the RAFT.</li>
+#  </ul>'
+#    MaxIteration: '3'
+#    TravelerActions: [HarnessedJob]
+#    Version: next
+#    UserVersionString: v0
+  - Name: rebalive_temperatures
+    ShortDescription: temperature check
+    Description:  '<ul>
+  <li>10. Readback the temperatures measured by each of the ADT7420 sensors on the RAFT.</li>
+  <li>11. Apply the CCD bias voltages and set the CCD clock rails (to E2V levels).</li>
+  <li>12. Re-check supply currents and verify they do not exceed expected values.</li>
+  <li>13. Configure the ASPICs to standard gain and RC time constant, and leave the inputs in clamped state.</li>
+  </ul>'
+    MaxIteration: '3'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - Name: rebalive_exposure
+    ShortDescription: exposure
+    Description:  '<ul>
+  <li>14. Execute bias and flat exposures and readout sequence. Record total exposure+acquisition time.</li>
+  </ul>'
+    MaxIteration: '3'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+#- Name: display_images
+#  ShortDescription: display images from the exposures
+#  Description:  '<ul>
+#<li>15. Display the resulting bias image on the user console (three 2 x 8 image segments in correct geometry, with overscans, greyscale or color mapped). Stop the timer when the last image is displayed and record the time interval.</li>
+#<li>16. Provide user interactivity on the image display: select region of interest and display mean and standard deviation of readings; display horizontal/vertical graphs at user-selected row/columns; allow user to select scale limits.</li>
+#<li>17. Write FITS images files with header keywords to provide proper display in DS9. Also provide REB-specific metadata in FITS headers, including Board ID, Firmware version, Supply currents and voltages recorded at the RAFT, Board temperatures, Bias voltages and clock rail settings, ASPIC configuration, sequence definition.</li>
+#</ul>'
+#  MaxIteration: '3'
+#  TravelerActions: [HarnessedJob]
+#  Version: next
+#  UserVersionString: v0
+#  Prerequisites:
+#  - {Name: rebalive_exposure, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+#    UserVersionString: v0}
+
+#- Name: rebalive_report
+#  ShortDescription: Generate test report
+#  Description: '<ul>
+#<li>18. Generate aliveness test report including pass/fail outcome and recorded values of all the above tests.</li>
+#</ul>'
+#  MaxIteration: '3'
+#  TravelerActions: [HarnessedJob]
+#  Version: next
+#  UserVersionString: v0
+
+- RequiredInputs:
+  - {Description: '', Units: '', InputSemantics: string, Label: Remarks on the circumstances of the test}
+  Name: remarks_and_files
+  Description: 'Record notes concerning the circumstances of the test and extra files that should be archived along with this eTraveler activity. If directories or many files should be included, make a tar and upload the corresponding tar file.'
+  MaxIteration: '3'
+  Version: next
+  OptionalInputs:
+  - {Description: '', Units: '', InputSemantics: string, Label: Other remarks}
+  - {Description: '', Units: '', InputSemantics: filepath, Label: File1}
+  - {Description: '', Units: '', InputSemantics: filepath, Label: File2}
+  - {Description: '', Units: '', InputSemantics: filepath, Label: File3}
+  - {Description: '', Units: '', InputSemantics: filepath, Label: File4}
+  - {Description: '', Units: '', InputSemantics: filepath, Label: File5}
+- Name: continuity_test_conclusion
+  ShortDescription: 'Determine Disposition'
+  Description: 'Based on the results produced during the previous step, determine the disposition of the RAFT. Please comment on the results and then after Complete Step has been clicked, the new status of this REB can be selected.'
+  MaxIteration: '1'
+  Version: next
+  TravelerActions: [SetHardwareStatus, SetHardwareStatus]
+  NewStatus: (?)
+  RequiredInputs:
+  - {Description: '', Units: '', InputSemantics: string, Label: 'Comments'}
+

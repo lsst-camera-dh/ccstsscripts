@@ -1,0 +1,196 @@
+ShortDescription: SR-RSA-MET-07 RSA WARM-COLD METROLOGY
+Name: SR-RSA-MET-07
+Subsystem: SR
+Description: <img src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/LSST-logo.png height=100 width=250> <br>  Welcome to the RSA WARM-COLD METROLOGY traveler.  This traveler will measure the flatness on the RSA<span> while at room temperature and operating temperature. The assembly and testing is performed at TS5 in the <a  href='https://ls.st/lca-11706' >Science Raft Assembly and Test Cleanroom Facility at Brookhaven National Laboratory</a>. Work performed includes:<ul><li>RSA Cryostat Integration and Removal</li><li>Flatness Metrology using the Keyence machine</li></ul>
+HardwareGroup: LCA-10753_RSA
+MaxIteration: '1'
+Prerequisites:
+- {Name: Hazard Cautions, Description: 'Performed operations include the following
+    hazards:<ul><li>Physical Damage Hazard</li><li>Electro-static Discharge (ESD)
+    Hazard</li><li>Contamination Hazard</li><li>Heavy Object Movement Hazard</li></ul>',
+  Quantity: '1', PrerequisiteType: PREPARATION}
+- {Name: Equipment, Description: 'The following equipment must be available before
+    beginning this eTraveler:<ul><li>Non-linting Wipes and Cleaning Solution (70/30
+    Isopropyl and Distilled Water)</li><li>7 mm allen key</li><li>m2.5 allen key</li><li>Safety
+    shoes (potentially required)</li></ul>', Quantity: '1', PrerequisiteType: PREPARATION}
+- {Name: Notice of Acknowledgement, Description: 'Before starting, review all the
+    steps within this eTraveler and ensure the required equipment is available. Contact
+    your supervisor or Subsystem Manager for any concern or additional clarification.<br><br><strong>By
+    clicking Start Step you indicate you</strong>:<ul><li>are permitted to exercise
+    this eTraveler</li><li>previewed and understand all steps beforehand</li><li>will
+    fulfill all prerequisites, as presented</li><li>will follow all instructions,
+    as presented</li><li>ensure due diligence is used at each step.</li></ul>', Quantity: '1',
+  PrerequisiteType: PREPARATION}
+Sequence:
+- ShortDescription: Prepare Workstation and Install RSA
+  Name: Prepare_Workstation_and_Install_RSA
+  Description: <strong>Workstation and EPA (ESD Protective Area) Setup </strong><br><br>Follow these steps to set up the Laminar Flow Hood:<ol><li>Ensure the Laminar Flow Hood is ON. The Laminar Flow Hood must be on for at least 20 minutes before the RSA is exposed.</li><li>Check the Laminar Flow Hood for obstructions and/or malfunctions.</li><li>Ensure the Air Ionizer Bar at the Laminar Flow Hood is on.</li><li>Set up and verify the Laminar Flow Hood EPA is functioning.</li><li>Transport required tooling to the Laminar Flow Hood ESD Table Mat.</li><li>Ensure the TS5-Cryostat is attached to the Alum-a-Lift.</li><li>If necessary, remove the vacuum hose connection from the turbo pump, then cover the ends with vacuum foil.<br/></li><li><strong>The RSA must be carried with both hands, or on an ESD safe cart, at all times.</strong><br/>Transport the RSA to the Laminar Flow Hood.</li><li>Remove the RSA from the protective packaging.</li><li>Verify the LSST-CAMERA Serial Number and RSA ID match.  </li><li>Change the location of the RSA in the eTraveler database to Laminar Flow Hood by going to the RSA's Component Page.</li></ol><strong>Install RSA into the TS5-Cryostat (THIS SECTION WILL EVENTUALLY CONTAIN PICTURES)</strong><br><br>Follow these steps to install the RSA into the TS5-Cryostat:<ol><li>Place the cryostat is the desired location. </li><li>Lock the the Alum-a-Lift wheels.</li><li>Using the Alum-a-Lift, raise or lower the cryostat to the desired working height.</li><li>Using the Alum-a-Lift, rotate the cryostat so the front cover is facing upwards. A small angle from this position is permitted.<br/></li><li>Place a new non-linting wipe on a table surface before removing the front cover. </li><li><strong>Do not touch the glass window or the interfaces of the cover and TS5-Cryostat body.</strong><br/>Remove the cryostat front cover, then place it on the wipe with the glass facing upwards. Place a second non-linting wipe on the glass to protect it from contamination.<br/></li><li>Place the RSA onto the Kinematic Frame.</li><li>Attach the finger connections.</li><li><strong>Be careful not to bend or, in some way, catch the Thermal Straps on the surrounding internal structure or cryostat body.</strong><br/>Connect the Thermal Straps to the TS5 Conduction Ears by torquing the screws to 10 N-cm, starting with the center screw. Repeat this for all four Thermal Straps.<br/></li><li>Remove 3 of the screws from the MF08-Cover.</li><li>Loosen the last screw, then, without contacting the MF08-Frame, pivot the cover away from MF08 to expose the RSA.</li><li>Remove the final screw and MF08-Cover.</li><li>Secure the front cover.</li><li>Using the Alum-a-Lift, rotate the cryostat so the front and back covers are side-ways.</li><li>Place a non-linting wipe on a table surface before removing the front cover. The same wipe used for the front cover may be used. <br/></li><li><strong>Do not touch the interfaces of the cover and TS5-Cryostat body.</strong><br/>Remove the cryostat back cover, then place it on the wipe with the interface surface facing upwards. Place a second non-linting wipe onto the back cover.</li><li>Use the <strong>Wiring Section</strong> (below) to plug in the RSA heaters and RTDs.</li><li>After the RSA is wired through the cryostat, secure the back cover.<br/></li></ol><strong>Wire the RSA for TS5-Cryostat Testing<br/></strong><br>Follow these steps to wire the RSA for thermal control:<ol><li>Review the guides below.</li><li>Note pin1 position on cryostat cabling.</li><li>Note each RTD and heater on the RSA. Typically grouped such that 1 RTD and 1 Heater is on one of the sides, and all other clumped in middle.</li><li>Plug in the components in the following order; HTR0 (pin 1), RTD0, HTR1, RTD1, RTD2</li><li>When plugging the components into the cryostat cable, ensure the connectors are locked in place. Once the connectors are mated together, you can hear the lock to ensuring the connection was made.<br><br><img src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RSA-MET-07/SR-RSA-MET-07_GLENAIR_Connectors_v1.png height=300></li></ol><strong>Prepare the Cryostat at TS5</strong><ol><li>Unlock the Alum-a-Lift wheels.</li><li><strong>When moving the cryostat, be careful not to hit or dislodge the Polycold lines.</strong><br/>Move the Alum-a-Lift so the cryostat is over the table.<br/></li><li><strong>When lowering the cryostat, be careful not to damage the turbo pump.</strong><br/>Lower the cryostat onto the TS5 table such that it is seated onto the three locating plates.<br/></li><li>Detach the Alum-a-Lift from the cryostat.</li><li>Store the Alum-a-lift. Make sure to lock the wheels for safe storage.</li><li>Reattach the vacuum hose to the turbo pump.</li><li>Plug in the air-side cabling into the CryoCon, as shown below.<img src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RSA-MET-07/SR-RSA-MET-07_Heater_and_RTD_Connections_v1.png height=300><br/></li></ol>Clicking <strong>Complete Step</strong> will change the location of the RSA in the eTraveler Database to TS5.<br><br><u>Guide for Heater Assembly Locations</u><br><br><img src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RSA-ASY-02/SR-RSA-ASY-02_HeatLocation_v2.png height=300><br><br><u>Guide for RTD Assembly Locations</u><br><br><img src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RSA-ASY-02/SR-RSA-ASY-02_RTDLocation_v2.png height=300><br><br><u>Guide for In-situ (Blue) Cable</u><br><br>Picture of connectors which attach to RSA equipment, labeled with the RSA component which should be plugged in.<br><br><u>Guide for RSA in TS5-Cryostat</u><br><br>View of RSA through the back cover to show where the RTD/Heater connectors are.<br>
+  NewLocation: BNL TS5
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Expose RSA to ESD and Contamination Hazard, Description: 'Follow these
+      steps before opening the ESD bag containing the RSA enclosed in MF08:<ul><li>Exchange
+      gloves before sensor handling.</li><li>Ensure facemask is on.</li><li>ESD wrist
+      strap is worn and plugged in.</li><li>Sit or stand using the provided ESD-protective
+      furniture.</li></ul>', Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [SetHardwareLocation]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: 'JobHarness: Keyence Calibration'
+  Name: Keyence_Calibration
+  Description: This step will launch a Harnessed-job that will perform a calibration of the Keyence measurement instrument. If the calibration fails, do not proceed without permission from the technical authority.
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: TS5 Calibration, Description: Verify that the Aerotech and Keyence systems have been calibrated within the last 366 days.,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Optical Flat Calibration, Description: Verify the optical flat calibration has been performed within the last 180 days.,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Vacuum Equipment, Description: Ensure that all of the necessary vacuum equipment is properly connected to the TS5-Cryostat.,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [HarnessedJob]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- ShortDescription: Run all acquisition and analysis scripts
+  Name: run_all_scripts
+  Description: Begin the automated execution of all acquisition and analysis scripting by clicking the launcher button below. An acquisition step may be retried, but you must return to this step to get the lcatr-iterator command or to press on the lcatr-iterator button to repeat that step to continue with the remainder of the automated sequence.<br>
+  MaxIteration: '1'
+  TravelerActions: [Automatable]
+  Sequence:
+  - ShortDescription: 'JobHarness: Pump and Room Temp Measurement'
+    Name: Pump_and_Room_Temp_Measurement
+    Description: <strong>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</strong>
+    MaxIteration: '1'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: 'JobHarness: Room Temp Measurement Analysis'
+    Name: Room_Temp_Measurement_Analysis
+    Description: <strong>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</strong>
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: Pump_and_Room_Temp_Measurement, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: 'JobHarness: Cooling Measurement 1'
+    Name: Cooling_Measurement-1
+    Description: <strong>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</strong>
+    MaxIteration: '1'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: 'JobHarness: Cooling Measurement 1 Analysis'
+    Name: Cooling_Measurement-1_Analysis
+    Description: <strong>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</strong>
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: Cooling_Measurement-1, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: 'JobHarness: Cooling Measurement 2'
+    Name: Cooling_Measurement-2
+    Description: <strong>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</strong>
+    MaxIteration: '1'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: 'JobHarness: Cooling Measurement 2 Analysis'
+    Name: Cooling_Measurement-2_Analysis
+    Description: <strong>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</strong>
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: Cooling_Measurement-2, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: 'JobHarness: Cold Measurement'
+    Name: Cold_Measurement
+    Description: <strong>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</strong>
+    MaxIteration: '1'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: 'JobHarness: Cold Measurement Analysis'
+    Name: Cold_Measurement_Analysis
+    Description: <strong>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</strong>
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: Cold_Measurement, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: 'JobHarness: Room Temp Measurement After Thermal Cycle'
+    Name: Room_Temp_Measurement_After_Thermal_Cycle
+    Description: <strong>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</strong>
+    MaxIteration: '1'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  - ShortDescription: 'JobHarness: Room Temp Measurement After Thermal Cycle Analysis'
+    Name: Room_Temp_Measurement_After_Thermal_Cycle_Analysis
+    Description: <strong>If you have arrived at this step with the intention of running all the automated acquisition and analysis scripts, you have mistakenly clicked on the Start Step button in the previous step. Please use the column to the left to return to the previous step and click on the lcatr-launcher button.</strong>
+    MaxIteration: '1'
+    Prerequisites:
+    - {Name: Room_Temp_Measurement_After_Thermal_Cycle, Description: '', Quantity: '1',
+      PrerequisiteType: PROCESS_STEP, UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Remove and Store RSA
+  Name: Remove_and_Store_RSA
+  Description: '<strong>Workstation and EPA (ESD Protective Area) Setup </strong><br><br>Follow
+    these steps to set up the Laminar Flow Hood:<ol><li>Ensure the Laminar Flow Hood
+    is ON. The Laminar Flow Hood must be on for at least 20 minutes before the RSA
+    is exposed.</li><li>Check the Laminar Flow Hood for obstructions and/or malfunctions.</li><li>Ensure
+    the Air Ionizer Bar at the Laminar Flow Hood is on.</li><li>Set up and verify
+    the Laminar Flow Hood EPA is functioning.</li><li>Transport required tooling to
+    the Laminar Flow Hood ESD Table Mat.</li></ol> <strong><strong>Remove the RSA
+    from the TS5-Cryostat</strong></strong><br><br>Follow these steps to install the
+    RSA into the TS5-Cryostat:<ol><li>Ensure that the TS5-Cryostat is above 15C.</li><li>Turn
+    off the roughing pump, and then open the vacuum valve.</li><li>Wait for the pressure
+    to reach atmosphere.</li><li>Disconnect the roughing pump hose and the turbo pump
+    hose.</li><li>Attach the Alumalift.</li><li>Using the Alumalift, raise the TS5-Cryostat
+    to clear the turbo pump.Move the TS5-Cryostat out from the table far enough to
+    access the window, while keeping it as near to the table as reasonably possible.</li><li>Make
+    sure to lock the Alumalift wheels are locked before proceeding.</li><li>Remove
+    the back cover of the TS5-Cryostat.</li><li>Unplug the RSA.</li><li>Replace the
+    back cover of the TS5-Cryostat.</li><li>Remove the window of the TS5-Cryostat.</li><li>Rotate
+    the RSA so that it is facing up. An extra person may be needed to hold the RSA.</li><li>Carefully
+    remove the front cover.<br/></li><li>Install the MF08 Cover.</li><li>Disconnect
+    the Thermal Strap from the ears.</li><li>Remove the finger connection to the RSA.
+    Take care not to tip the RSA over.</li><li>Remove the RSA from the TS5-Cryostat.
+    Take care that the thermal straps do not catch on anything during this process.</li><li>Remove
+    the thermal strap ears from the RSA.</li><li>Colse the TS5-Cryostate window. </li></ol><strong>Store
+    the RSA</strong><br><br>Transfer the RSA to the long term storage cabinet. Specify
+    the location below.<br><br> '
+  NewLocation: (?)
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Expose RSA to ESD and Contamination Hazard, Description: 'Follow these
+      steps before handling the cryostat:<ul><li>Exchange gloves before sensor handling.</li><li>Ensure
+      facemask is on.</li><li>ESD wrist strap is worn and plugged in.</li><li>Sit
+      or stand using the provided ESD-protective furniture.</li></ul>', Quantity: '1',
+    PrerequisiteType: PREPARATION}
+  TravelerActions: [SetHardwareLocation]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+Version: next
+PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]

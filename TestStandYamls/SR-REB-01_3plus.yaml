@@ -1,0 +1,119 @@
+ShortDescription: SR-REB-VER-07 - TS-REB Functional Testing
+Name: SR-REB-VER-07
+Subsystem: SR
+Description: '<img src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/LSST-logo.png height=100 width=250><br>Welcome to the TS-REB traveler for a Raft Electronics Boards (REB), or Science Raft (SR).<br><br><strong>THIS PROCEDURE DOES A COMPLETE FUNCTIONAL TEST OF THE REB ASSEMBLY USING THE TS-REB TEST SET-UP.</strong> The activities and testing are performed at the TS-REB station in the Science Raft Assembly and Test Cleanroom Facility at Brookhaven National Laboratory.<br>The details of the procedure are:<br><ul>
+<li>RTA is moved to TS-REB bench
+    and connected to power supply and control computer</li> <li>5V power is applied
+    and 5V current is verified to be within acceptable limits</li> <li>Data link integrity
+    is verified</li> <li>Verify FPGA re-configuration  via link and JTAG/USB</li>
+    <li>7V power rail  is brought  up and  supply current is verified to be within
+    acceptable limits</li> <li>+/-15V rails brought  up and  supply current verified
+    to be within acceptable limits</li> <li>+40V rail is brought up and supply current
+    verified to be within acceptable limits.</li> <li>Heater power brought  up  and  preliminary
+    test for proper  operation</li> <li>SPI and I2C links on each stripe of the REB
+    are tested for integrity (write followed by read where possible)</li> <li>REB
+    Current/Voltage and Temperature monitors are exercised and data logged throughout
+    the following tests.</li> <li>ASPICs set to standard mode/gain/RC configuration</li>
+    <li>RTA  is connected to EMU board</li> <li>REB DC biases are programmed to ITL
+    levels</li> <li>REB multiplexer scans biases and verifies that commanded voltages
+    are produced</li> <li>EMU checks that all bias signals are received at correct
+    levels</li> <li>Proper functioning of the BSS cutoff switch is verified</li> <li>Clocks
+    are activated to ITL levels and 550kHz pixel rate</li> <li>Using comparator threshold
+    scan mode, EMU checks that clocks are received, have correct levels, sequence,
+    and durations</li> <li>Steps 14  18 are repeated for e2v levels</li> <li>Video
+    chain components are tested as follows:</li> <li>EMU issues pulse sequence: to
+    one channel at a time, simulating full frame readout including clears and overscan
+    rows/columns. Each digitized image frame is collected, displayed on operator terminal
+    for verification, and screenshot recorded:</li> <li>Zero signal (bias) and display
+    histograms</li> <li>checkerboard pattern, approx.. = full well, display image</li>
+    <li>vertical gradient pattern, zero scale to 110% of full well in 2000 steps,
+    display image</li> <li>single bright column at 90% full well, display image</li>
+    <li>EMU issues checkerboard pattern at 80% full well to all channels simultaneously</li>
+    <li>EMU issues vertical gradient pattern to all channels simultaneously</li> <li>EMU
+    issues flat field pattern at 100% full well to all channels simultaneously</li>
+    <li>Power and temperature profiles are verified to be within acceptable limits
+    for all test modes.</li> <li>REB excites the CCD temperature sensor current loop,
+    reads out the 4 resistor values, and verifies data returned is accurate.</li>
+    <li>REB sets heater power to maximum and EMU verifies that the specified maximum
+    makeup heat is delivered to the heater.</li> <li>Optionally, a temperature control
+    loop is exercised using the EMUs surrogate heater and temperature sensing elements.</li>
+    <li>REB is powered down using specified shutdown sequence </ul><br><br> Any failed
+    test is repeated up to 3 times. If failure persists the test sequence is aborted
+    and board is rejected.
+  <br><strong>By clicking Start Work you indicate you:</strong> <ul> <li>are permitted to exercise this traveler,</li> <li>previewed and understand all steps beforehand,</li> <li>will fulfill all prerequisites, as presented,</li> <li>will follow all instructions, as presented, and,</li> <li>ensure due diligence is used at each step.</li> </ul> </p><br>
+  <p> </p></p><p></p></div>'
+HardwareGroup: LCA-13574
+MaxIteration: '1'
+Sequence:
+- RequiredInputs:
+  - {Description: 'Verify that you are using a hairnet, face mask, an anti-static
+      wrist strap that is grounded properly, anti-static gloves, and an anti-static
+      jacket.<p>Done=true.</p>', Units: '', InputSemantics: boolean, Label: <strong>1)</strong> Take precautions to prevent contamination or damage to electronic parts<p> </p>}
+  - {Description: <p>Save the packaging for later inspection or use.</p><p>Done=true.</p>,
+    Units: '', InputSemantics: boolean, Label: <strong>2)</strong> Remove the REB assembly from its packaging and place it on the ESD mat}
+  - {Description: '<p>If the serial number does not match, stop the traveler and resolve
+      the issue.</p><p>Done=true.</p>', Units: '', InputSemantics: boolean, Label: <strong>3)</strong> Verify that the serial number labeled on the packaging matches the serial number of the REB assembly in this traveler}
+  - {Description: <p>Done=true.</p>, Units: '', InputSemantics: boolean, Label: <strong>4)</strong> Check that assembly power supplies are turned OFF}
+  - {Description: Done=true., Units: '', InputSemantics: boolean, Label: <strong>5)</strong> Connect the TS-REB interface cables}
+  - {Description: Done=true., Units: '', InputSemantics: boolean, Label: <strong>6)</strong> Get the TS-REB platform up and running}
+  - {Description: Done=true., Units: '', InputSemantics: boolean, Label: <strong>7)</strong> Connect the power supply cables to the assembly}
+  ShortDescription: SR-REB-VER-07 - Prepare the station
+  Name: SR-REB-VER-07-preparations
+  Description: <div class='panelContent'>Follow the prerequisites to prepare for the test at the TS-REB station.</div>
+  MaxIteration: '3'
+  Prerequisites:
+  - {Name: 'Equipment, supplies, and fixtures', Description: 'Confirm that you have
+      the required equipment, supplies, and fixtures available in the cleanroom.',
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  Version: next
+- ShortDescription: SR-REB-VER-07 - Load TS-REB Firmware
+  Name: flash_reb_firmware
+  Description: 'In this step, the TS-REB firmware will be loaded into flash memory on the REB.</strong></p></div>'
+  MaxIteration: '3'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- ShortDescription: SR-REB-VER-07 - Execute tests
+  Name: tsreb_exec
+  Description: Execute the ts reb test
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- ShortDescription: SR-REB-VER-07 - Upload results
+  Name: tsreb_upload
+  Description: Upload the results of the test.
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- RequiredInputs:
+  - {Description: Done=true., Units: '', InputSemantics: boolean, Label: <strong>2)</strong> Turn OFF assembly power supplies}
+  - {Description: <p>Done=true.</p>, Units: '', InputSemantics: boolean, Label: <strong>3) </strong>Disconnect REB assembly power and test interface cables}
+  - {Description: Done=true., Units: '', InputSemantics: boolean, Label: <strong>4)</strong> Put the REB assembly back in its packaging for transport or storage}
+  ShortDescription: SR-REB-VER-07 - Disconnect REB and Remove from Test Bench
+  Name: SR-REB-VER-07-disconnect_and_store
+  Description: ''
+  MaxIteration: '3'
+  Version: next
+  OptionalInputs:
+  - {Description: <p>Enter additional comments.</p><p> </p>, Units: '', InputSemantics: text,
+    Label: <strong>Optional Comment.</strong> Other comments}
+  - {Description: Upload photograph., Units: '', InputSemantics: filepath, Label: <strong>Optional Photo 1.</strong> Upload additional photo}
+  - {Description: Upload photograph., Units: '', InputSemantics: filepath, Label: <p><strong>Optional Photo 2.</strong> Upload additional photo</p><p>(Attach to an eLog entry if even more photos are required)</p>}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: SR-REB-VER-07 - Determine Disposition
+  Name: Determine_Disposition
+  Description: '<ul><li>Click Complete if the
+    REB meets all specifications. After doing so you will be returned to the SR-REB-VER-07
+    Header and are required to hit Complete once again to finalize the Traveler.<br></li><li>Click
+    Stop Work if any specifications are not met. Give a detailed description of the
+    problem(s) and contact the Sub-system Manager.</li></ul>'
+  MaxIteration: '3'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+Version: next
+PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]

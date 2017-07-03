@@ -1,0 +1,20 @@
+ShortDescription: RAFT-CNT-01 RTM Connectivity Check Data Catcher
+Name: RAFT-CNT-01
+Subsystem: Default
+Description: <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/raft-ready-flat1.jpg height="200" width="250"> <br> Welcome to the RAFT Connectivity Check Data Catcher TEST traveler for a RAFT.<br><br>This traveler will record the test outputs from connectivity checks of a RAFT at BNL. The work is performed at the TS6 workstation. <br> Work performed includes:<ul><li>Uploading the files from the connectivity check.</li>
+HardwareGroup: LCA-Raft_1
+MaxIteration: '1'
+Sequence:
+- ShortDescription: Data upload
+  Name: connectivity_data_catcher
+  Description: ""
+  MaxIteration: '5'
+  TravelerActions: [HarnessedJob]
+  Version: next
+  UserVersionString: v0
+- ShortDescription: End of the connectivity data catacher traveler
+  Name: catcher_done
+  Description: ""
+  MaxIteration: '1'
+  Version: next
+Version: next

@@ -1,0 +1,29 @@
+ShortDescription: SR-RSA-power test RSA/REB power determination
+Name: SR-RSA-power
+Subsystem: SR
+Description: This traveler is for acquiring the data needed for the RSA vs. REBs power analysis'
+HardwareGroup: LCA-11021_RTM
+MaxIteration: '1'
+Sequence:
+
+- ShortDescription: 'Run RSA power test step'
+  Name: RSA_power_test_steps
+  Description: ''
+  MaxIteration: '5'
+  TravelerActions: [Automatable]
+  Sequence:
+
+  - ShortDescription: RSA power test
+    Name: RSA_power_test
+    Description: 'Engage the REB thermal control loop with a setpoint such that the REB heaters are operating at 0W< Phtr < 0.5W
+    Perform 16s flat exposures with low flux or fe55 at a repeating 37-s cadence
+    record the heater power Phtr1 and measure the total power Ptot consumed by the REBs + RSA
+    turn off the clocks, frontside and backside biases and allow the control loop to settle
+    record the new heater power Phtr2'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  
+  
+Version: next

@@ -1,0 +1,109 @@
+ShortDescription: SR-REB-VER-04 - REB Functional Testing
+Name: SR-REB-VER-04
+Subsystem: SR
+Description: |-
+  <div class='panelContent'><p><strong>Note: This traveler assumes that you are:</strong>
+  <ul> <li>Equipped to prevent contamination per the LSST Camera Contamination Plan (LCA-279), including completion of Clean Room Safety and Protocols training.</li> <li>Equipped to prevent ESD damage per the LSST Camera Electrostatic Discharge Plan (LCA-10032), including completion of ESD training.</li> <li>Familiar with standard practices described in the following documents: <ul> <li>LCA-13599, Cleaning of Parts and Materials for Cleanroom Entry Protocol.</li> <li>LCA-13600, Gowning Procedure for IR-2 Cleanroom.</li> </ul> </li> </ul> <p>Before starting, review all steps within the traveler and ensure the required materials, equipment and/or reference documentation are available. Contact your supervisor or Subsystem Manager for any concern or additional clarification.<br/><br/>
+  <strong>By clicking 'Start Work' you indicate you:</strong> <ul> <li>are permitted to exercise this traveler,</li> <li>previewed and understand all steps beforehand,</li> <li>will fulfill all prerequisites, as presented,</li> <li>will follow all instructions, as presented, and,</li> <li>ensure due diligence is used at each step.</li> </ul> </p>
+  <p> </p></p><p><strong>NOTE: THIS PROCEDURE DOES A COMPLETE FUNCTIONAL TEST OF THE REB ASSEMBLY USING THE TS-REB TEST SET-UP.</strong></p></div>
+HardwareGroup: LCA-13574
+MaxIteration: '1'
+Sequence:
+- RequiredInputs:
+  - {Description: 'Verify that you are using a hairnet, face mask, an anti-static
+      wrist strap that is grounded properly, anti-static gloves, and an anti-static
+      jacket.<p>Done=true.</p>', Units: '', InputSemantics: boolean, Label: <strong>1)</strong> Take precautions to prevent contamination or damage to electronic parts<p> </p>}
+  - {Description: <p>Save the packaging for later inspection or use.</p><p>Done=true.</p>,
+    Units: '', InputSemantics: boolean, Label: <strong>2)</strong> Remove the REB assembly from its packaging and place it on the ESD mat}
+  - {Description: '<p>If the serial number does not match, stop the traveler and resolve
+      the issue.</p><p>Done=true.</p>', Units: '', InputSemantics: boolean, Label: <strong>3)</strong> Verify that the serial number labeled on the packaging matches the serial number of the REB assembly in this traveler}
+  - {Description: <p>Done=true.</p>, Units: '', InputSemantics: boolean, Label: <strong>4)</strong> Check that assembly power supplies are turned OFF}
+  - {Description: Done=true., Units: '', InputSemantics: boolean, Label: <strong>5)</strong> Connect the TS-REB interface cables}
+  - {Description: Done=true., Units: '', InputSemantics: boolean, Label: <strong>6)</strong> Get the TS-REB platform up and running}
+  - {Description: Done=true., Units: '', InputSemantics: boolean, Label: <strong>7)</strong> Connect the power supply cables to the assembly}
+  ShortDescription: SR-REB-VER-04 Step 1 - Set Up REB on Test Bench
+  Name: SR-REB-VER-04_step1
+  Description: <div class='panelContent'><h2 id='DraftSR-REB-VER-04Step1-SetUpREBonTestBench-EquipmentandSupplies'>Equipment and Supplies</h2><p>Equipment and supplies required for this step:</p><ul><li>ESD mat and wrist-strap.</li><li>Latex or nitrile gloves.</li><li>Hairnet and face mask.</li><li>TS-REB.</li><li>Digital camera (optional).</li></ul></div>
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Tailgate meeting, Description: Conduct a tailgate meeting with the responsible engineer to review the procedure and document hazards. Contact the safety officer to review the hazards and their mitigations.,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Cleanroom reservation, Description: Contact the cleanroom operations manager to request sole access to the cleanroom.,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Cleanroom attire, Description: Put on appropriate attire per your cleanroom requirements.,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: 'Equipment, supplies, and fixtures', Description: 'Confirm that you have
+      the required equipment, supplies, and fixtures available in the cleanroom.',
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Two Man Rule, Description: 'Confirm at least one other person can observe
+      you working, per the SLAC Two Man Rule.', Quantity: '1', PrerequisiteType: PREPARATION}
+  Version: next
+  OptionalInputs:
+  - {Description: <p>Enter additional comments.</p><p> </p>, Units: '', InputSemantics: text,
+    Label: <strong>Optional Comment.</strong> Other comments}
+  - {Description: Upload photograph., Units: '', InputSemantics: filepath, Label: <strong>Optional Photo 1.</strong> Upload additional photo}
+  - {Description: Upload photograph., Units: '', InputSemantics: filepath, Label: <p><strong>Optional Photo 2.</strong> Upload additional photo</p><p>(Attach to an eLog entry if even more photos are required)</p>}
+  - {Description: Upload video, Units: '', InputSemantics: filepath, Label: <strong>Optional Video 1.</strong> Upload additional video}
+  - {Description: Upload video, Units: '', InputSemantics: filepath, Label: <p><strong>Optional Video 2.</strong> Upload additional video</p><p>(Attach to an eLog entry if even more videos are required; 1 GB limit per file for eLog uploads)</p>}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: SR-REB-VER-04 Step 2 - Load TS-REB Firmware
+  Name: flash_reb_firmware_ver_04
+  Description: '<div class=''panelContent''><h2 id=''DraftSR-REB-VER-04Step2-LoadTS-REBFirmware-EquipmentandSupplies''>Equipment
+    and Supplies</h2><p>Equipment and supplies required for this step:</p><ul><li>ESD
+    mat and wrist-strap.</li><li>Latex or nitrile gloves.</li><li>Hairnet and face
+    mask.</li><li>TS-REB.</li><li>Digital camera (optional).</li></ul><p><strong>NOTE:
+    IN THIS STEP, YOU LOAD TS-REB FIRMWARE INTO FLASH MEMORY ON THE REB.</strong></p></div>'
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Tailgate meeting, Description: 'If necessary, review the procedure with
+      the responsible engineer and/or safety officer.', Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Two Man Rule, Description: 'Confirm at least one other person can observe
+      you working, per the SLAC Two Man Rule.', Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [HarnessedJob]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- ShortDescription: SR-REB-VER-04 Step 3 - Run TS-REB Scripts
+  Name: rebtest_ver_04
+  Description: '<div class=''panelContent''><h2 id=''DraftSR-REB-VER-04Step3-RunTS-REBScripts-EquipmentandSupplies''>Equipment
+    and Supplies</h2><p>Equipment and supplies required for this step:</p><ul><li>ESD
+    mat and wrist-strap.</li><li>Latex or nitrile gloves.</li><li>Hairnet and face
+    mask.</li><li>TS-REB.</li><li>Digital camera (optional).</li></ul><p><strong>NOTE:
+    IN THIS STEP, YOU EXECUTE THE TS-REB TEST SCRIPTS.</strong></p></div>'
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Tailgate meeting, Description: 'If necessary, review the procedure with
+      the responsible engineer and/or safety officer.', Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Two Man Rule, Description: 'Confirm at least one other person can observe
+      you working, per the SLAC Two Man Rule.', Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [HarnessedJob]
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- RequiredInputs:
+  - {Description: 'Verify that you are using a hairnet, face mask, an anti-static
+      wrist strap that is grounded properly, anti-static gloves, and an anti-static
+      jacket.<p>Done=true.</p>', Units: '', InputSemantics: boolean, Label: <strong>1)</strong> Take precautions to prevent contamination or damage to electronic parts<p> </p>}
+  - {Description: Done=true., Units: '', InputSemantics: boolean, Label: <strong>2)</strong> Turn OFF assembly power supplies}
+  - {Description: <p>Done=true.</p>, Units: '', InputSemantics: boolean, Label: <strong>3) </strong>Disconnect REB assembly power and test interface cables}
+  - {Description: Done=true., Units: '', InputSemantics: boolean, Label: <strong>4)</strong> Put the REB assembly back in its packaging for transport or storage}
+  ShortDescription: SR-REB-VER-04 Step 4 - Disconnect REB and Remove from Test Bench
+  Name: SR-REB-VER-04_step4
+  Description: <div class='panelContent'><h2 id='DraftSR-REB-VER-04Step4-DisconnectREBandRemovefromTestBench-EquipmentandSupplies'>Equipment and Supplies</h2><p>Equipment and supplies required for this step:</p><ul><li>ESD mat and wrist-strap.</li><li>Latex or nitrile gloves.</li><li>Hairnet and face mask.</li><li>TS-REB.</li><li>Digital camera (optional).</li></ul></div>
+  MaxIteration: '1'
+  Prerequisites:
+  - {Name: Tailgate meeting, Description: 'If necessary, review the procedure with
+      the responsible engineer and/or safety officer.', Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Two Man Rule, Description: 'Confirm at least one other person can observe
+      you working, per the SLAC Two Man Rule.', Quantity: '1', PrerequisiteType: PREPARATION}
+  Version: next
+  OptionalInputs:
+  - {Description: <p>Enter additional comments.</p><p> </p>, Units: '', InputSemantics: text,
+    Label: <strong>Optional Comment.</strong> Other comments}
+  - {Description: Upload photograph., Units: '', InputSemantics: filepath, Label: <strong>Optional Photo 1.</strong> Upload additional photo}
+  - {Description: Upload photograph., Units: '', InputSemantics: filepath, Label: <p><strong>Optional Photo 2.</strong> Upload additional photo</p><p>(Attach to an eLog entry if even more photos are required)</p>}
+  - {Description: Upload video, Units: '', InputSemantics: filepath, Label: <strong>Optional Video 1.</strong> Upload additional video}
+  - {Description: Upload video, Units: '', InputSemantics: filepath, Label: <p><strong>Optional Video 2.</strong> Upload additional video</p><p>(Attach to an eLog entry if even more videos are required; 1 GB limit per file for eLog uploads)</p>}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+Version: next
+PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
