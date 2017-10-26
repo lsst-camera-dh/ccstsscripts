@@ -70,13 +70,15 @@ Sequence:
   TravelerActions: [SetHardwareLocation]
   Version: next
   OptionalInputs:
-  - {Description: Enter any additional comments., Units: '', InputSemantics: text,
-    Label: Optional Comment}
-  - {Description: Upload a photograph., Units: '', InputSemantics: filepath, Label: Optional Photograph 1}
-  - {Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+  - {Name: Optional_Comment, Description: Enter any additional comments., Units: '',
+    InputSemantics: text, Label: Optional Comment}
+  - {Name: Optional_Photograph_1, Description: Upload a photograph., Units: '', InputSemantics: filepath,
+    Label: Optional Photograph 1}
+  - {Name: Optional_Photograph_2, Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
     Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
-  - {Description: Upload a video., Units: '', InputSemantics: filepath, Label: Optional Video 1}
-  - {Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+  - {Name: Optional_Video_1, Description: Upload a video., Units: '', InputSemantics: filepath,
+    Label: Optional Video 1}
+  - {Name: Optional_Video_2, Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
     Units: '', InputSemantics: filepath, Label: Optional Video 2}
   PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
 - ShortDescription: 'Job Harness: Prepare Workstation with Preflight Equipment Check'
@@ -107,6 +109,7 @@ Sequence:
   Version: next
   PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
   UserVersionString: v0
+  Jobname: preflight_acq
 - ShortDescription: Pump TS7-2 Cryostat
   Name: ts8_pump
   Description: '<h3><u>Prepare and Pump TS7-Cryostat</u></h3>Follow these steps to
@@ -125,6 +128,7 @@ Sequence:
   Version: next
   PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
   UserVersionString: v0
+  Jobname: ts8_pump
 - ShortDescription: Cool TS7-2 Cryostat
   Name: ts8_cool_down
   Description: '<h3><u>Cool the Cryostat</u></h3>Execute the Job Harness to start
@@ -139,6 +143,7 @@ Sequence:
   Version: next
   PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
   UserVersionString: v0
+  Jobname: ts8_cool_down
 - ShortDescription: TS8 readiness check
   Name: ready_acq
   Description: 'Use the launcher button (which will appear after clicking "Start Step")
@@ -163,17 +168,21 @@ Sequence:
   Version: next
   PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
   UserVersionString: v0
+  Jobname: ready_acq
 - RequiredInputs:
-  - {Description: '<img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/good-green-gui.png
+  - {Name: 'Is_the_HVBias_PS_channel_ON_and_the_HVBias_enabled,_the_VQM_off_or_its_automatic_On/Off_control_verified,_and_is_the_REB_thermal_control_of_the_RSA_active_and_set_to_-100C?_',
+    Description: '<img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/good-green-gui.png
       height="100" width="100">', Units: '', InputSemantics: string, Label: 'Is the
       HVBias PS channel ON and the HVBias enabled, the VQM off or its automatic On/Off
       control verified, and is the REB thermal control of the RSA active and set to
       -100C? '}
-  - {Description: 'good Fe55 image example - <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/fe55-ready-image2.png
+  - {Name: 'Are_there_indications_of_X-ray_hits_(small_clusters_of_pixels_-_NOT_just_single_pixels)_in_the_Fe55_image?',
+    Description: 'good Fe55 image example - <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/fe55-ready-image2.png
       height="100" width="120">', Units: '', InputSemantics: string, Label: 'Are there
       indications of X-ray hits (small clusters of pixels - NOT just single pixels)
       in the Fe55 image?'}
-  - {Description: 'good FLAT image example - <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/ready-flat1.png
+  - {Name: 'Does_the_FLAT_image_have_dark_bias_bands_around_it_and_if_one_zooms_out_to_the_full_9_CCD_mosaic,_does_one_see_that_all_144_segments_are_functioning?',
+    Description: 'good FLAT image example - <img src=http://www4.rcf.bnl.gov/~hneal/lsst/etrav-images/ready-flat1.png
       height="100" width="120">', Units: '', InputSemantics: string, Label: 'Does
       the FLAT image have dark bias bands around it and if one zooms out to the full
       9 CCD mosaic, does one see that all 144 segments are functioning?'}
@@ -211,6 +220,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: fe55_raft_acq
   - ShortDescription: 55Fe Analysis
     Name: fe55_raft_analysis
     Description: 55Fe analysis for system gain and PSF size
@@ -222,6 +232,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: fe55_raft_analysis
   - ShortDescription: Dark Acquisition
     Name: dark_raft_acq
     MaxIteration: '5'
@@ -229,6 +240,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: dark_raft_acq
   - ShortDescription: Flat Pair Acquisition
     Name: flat_pair_raft_acq
     MaxIteration: '5'
@@ -236,6 +248,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: flat_pair_raft_acq
   - ShortDescription: Pocket Pumping Acquisition
     Name: ppump_raft_acq
     MaxIteration: '5'
@@ -243,6 +256,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: ppump_raft_acq
   - ShortDescription: Super-Flat Acquisition
     Name: sflat_raft_acq
     MaxIteration: '5'
@@ -250,6 +264,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: sflat_raft_acq
   - ShortDescription: QE Acquisition
     Name: qe_raft_acq
     MaxIteration: '5'
@@ -257,6 +272,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: qe_raft_acq
   - ShortDescription: qa_plots_raft
     Name: qa_plots_raft
     Description: Quality assurance plots
@@ -278,6 +294,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: qa_plots_raft
   - ShortDescription: CCD Read Noise Analysis
     Name: read_noise_raft
     Description: CCD Read Noise
@@ -291,6 +308,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: read_noise_raft
   - ShortDescription: Bright Defects Analysis
     Name: bright_defects_raft
     Description: Bright defects from darks
@@ -304,6 +322,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: bright_defects_raft
   - ShortDescription: Dark Defects Analysis
     Name: dark_defects_raft
     Description: Dark defects from superflat data
@@ -319,6 +338,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: dark_defects_raft
   - ShortDescription: Traps Finding
     Name: traps_raft
     Description: Charge traps from pocket pumping data
@@ -336,6 +356,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: traps_raft
   - ShortDescription: Dark Current
     Name: dark_current_raft
     Description: dark current
@@ -355,6 +376,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: dark_current_raft
   - ShortDescription: Charge Transfer Efficiencies
     Name: cte_raft
     Description: Parallel and serial charge transfer efficiencies
@@ -374,6 +396,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: cte_raft
   - ShortDescription: Photo-response Analysis
     Name: prnu_raft
     Description: Photo-response non-uniformity
@@ -393,6 +416,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: prnu_raft
   - ShortDescription: Flat Pairs Analysis
     Name: flat_pairs_raft_analysis
     Description: Non-linearity and blooming full well from flat pair data
@@ -412,6 +436,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: flat_pairs_raft_analysis
   - ShortDescription: Photon Transfer Curve
     Name: ptc_raft
     MaxIteration: '3'
@@ -430,6 +455,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: ptc_raft
   - ShortDescription: Quantum Efficiency
     Name: qe_raft_analysis
     MaxIteration: '3'
@@ -448,6 +474,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: qe_raft_analysis
   - ShortDescription: collect_raft_results
     Name: collect_raft_results
     MaxIteration: '3'
@@ -478,6 +505,7 @@ Sequence:
     Version: next
     PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
     UserVersionString: v0
+    Jobname: collect_raft_results
   Version: next
   PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
 - ShortDescription: Warm TS7-2 Cryostat
@@ -488,8 +516,9 @@ Sequence:
   Version: next
   PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
   UserVersionString: v0
+  Jobname: warmup_acq
 - RequiredInputs:
-  - {Description: Enter the name of the Technical Authority who defined the disposition,
+  - {Name: Technical_Authority_Approval, Description: Enter the name of the Technical Authority who defined the disposition,
     Units: '', InputSemantics: string, Label: Technical Authority Approval}
   ShortDescription: Determine Disposition
   Name: judge_rtm
@@ -505,3 +534,4 @@ Sequence:
   PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
 Version: next
 PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+TravelerTypeLabels: ['Report:EO-Raft']

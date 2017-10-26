@@ -105,5 +105,35 @@ Sequence:
     Version: next
     UserVersionString: v0
   
+  - ShortDescription: analysis step
+    Name: augmented_thermal_analysis
+    MaxIteration: '10'
+    Prerequisites:
+    - {Name: RTM_thermal_low_t_minimum_power__10, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: RTM_thermal_REB_monitoring__11, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: REB_thermal_min_pwr_htr_0__20, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: REB_thermal_min_pwr_htr_0_stable__21, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: rebalive_power, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: REB_thermal_bias_htr_0__100, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: REB_thermal_stableafterbias__101, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: REB_thermal_readout15s_htr_0__102, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: REB_thermal_clear_htr_0__103, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: REB_thermal_biases_htr_0__104, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+    Jobname: augmented_thermal_analysis
+
   
 Version: next

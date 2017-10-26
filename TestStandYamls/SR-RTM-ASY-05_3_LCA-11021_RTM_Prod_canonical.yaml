@@ -1,0 +1,979 @@
+ShortDescription: SR-RTM-ASY-05 RTM ASSEMBLY
+Name: SR-RTM-ASY-05
+Subsystem: SR
+Description: '<img src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/LSST-logo.png
+  height=100 width=250><br>Welcome to the RTM ASSEMBLY traveler.<br><br>This traveler
+  will administrate the preparation, assembly and verification testing of the Raft
+  Tower Module (RTM). The assembly and testing is performed at TS6 in the <a href=https://ls.st/lca-11706>Science
+  Raft Assembly and Test Cleanroom Facility at Brookhaven National Laboratory</a>.<br>Work
+  performed is:<ol><li>Assigning components for RTM Assembly</li><li>Preparing and
+  verifying readiness for RTM Assembly</li><li>REB installation with Connectivity
+  Test</li><li>REB modularization (REB Sandwich)</li><li>Installing REC Assembly</li><li>Centering
+  REB Sandwich within REC Assembly</li><li>Installing Hold-down Assemblies</li><li>Installing
+  REB Thermal Strap Assemblies</li><li>Verify final RTM Assembly with Connectivity
+  Test</li></ol><strong><span style=''color: rgb(0,0,255);''>Note<span style=''color:
+  rgb(0,0,0);''>: Stycast activity is not performed in this traveler.</strong>'
+HardwareGroup: LCA-11021_RTM
+MaxIteration: '1'
+Sequence:
+- RequiredInputs:
+  - {Name: Assign_Hardware_Authorization, Description: 'Who confirmed the hardware
+      assignments were approved by the Subsystem Manager?', Units: ' ', InputSemantics: string,
+    Label: Assign Hardware Authorization}
+  ShortDescription: Hardware Relationship Setup
+  Name: SR-RTM-ASY-05_Assign_Hardware
+  Description: <h3><u>Assigning Hardware to the RTM</u></h3>Follow these steps to assign hardware to the RTM:<ol><li>Review the guide below specifying the hardware slots available.</li><li>Fill in the Relationship Table with the specific hardware to be installed.</li><li>Notify a technician hardware has been assigned and RTM Assembly may proceed.</li><li>Click <strong>Start Step</strong>, fill in the Results Table, then click <strong>Complete Step</strong> to allow the technician to begin RTM assembly.</li></ol><h3><u>Guide for REB Locations</u></h3><img height=550 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_RAFT_REB_Slots_v1.png>
+  MaxIteration: '1'
+  RelationshipTasks:
+  - {RelationshipName: RTM_contains_RSA, RelationshipSlot: ALL, RelationshipAction: assign}
+  - {RelationshipName: RTM_contains_REB5s, RelationshipSlot: ALL, RelationshipAction: assign}
+  - {RelationshipName: RTM_contains_REC, RelationshipSlot: ALL, RelationshipAction: assign}
+  - {RelationshipName: RTM_contains_Radiation-Shields, RelationshipSlot: ALL, RelationshipAction: assign}
+  - {RelationshipName: RTM_contains_Single-Arm, RelationshipSlot: ALL, RelationshipAction: assign}
+  - {RelationshipName: RTM_contains_Double-Arm, RelationshipSlot: ALL, RelationshipAction: assign}
+  - {RelationshipName: RTM_contains_Hold-down-Clips, RelationshipSlot: ALL, RelationshipAction: assign}
+  - {RelationshipName: RTM_contains_Hold-down-Pins, RelationshipSlot: ALL, RelationshipAction: assign}
+  - {RelationshipName: RTM_contains_M2-Wide-Nuts, RelationshipSlot: ALL, RelationshipAction: assign}
+  - {RelationshipName: RTM_contains_M3-Screws-for-REB-Thermal-Straps, RelationshipSlot: ALL,
+    RelationshipAction: assign}
+  - {RelationshipName: RTM_contains_M3-Screws-for-REC-to-RSA-Thermal-Straps, RelationshipSlot: ALL,
+    RelationshipAction: assign}
+  - {RelationshipName: RTM_contains_M4-Screws, RelationshipSlot: ALL, RelationshipAction: assign}
+  - {RelationshipName: RTM_contains_REB-Anchor-Studs, RelationshipSlot: ALL, RelationshipAction: assign}
+  - {RelationshipName: RTM_contains_REB-Clamp-Rods, RelationshipSlot: ALL, RelationshipAction: assign}
+  - {RelationshipName: RTM_contains_REB-Outer-Spacers, RelationshipSlot: ALL, RelationshipAction: assign}
+  - {RelationshipName: RTM_contains_REB-Separation-Spacers, RelationshipSlot: ALL,
+    RelationshipAction: assign}
+  - {RelationshipName: RTM_contains_REB-Thermal-Strap-Assemblies, RelationshipSlot: ALL,
+    RelationshipAction: assign}
+  - {RelationshipName: RTM_contains_REC-Bushings, RelationshipSlot: ALL, RelationshipAction: assign}
+  Prerequisites:
+  - {Name: Assign Hardware Authorization, Description: Authorization is required prior to hardware assignment and sensor insertion activities. Do not begin this section without authorization; contact the Subsystem Manager or your supervisor about any question or concern.,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  Version: next
+  OptionalInputs:
+  - {Name: Optional_Comment, Description: Enter any additional comments., Units: ' ',
+    InputSemantics: text, Label: Optional Comment}
+  - {Name: Optional_Photograph_1, Description: Upload a photograph., Units: ' ', InputSemantics: filepath,
+    Label: Optional Photograph 1}
+  - {Name: Optional_Photograph_2, Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: ' ', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Name: Optional_Video_1, Description: Upload a video., Units: ' ', InputSemantics: filepath,
+    Label: Optional Video 1}
+  - {Name: Optional_Video_2, Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: ' ', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Setup Workstation and Assembly then Install RSA
+  Name: SR-RTM-ASY-05_RSA_Setup_Assembly_Install
+  Description: '<h3><u>Prepare the Workstation and RTM Assembly Fixture</u></h3>Follow
+    these steps to prepare the workstation and RTM Assembly Fixture:<ol><li>Verify
+    the following components will not inhibit use, cause hazardous conditions (contamination,
+    ESD or physical instability) or damage the hardware:<ul><li>RTM Assembly Fixture</li><li>ESD
+    Brush</li></ul></li><li>Have at least two operators independently follow these
+    steps to verify the ESD Protective Area (EPA) is functioning and all fixtures
+    are grounded properly:<ul><li>Visually verify all ESD table mats are connected
+    to ground and the ESD monitoring equipment.</li><li>Visually verify all ESD floor
+    mats are connected to ground.</li><li>Visually verify all fixtures are connected
+    to ground and the ESD monitoring equipment (where applicable) using a stable connection.</li><li>Use
+    an Ohmmeter to verify all hard grounds measure less than 2 Ohm and all soft grounds
+    measure approximately 1 MOhm (no less than 500 kOhm).</li></ul></li><li>Transport
+    all required tools to the workstation.</li><li>Place (do not attach) the ADJUSTABLE_BASE_ASSEMBLY
+    on the working tabletop with the axis of the adjustment cylinder oriented vertically,
+    locating the base on the positioning pins in the tabletop. The handwheel must
+    be facing the front side (chamfered corner) of the table.</li><li>The CARRIER_ASSEMBLY
+    should already be assembled on the base with an orientation that places one spring
+    plunger to the left and the other spring plunger toward the back of the table.</li><li>Retract
+    the two spring plungers and lock by turning 90 degrees.</li></ol><h3><u>Prepare
+    RSA and REBs</u></h3><ol><li>Transport the hardware to TS6, then change their
+    location in the eTraveler database to TS6 by going to the Component Pages.</li><li>Follow
+    these steps prior to removing the hardware from its protective packaging:<ul><li>Ensure
+    facemask is on.</li><li>Exchange gloves before handling the hardware.</li><li>ESD
+    wrist strap is worn and plugged in.</li></ul></li><li>Remove the REBs from the
+    protective packaging one at a time to verify the assigned LSST-CAMERA Serial Number
+    in the Relationship Table of the next step matches each REBs LSST-CAMERA Serial
+    Number.</li><li><strong><span style=''color: rgb(255,150,0);''>Caution<span style=''color:
+    rgb(0,0,0);''>: The raft baseplate material is brittle. Be careful not to damage
+    the raft baseplate during handling.</strong><br>Transport the RSA to TS6, then
+    change its location in the eTraveler database to TS6 by going to the Component
+    Page.</li><li>Remove the RSA from the protective packaging to verify the assigned
+    LSST-CAMERA Serial Number in the Relationship Table matches the RSA LSST-CAMERA
+    Serial Number.</li><li>If required, reinstall the protective packaging so the
+    RSA is fully enclosed in MF08.</li></ol><h3><u>Install RSA into RTM Assembly Fixture</u></h3>Follow
+    these steps to prepare the RSA and install in into the RTM Assembly Fixture:<ol><li><strong><span
+    style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: The RSA
+    raft baseplate Y+ surface should be facing to the left, resulting in the RSA raft
+    baseplate chamfered corner to be aligned with the chamfered corner of the RTM
+    Assembly Fixture baseplate.</strong><br>Loosen the two L-brackets with spring
+    plungers on the carrier and rotate them 90 degrees counterclockwise, then install
+    the RSA (enclosed in MF08) into the carrier.<br><img height=400 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_RTMCarrier_v1.png></li><li>Refasten
+    the L-brackets such that the MF08-Frame must slide freely on the L-brackets. If
+    it does not, most likely MF08-Frame is twisted. To correct this, slightly loosen
+    its screws in each corner, recheck for free travel, and retighten the screws.</li><li>Carefully
+    unlock the spring plungers. Be certain the MF08-Frame is banked against the spring
+    plunger ends and the opposing socket head cap screws in the two orthogonal directions
+    after unlocking.</li><li>Center the RSA on the carrier by eye by adjusting the
+    socket head cap screws.</li><li>To hold the RSA Thermal Strap Assemblies out of
+    the way, place the loose ends of each of the RSA Thermal Straps Assemblies into
+    the support tooling at the front and back.</li><li>Attach the tip-over handles
+    to the base.</li><li>Tip the adjustable base assembly 90 degrees clockwise making
+    the handle horizontal. The hole and slot in the downward face of the base must
+    engage the positioning pins in the table.</li><li>Mount the base firmly to the
+    working tabletop by installing two 5/16-18 socket head cap screws through the
+    holes in the brackets on both sides of the base.</li></ol><strong><span style=''color:
+    rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: Clicking <strong>Complete
+    Step</strong> will:<ul><li>apply the installation action to the eTraveler database
+    and</li><li>change the location of the RTM in the eTraveler Database to TS6</li></ul></strong>'
+  NewLocation: TS6
+  MaxIteration: '1'
+  RelationshipTasks:
+  - {RelationshipName: RTM_contains_RSA, RelationshipSlot: ALL, RelationshipAction: install}
+  Prerequisites:
+  - {Name: Introduction and Notice of Acknowledgement, Description: 'Welcome to the
+      RSA/REB Installation, REB Modularization and Connectivity Verification section
+      of the RTM ASSEMBLY traveler. This section is for preparing TS6 and the RTM
+      Assembly Fixture in the <a href=docushare.lsstcorp.org/docushare/dsweb/Get/LCA-11706>Science
+      Raft Assembly and Test Cleanroom Facility at Brookhaven National Laboratory</a>.
+      The work is performed at TS6.<br><br>Before starting this section, review all
+      the steps and hazards within this section and ensure the required equipment
+      is available. Contact your supervisor or Subsystem Manager for any concern or
+      additional clarification.<br><strong>By clicking Start Step you indicate you</strong><ul><li>are
+      permitted to exercise this eTraveler,</li><li>previewed and understand all steps
+      beforehand,</li><li>will fulfill all prerequisites, as presented,</li><li>will
+      follow all instructions, as presented, and,</li><li>ensure due diligence is
+      used at each step.,</li></ul>', Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Hazard Cautions, Description: 'Performed operations include the following
+      hazards:<ul><li>ESD Hazard</li><li>Contamination Hazard</li><li>Physical Hazard</li><li>Heavy
+      Object Movement Hazard (Potential Hazard)</li></ul>', Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Equipment, Description: 'The following equipment must be available before
+      beginning this section:<ul><li>Non-linting Wipes and Cleaning Solution</li><li>RTM
+      Assembly Fixture</li><li>Torque Driver</li><li>Tweezers</li><li>Connectivity
+      Test Equipment</li><li>ESD Brush</li></ul>The previously assigned sub-components
+      must be available before beginning this section (may be in an assembly kit):<ul><li>RSA,
+      Qty 1</li><li>REB5s, Qty 3</li><li>LCA-11628 REB Separation Spacers, Qty 12</li><li>LCA-11702
+      Radiation Shields, Qty 2</li><li>LCA-13458 REB Clamp Rods, Qty 6, including
+      LCA-13536 REB Clamp Rod Kapton Sleeves, Qty 6</li><li>LCA-11629 REB Outer Spacers,
+      Qty 12</li><li>LCA-13463 M2 Wide Hex Nuts, Qty 12</li></ul>', Quantity: '1',
+    PrerequisiteType: PREPARATION}
+  - {Name: Torque Driver Calibration, Description: Verify the Torque Driver has been calibrated within the last 366 days.,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  TravelerActions: [SetHardwareLocation]
+  Version: next
+  OptionalInputs:
+  - {Name: Optional_Comment, Description: Enter any additional comments., Units: ' ',
+    InputSemantics: text, Label: Optional Comment}
+  - {Name: Optional_Photograph_1, Description: Upload a photograph., Units: ' ', InputSemantics: filepath,
+    Label: Optional Photograph 1}
+  - {Name: Optional_Photograph_2, Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: ' ', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Name: Optional_Video_1, Description: Upload a video., Units: ' ', InputSemantics: filepath,
+    Label: Optional Video 1}
+  - {Name: Optional_Video_2, Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: ' ', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: REB Installation
+  Name: SR-RTM-ASY-05_REB_Installation
+  Description: '<h3><u>Install and Connect REBs</h3></u>Follow these steps to install
+    and connect the REBs:<ol><li>Review the guide below specifying the hardware slots
+    available.</li><li>Verify the REB Separation Spacers have the assigned LSST-CAMERA
+    Serial Number in the Relationship Table.</li><li>Note the locations for the given
+    REBs in the Relationship Table.</li><li>Install the REB_SUPPORT_ASSY onto the
+    working tabletop, then turn the cylindrical member so that the flat side faces
+    downward.<br><img height=400 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_CylindricalMember_v1.png></li><li><strong><span
+    style=''color: rgb(255,150,0);''>Caution<span style=''color: rgb(0,0,0);''>: When
+    performing the centerpunch operation, it is imperative that the punch not slip
+    onto the board, nor into the hole, but the punch point must be close enough to
+    the edge of the hole to deform it properly; only trained technicians may perform
+    this.</strong><br><strong><span style=''color: rgb(0,0,255);''>Note<span style=''color:
+    rgb(0,0,0);''>: Each location on the center REB Cold Bar will require an impact
+    by the spring-loaded centerpunch that will slightly deform the hole so that a
+    press fit of the REB Separation Spacer is necessary.</strong><br>Verify or perform
+    the centerpunch operation of the center REB Cold Bars.</li><li><strong><span style=''color:
+    rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: Do not install the REB
+    Separation Spacers into the outer two REBs.</strong><br>Press-fit (by hand) 6
+    REB Separation Spacers into the center REB Cold Bars.<br><img height=250 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_REBColdBar_v1.png></li><li>View
+    the center REB with its face parallel to a vertical plane such that<ul><li>The
+    FPGA should be facing away from you.</li><li>The six nano-D connectors to your
+    left (three on the side facing you).</li><li>The larger D-connector on the far
+    side of the board to your right.</li></ul><br><img height=400 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_StanchionAssyClamps_v1.png></li><li><strong><span
+    style=''color: rgb(255,150,0);''>Caution<span style=''color: rgb(0,0,0);''>: Careful
+    to center the stanchion on the REB while clamping to the cold bars so that no
+    board components are contacted during attachment.</strong><br>If necessary, adjust
+    the set screw(s) in the stanchion arms to obtain a secure grip.</li><li>With this
+    orientation, mount the tool REB_SUPPORT_STANCHION_ASSY onto the cold bars on this
+    center REB.</li><li>Place the stanchion assembly, with attached center REB, at
+    the entrance to the curved track on the assembly table. Depress the safety plunger
+    in the tabletop and install the stanchion into the track, then rest the front
+    end of the board on the cylindrical support.</li><li><strong><span style=''color:
+    rgb(255,150,0);''>Caution<span style=''color: rgb(0,0,0);''>: During any adjustment
+    with the handwheel, do not over-extend the sensor flex cables.</strong><br>Using
+    the handwheel, retract the RSA from the REB as needed to gain access to the connectors
+    on the board and the RSA.</li><li>Align the male and female halves of one of the
+    two lower nano-connector pairs.</li><li>Remove the grounding plugs, then use the
+    ESD brush at a 45 degree angle on each of the nano-D connectors (on the sensor
+    and REB). Afterward, visually inspect both connectors for any loose brush hairs.</li><li>Engage
+    them gently by finger pressure.</li><li>Using the 90 degree angle driver with
+    the .050 inch hex bit installed, draw the connector halves together gradually
+    by turning the two screws a few turns each, first one screw then the other. Alternate
+    between the screws to minimize cocking the connector halves as they are drawn
+    into full engagement. Torque each to 100 N-mm.</li><li>Repeat Step 12 through
+    Step 15 for the other lower connector pair.</li><li>Repeat Step 12 through Step
+    16 for the other four connector pairs on this board, working from the two middle
+    pairs to the upper pairs.</li><li>Connect the temperature sensor connector to
+    the mating connector on the center REB where indicated.<br><img height=400 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_HeaterConnectors_v1.png></li><li><strong><span
+    style=''color: rgb(255,150,0);''>Caution<span style=''color: rgb(0,0,0);''>: Positioning
+    the board outside the limits can damage the connector flex cable and/or the sensor
+    package. This is not permitted.</strong><br>Repeat Step 7 through Step 17 to assemble
+    the other two REBs to the RSA. These REBs may be slid along the arc tracks on
+    the table to any convenient angle within the limits of the tracks.</li><li>Connect
+    the four heater connectors and two temperature sensor connectors to the mating
+    connectors on the two outer REBs where indicated.</li></ol><strong><span style=''color:
+    rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: Clicking <strong>Complete
+    Step</strong> will apply the installation action to the eTraveler database.</strong><h3><u>Guide
+    for REB Locations</u></h3><img height=550 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_RAFT_REB_Slots_v1.png>'
+  MaxIteration: '1'
+  RelationshipTasks:
+  - {RelationshipName: RTM_contains_REB-Separation-Spacers, RelationshipSlot: ALL,
+    RelationshipAction: install}
+  - {RelationshipName: RTM_contains_REB5s, RelationshipSlot: ALL, RelationshipAction: install}
+  Version: next
+  OptionalInputs:
+  - {Name: Optional_Comment, Description: Enter any additional comments., Units: '',
+    InputSemantics: text, Label: Optional Comment}
+  - {Name: Optional_Photograph_1, Description: Upload a photograph., Units: '', InputSemantics: filepath,
+    Label: Optional Photograph 1}
+  - {Name: Optional_Photograph_2, Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Name: Optional_Video_1, Description: Upload a video., Units: '', InputSemantics: filepath,
+    Label: Optional Video 1}
+  - {Name: Optional_Video_2, Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: '', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: REB Modularization
+  Name: SR-RTM-ASY-05_REB_Modularization
+  Description: '<h3><u>REB Modularization</u></h3>Follow these steps to secure the
+    REBs together (REB Sandwich) and install the Radiation Shields:<ol><li>Verify
+    the following sub-components are available, then verify any assigned LSST-CAMERA
+    Serial Numbers in the Relationship Table match the hardware:<br/><ul><li>LCA-11702
+    Radiation Shields</li><li>LCA-13458 REB Clamp Rods</li><li>LCA-13536 REB Clamp
+    Rod Kapton Sleeves</li><li>LCA-11629 REB Outer Spacers</li><li>LCA-13463 M2 Wide
+    Hex Nuts</li></ul></li><li>Locate all REBs perpendicular to the focal plane surface
+    (parallel to the Z axis), then align the right-hand ends of the 3 REBs to make
+    all holes through the boards coaxial.</li><li><strong><span style=''color: rgb(0,0,255);''>Note<span
+    style=''color: rgb(0,0,0);''>: Do not install the M2 Nuts on the Clamp Rods yet.
+    They will be installed after the Radiation Shields.</strong><br>Install the Kapton
+    Sleeves over the 6 Clamp Rods and install the Clamp Rods through the holes.<br><img
+    height=250 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_ClampRods_v1.png><br><img
+    height=150 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_ColdBarOuterSpacer_v1.png></li><li><strong><span
+    style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: Do not
+    install the M2 Nuts on the Clamp Rods yet. They will be installed after the Radiation
+    Shields.</strong><br>Install the 12 cold bar outer spacers on the Clamp Rods on
+    the X- and X+ sides. The Kapton sleeves will end inside the spacers.</li><li>Install
+    both radiation shields to the X- and X+ sides, covering all four sides of the
+    REBs. Make the vertical direction of the shielding as small as possible without
+    causing distortion to the shield or contact with the REBs inside.</li><li>Verify
+    the installed shape of the Radiation Shields are still flat, especially the sides
+    facing upward and downward.</li><li>Install the M2 Nuts on the Clamp Rods. During
+    their installation, be certain to center the Clamp Rods so each protrudes equally
+    through the 2 Nuts within 0.5 mm.</li><li>Tighten the nuts to 400 N-mm.<br><img
+    height=400 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_RadShields_v1.png></li></ol><strong><span
+    style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: Clicking
+    <strong>Complete Step</strong> will apply the installation action to the eTraveler
+    database.</strong>'
+  MaxIteration: '1'
+  RelationshipTasks:
+  - {RelationshipName: RTM_contains_REB-Clamp-Rods, RelationshipSlot: ALL, RelationshipAction: install}
+  - {RelationshipName: RTM_contains_REB-Outer-Spacers, RelationshipSlot: ALL, RelationshipAction: install}
+  - {RelationshipName: RTM_contains_Radiation-Shields, RelationshipSlot: ALL, RelationshipAction: install}
+  - {RelationshipName: RTM_contains_M2-Wide-Nuts, RelationshipSlot: ALL, RelationshipAction: install}
+  Version: next
+  OptionalInputs:
+  - {Name: Optional_Comment, Description: Enter any additional comments., Units: '',
+    InputSemantics: text, Label: Optional Comment}
+  - {Name: Optional_Photograph_1, Description: Upload a photograph., Units: '', InputSemantics: filepath,
+    Label: Optional Photograph 1}
+  - {Name: Optional_Photograph_2, Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Name: Optional_Video_1, Description: Upload a video., Units: '', InputSemantics: filepath,
+    Label: Optional Video 1}
+  - {Name: Optional_Video_2, Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: '', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Connectivity Test After Initial REB Connection
+  Name: SR-RTM-ASY-05_Connectivity_Test_After_Initial_REB_Connection
+  Description: <h3><u>Instructions for this Step</u></h3>Follow these instructions for this step:<ol><li>Use the selector to continue this traveler:<ul><li>Click Perform_Connectivity_1 if the Connectivity Test will be performed after the initial REB connection.</li><li>Click Skip_Connectivity_1 if the Connectivity Test will be skipped after the initial REB connection.</li></ul></li><li>After returning to this step, continue the traveler to complete the RTM Assembly.</li></ol>
+  MaxIteration: '1'
+  Version: next
+  OptionalInputs:
+  - {Name: Optional_Comment, Description: Enter any additional comments., Units: '',
+    InputSemantics: text, Label: Optional Comment}
+  - {Name: Optional_Photograph_1, Description: Upload a photograph., Units: '', InputSemantics: filepath,
+    Label: Optional Photograph 1}
+  - {Name: Optional_Photograph_2, Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Name: Optional_Video_1, Description: Upload a video., Units: '', InputSemantics: filepath,
+    Label: Optional Video 1}
+  - {Name: Optional_Video_2, Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: '', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  Selection:
+  - ShortDescription: Perform the Connectivity Test After Initial REB Connection
+    Name: Perform_Connectivity_1
+    Condition: Perform_Connectivity
+    Description: <ol><li>Continue this traveler to prepare for and perform the connectivity test on the partially assembled RTM.</li><li>After returning to this step, complete the following steps to remove the connections to the RTM to continue the RTM Assembly.</li><li>Turn OFF the 48 V and 5 V power supplies.</li><li>Disconnect the following connections:<ul><li>RTM from the REB Power Supply</li><li>REB power cabling from the REB Power Supply</li><li>5 V power supply from the LVDS PCB</li><li>Fiber link from the RTM</li></ul></li></ol>
+    MaxIteration: '1'
+    Sequence:
+    - ShortDescription: Prepare for Connectivity Test After Initial REB Connection
+      Name: Prepare_Connectivity_After_Initial_REB_Connection
+      Description: <h3><u>Prepare for Connectivity Test after Initial REB Connection</u></h3>Follow these step to prepare for the Connectivity Test:<ol><li>Ensure the following connections are disconnected:<ul><li>RTM from the REB Power Supply</li><li>REB power cabling from the REB Power Supply</li><li>5 V power supply from the LVDS PCB</li><li>Fiber link from the RTM</li></ul></li><li>Prior to connecting the REB Power Supply to the 48 V power supply, turn ON the 48 V power supply to verify the voltage output is 48 V.</li><li>Turn OFF the 48 V power supply, then connect the REB power cabling to the REB Power Supply.</li><li>Turn ON the 48 V power supply to confirm the voltage output remains at 48 V.</li><li>Turn OFF the 48 V power supply, then connect the REB power cabling to the RTM.</li><li>Prior to connecting the LVDS PCB to the 5 V power supply, turn ON the 5 V power supply to verify the voltage output is 5 V.</li><li>Connect the LVDS PCB to the 5 V power supply.</li><li>Connect the fiber link to the RTM.</li><li>Turn ON the 48 V power supply and the 5 V power supply.</li><li>Cover the RTM to protect it from the room lights.</li></ol>
+      MaxIteration: '1'
+      Version: next
+      OptionalInputs:
+      - {Name: Optional_Comment, Description: Enter any additional comments., Units: '',
+        InputSemantics: text, Label: Optional Comment}
+      - {Name: Optional_Photograph_1, Description: Upload a photograph., Units: '',
+        InputSemantics: filepath, Label: Optional Photograph 1}
+      - {Name: Optional_Photograph_2, Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+        Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+      - {Name: Optional_Video_1, Description: Upload a video., Units: '', InputSemantics: filepath,
+        Label: Optional Video 1}
+      - {Name: Optional_Video_2, Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+        Units: '', InputSemantics: filepath, Label: Optional Video 2}
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    - ShortDescription: 'Job Harness: Safe Power of REB0 and Verify Front Biases and
+        Clocks on Initial REB Connection'
+      Name: connectivity0_1
+      Description: '<h3><u>Execute the Connectivity Test for REB0</u></h3>Execute
+        the Job Harness. Executing this Job Harness will automatically:<ul><li>Create
+        the appropriate directories on the TS6 Computer, then download the approved
+        scripts from the GIT Hub repository.</li><li>Turn ON REB0 to verify electrical
+        continuity and performance integrity, then turn it OFF.</li><li>Persist data
+        and results to the eTraveler Database and archive the data products and analysis
+        products to the LSST-CAMERA Data Catalog.</li></ul>Depending on the results
+        of the Connectivity Test:<ul><li>If the acceptance criteria is met, continue
+        this traveler to continue RTM Assembly.</li><li>If the acceptance criteria
+        is not met, contact the Technical Authority and Subsystem Manager.</li></ul><strong><span
+        style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: This
+        step may be retried 5 times.</strong>'
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+      Jobname: connectivity0_1
+    - ShortDescription: 'Job Harness: Safe Power of REB1 and Verify Front Biases and
+        Clocks on Initial REB Connection'
+      Name: connectivity1_1
+      Description: '<h3><u>Execute the Connectivity Test for REB1</u></h3>Execute
+        the Job Harness. Executing this Job Harness will automatically:<ul><li>Create
+        the appropriate directories on the TS6 Computer, then download the approved
+        scripts from the GIT Hub repository.</li><li>Turn ON REB1 to verify electrical
+        continuity and performance integrity, then turn it OFF.</li><li>Persist data
+        and results to the eTraveler Database and archive the data products and analysis
+        products to the LSST-CAMERA Data Catalog.</li></ul>Depending on the results
+        of the Connectivity Test:<ul><li>If the acceptance criteria is met, continue
+        this traveler to continue RTM Assembly.</li><li>If the acceptance criteria
+        is not met, contact the Technical Authority and Subsystem Manager.</li></ul><strong><span
+        style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: This
+        step may be retried 5 times.</strong>'
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+      Jobname: connectivity1_1
+    - ShortDescription: 'Job Harness: Safe Power of REB2 and Verify Front Biases and
+        Clocks on Initial REB Connection'
+      Name: connectivity2_1
+      Description: '<h3><u>Execute the Connectivity Test for REB2</u></h3>Execute
+        the Job Harness. Executing this Job Harness will automatically:<ul><li>Create
+        the appropriate directories on the TS6 Computer, then download the approved
+        scripts from the GIT Hub repository.</li><li>Turn ON REB2 to verify electrical
+        continuity and performance integrity, then turn it OFF.</li><li>Persist data
+        and results to the eTraveler Database and archive the data products and analysis
+        products to the LSST-CAMERA Data Catalog.</li></ul>Depending on the results
+        of the Connectivity Test:<ul><li>If the acceptance criteria is met, continue
+        this traveler to continue RTM Assembly.</li><li>If the acceptance criteria
+        is not met, contact the Technical Authority and Subsystem Manager.</li></ul><strong><span
+        style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: This
+        step may be retried 5 times.</strong>'
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+      Jobname: connectivity2_1
+    - ShortDescription: 'Job Harness: Verify Temperatures and Sensor Operation on
+        Initial REB Connection'
+      Name: rebalive_temperatures_1
+      Description: '<h3><u>Execute the Connectivity Test for Temperatures</u></h3>Execute
+        the Job Harness. Executing this Job Harness will automatically:<ul><li>Create
+        the appropriate directories on the TS6 Computer, then download the approved
+        scripts from the GIT Hub repository.</li><li>Turn ON each REB and CCD to verify
+        all temperature sensor readouts.</li><li>For each sensors, apply the bias
+        voltages and set the clock rails, then reverify the performance integrity,
+        voltages and currents is within acceptable limits.</li><li>To each REB, configure
+        the ASPICs to standard gain and RC time constant, then leave the inputs in
+        the clamped state.</li><li>Persist data and results to the eTraveler Database
+        and archive the data products and analysis products to the LSST-CAMERA Data
+        Catalog.</li></ul>Depending on the results of the Connectivity Test:<ul><li>If
+        the acceptance criteria is met, continue this traveler to continue RTM Assembly.</li><li>If
+        the acceptance criteria is not met, contact the Technical Authority and Subsystem
+        Manager.</li></ul><strong><span style=''color: rgb(0,0,255);''>Note<span style=''color:
+        rgb(0,0,0);''>: This step may be retried 5 times.</strong>'
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+      Jobname: rebalive_temperatures_1
+    - ShortDescription: 'Job Harness: Exposure with RTM on Initial REB Connection'
+      Name: rebalive_exposure_1
+      Description: '<h3><u>Execute the Connectivity Test for Exposure</u></h3>Execute
+        the Job Harness. Executing this Job Harness will automatically:<ul><li>Create
+        the appropriate directories on the TS6 Computer, then download the approved
+        scripts from the GIT Hub repository.</li><li>Execute bias and flat exposures
+        and readout sequence.</li><li>Record total exposure and acquisition time.</li><li>Turn
+        OFF the sensors and REBs.</li><li>Persist data and results to the eTraveler
+        Database and archive the data products and analysis products to the LSST-CAMERA
+        Data Catalog.</li></ul>Depending on the results of the Connectivity Test:<ul><li>If
+        the acceptance criteria is met, continue this traveler to continue RTM Assembly.</li><li>If
+        the acceptance criteria is not met, contact the Technical Authority and Subsystem
+        Manager.</li></ul><strong><span style=''color: rgb(0,0,255);''>Note<span style=''color:
+        rgb(0,0,0);''>: This step may be retried 5 times.</strong>'
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+      Jobname: rebalive_exposure_1
+    Version: next
+    OptionalInputs:
+    - {Name: Optional_Comment, Description: Enter any additional comments., Units: '',
+      InputSemantics: text, Label: Optional Comment}
+    - {Name: Optional_Photograph_1, Description: Upload a photograph., Units: '',
+      InputSemantics: filepath, Label: Optional Photograph 1}
+    - {Name: Optional_Photograph_2, Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+      Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+    - {Name: Optional_Video_1, Description: Upload a video., Units: '', InputSemantics: filepath,
+      Label: Optional Video 1}
+    - {Name: Optional_Video_2, Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+      Units: '', InputSemantics: filepath, Label: Optional Video 2}
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  - RequiredInputs:
+    - {Name: Authorization_to_Skip_Connectivity_Test_After_Initial_REB_Connection,
+      Description: 'Who confirmed the Connectivity Test can be skipped?', Units: ' ',
+      InputSemantics: string, Label: Authorization to Skip Connectivity Test After Initial REB Connection}
+    ShortDescription: Skip Connectivity Test and Continue RTM Assembly
+    Name: Skip_Connectivity_1
+    Condition: Skip_Connectivity
+    Description: <h3><u>Instructions for this Step</u></h3>The Connectivity Test will be skipped. Follow these instructions for this step:<ol><li>Fill in the Results Table.</li><li>Continue this traveler to complete RTM Assembly.</li></ol>
+    MaxIteration: '1'
+    Version: next
+    OptionalInputs:
+    - {Name: Optional_Comment, Description: Enter any additional comments., Units: '',
+      InputSemantics: text, Label: Optional Comment}
+    - {Name: Optional_Photograph_1, Description: Upload a photograph., Units: '',
+      InputSemantics: filepath, Label: Optional Photograph 1}
+    - {Name: Optional_Photograph_2, Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+      Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+    - {Name: Optional_Video_1, Description: Upload a video., Units: '', InputSemantics: filepath,
+      Label: Optional Video 1}
+    - {Name: Optional_Video_2, Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+      Units: '', InputSemantics: filepath, Label: Optional Video 2}
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: REC Installation
+  Name: SR-RTM-ASY-05_REC_Installation
+  Description: '<h3><u>REC Installation</u></h3>Follow these steps to install the
+    REB around the REB Sandwich:<ol><li>Verify the following sub-components are available,
+    then verify any assigned LSST-CAMERA Serial Numbers in the Relationship Table
+    match the hardware:<br/><ul><li>LCA-11022 REC Assembly, including LCA-11604 M3
+    x 6 FH-SHC-Screws</li><li>LCA-14639 REB Anchor Studs</li><li>LCA-14641 M3 LH-SHC-Screws</li><li>LCA-11630
+    REB Flanged Bushings</li><li>LCA-14640 M4 LP-Shoulder Screws</li></ul></li><li>Ensure
+    the REC Legs are attached to the REC Walls. Torque the screws to 520 N-mm.</li><li><strong><span
+    style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: The pincatches
+    are not identical even though they may visually appear to be. Ensure the pincatches
+    are correctly located; the single pincatch is on the side with the angled holes.</strong><br>Attach
+    a pincatch to each thick REC wall before installing the walls, then torque the
+    screws to 520 N-mm.</li><li>Engage one of the PEEK adjustment collars into the
+    double-pin catch REC wall with 2 turns.</li><li>Install the other PEEK adjustment
+    collar into the insert.</li><li>To provide clearance for the installation of the
+    REC sides, rotate the REB cylindrical support so that the flat faces upward.</li><li><strong><span
+    style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: Do not
+    attach the frames to the adjustable base yet.</strong><br>Attach each REC wall
+    to its tooling frame using the shoulder screws and position these walls on the
+    correct sides of the sandwich close to the RSA.<br><img height=400 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_RECWall_v1.png></li><li>Place
+    one sandwich anchor stud and screw them into the cold bars, then torque the studs
+    to 1220 N-mm.<br><img height=300 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_SandwichAnchorStud_v1.png></li><li><strong><span
+    style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: Note the
+    following during the following steps: <ul><li>The REC walls will need to be held
+    near the RSA Thermal Strap Assembly terminals.</li><li>Avoid extending the RSA
+    Thermal Strap Assemblies.</li><li>Apply this step to each of the RSA Thermal Strap
+    Assemblies one at a time.</li></ul></strong></li>Disengage the RSA Thermal Strap
+    Assembly terminals from the RTM Assembly Fixture, then pre-compress the RSA Thermal
+    Strap Assembly. One at a time, place the ends of the thermal straps on the inside
+    of each of the thick REC walls, then attach with the screws.</li><li>After all
+    four straps ends are attached, torque the screws to 520 N-mm.</li><li><strong><span
+    style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: The REC
+    walls must freely float slightly in the lateral direction on the shoulder screws
+    until after the REC thin walls are installed.</strong><br>To locate the thick
+    REC walls in their nominal position, attach the tooling frames to the vertical
+    plane of the assembly fixture base.</li><li><strong><span style=''color: rgb(0,0,255);''>Note<span
+    style=''color: rgb(0,0,0);''>: The insert must freely float within the capturing
+    clamp.</strong><br>Install the clamp around the insert.</li><li>On the upward
+    side of the REC thick walls, install the thin REC panel that matches the letter
+    serialization of the thick REC walls by engaging the flat head screws only several
+    turns to start, then tighten only the two screws that are closest to the top of
+    the REC walls (the thick end).<br><img height=300 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_RECSingleSideWall_v1.png></li><li>Slip
+    the REC flanged bushings onto the two shoulder screws that are used at the sliding
+    locations in the walls, then hand-tighten the screws and bushings to the REB cold
+    bars at the two locations to allow them to pass through the oversize holes in
+    the radiation shield.<br><img height=300 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_RECFlangedBushings_v1.png></li><li>Unfasten
+    and remove the REB_SUPPORT_ASSY.</li><li>Repeat Step 13 for the other thin panel
+    on the bottom.</li><li>Tighten the remaining flat head screws on both thin panels
+    in the prescribed order shown in the REC assembly drawing (LCA-11022).</li><li>Tighten
+    them enough to assure that both panels are locked in place on the REC thick wall
+    sides.</li><li><strong><span style=''color: rgb(0,0,255);''>Note<span style=''color:
+    rgb(0,0,0);''>: The lower panel will be torqued to specification later.</strong><br>Torque
+    the 8 flat head screws on the upper panel to 520 N-mm following the same order.</li></ol><strong><span
+    style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: Clicking
+    <strong>Complete Step</strong> will apply the installation action to the eTraveler
+    database.</strong>'
+  MaxIteration: '1'
+  RelationshipTasks:
+  - {RelationshipName: RTM_contains_REC, RelationshipSlot: ALL, RelationshipAction: install}
+  - {RelationshipName: RTM_contains_REB-Anchor-Studs, RelationshipSlot: ALL, RelationshipAction: install}
+  - {RelationshipName: RTM_contains_REC-Bushings, RelationshipSlot: ALL, RelationshipAction: install}
+  - {RelationshipName: RTM_contains_M4-Screws, RelationshipSlot: ALL, RelationshipAction: install}
+  - {RelationshipName: RTM_contains_M3-Screws-for-REC-to-RSA-Thermal-Straps, RelationshipSlot: ALL,
+    RelationshipAction: install}
+  Prerequisites:
+  - {Name: Introduction and Notice of Acknowledgement, Description: 'Welcome to the
+      remaining RTM ASSEMBLY section of the RTM ASSEMBLY traveler. This section is
+      for preparing TS6 and the RTM Assembly Fixture in the <a href=https://ls.st/lca-11706>Science
+      Raft Assembly and Test Cleanroom Facility at Brookhaven National Laboratory</a>.
+      The work is performed at TS6.<br><br>Before starting this section, review all
+      the steps and hazards within this section and ensure the required equipment
+      is available. Contact your supervisor or Subsystem Manager for any concern or
+      additional clarification.<br><strong>By clicking Start Step you indicate you</strong><ul><li>are
+      permitted to exercise this eTraveler,</li><li>previewed and understand all steps
+      beforehand,</li><li>will fulfill all prerequisites, as presented,</li><li>will
+      follow all instructions, as presented, and,</li><li>ensure due diligence is
+      used at each step.,</li></ul>', Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Hazard Cautions, Description: 'Performed operations include the following
+      hazards:<ul><li>ESD Hazard</li><li>Contamination Hazard</li><li>Physical Hazard</li></ul>',
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Equipment, Description: 'The following equipment must be available before
+      beginning this section:<ul><li>Non-linting Wipes and Cleaning Solution</li><li>RTM
+      Assembly Fixture</li><li>Torque Driver</li><li>Tweezers</li><li>Feeler Gauge</li></ul>The
+      previously assigned sub-components must be available before beginning this section
+      (may be in an assembly kit):<ul><li>LCA-11022 REC Assembly, Qty 1, including
+      LCA-11604 M3 x 6 FH-SHC-Screws, Qty 16</li><li>LCA-14639 REB Anchor Studs, Qty
+      2</li><li>LCA-14641 M3 x 8 LH-SHC-Screws, Qty 12</li><li>LCA-11630 REB Flanged
+      Bushings, Qty 2</li><li>LCA-14640 M4 LP-Shoulder Screws, Qty 2</li><li>LCA-14741
+      Round Shims</li><li>LCA-11024 Double Arm Hold-down Assembly, Qty 1</li><li>LCA-11023
+      Single Arm Hold-down Assembly, Qty 1</li><li>LCA-11627 RSA Hold-down Clips,
+      Qty 3</li><li>LCA-11626 RSA Hold-down Pins, Qty 3</li><li>LCA-11009 REB Thermal
+      Strap Assemblies, Qty 2</li><li>LCA-11603 M3 x 25 SHC-Screws, Qty 24</li></ul>',
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Expose Hardware to ESD and Contamination Hazard, Description: 'Follow these
+      steps prior to resuming RTM assembly:<ol><li>Have at least two operators independently
+      follow these steps to verify the ESD Protective Area (EPA) is functioning and
+      all fixtures are grounded properly:<ul><li>Visually verify all ESD table mats
+      are connected to ground and the ESD monitoring equipment.</li><li>Visually verify
+      all ESD floor mats are connected to ground.</li><li>Visually verify all fixtures
+      are connected to ground and the ESD monitoring equipment (where applicable)
+      using a stable connection.</li><li>Use an Ohmmeter to verify all hard grounds
+      measure less than 2 Ohm and all soft grounds measure approximately 1 MOhm (no
+      less than 500 kOhm).</li></ul></li><li>Transport all required tools to the workstation.</li><li>Ensure
+      facemask is on.</li><li>Exchange gloves before handling the hardware.</li><li>ESD
+      wrist strap is worn and plugged in.</li></ol>', Quantity: '1', PrerequisiteType: PREPARATION}
+  - {Name: Torque Driver Calibration, Description: Verify the Torque Driver has been calibrated within the last 366 days.,
+    Quantity: '1', PrerequisiteType: PREPARATION}
+  Version: next
+  OptionalInputs:
+  - {Name: Optional_Comment, Description: Enter any additional comments., Units: '',
+    InputSemantics: text, Label: Optional Comment}
+  - {Name: Optional_Photograph_1, Description: Upload a photograph., Units: '', InputSemantics: filepath,
+    Label: Optional Photograph 1}
+  - {Name: Optional_Photograph_2, Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Name: Optional_Video_1, Description: Upload a video., Units: '', InputSemantics: filepath,
+    Label: Optional Video 1}
+  - {Name: Optional_Video_2, Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: '', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- RequiredInputs:
+  - {Name: Shim_Size, Description: 'In inches, enter the size of the shims used during
+      the procedure.', Units: inch, InputSemantics: float, Label: Shim Size}
+  ShortDescription: Align REB Sandwich Within REC
+  Name: SR-RTM-ASY-05_Align_REB_Sandwich
+  Description: '<h3><u>Align and Secure REC Assembly</u></h3>Follow these steps to
+    center the REB Sandwich within the REC:<ol><li>Verify the following sub-components
+    are available:<ul><li>RTM Assembly Fixture Gage</li><li>Feeler gage</li><li>LCA-14741
+    Round Shims</li></ul></li><li><strong><span style=''color: rgb(0,0,255);''>Note<span
+    style=''color: rgb(0,0,0);''>: Proper centering is achieved when the surfaces
+    of the two hex nuts capturing the radiation shield are equidistant from the gage.</strong><br>Centering
+    is accomplished by adjusting the two PEEK collars in tandem. The gage will allow
+    measurements to be made relative to the inside of each thick REC wall.<br><img
+    height=350 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_PEEKCollars1_v1.png><img
+    height=300 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_PEEKCollars2_v1.png.png></li><li>Tighten
+    the four flat head screws on the REC single hold-down wall to lock the position
+    of the insert within its clamp, then torque them to 520 N-mm.</li><li>Install
+    identical gages on each REC wall by first attaching each gage to its wall with
+    the button head screws. Leave these screws loose enough to allow sliding, but
+    the gage should not be capable of tipping.</li><li>Tighten the set screw, then
+    fully tighten the button head screws.</li><li>Turn the two adjusting collars using
+    the spanner tool until it is felt that both collars are in contact with the shoulders
+    of the studs attached to the cold bar.</li><li>Measure the position of the REB
+    sandwich relative to the gages and advance/retract the collars in tandem to shift
+    the position of the sandwich as required to achieve a centered condition within
+    0.5 mm.</li><li><strong><span style=''color: rgb(0,0,255);''>Note<span style=''color:
+    rgb(0,0,0);''>: At the REC flanged bushings, there should be a small but measurable
+    gap between the underside of the head of each shoulder screw and the bushing.</strong><br>Assure
+    the bushings are pressed in firmly, then estimate the gap size by eye at each
+    shoulder screw and install the largest shim that can be installed (same thickness
+    on each side) without completely eliminating either gap. The shoulder screw is
+    removed and reinstalled to do this, with the shim between the screw head and the
+    flanged bushing.</li><li>Continue the same process until the gap size becomes
+    too small to estimate.</li><li>With the bushings firmly in contact with the REC
+    walls, measure the two gaps with feeler gages, but do not disturb the position
+    of the sandwich relative to the REC when performing this measurement.</li><li><strong><span
+    style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: 1 inch
+    = 25.4 mm; 0.0394 inch = 1 mm</strong><br>Calculate the expected shim size by
+    adding the two gaps together, divide by 2, then add 0.035 mm [0.0015 inch] to
+    the number.</li><li>Using this value, select two identical sets of shims that
+    sum as closely to the value as possible, but not undersize.</li><li>Remove the
+    two shoulder screws, the shims already installed, and the bushings.</li><li>Add
+    the calculated shim sets to the shims already installed, then install each shim
+    stack on each screw.</li><li>Place the bushings back on the screws, capturing
+    the shims.</li><li>Reinstall the screws, shims, and bushings and tighten to 1220
+    N-mm.</li><li>Recheck the centering of the sandwich against the gage to adjust
+    only if necessary.</li><li>Fill in the Results Table with the total shim stack
+    thickness installed on each side.</li><li>Unlatch the three stanchions supporting
+    the REBs at the right hand end.</li></ol>'
+  MaxIteration: '1'
+  Version: next
+  OptionalInputs:
+  - {Name: Optional_Comment, Description: Enter any additional comments., Units: '',
+    InputSemantics: text, Label: Optional Comment}
+  - {Name: Optional_Photograph_1, Description: Upload a photograph., Units: '', InputSemantics: filepath,
+    Label: Optional Photograph 1}
+  - {Name: Optional_Photograph_2, Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Name: Optional_Video_1, Description: Upload a video., Units: '', InputSemantics: filepath,
+    Label: Optional Video 1}
+  - {Name: Optional_Video_2, Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: '', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Hold-Down Assemblies Installation
+  Name: SR-RTM-ASY-05_Hold-Down_Assemblies_Installation
+  Description: '<h3><u>Install Hold-down Assemblies</u></h3>Follow these steps to
+    install the two Hold-down Assemblies:<ol><li>Verify the following sub-components
+    are available, then verify any assigned LSST-CAMERA Serial Numbers in the Relationship
+    Table match the hardware:<br/><ul><li>LCA-11024 Double Arm Hold-down Assembly</li><li>LCA-11023
+    Single Arm Hold-down Assembly</li><li>LCA-11627 RSA Hold-down Clips</li><li>LCA-11626
+    RSA Hold-down Pins</li><li>Feeler Gauge</li><li>RTM Assembly Fixture Spring Compressor
+    Tools</li></ul></li><li>Detach the adjustable base assembly from the working tabletop.</li><li><strong><span
+    style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: The base
+    does not need to be attached to the tabletop during this step.</strong><br>Using
+    the tip-over handle, orient and place it (with the RTM) on the tabletop with the
+    Z axis vertical via the pins in the tabletop.</li><li>Tighten the remaining flat
+    head screws on the other thin REC panel to 520 N-mm in the prescribed order shown
+    in the REC assembly drawing, LCA-11022.</li><li><strong><span style=''color: rgb(255,150,0);''>Caution<span
+    style=''color: rgb(0,0,0);''>: During any adjustment with the handwheel, do not
+    over-extend the sensor flex cables or exert a large force between the REC legs
+    and Raft Baseplate.</strong><br>Using the handwheel, carefully adjust the Z position
+    of the RSA to bring the REC legs to NEAR CONTACT with the RSA baseplate.</li><li>Check
+    gap with 0.010 inch thick feeler gage and adjust ONLY ENOUGH for feeler gage to
+    create small amount of drag.</li><li>Once this condition is achieved, remove feeler
+    gage and rotate handwheel 1 full turn clockwise (360 degrees) to have the RSA
+    lightly contact the REC legs.<br><img height=400 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_RECLegs_v2.png></li><li>Place
+    the single-arm spring compressor on the single hold-down as shown, then use a
+    3/16 inch ball hex driver to compress the spring for providing the opening indicated.<br><img
+    height=300 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_SpringCompressorTool1_v1.png><img
+    height=300 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_SpringCompressorTool2_v1.png></li><li>Place
+    the hold-down assembly on the side of the RTM, then install the diamond pins of
+    the yoke into the slots in the pincatch.<br><img height=300 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_DiamondPins1_v1.png><img
+    height=300 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_DiamondPins2_v1.png></li><li>While
+    maintaining insertion of the diamond pins in the pincatch, place the end of the
+    hold-down arm into the slot in the vee-mount on the X+ side. The arm should enter
+    from the right-hand side.</li><li>Insert the RSA pin through the round hole on
+    the inside of the vee-mount connecting the arm to the RSA; this will be through
+    the hole in the arm and through the outside hole of the vee-mount.</li><li>Secure
+    the RSA pin by installing the retainer clip over the head of the pin and engaging
+    the vee-mount slots to secure the clip. If required, bend the ends of the retainer
+    clip to fully engage the raft baseplate slot.</li><li><strong><span style=''color:
+    rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: Do not unload the spring
+    compressor further at this time.</strong><br>Place the double-arm spring compressor
+    on the double hold-down as shown, then compress the spring to provide the opening
+    indicated.<br><img height=250 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_DoubleSideSpringCompressor3_v1.png><img
+    height=250 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_DoubleSideSpringCompressor2_v1.png><br><img
+    height=400 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_DoubleSideSpringCompressor1_v1.png></li><li>Install
+    one end of the double hold-down arm into its vee-mount slot, then slide it through
+    the slot far enough to permit installation of the opposite end of the arm into
+    its slot.</li><li><strong><span style=''color: rgb(0,0,255);''>Note<span style=''color:
+    rgb(0,0,0);''>: Do not completely unload the compressor during this step.</strong><br>Align
+    the diamond pins of the yoke with the slots in the double side pincatch, then
+    partially unload the spring compressor to start engagement of the pins into the
+    pincatch. There should not be any force applied to the pincatch.</li><li>Install
+    the RSA pins and retainer clips as was done for the single side in Step 11 and
+    Step 12.</li><li>When it is certain that both hold-downs are engaged correctly
+    at both their ends, reduce the loads on each side as equally as possible (possibly
+    using two operators) so the load is transferred to the pincatches.</li><li>When
+    the loads are fully transferred, remove both spring compressors.</li></ol><strong><span
+    style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: Clicking
+    <strong>Complete Step</strong> will apply the installation action to the eTraveler
+    database.</strong>'
+  MaxIteration: '1'
+  RelationshipTasks:
+  - {RelationshipName: RTM_contains_Single-Arm, RelationshipSlot: ALL, RelationshipAction: install}
+  - {RelationshipName: RTM_contains_Double-Arm, RelationshipSlot: ALL, RelationshipAction: install}
+  - {RelationshipName: RTM_contains_Hold-down-Clips, RelationshipSlot: ALL, RelationshipAction: install}
+  - {RelationshipName: RTM_contains_Hold-down-Pins, RelationshipSlot: ALL, RelationshipAction: install}
+  Version: next
+  OptionalInputs:
+  - {Name: Optional_Comment, Description: Enter any additional comments., Units: '',
+    InputSemantics: text, Label: Optional Comment}
+  - {Name: Optional_Photograph_1, Description: Upload a photograph., Units: '', InputSemantics: filepath,
+    Label: Optional Photograph 1}
+  - {Name: Optional_Photograph_2, Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Name: Optional_Video_1, Description: Upload a video., Units: '', InputSemantics: filepath,
+    Label: Optional Video 1}
+  - {Name: Optional_Video_2, Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: '', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: REB Thermal Strap Attachment
+  Name: SR-RTM-ASY-05_REB_Thermal_Strap_Attachment
+  Description: '<h3><u>Install REB Thermal Strap Assemblies</u></h3>Follow these steps
+    to install and secure the REB Thermal Strap Assemblies to the REB and REC:<ol><li>Verify
+    the following sub-components are available, then verify any assigned LSST-CAMERA
+    Serial Numbers in the Relationship Table match the hardware:<br/><ul><li>LCA-11009
+    REB Thermal Strap Assemblies</li><li>LCA-11603 M3 x 25 SHC-Screws</li></ul></li><li><strong><span
+    style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: The REB
+    Thermal Strap Assembly shipping tooling will be used to temporarily support the
+    REB Thermal Strap Assemblies.</strong><br>Install the REB Thermal Strap Assembly
+    shipping tooling onto the REC frames.<br><img height=250 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_REBThermalStrapShippingTooling1_v1.png></li><li>Install
+    the REB Thermal Strap Assemblies to the shipping tooling.<br><img height=250 src=http://srs.slac.stanford.edu/Decorator/exp/LSST-CAMERA/Decorate/eTravIllustrations/SR/SR-RTM-ASY-05/SR-RTM-ASY-05_REBThermalStrapShippingTooling2_v1.png></li><li>Align
+    the six lower terminals of the REB Thermal Strap Assembly with the mating holes
+    in the cold bar.</li><li>Tighten the 12 captive screws attaching the terminals
+    to the cold bars to 520 N-mm.</li><li>Loosen the shipping tooling and move the
+    upper terminal into the parked position on the RTM.</li><li>Repeat Step 2 through
+    Step 6 for the other REB Thermal Strap Assembly.</li><li>Remove the shipping tooling.</li></ol><strong><span
+    style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: Clicking
+    <strong>Complete Step</strong> will apply the installation action to the eTraveler
+    database.</strong>'
+  MaxIteration: '1'
+  RelationshipTasks:
+  - {RelationshipName: RTM_contains_REB-Thermal-Strap-Assemblies, RelationshipSlot: ALL,
+    RelationshipAction: install}
+  - {RelationshipName: RTM_contains_M3-Screws-for-REB-Thermal-Straps, RelationshipSlot: ALL,
+    RelationshipAction: install}
+  Version: next
+  OptionalInputs:
+  - {Name: Optional_Comment, Description: Enter any additional comments., Units: '',
+    InputSemantics: text, Label: Optional Comment}
+  - {Name: Optional_Photograph_1, Description: Upload a photograph., Units: '', InputSemantics: filepath,
+    Label: Optional Photograph 1}
+  - {Name: Optional_Photograph_2, Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Name: Optional_Video_1, Description: Upload a video., Units: '', InputSemantics: filepath,
+    Label: Optional Video 1}
+  - {Name: Optional_Video_2, Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: '', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+- ShortDescription: Connectivity Test After RTM Assembly
+  Name: SR-RTM-ASY-05_Connectivity_Test_After_Assembly
+  Description: <h3><u>Instructions for this Step</u></h3>Follow these instructions for this step:<ol><li>Use the selector to continue this traveler:<ul><li>Click Perform_Connectivity_2 if the Connectivity Test will be performed after the RTM Assembly is completed.</li><li>Click Skip_Connectivity_2 if the Connectivity Test will be skipped after the RTM Assembly is completed.</li></ul></li><li>After returning to this step, continue the traveler to complete the RTM Assembly traveler.</li></ol>
+  MaxIteration: '1'
+  Version: next
+  OptionalInputs:
+  - {Name: Optional_Comment, Description: Enter any additional comments., Units: '',
+    InputSemantics: text, Label: Optional Comment}
+  - {Name: Optional_Photograph_1, Description: Upload a photograph., Units: '', InputSemantics: filepath,
+    Label: Optional Photograph 1}
+  - {Name: Optional_Photograph_2, Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+    Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+  - {Name: Optional_Video_1, Description: Upload a video., Units: '', InputSemantics: filepath,
+    Label: Optional Video 1}
+  - {Name: Optional_Video_2, Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+    Units: '', InputSemantics: filepath, Label: Optional Video 2}
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  Selection:
+  - ShortDescription: Perform the Connectivity Test After RTM Assembly
+    Name: Perform_Connectivity_2
+    Condition: Perform_Connectivity
+    Description: <ol><li>Continue this traveler to prepare for and perform the connectivity test on the RTM.</li><li>After returning to this step, complete the following steps to remove the connections to the RTM to complete RTM Assembly.</li><li>Turn OFF the 48 V and 5 V power supplies.</li><li>Disconnect the following connections:<ul><li>RTM from the REB Power Supply</li><li>REB power cabling from the REB Power Supply</li><li>5 V power supply from the LVDS PCB</li><li>Fiber link from the RTM</li></ul></li></ol>
+    MaxIteration: '1'
+    Sequence:
+    - ShortDescription: Prepare for Connectivity Test After RTM Assembly
+      Name: Prepare_Connectivity_After_Assembly
+      Description: <h3><u>Prepare for Connectivity Test after RTM Assembly</u></h3>Follow these step to prepare for the Connectivity Test:<ol><li>Ensure the following connections are disconnected:<ul><li>RTM from the REB Power Supply</li><li>REB power cabling from the REB Power Supply</li><li>5 V power supply from the LVDS PCB</li><li>Fiber link from the RTM</li></ul></li><li>Prior to connecting the REB Power Supply to the 48 V power supply, turn ON the 48 V power supply to verify the voltage output is 48 V.</li><li>Turn OFF the 48 V power supply, then connect the REB power cabling to the REB Power Supply.</li><li>Turn ON the 48 V power supply to confirm the voltage output remains at 48 V.</li><li>Turn OFF the 48 V power supply, then connect the REB power cabling to the RTM.</li><li>Prior to connecting the LVDS PCB to the 5 V power supply, turn ON the 5 V power supply to verify the voltage output is 5 V.</li><li>Connect the LVDS PCB to the 5 V power supply.</li><li>Connect the fiber link to the RTM.</li><li>Turn ON the 48 V power supply and the 5 V power supply.</li><li>Cover the RTM to protect it from the room lights.</li></ol>
+      MaxIteration: '1'
+      Version: next
+      OptionalInputs:
+      - {Name: Optional_Comment, Description: Enter any additional comments., Units: '',
+        InputSemantics: text, Label: Optional Comment}
+      - {Name: Optional_Photograph_1, Description: Upload a photograph., Units: '',
+        InputSemantics: filepath, Label: Optional Photograph 1}
+      - {Name: Optional_Photograph_2, Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+        Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+      - {Name: Optional_Video_1, Description: Upload a video., Units: '', InputSemantics: filepath,
+        Label: Optional Video 1}
+      - {Name: Optional_Video_2, Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+        Units: '', InputSemantics: filepath, Label: Optional Video 2}
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    - ShortDescription: 'Job Harness: Safe Power of REB0 and Verify Front Biases and
+        Clocks on Completed RTM'
+      Name: connectivity0_2
+      Description: '<h3><u>Execute the Connectivity Test for REB0</u></h3>Execute
+        the Job Harness. Executing this Job Harness will automatically:<ul><li>Create
+        the appropriate directories on the TS6 Computer, then download the approved
+        scripts from the GIT Hub repository.</li><li>Turn ON REB0 to verify electrical
+        continuity and performance integrity, then turn it OFF.</li><li>Persist data
+        and results to the eTraveler Database and archive the data products and analysis
+        products to the LSST-CAMERA Data Catalog.</li></ul>Depending on the results
+        of the Connectivity Test:<ul><li>If the acceptance criteria is met, continue
+        this traveler to complete RTM Assembly.</li><li>If the acceptance criteria
+        is not met, contact the Technical Authority and Subsystem Manager.</li></ul><strong><span
+        style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: This
+        step may be retried 5 times.</strong>'
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+      Jobname: connectivity0_2
+    - ShortDescription: 'Job Harness: Safe Power of REB1 and Verify Front Biases and
+        Clocks on Completed RTM'
+      Name: connectivity1_2
+      Description: '<h3><u>Execute the Connectivity Test for REB1</u></h3>Execute
+        the Job Harness. Executing this Job Harness will automatically:<ul><li>Create
+        the appropriate directories on the TS6 Computer, then download the approved
+        scripts from the GIT Hub repository.</li><li>Turn ON REB1 to verify electrical
+        continuity and performance integrity, then turn it OFF.</li><li>Persist data
+        and results to the eTraveler Database and archive the data products and analysis
+        products to the LSST-CAMERA Data Catalog.</li></ul>Depending on the results
+        of the Connectivity Test:<ul><li>If the acceptance criteria is met, continue
+        this traveler to complete RTM Assembly.</li><li>If the acceptance criteria
+        is not met, contact the Technical Authority and Subsystem Manager.</li></ul><strong><span
+        style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: This
+        step may be retried 5 times.</strong>'
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+      Jobname: connectivity1_2
+    - ShortDescription: 'Job Harness: Safe Power of REB2 and Verify Front Biases and
+        Clocks on Completed RTM'
+      Name: connectivity2_2
+      Description: '<h3><u>Execute the Connectivity Test for REB2</u></h3>Execute
+        the Job Harness. Executing this Job Harness will automatically:<ul><li>Create
+        the appropriate directories on the TS6 Computer, then download the approved
+        scripts from the GIT Hub repository.</li><li>Turn ON REB2 to verify electrical
+        continuity and performance integrity, then turn it OFF.</li><li>Persist data
+        and results to the eTraveler Database and archive the data products and analysis
+        products to the LSST-CAMERA Data Catalog.</li></ul>Depending on the results
+        of the Connectivity Test:<ul><li>If the acceptance criteria is met, continue
+        this traveler to complete RTM Assembly.</li><li>If the acceptance criteria
+        is not met, contact the Technical Authority and Subsystem Manager.</li></ul><strong><span
+        style=''color: rgb(0,0,255);''>Note<span style=''color: rgb(0,0,0);''>: This
+        step may be retried 5 times.</strong>'
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+      Jobname: connectivity2_2
+    - ShortDescription: 'Job Harness: Verify Temperatures and Sensor Operation on
+        Completed RTM'
+      Name: rebalive_temperatures_2
+      Description: '<h3><u>Execute the Connectivity Test for Temperatures</u></h3>Execute
+        the Job Harness. Executing this Job Harness will automatically:<ul><li>Create
+        the appropriate directories on the TS6 Computer, then download the approved
+        scripts from the GIT Hub repository.</li><li>Turn ON each REB and CCD to verify
+        all temperature sensor readouts.</li><li>For each sensors, apply the bias
+        voltages and set the clock rails, then reverify the performance integrity,
+        voltages and currents is within acceptable limits.</li><li>To each REB, configure
+        the ASPICs to standard gain and RC time constant, then leave the inputs in
+        the clamped state.</li><li>Persist data and results to the eTraveler Database
+        and archive the data products and analysis products to the LSST-CAMERA Data
+        Catalog.</li></ul>Depending on the results of the Connectivity Test:<ul><li>If
+        the acceptance criteria is met, continue this traveler to complete RTM Assembly.</li><li>If
+        the acceptance criteria is not met, contact the Technical Authority and Subsystem
+        Manager.</li></ul><strong><span style=''color: rgb(0,0,255);''>Note<span style=''color:
+        rgb(0,0,0);''>: This step may be retried 5 times.</strong>'
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+      Jobname: rebalive_temperatures_2
+    - ShortDescription: 'Job Harness: Exposure with RTM on Completed RTM'
+      Name: rebalive_exposure_2
+      Description: '<h3><u>Execute the Connectivity Test for Exposure</u></h3>Execute
+        the Job Harness. Executing this Job Harness will automatically:<ul><li>Create
+        the appropriate directories on the TS6 Computer, then download the approved
+        scripts from the GIT Hub repository.</li><li>Execute bias and flat exposures
+        and readout sequence.</li><li>Record total exposure and acquisition time.</li><li>Turn
+        OFF the sensors and REBs.</li><li>Persist data and results to the eTraveler
+        Database and archive the data products and analysis products to the LSST-CAMERA
+        Data Catalog.</li></ul>Depending on the results of the Connectivity Test:<ul><li>If
+        the acceptance criteria is met, continue this traveler to complete RTM Assembly.</li><li>If
+        the acceptance criteria is not met, contact the Technical Authority and Subsystem
+        Manager.</li></ul><strong><span style=''color: rgb(0,0,255);''>Note<span style=''color:
+        rgb(0,0,0);''>: This step may be retried 5 times.</strong>'
+      MaxIteration: '5'
+      TravelerActions: [HarnessedJob]
+      Version: next
+      PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+      UserVersionString: v0
+      Jobname: rebalive_exposure_2
+    Version: next
+    OptionalInputs:
+    - {Name: Optional_Comment, Description: Enter any additional comments., Units: '',
+      InputSemantics: text, Label: Optional Comment}
+    - {Name: Optional_Photograph_1, Description: Upload a photograph., Units: '',
+      InputSemantics: filepath, Label: Optional Photograph 1}
+    - {Name: Optional_Photograph_2, Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+      Units: '', InputSemantics: filepath, Label: Optional Photograph 2}
+    - {Name: Optional_Video_1, Description: Upload a video., Units: '', InputSemantics: filepath,
+      Label: Optional Video 1}
+    - {Name: Optional_Video_2, Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+      Units: '', InputSemantics: filepath, Label: Optional Video 2}
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  - RequiredInputs:
+    - {Name: Authorization_to_Skip_Connectivity_Test_After_RTM_Assembly, Description: 'Who
+        confirmed the Connectivity Test can be skipped?', Units: ' ', InputSemantics: string,
+      Label: Authorization to Skip Connectivity Test After RTM Assembly}
+    ShortDescription: Skip Connectivity Test and Complete RTM Assembly
+    Name: Skip_Connectivity_2
+    Condition: Skip_Connectivity
+    Description: <h3><u>Instructions for this Step</u></h3>The Connectivity Test will be skipped. Follow these instructions for this step:<ol><li>Fill in the Results Table.</li><li>Continue this traveler to complete RTM Assembly.</li></ol>
+    MaxIteration: '1'
+    Version: next
+    OptionalInputs:
+    - {Name: Optional_Comment, Description: Enter any additional comments., Units: '',
+      InputSemantics: text, Label: Optional Comment}
+    - {Name: Optional_Photograph_1, Description: Upload a photograph., Units: '',
+      InputSemantics: filepath, Label: Optional Photograph 1}
+    - {Name: Optional_Photograph_2, Description: Upload another photograph.<br><br>Create an eLog entry if more photographs are required.,
+      Units: ' ', InputSemantics: filepath, Label: Optional Photograph 2}
+    - {Name: Optional_Video_1, Description: Upload a video., Units: '', InputSemantics: filepath,
+      Label: Optional Video 1}
+    - {Name: Optional_Video_2, Description: Upload another video.<br><br>Create an eLog entry if more videos are required. eLog has a 1 GB limit per file.,
+      Units: ' ', InputSemantics: filepath, Label: Optional Video 2}
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+  UserVersionString: v0
+- RequiredInputs:
+  - {Name: Technical_Authority_Approval, Description: Enter the name of the Technical Authority who defined the disposition.,
+    Units: ' ', InputSemantics: string, Label: Technical Authority Approval}
+  ShortDescription: Determine Disposition
+  Name: SR-RTM-ASY-05_Determine_Disposition
+  Description: A Technical Authority must determine the final disposition of the RTM. Based on their findings:<ul><li>Click Complete if the RTM meets all specifications. After doing so you will be returned to the SR-RTM-ASY-05 Header and are required to hit Complete once again to finalize the Traveler.</li><li>Click Stop Work if any specifications are not met. Give a detailed description of the problem(s) and contact the Sub-system Manager.</li></ul>
+  MaxIteration: '1'
+  Version: next
+  PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+Version: next
+PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]

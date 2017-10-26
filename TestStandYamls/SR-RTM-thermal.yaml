@@ -1,0 +1,350 @@
+ShortDescription: SR-RTM-thermal RTM thermal test - 20171011
+Name: SR-RTM-thermal
+Subsystem: SR
+Description: "This traveler is for acquiring the data needed for the validation of the thermal performance of RTMs. The system will be command to different heating and operating states and the thermal response is monitored.
+<br><br>
+Procedure:
+<br><br>
+1.       RTM-Off Baseline Thermal Test<br><br>
+a.       Turn off RTM, adjust cryo and cold plate heaters so cryo and cold
+plate temperatures are at -130 C and -60 C, respectively<br><br>
+b.      Turn on cryo and cold plate temperature feedback control loops<br><br>
+c.       Hold for 30 minutes or until cryo and cold plate temperatures are
+stable to within +/- 0.1 C<br><br>
+d.      Flag the start time for the run, run in this mode for another 5
+minutes, and flag the finish time for the run<br><br>
+e.      Collect temperature, voltage, and current telemetry, including cryo
+and cold plate temperatures and heater load, and REC sidewall temperature
+telemetry for the 5 minute interval
+2.       REB-Only Quiescent Mode Thermal Test<br><br>
+a.       Turn on REBs in quiescent mode with CCDs and RSA heaters off<br><br>
+b.      Run in this constant power mode for 30 minutes or until REB and REC
+wall temperatures are stable to within +/- 0.1 C<br><br>
+c.       Flag the start time for the run, run in this mode for another 5
+minutes, and flag the finish time for the run<br><br>
+d.      Collect temperature, voltage, and current telemetry, including cryo
+and cold plate temperatures and heater load, and REC sidewall temperature
+telemetry for the 5 minute interval<br><br>
+3.       RTM Quiescent Mode Thermal Test<br><br>
+a.       Apply voltage to CCDs and turn on into CCD quiescent mode (note
+than while in the mode, the CCDs and REBs are not reading out or clearing,
+and the RSA baseplate heaters are off)<br><br>
+b.      Run RTM in quiescent mode for 30 minutes or until REB, CCD, RSA, and
+REC wall temperatures are stable to within +/- 0.1 C<br><br>
+c.       Flag the start time for the run, run in this mode for another 5
+minutes, and flag the finish time for the run<br><br>
+d.      Collect temperature, voltage, and current telemetry, including cryo
+and cold plate temperatures and heater load, and REC sidewall temperature
+telemetry for the 5 minute interval<br><br>
+4.       RTM Continuous Read Mode Thermal Test<br><br>
+a.       Run a repeating series of bias frames (0 second exposure time) with
+read-out (do a single clear cycle, 0 second exposure, then perform a 2
+second read-out of the CCDs; repeat this continuously with maximum cadence
+between read-outs of 2.2 seconds with no added latency)<br><br>
+b.      Run in this mode with uniform cadence and constant average power
+draw for 30 minutes or until REB, CCD, RSA, and REC wall temperatures are
+stable to within +/- 0.1 C<br><br>
+c.       Flag the start time for the run, run in this mode for another 5
+minutes, and flag the finish time for the run
+d.      Collect temperature, voltage, and current telemetry, including cryo
+and cold plate temperatures and heater load, and REC sidewall temperature
+telemetry for the 5 minute interval<br><br>
+6.       Trim Heater Power Thermal Test<br><br>
+a.       Stop continuous clear cycling and return RTM to - RTM Quiescent
+Mode<br><br>
+b.      Run RTM in quiescent-0% heater mode for 30 minutes or until REB,
+CCD, RSA, and REC wall temperatures are stable to within +/- 0.1 C<br><br>
+c.       Flag the start time for the run, run in this mode for another 5
+minutes, and flag the finish time for the run
+d.      Collect temperature, voltage, and current telemetry, including RSA
+heater power supply voltages and currents, cryo and cold plate temperatures
+and heater load, and REC sidewall temperature telemetry for the 5 minute
+interval<br><br>
+e.      Adjust heater power supplies to 50% of maximum<br><br>
+f.        Run RTM in quiescent-50% heater mode for 30 minutes or until REB,
+CCD, RSA, and REC wall temperatures are stable to within +/- 0.1 C<br><br>
+g.       Flag the start time for the run, run in this mode for another 5
+minutes, and flag the finish time for the run<br><br>
+h.      Collect temperature, voltage, and current telemetry, including RSA
+heater power supply voltages and currents, cryo and cold plate temperatures
+and heater load, and REC sidewall temperature telemetry for the 5 minute
+interval<br><br>
+i.         Adjust heater power supplies to 100% of maximum<br><br>
+j.        Run RTM in quiescent-100% heater mode for 30 minutes or until REB,
+CCD, RSA, and REC wall temperatures are stable to within +/- 0.1 C<br><br>
+k.       Flag the start time for the run, run in this mode for another 5
+minutes, and flag the finish time for the run
+l.         Collect temperature, voltage, and current telemetry, including
+RSA heater power supply voltages and currents, cryo and cold plate
+temperatures and heater load, and REC sidewall temperature telemetry for the
+5 minute interval<br><br>
+7.       Thermal Test Recovery Run<br><br>
+a.       Set RSA heater power supply voltage to 0 V<br><br>
+b.      Run RTM in quiescent mode for 30 minutes or until REB, CCD, RSA, and
+REC wall temperatures are stable to within +/- 0.1 C<br><br>
+c.       Flag the start time for the run, run in this mode for another 5
+minutes, and flag the finish time for the run<br><br>
+d.      Collect temperature, voltage, and current telemetry, including RSA
+heater power supply voltages and currents, cryo and cold plate temperatures
+and heater load, and REC sidewall temperature telemetry for the 5 minute
+interval<br><br>
+e.      Turn the CCDs off, then turn the REBs off<br><br>
+f.        Hold for 30 minutes or until cryo and cold plate temperatures are
+stable to within +/- 0.1 C<br><br>
+g.       Flag the start time for the run, run in this mode for another 5
+minutes, and flag the finish time for the run
+<br><br>
+h.      Collect temperature, voltage, and current telemetry, including cryo
+and cold plate temperatures and heater load, and REC sidewall temperature
+telemetry for the 5 minute interval
+"
+
+HardwareGroup: LCA-11021_RTM
+MaxIteration: '1'
+
+Sequence:
+
+- ShortDescription: 'Run RTM Thermal Test Steps'
+  Name: rtm_thermal_sequence
+  Description: Execute the heater and readout controls to accomplish the thermal characteristics measurements - top sequence
+  MaxIteration: '5'
+  InstructionsURL: https://confluence.slac.stanford.edu/display/LSSTCAM/Using+CCS+for+TS8+at+BNL
+  TravelerActions: [Automatable]
+  Sequence:
+
+  - ShortDescription: RTM off and Set Cold and Cryo Plate SetPoints
+    Name: RTM_thermal_low_t_minimum_power__500
+    Description: 'Turn off RTM, adjust cryo and cold plate heaters so cryo and cold
+plate temperatures are at -130 C and -60 C'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - ShortDescription: Hold until stable with RTM off
+    Name: RTM_off_stable_state__501
+    Description: 'Hold for 30 minutes or until cryo and cold plate temperatures are
+stable to within +/- 0.1 C'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - ShortDescription: 5 minutes in RTM off stable state
+    Name: RTM_off_5min_stable__502
+    Description: 'Collect temperature, voltage, and current telemetry, including cryo
+and cold plate temperatures and heater load, and REC sidewall temperature
+telemetry for the 5 minute interval ("RTM-Off Baseline Thermal Test"
+telemetry)'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - ShortDescription: REBs on in quiescient mode
+    Name: RTM_REBs_quiesc__503
+    Description: 'Turn on REBs in quiescent mode with CCDs and RSA heaters off'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - ShortDescription: Hold until stable in quiescient mode
+    Name: REB_quiescient_30min_stable__504
+    Description: 'Run in this constant power mode for 30 minutes or until REB and REC
+wall temperatures are stable to within +/- 0.1 C'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  - ShortDescription: Record stats in quiescient mode
+    Name: REB_quiescient_record__505
+    Description: ' Flag the start time for the run, run in this mode for another 5
+minutes, and flag the finish time for the run<br><br>
+d.      Collect temperature, voltage, and current telemetry, including cryo
+and cold plate temperatures and heater load, and REC sidewall temperature
+telemetry for the 5 minute interval ("REB-Only Quiescent Mode Thermal Test
+telemetry")'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+
+  - ShortDescription: power on REBs
+    Name: rebalive_power
+    Description: 'Apply voltage to CCDs and turn on into CCD quiescent mode (note
+than while in the mode, the CCDs and REBs are not reading out or clearing,
+and the RSA baseplate heaters are off)'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+    
+  - ShortDescription: RTM quiescent mode hold for stability 
+    Name: RTM_quies_stable__507
+    Description: 'Run RTM in quiescent mode for 30 minutes or until REB, CCD, RSA, and
+REC wall temperatures are stable to within +/- 0.1 C'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+  
+  - ShortDescription: RTM quiescent mode record stats
+    Name: RTM_quies_5min_record__508
+    Description: 'c.       Flag the start time for the run, run in this mode for another 5
+minutes, and flag the finish time for the run<br><br>
+d.      Collect temperature, voltage, and current telemetry, including cryo
+and cold plate temperatures and heater load, and REC sidewall temperature
+telemetry for the 5 minute interval ("RTM Quiescent Mode Thermal Test"
+telemetry)'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+  
+
+  - ShortDescription: Repeating series of bias frames
+    Name: RTM_thermal_biases_htr_0__509
+    Description: 'Run a repeating series of bias frames (0 second exposure time) with
+read-out (do a single clear cycle, 0 second exposure, then perform a 2
+second read-out of the CCDs; repeat this continuously with maximum cadence
+between read-outs of 2.2 seconds with no added latency)'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+
+  - ShortDescription: Repeating series of bias frames record
+    Name: RTM_biases_5min_record__510
+    Description: 'c.       Flag the start time for the run, run in this mode for another 5
+minutes, and flag the finish time for the run<br><br>
+d.      Collect temperature, voltage, and current telemetry, including cryo
+and cold plate temperatures and heater load, and REC sidewall temperature
+telemetry for the 5 minute interval ("RTM Continuous Read Mode Thermal Test"
+telemetry)'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+  
+  - ShortDescription: Continuous clears
+    Name: RTM_thermal_clear_htr_0__511
+    Description: 'a.       Stop continuous read-outs and initiate continuous 32 kHz clears,
+repeating indefinitely without added latency (heaters off)<br><br>
+b.      Run in this mode with uniform cadence and constant average power
+draw for 30 minutes or until REB, CCD, RSA, and REC wall temperatures are
+stable to within +/- 0.1 C'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+  
+  - ShortDescription: Continuous clears record
+    Name: RTM_clears_5min_record__512
+    Description: 'c.       Flag the start time for the run, run in this mode for another 5
+minutes, and flag the finish time for the run<br><br>
+d.      Collect temperature, voltage, and current telemetry, including cryo
+and cold plate temperatures and heater load, and REC sidewall temperature
+telemetry for the 5 minute interval ("RTM Continuous Clear Mode Thermal
+Test" telemetry)'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+
+
+
+
+
+
+
+
+
+
+
+
+  - ShortDescription: 'RSA 0% test'
+    Name: RSA_0__513
+    Description: 'a.       Stop continuous clear cycling and return RTM to "RTM Quiescent Mode"<br><br>
+b.      Run RTM in quiescent-0% heater mode for 30 minutes or until REB, CCD, RSA, and REC wall
+temperatures are stable to within +/- 0.1 C'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+  
+  - ShortDescription: 'RSA 0% test record'
+    Name: RSA_0_5min_record__514
+    Description: 'c.       Flag the start time for the run, run in this mode for another 5 minutes, and flag the finish
+time for the run<br><br>
+d.      Collect temperature, voltage, and current telemetry, including RSA heater power supply
+voltages and currents, cryo and cold plate temperatures and heater load, and REC sidewall temperature
+telemetry for the 5 minute interval ("Trim Heater Power Thermal Test-0% Heater" telemetry)'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+  - ShortDescription: 'RSA 50% test'
+    Name: RSA_50__515
+    Description: 'f.        Run RTM in quiescent-50% heater mode for 30 minutes or until REB, CCD, RSA, and REC wall
+temperatures are stable to within +/- 0.1 C'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+  
+  - ShortDescription: 'RSA 50% test record'
+    Name: RSA_50_5min_record__516
+    Description: 'g.       Flag the start time for the run, run in this mode for another 5 minutes, and flag the finish
+time for the run<br><br>
+h.      Collect temperature, voltage, and current telemetry, including RSA heater power supply
+voltages and currents, cryo and cold plate temperatures and heater load, and REC sidewall temperature
+telemetry for the 5 minute interval ("Trim Heater Power Thermal Test-50% Heater" telemetry)'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+
+
+  - ShortDescription: 'RSA 100% test'
+    Name: RSA_100__517
+    Description: 'f.        Run RTM in quiescent-100% heater mode for 30 minutes or until REB, CCD, RSA, and REC wall
+temperatures are stable to within +/- 0.1 C'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+  
+  - ShortDescription: 'RSA 100% test record'
+    Name: RSA_100_5min_record__518
+    Description: 'g.       Flag the start time for the run, run in this mode for another 5 minutes, and flag the finish
+time for the run<br><br>
+h.      Collect temperature, voltage, and current telemetry, including RSA heater power supply
+voltages and currents, cryo and cold plate temperatures and heater load, and REC sidewall temperature
+telemetry for the 5 minute interval ("Trim Heater Power Thermal Test-100% Heater" telemetry)'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+
+
+  - ShortDescription: RTM quiescent mode hold for stability 
+    Name: RTM_quies_stable__519
+    Description: 'Run RTM in quiescent mode for 30 minutes or until REB, CCD, RSA, and
+REC wall temperatures are stable to within +/- 0.1 C'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+  
+  - ShortDescription: RTM quiescent mode record stats
+    Name: RTM_quies_5min_record__520
+    Description: 'c.       Flag the start time for the run, run in this mode for another 5
+minutes, and flag the finish time for the run<br><br>
+d.      Collect temperature, voltage, and current telemetry, including cryo
+and cold plate temperatures and heater load, and REC sidewall temperature
+telemetry for the 5 minute interval ("RTM Quiescent Mode Thermal Test"
+telemetry)'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+  
+  
+Version: next

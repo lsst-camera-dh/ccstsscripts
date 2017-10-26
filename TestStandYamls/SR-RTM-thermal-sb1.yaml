@@ -1,0 +1,114 @@
+ShortDescription: SR-RTM-thermal-test RTM thermal sb1 data acquisition traveler
+Name: SR-RTM-thermal-sb1
+Subsystem: SR
+Description: This traveler is for acquiring the data needed for the validation of the thermal performance of RTMs. The system will be command to different heating and operating states and the thermal response is monitored. This implements the first thermal test proposed by S.Bellavia
+HardwareGroup: LCA-11021_RTM
+MaxIteration: '1'
+Sequence:
+
+- ShortDescription: 'Run RTM Thermal Test Steps'
+  Name: rtm_thermal_sb1
+  Description: Execute the heater and readout controls to accomplish the thermal characteristics measurements - top sequence
+  MaxIteration: '5'
+  InstructionsURL: https://confluence.slac.stanford.edu/display/LSSTCAM/Using+CCS+for+TS8+at+BNL
+  TravelerActions: [Automatable]
+  Sequence:
+
+  - ShortDescription: Start from lowest temperature point
+    Name: RTM_thermal_low_t_minimum_power__10
+    Description: 'With REBs off, drop system to lowest temperature in minimum-power state.'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+
+
+
+
+  - ShortDescription: set cold plate temperature to -45C and cryo heaters off
+    Name: REB_thermal_cold_plate_only__201
+    Description: 'set cold plate temperature to -55C and cryo plate temperature low enough to insure cryo plate heater off'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  
+  - ShortDescription: stable state with only the cold plate heaters on
+    Name: REB_thermal_cold_plate_only_stable__202
+    Description: 'stable state with only the cold plate heaters on'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+
+  - ShortDescription: turn on cryo plate heaters
+    Name: REB_thermal_cryo_plate_htr_on__203
+    Description: 'turn on cryo plate heaters'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  
+  - ShortDescription: stable state with the cryo plate heater on
+    Name: REB_thermal_cryo_plate_htr_stable__204
+    Description: 'stable state with with the cryo plate heater on too'
+    TravelerActions: [HarnessedJob]
+    MaxIteration: '5'
+    Version: next
+    UserVersionString: v0
+
+
+
+
+  - ShortDescription: REB monitoring on
+    Name: RTM_thermal_REB_monitoring__11
+    Description: 'Turn REBs on to minimum power state needed to measure CCD and RSA RTD temperatures.'
+    MaxIteration: '5'
+    TravelerActions: [HarnessedJob]
+    Version: next
+    UserVersionString: v0
+  
+
+
+
+
+
+
+
+
+  - ShortDescription: analysis step
+    Name: sb1_thermal_analysis
+    MaxIteration: '10'
+    Prerequisites:
+    - {Name: RTM_thermal_low_t_minimum_power__10, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: RTM_thermal_REB_monitoring__11, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: REB_thermal_cold_plate_only__201, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: REB_thermal_cold_plate_only_stable__202, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: REB_thermal_cryo_plate_htr_on__203, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    - {Name: REB_thermal_cold_plate_only_stable__204, Description: '', Quantity: '1', PrerequisiteType: PROCESS_STEP,
+      UserVersionString: v0}
+    TravelerActions: [HarnessedJob]
+    Version: next
+    PermissionGroups: [operator, supervisor, approver, admin, qualityAssurance]
+    UserVersionString: v0
+    Jobname: sb1_thermal_analysis
+
+
+- ShortDescription: useful plots
+  Name: sb1_thermal_plots
+  MaxIteration: '10'
+  Description: 'record plots and parameters for the various states'
+  Version: next
+  RequiredInputs:
+  - {Name: thermal_plots_state1, Description: '', Units: '', InputSemantics: filepath, Label: 1 - Plots showing cold plate heating only}
+  - {Name: txt_thermal_plots_state1,Description: '', Units: '', InputSemantics: string, Label: 1 - Parameter summary for Picture 1}
+  - {Name: thermal_plots_state2,Description: '', Units: '', InputSemantics: filepath, Label: 2 - Plots showing cold + cryo plate heating}
+  - {Name: txt_thermal_plots_state2,Description: '', Units: '', InputSemantics: string, Label: 2 - Parameter summary for Picture 2}
+
+  
+Version: next
